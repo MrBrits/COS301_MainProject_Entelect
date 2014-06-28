@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MySQL - @localhost" uuid="df009679-5871-4e41-b87a-34fb27568216">
+    <database-info product="MySQL" version="5.6.12-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.29 ( Revision: alexander.soklakov@oracle.com-20140120140810-s44574olh90i6i4l )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="ca_terra"/>
+    <table name="usertable" schema="" catalog="ca_terra" type="TABLE">
+      <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="UserEmail" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserFirstname" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserFollowing" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="UserLastname" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserPassword" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserProfilePic" sqlType="VARCHAR" precision="54" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="UserID"/>
+    </table>
+    <table name="worldtable" schema="" catalog="ca_terra" type="TABLE">
+      <column name="WorldID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="OwnerID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="WorldCoordinates" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="WorldDepth" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="WorldDescription" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="WorldHeight" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="WorldName" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="WorldRules" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="WorldStates" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="WorldType" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="WorldWidth" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="WorldID"/>
+    </table>
+  </data-source>
+</component>
