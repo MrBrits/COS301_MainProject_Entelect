@@ -22,9 +22,8 @@ public class Main {
 
         User user = new User();
         user.setUserEmail("@gmail");
-        user.setUserFirstName("CHRISTO");
-        user.setUserLastName("BRITS");
-        user.setUserId(2);
+        user.setUserFirstName("John");
+        user.setUserLastName("Doe");
         user.setUserPassword(12356);
 
         session.save(user);
