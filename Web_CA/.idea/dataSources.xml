@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4221538294">
-    <data-source source="LOCAL" name="src:main:hibernate.cfg.xml" uuid="91592fad-df38-4796-a2ee-f098a4a0844e">
+  <component name="DataSourceManagerImpl" format="xml" hash="1031666556">
+    <data-source source="LOCAL" name="MySQL - @localhost" uuid="b491a8cf-7b30-450d-87f3-f965d0a0b713">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <user-name>root</user-name>
+      <schema-pattern>web_ca.*</schema-pattern>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="src:hibernate.cfg.xml" uuid="7508941e-f626-4eac-a394-96a0804e40f7">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/web_ca</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <user-name>root</user-name>
-      <libraries />
+      <libraries>
+        <library>
+          <url>file://C:\Program Files (x86)\MySQL\MySQL Connector J\mysql-connector-java-5.1.31-bin.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

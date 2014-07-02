@@ -2,27 +2,34 @@ package Data_Access;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.classic.Session;
-import za.co.tera.web_ca.domain.layer.impl.User;
+import org.hibernate.Session;
+import za.co.tera.Data_Access.impl.User;
 
-/**
- * Created by Laptop on 7/1/2014.
- */
 public class Main {
 
-    public static void main(final String[] args) throws Exception {
-        SessionFactory sessionFactory= new Configuration().configure().buildSessionFactory();
+    //private static final Logger LOGGER = LoggerFactory.getLogger(Web_ca.class);
 
+    public static void main(final String[] args) throws Exception {
+
+
+
+        Configuration configuration = new Configuration();
+        configuration.configure();
+
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session= sessionFactory.openSession();
         session.beginTransaction();
+
         User user = new User();
-        user.setUserEmail("email");
-        user.setUserFirstName("first");
-        user.setUserLastName("last");
-        user.setUserId(1);
-        user.setUserPassword(123);
+        user.setUserEmail("@gmail");
+        user.setUserFirstName("CHRISTO");
+        user.setUserLastName("BRITS");
+        user.setUserId(2);
+        user.setUserPassword(12356);
+
         session.save(user);
         session.getTransaction().commit();
+
 
 
 
