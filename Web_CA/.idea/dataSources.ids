@@ -39,7 +39,7 @@
     </table>
     <table name="direction" schema="" catalog="web_ca" type="TABLE">
       <column name="DirectionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="DirectionName" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DirectionName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="DirectionID"/>
       <exported-key name="condition_ibfk_2" table="condition" schema="" catalog="web_ca" columns="DirectionID"/>
     </table>
@@ -53,32 +53,12 @@
       <column name="NextValue" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="OwnerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="RuleID"/>
+      <foreign-key name="rule_ibfk_4" columns="NextValue" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="rule_ibfk_1" columns="OwnerID" ref-table="user" ref-schema="" ref-catalog="web_ca" ref-columns="UserID" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="rule_ibfk_2" columns="ConditionID" ref-table="condition" ref-schema="" ref-catalog="web_ca" ref-columns="ConditionID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="rule_ibfk_3" columns="CurrentValue" ref-table="rulecurrentstate" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="rule_ibfk_4" columns="NextValue" ref-table="rulenextstate" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="rulecurrentstate_ibfk_1" table="rulecurrentstate" schema="" catalog="web_ca" columns="RuleID"/>
-      <exported-key name="rulenextstate_ibfk_1" table="rulenextstate" schema="" catalog="web_ca" columns="RuleID"/>
+      <foreign-key name="rule_ibfk_3" columns="CurrentValue" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="world_ibfk_2" table="world" schema="" catalog="web_ca" columns="RuleID"/>
       <index name="ConditionID" unique="false" columns="CurrentValue,NextValue,OwnerID"/>
-    </table>
-    <table name="rulecurrentstate" schema="" catalog="web_ca" type="TABLE">
-      <column name="RuleID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="StateID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="RuleID,StateID"/>
-      <foreign-key name="rulecurrentstate_ibfk_1" columns="RuleID" ref-table="rule" ref-schema="" ref-catalog="web_ca" ref-columns="RuleID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="rulecurrentstate_ibfk_2" columns="StateID" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <exported-key name="rule_ibfk_3" table="rule" schema="" catalog="web_ca" columns="CurrentValue"/>
-      <index name="RuleID" unique="false" columns="StateID"/>
-    </table>
-    <table name="rulenextstate" schema="" catalog="web_ca" type="TABLE">
-      <column name="RuleID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="StateID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="RuleID,StateID"/>
-      <foreign-key name="rulenextstate_ibfk_1" columns="RuleID" ref-table="rule" ref-schema="" ref-catalog="web_ca" ref-columns="RuleID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="rulenextstate_ibfk_2" columns="StateID" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <exported-key name="rule_ibfk_4" table="rule" schema="" catalog="web_ca" columns="NextValue"/>
-      <index name="RuleID" unique="false" columns="StateID"/>
     </table>
     <table name="state" schema="" catalog="web_ca" type="TABLE">
       <column name="StateID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -91,15 +71,15 @@
       <foreign-key name="state_ibfk_1" columns="OwnerID" ref-table="user" ref-schema="" ref-catalog="web_ca" ref-columns="UserID" update-rule="0" delete-rule="0" deferrability="2"/>
       <exported-key name="condition_ibfk_1" table="condition" schema="" catalog="web_ca" columns="StateToBeFound"/>
       <exported-key name="coordinate_ibfk_1" table="coordinate" schema="" catalog="web_ca" columns="StateID"/>
-      <exported-key name="rulecurrentstate_ibfk_2" table="rulecurrentstate" schema="" catalog="web_ca" columns="StateID"/>
-      <exported-key name="rulenextstate_ibfk_2" table="rulenextstate" schema="" catalog="web_ca" columns="StateID"/>
+      <exported-key name="rule_ibfk_4" table="rule" schema="" catalog="web_ca" columns="NextValue"/>
+      <exported-key name="rule_ibfk_3" table="rule" schema="" catalog="web_ca" columns="CurrentValue"/>
     </table>
     <table name="user" schema="" catalog="web_ca" type="TABLE">
       <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="UserFirstName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <column name="UserLastName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
       <column name="UserEmail" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <column name="UserPassword" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="UserPassword" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="UserID"/>
       <exported-key name="rule_ibfk_1" table="rule" schema="" catalog="web_ca" columns="OwnerID"/>
       <exported-key name="state_ibfk_1" table="state" schema="" catalog="web_ca" columns="OwnerID"/>
@@ -2135,7 +2115,7 @@
     </table>
     <table name="direction" schema="" catalog="web_ca" type="TABLE">
       <column name="DirectionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="DirectionName" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DirectionName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="DirectionID"/>
       <exported-key name="condition_ibfk_2" table="condition" schema="" catalog="web_ca" columns="DirectionID"/>
     </table>
@@ -2149,32 +2129,12 @@
       <column name="NextValue" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="OwnerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="RuleID"/>
+      <foreign-key name="rule_ibfk_4" columns="NextValue" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="rule_ibfk_1" columns="OwnerID" ref-table="user" ref-schema="" ref-catalog="web_ca" ref-columns="UserID" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="rule_ibfk_2" columns="ConditionID" ref-table="condition" ref-schema="" ref-catalog="web_ca" ref-columns="ConditionID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="rule_ibfk_3" columns="CurrentValue" ref-table="rulecurrentstate" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="rule_ibfk_4" columns="NextValue" ref-table="rulenextstate" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="rulecurrentstate_ibfk_1" table="rulecurrentstate" schema="" catalog="web_ca" columns="RuleID"/>
-      <exported-key name="rulenextstate_ibfk_1" table="rulenextstate" schema="" catalog="web_ca" columns="RuleID"/>
+      <foreign-key name="rule_ibfk_3" columns="CurrentValue" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="world_ibfk_2" table="world" schema="" catalog="web_ca" columns="RuleID"/>
       <index name="ConditionID" unique="false" columns="CurrentValue,NextValue,OwnerID"/>
-    </table>
-    <table name="rulecurrentstate" schema="" catalog="web_ca" type="TABLE">
-      <column name="RuleID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="StateID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="RuleID,StateID"/>
-      <foreign-key name="rulecurrentstate_ibfk_1" columns="RuleID" ref-table="rule" ref-schema="" ref-catalog="web_ca" ref-columns="RuleID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="rulecurrentstate_ibfk_2" columns="StateID" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <exported-key name="rule_ibfk_3" table="rule" schema="" catalog="web_ca" columns="CurrentValue"/>
-      <index name="RuleID" unique="false" columns="StateID"/>
-    </table>
-    <table name="rulenextstate" schema="" catalog="web_ca" type="TABLE">
-      <column name="RuleID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="StateID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="RuleID,StateID"/>
-      <foreign-key name="rulenextstate_ibfk_1" columns="RuleID" ref-table="rule" ref-schema="" ref-catalog="web_ca" ref-columns="RuleID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="rulenextstate_ibfk_2" columns="StateID" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <exported-key name="rule_ibfk_4" table="rule" schema="" catalog="web_ca" columns="NextValue"/>
-      <index name="RuleID" unique="false" columns="StateID"/>
     </table>
     <table name="state" schema="" catalog="web_ca" type="TABLE">
       <column name="StateID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -2187,15 +2147,15 @@
       <foreign-key name="state_ibfk_1" columns="OwnerID" ref-table="user" ref-schema="" ref-catalog="web_ca" ref-columns="UserID" update-rule="0" delete-rule="0" deferrability="2"/>
       <exported-key name="condition_ibfk_1" table="condition" schema="" catalog="web_ca" columns="StateToBeFound"/>
       <exported-key name="coordinate_ibfk_1" table="coordinate" schema="" catalog="web_ca" columns="StateID"/>
-      <exported-key name="rulecurrentstate_ibfk_2" table="rulecurrentstate" schema="" catalog="web_ca" columns="StateID"/>
-      <exported-key name="rulenextstate_ibfk_2" table="rulenextstate" schema="" catalog="web_ca" columns="StateID"/>
+      <exported-key name="rule_ibfk_4" table="rule" schema="" catalog="web_ca" columns="NextValue"/>
+      <exported-key name="rule_ibfk_3" table="rule" schema="" catalog="web_ca" columns="CurrentValue"/>
     </table>
     <table name="user" schema="" catalog="web_ca" type="TABLE">
       <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="UserFirstName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <column name="UserLastName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
       <column name="UserEmail" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <column name="UserPassword" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="UserPassword" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="UserID"/>
       <exported-key name="rule_ibfk_1" table="rule" schema="" catalog="web_ca" columns="OwnerID"/>
       <exported-key name="state_ibfk_1" table="state" schema="" catalog="web_ca" columns="OwnerID"/>

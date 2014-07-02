@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="DomainPersistenceUnit" value="b491a8cf-7b30-450d-87f3-f965d0a0b713" />
+          <factory-entry name="DomainPersistenceUnit" value="7508941e-f626-4eac-a394-96a0804e40f7" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/META-INF/persistence.xml" />
       </configuration>
@@ -36,6 +36,7 @@
     <orderEntry type="library" name="Maven: org.jboss:jandex:1.1.0.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.31-bin" level="project" />
   </component>
 </module>
 
