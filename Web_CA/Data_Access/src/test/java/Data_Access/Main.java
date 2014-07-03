@@ -1,6 +1,6 @@
 package Data_Access;
 
-import za.co.tera.data_access.impl.UserDOA;
+import za.co.tera.data_access.impl.*;
 
 public class Main {
 
@@ -101,9 +101,24 @@ public class Main {
         session.save(coordinate2);
 
 */
+               /* for(Iterator<User> i = users.iterator(); i.hasNext(); ) {
+            User item = (User)i.next();
+            System.out.println(item.getUserFirstName()+" "+item.getUserLastName());
+        }*/
+        //Net probleme with fk--------------------------------------------S
         UserDOA userDOA = new UserDOA();
-
-        userDOA.insertUser("Stephan3","Viljoen","email","pass","admin");
-
+        userDOA.insertUser("Stephan","Viljoen","email","pass","admin");
+        WorldDOA worldDOA = new WorldDOA();
+        worldDOA.insertWorld("Game of live","live/dead",1,10,10,10,1);
+        StateDOA stateDOA = new StateDOA();
+        stateDOA.insertState("Dead","dead",1.0,"255,255,255",1);
+        RuleDOA ruleDOA = new RuleDOA();
+        ruleDOA.insertRule("Progress","progress",1,1,1,1,1,1);
+        DirectionDOA directionDOA = new DirectionDOA();
+        directionDOA.insertDirection("Up");
+        ConditionTypeDOA conditionTypeDOA = new ConditionTypeDOA();
+        conditionTypeDOA.insertConditionType("Move to this","simulate");
+        ConditionDOA conditionDOA = new ConditionDOA();
+        conditionDOA.insertCondition(1,1,1,1,1);
     }
 }
