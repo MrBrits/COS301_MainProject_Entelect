@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2845776031">
-    <data-source source="LOCAL" name="MySQL - @localhost" uuid="b491a8cf-7b30-450d-87f3-f965d0a0b713">
+  <component name="DataSourceManagerImpl" format="xml" hash="4140290834">
+    <data-source source="LOCAL" name="MySQL - @localhost" uuid="88f806e9-2673-4553-9ae6-105d3a3cb27c">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
@@ -13,17 +13,6 @@
         <property name="tinyInt1isBit" value="false" />
       </driver-properties>
       <libraries />
-    </data-source>
-    <data-source source="LOCAL" name="src:hibernate.cfg.xml" uuid="7508941e-f626-4eac-a394-96a0804e40f7">
-      <driver-ref>mysql</driver-ref>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
-      <user-name>root</user-name>
-      <libraries>
-        <library>
-          <url>file://C:\Program Files (x86)\MySQL\MySQL Connector J\mysql-connector-java-5.1.31-bin.jar</url>
-        </library>
-      </libraries>
     </data-source>
   </component>
 </project>

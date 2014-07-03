@@ -1,4 +1,4 @@
-package za.co.tera.Data_Access.impl;
+package za.co.tera.Domain.impl;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/02.
+ * Created by Christo on 2014/07/03.
  */
 @Entity
 public class Direction {
@@ -24,7 +24,7 @@ public class Direction {
     }
 
     @Basic
-    @Column(name = "DirectionName", nullable = false, insertable = true, updatable = true)
+    @Column(name = "DirectionName", nullable = false, insertable = true, updatable = true, length = 20)
     public String getDirectionName() {
         return directionName;
     }
@@ -41,7 +41,8 @@ public class Direction {
         Direction direction = (Direction) o;
 
         if (directionId != direction.directionId) return false;
-        if (directionName != direction.directionName) return false;
+        if (directionName != null ? !directionName.equals(direction.directionName) : direction.directionName != null)
+            return false;
 
         return true;
     }

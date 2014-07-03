@@ -1,4 +1,4 @@
-package za.co.tera.Data_Access.impl;
+package za.co.tera.Domain.impl;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/02.
+ * Created by Christo on 2014/07/03.
  */
 @Entity
 public class User {
@@ -57,7 +57,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "UserPassword", nullable = false, insertable = true, updatable = true)
+    @Column(name = "UserPassword", nullable = false, insertable = true, updatable = true, length = 50)
     public String getUserPassword() {
         return userPassword;
     }
@@ -74,11 +74,11 @@ public class User {
         User user = (User) o;
 
         if (userId != user.userId) return false;
-        if (userPassword != user.userPassword) return false;
         if (userEmail != null ? !userEmail.equals(user.userEmail) : user.userEmail != null) return false;
         if (userFirstName != null ? !userFirstName.equals(user.userFirstName) : user.userFirstName != null)
             return false;
         if (userLastName != null ? !userLastName.equals(user.userLastName) : user.userLastName != null) return false;
+        if (userPassword != null ? !userPassword.equals(user.userPassword) : user.userPassword != null) return false;
 
         return true;
     }

@@ -1,4 +1,4 @@
-package za.co.tera.Data_Access.impl;
+package za.co.tera.Domain.impl;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/02.
+ * Created by Christo on 2014/07/03.
  */
 @Entity
 public class Condition {

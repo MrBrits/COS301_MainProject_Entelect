@@ -8,14 +8,14 @@
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="connection.username">root</property>
     <property name="connection.password"></property>
-      <mapping class="za.co.tera.Data_Access.impl.User"/>
-      <mapping class="za.co.tera.Data_Access.impl.Condition"/>
-      <mapping class="za.co.tera.Data_Access.impl.Conditiontype"/>
-      <mapping class="za.co.tera.Data_Access.impl.Coordinate"/>
-      <mapping class="za.co.tera.Data_Access.impl.Direction"/>
-      <mapping class="za.co.tera.Data_Access.impl.Rule"/>
-      <mapping class="za.co.tera.Data_Access.impl.State"/>
-      <mapping class="za.co.tera.Data_Access.impl.World"/>
+      <mapping class="za.co.tera.Domain.impl.Condition"/>
+      <mapping class="za.co.tera.Domain.impl.Conditiontype"/>
+      <mapping class="za.co.tera.Domain.impl.Coordinate"/>
+      <mapping class="za.co.tera.Domain.impl.Direction"/>
+      <mapping class="za.co.tera.Domain.impl.Rule"/>
+      <mapping class="za.co.tera.Domain.impl.State"/>
+      <mapping class="za.co.tera.Domain.impl.User"/>
+      <mapping class="za.co.tera.Domain.impl.World"/>
       <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>
