@@ -8,16 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Condition.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Condition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Coordinate.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Coordinate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/Main.java" afterPath="$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Rule.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Rule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/User.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/World.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/World.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/Data_Access/src/main/resources/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/Domain/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Web_CA.iws" />
@@ -760,7 +750,7 @@
       <workItem from="1404302805730" duration="841000" />
       <workItem from="1404303728264" duration="6849000" />
       <workItem from="1404374927766" duration="5143000" />
-      <workItem from="1404382259171" duration="847000" />
+      <workItem from="1404382259171" duration="902000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -810,15 +800,19 @@
       <created>1404379458179</created>
       <updated>1404379458179</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Domain Persistence Unit - all classes&#10;Data Access Hibernate - works with Domain classes and DB&#10;Data Access Main test file">
+      <created>1404383121307</created>
+      <updated>1404383121307</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54611000" />
+    <option name="totallyTimeSpent" value="54666000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-1088" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -835,7 +829,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12864584" sideWeight="0.6867257" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42813766" sideWeight="0.7673057" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42813766" sideWeight="0.7673057" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
