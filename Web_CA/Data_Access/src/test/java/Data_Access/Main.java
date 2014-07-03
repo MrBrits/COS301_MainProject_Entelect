@@ -18,13 +18,25 @@ public class Main {
         Session session= sessionFactory.openSession();
         session.beginTransaction();
 
-        /*
+
         User user = new User();
         user.setUserEmail("john@gmail.com");
         user.setUserFirstName("John");
         user.setUserLastName("Doe");
         user.setUserPassword("12345");
+        user.setUserRole("Admin");
         session.save(user);
+
+        /*
+        World world = new World();
+        world.setWorldName("Falling Object");
+        world.setWorldDesc("USed to test how gravity affects certain states with other states.");
+        world.setWorldDimension(2);
+        world.setWorldWidth(1);
+        world.setWorldHeight(2);
+        world.setWorldLength(0);
+        world.setOwnerId(5);
+        session.save(world);
         */
         /*
         State state = new State();
@@ -49,6 +61,17 @@ public class Main {
         direct.setDirectionName("Down");
         session.save(direct);
         */
+         /*
+        Rule rule = new Rule();
+        rule.setRuleName("Gravity");
+        rule.setRuleDesc("A natural phenomenon by which all physical bodies attract each other.");
+        rule.setPriority(1);
+        rule.setCurrentValue(2);
+        rule.setNextValue(3);
+        rule.setWorldID(2);
+        rule.setOwnerId(5);
+        session.save(rule);
+        */
         /*
         Conditiontype conditionType = new Conditiontype();
         conditionType.setConditionName("Count");
@@ -61,18 +84,8 @@ public class Main {
         condition.setAmountToBeFound(1);
         condition.setDirectionId(5);
         condition.setConditionTypeId(1);
+        condition.setRuleID(2);
         session.save(condition);
-        */
-        /*
-        Rule rule = new Rule();
-        rule.setRuleName("Gravity");
-        rule.setRuleDesc("A natural phenomenon by which all physical bodies attract each other.");
-        rule.setPriority(1);
-        rule.setConditionId(1);
-        rule.setCurrentValue(2);
-        rule.setNextValue(3);
-        rule.setOwnerId(5);
-        session.save(rule);
         */
         /*
         Coordinate coordinate = new Coordinate();
@@ -80,6 +93,7 @@ public class Main {
         coordinate.setCoordinateY(0);
         coordinate.setCoordinateZ(-1);
         coordinate.setStateId(2);
+        coordinate.setWorldID(2);
         session.save(coordinate);
         */
         /*
@@ -88,21 +102,10 @@ public class Main {
         coordinate2.setCoordinateY(1);
         coordinate2.setCoordinateZ(-1);
         coordinate2.setStateId(3);
+        coordinate2.setWorldID(2);
         session.save(coordinate2);
         */
-        /*
-        World world = new World();
-        world.setWorldName("Falling Object");
-        world.setWorldDesc("USed to test how gravity affects certain states with other states.");
-        world.setWorldDimension(2);
-        world.setWorldWidth(1);
-        world.setWorldHeight(2);
-        world.setWorldLength(0);
-        world.setRuleId(2);
-        world.setOwnerId(5);
-        world.setCoordinateId(1);
-        session.save(world);
-        */
+
         session.getTransaction().commit();
     }
 }

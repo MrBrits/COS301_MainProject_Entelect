@@ -15,6 +15,7 @@ public class Condition {
     private int amountToBeFound;
     private int directionId;
     private int conditionTypeId;
+    private int ruleId;
 
     @Id
     @Column(name = "ConditionID", nullable = false, insertable = true, updatable = true)
@@ -66,6 +67,16 @@ public class Condition {
         this.conditionTypeId = conditionTypeId;
     }
 
+    @Basic
+    @Column(name = "RuleID", nullable = false, insertable = true, updatable = true)
+    public int getRuleId() {
+        return ruleId;
+    }
+
+    public void setRuleId(int ruleId) {
+        this.ruleId = ruleId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,6 +88,7 @@ public class Condition {
         if (conditionId != condition.conditionId) return false;
         if (conditionTypeId != condition.conditionTypeId) return false;
         if (directionId != condition.directionId) return false;
+        if (ruleId != condition.ruleId) return false;
         if (stateToBeFound != condition.stateToBeFound) return false;
 
         return true;
@@ -89,6 +101,7 @@ public class Condition {
         result = 31 * result + amountToBeFound;
         result = 31 * result + directionId;
         result = 31 * result + conditionTypeId;
+        result = 31 * result + ruleId;
         return result;
     }
 }

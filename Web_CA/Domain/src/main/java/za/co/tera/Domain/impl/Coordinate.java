@@ -15,6 +15,7 @@ public class Coordinate {
     private int coordinateY;
     private int coordinateZ;
     private int stateId;
+    private int worldId;
 
     @Id
     @Column(name = "CoordinateID", nullable = false, insertable = true, updatable = true)
@@ -66,6 +67,16 @@ public class Coordinate {
         this.stateId = stateId;
     }
 
+    @Basic
+    @Column(name = "WorldID", nullable = false, insertable = true, updatable = true)
+    public int getWorldId() {
+        return worldId;
+    }
+
+    public void setWorldId(int worldId) {
+        this.worldId = worldId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,6 +89,7 @@ public class Coordinate {
         if (coordinateY != that.coordinateY) return false;
         if (coordinateZ != that.coordinateZ) return false;
         if (stateId != that.stateId) return false;
+        if (worldId != that.worldId) return false;
 
         return true;
     }
@@ -89,6 +101,7 @@ public class Coordinate {
         result = 31 * result + coordinateY;
         result = 31 * result + coordinateZ;
         result = 31 * result + stateId;
+        result = 31 * result + worldId;
         return result;
     }
 }

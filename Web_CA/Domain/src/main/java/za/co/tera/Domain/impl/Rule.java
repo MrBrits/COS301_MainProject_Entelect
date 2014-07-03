@@ -17,6 +17,7 @@ public class Rule {
     private int conditionId;
     private int currentValue;
     private int nextValue;
+    private int worldId;
     private int ownerId;
 
     @Id
@@ -90,6 +91,16 @@ public class Rule {
     }
 
     @Basic
+    @Column(name = "WorldID", nullable = false, insertable = true, updatable = true)
+    public int getWorldId() {
+        return worldId;
+    }
+
+    public void setWorldId(int worldId) {
+        this.worldId = worldId;
+    }
+
+    @Basic
     @Column(name = "OwnerID", nullable = false, insertable = true, updatable = true)
     public int getOwnerId() {
         return ownerId;
@@ -112,6 +123,7 @@ public class Rule {
         if (ownerId != rule.ownerId) return false;
         if (priority != rule.priority) return false;
         if (ruleId != rule.ruleId) return false;
+        if (worldId != rule.worldId) return false;
         if (ruleDesc != null ? !ruleDesc.equals(rule.ruleDesc) : rule.ruleDesc != null) return false;
         if (ruleName != null ? !ruleName.equals(rule.ruleName) : rule.ruleName != null) return false;
 
@@ -127,6 +139,7 @@ public class Rule {
         result = 31 * result + conditionId;
         result = 31 * result + currentValue;
         result = 31 * result + nextValue;
+        result = 31 * result + worldId;
         result = 31 * result + ownerId;
         return result;
     }

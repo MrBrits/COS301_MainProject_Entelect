@@ -15,6 +15,7 @@ public class User {
     private String userLastName;
     private String userEmail;
     private String userPassword;
+    private String userRole;
 
     @Id
     @Column(name = "UserID", nullable = false, insertable = true, updatable = true)
@@ -66,6 +67,16 @@ public class User {
         this.userPassword = userPassword;
     }
 
+    @Basic
+    @Column(name = "UserRole", nullable = false, insertable = true, updatable = true, length = 20)
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,6 +90,7 @@ public class User {
             return false;
         if (userLastName != null ? !userLastName.equals(user.userLastName) : user.userLastName != null) return false;
         if (userPassword != null ? !userPassword.equals(user.userPassword) : user.userPassword != null) return false;
+        if (userRole != null ? !userRole.equals(user.userRole) : user.userRole != null) return false;
 
         return true;
     }
@@ -90,6 +102,7 @@ public class User {
         result = 31 * result + (userLastName != null ? userLastName.hashCode() : 0);
         result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
         result = 31 * result + (userPassword != null ? userPassword.hashCode() : 0);
+        result = 31 * result + (userRole != null ? userRole.hashCode() : 0);
         return result;
     }
 }

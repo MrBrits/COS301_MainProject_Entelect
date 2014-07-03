@@ -17,8 +17,6 @@ public class World {
     private int worldWidth;
     private int worldHeight;
     private int worldLength;
-    private int ruleId;
-    private int coordinateId;
     private int ownerId;
 
     @Id
@@ -92,26 +90,6 @@ public class World {
     }
 
     @Basic
-    @Column(name = "RuleID", nullable = false, insertable = true, updatable = true)
-    public int getRuleId() {
-        return ruleId;
-    }
-
-    public void setRuleId(int ruleId) {
-        this.ruleId = ruleId;
-    }
-
-    @Basic
-    @Column(name = "CoordinateID", nullable = false, insertable = true, updatable = true)
-    public int getCoordinateId() {
-        return coordinateId;
-    }
-
-    public void setCoordinateId(int coordinateId) {
-        this.coordinateId = coordinateId;
-    }
-
-    @Basic
     @Column(name = "OwnerID", nullable = false, insertable = true, updatable = true)
     public int getOwnerId() {
         return ownerId;
@@ -128,9 +106,7 @@ public class World {
 
         World world = (World) o;
 
-        if (coordinateId != world.coordinateId) return false;
         if (ownerId != world.ownerId) return false;
-        if (ruleId != world.ruleId) return false;
         if (worldDimension != world.worldDimension) return false;
         if (worldHeight != world.worldHeight) return false;
         if (worldId != world.worldId) return false;
@@ -151,8 +127,6 @@ public class World {
         result = 31 * result + worldWidth;
         result = 31 * result + worldHeight;
         result = 31 * result + worldLength;
-        result = 31 * result + ruleId;
-        result = 31 * result + coordinateId;
         result = 31 * result + ownerId;
         return result;
     }
