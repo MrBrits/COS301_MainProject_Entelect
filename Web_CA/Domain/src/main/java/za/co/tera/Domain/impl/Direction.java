@@ -12,7 +12,12 @@ import javax.persistence.Id;
 public class Direction {
     private int directionId;
     private String directionName;
-
+    public Direction()
+    {}
+    public Direction(String directionName)
+    {
+        this.directionName=directionName;
+    }
     @Id
     @Column(name = "DirectionID", nullable = false, insertable = true, updatable = true)
     public int getDirectionId() {

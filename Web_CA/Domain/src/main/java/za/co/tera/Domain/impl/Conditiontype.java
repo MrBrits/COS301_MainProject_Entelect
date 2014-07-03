@@ -13,7 +13,13 @@ public class Conditiontype {
     private int conditionTypeId;
     private String conditionName;
     private String conditionDesc;
-
+    public Conditiontype()
+    {}
+    public Conditiontype(String conditionName,String conditionDesc)
+    {
+        this.conditionName=conditionName;
+        this.conditionDesc=conditionDesc;
+    }
     @Id
     @Column(name = "ConditionTypeID", nullable = false, insertable = true, updatable = true)
     public int getConditionTypeId() {

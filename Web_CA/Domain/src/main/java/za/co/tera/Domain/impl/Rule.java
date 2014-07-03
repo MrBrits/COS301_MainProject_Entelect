@@ -19,7 +19,19 @@ public class Rule {
     private int nextValue;
     private int worldId;
     private int ownerId;
-
+    public Rule(String ruleName,String ruleDesc,int priority,int conditionId,int currentValue,int nextValue,int worldId,int ownerId)
+    {
+        this.ruleName=ruleName;
+        this.ruleDesc=ruleDesc;
+        this.priority=priority;
+        this.conditionId=conditionId;
+        this.currentValue=currentValue;
+        this.nextValue=nextValue;
+        this.worldId=worldId;
+        this.ownerId=ownerId;
+    }
+    public Rule()
+    {}
     @Id
     @Column(name = "RuleID", nullable = false, insertable = true, updatable = true)
     public int getRuleId() {

@@ -16,7 +16,16 @@ public class State {
     private double stateValue;
     private String stateRgb;
     private int ownerId;
-
+    public State()
+    {}
+    public State(String stateName,String stateDesc, double stateValue,String stateRgb,int ownerId)
+    {
+        this.stateName=stateName;
+        this.stateDesc=stateDesc;
+        this.stateValue=stateValue;
+        this.stateRgb=stateRgb;
+        this.ownerId=ownerId;
+    }
     @Id
     @Column(name = "StateID", nullable = false, insertable = true, updatable = true)
     public int getStateId() {

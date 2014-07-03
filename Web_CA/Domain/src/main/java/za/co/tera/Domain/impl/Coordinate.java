@@ -16,7 +16,16 @@ public class Coordinate {
     private int coordinateZ;
     private int stateId;
     private int worldId;
-
+    public Coordinate()
+    {}
+    public Coordinate(int coordinateX,int coordinateY, int coordinateZ,int stateId,int worldId)
+    {
+        this.coordinateX=coordinateX;
+        this.coordinateY=coordinateY;
+        this.coordinateZ=coordinateZ;
+        this.stateId=stateId;
+        this.worldId=worldId;
+    }
     @Id
     @Column(name = "CoordinateID", nullable = false, insertable = true, updatable = true)
     public int getCoordinateId() {
