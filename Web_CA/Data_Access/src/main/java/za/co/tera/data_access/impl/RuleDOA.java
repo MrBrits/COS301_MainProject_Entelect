@@ -52,9 +52,9 @@ public class RuleDOA implements EntityDOA<Rule>{
         return null;
     }
 
-    public void insertRule(String ruleName,String ruleDesc,int priority,int conditionId,int currentValue,int nextValue,int worldId,int ownerId)
+    public void insertRule(String ruleName,String ruleDesc,int priority,int currentValue,int nextValue,int worldId,int ownerId)
     {
-        Rule rule = new Rule( ruleName,ruleDesc,priority,conditionId,currentValue,nextValue,worldId,ownerId);
+        Rule rule = new Rule( ruleName,ruleDesc,priority,currentValue,nextValue,worldId,ownerId);
         Session session= getSession();
         session.beginTransaction();
         session.save(rule);

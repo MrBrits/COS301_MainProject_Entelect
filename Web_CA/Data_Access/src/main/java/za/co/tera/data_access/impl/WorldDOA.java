@@ -51,9 +51,9 @@ public class WorldDOA implements EntityDOA<World>{
     public List<World> findAllObject() {
         return null;
     }
-    public void insertWorld(String worldName,String worldDesc,int worldDimension,int worldWidth,int worldHeight,int worldLength,int ownerId)
+    public void insertWorld(String worldName,String worldDesc,int worldDimension,int worldWidth,int worldHeight,int worldDepth,int ownerId)
     {
-        World world = new World(worldName,worldDesc,worldDimension,worldWidth,worldHeight,worldLength,ownerId);
+        World world = new World(worldName,worldDesc,worldDimension,worldWidth,worldHeight,worldDepth,ownerId);
         Session session= getSession();
         session.beginTransaction();
         session.save(world);

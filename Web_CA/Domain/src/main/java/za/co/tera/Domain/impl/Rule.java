@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/03.
+ * Created by Christo on 2014/07/04.
  */
 @Entity
 public class Rule {
@@ -14,17 +14,16 @@ public class Rule {
     private String ruleName;
     private String ruleDesc;
     private int priority;
-    private int conditionId;
     private int currentValue;
     private int nextValue;
     private int worldId;
     private int ownerId;
-    public Rule(String ruleName,String ruleDesc,int priority,int conditionId,int currentValue,int nextValue,int worldId,int ownerId)
+
+    public Rule(String ruleName,String ruleDesc,int priority,int currentValue,int nextValue,int worldId,int ownerId)
     {
         this.ruleName=ruleName;
         this.ruleDesc=ruleDesc;
         this.priority=priority;
-        this.conditionId=conditionId;
         this.currentValue=currentValue;
         this.nextValue=nextValue;
         this.worldId=worldId;
@@ -32,6 +31,7 @@ public class Rule {
     }
     public Rule()
     {}
+
     @Id
     @Column(name = "RuleID", nullable = false, insertable = true, updatable = true)
     public int getRuleId() {
@@ -53,7 +53,7 @@ public class Rule {
     }
 
     @Basic
-    @Column(name = "RuleDesc", nullable = false, insertable = true, updatable = true, length = 100)
+    @Column(name = "RuleDesc", nullable = false, insertable = true, updatable = true, length = 300)
     public String getRuleDesc() {
         return ruleDesc;
     }
@@ -70,16 +70,6 @@ public class Rule {
 
     public void setPriority(int priority) {
         this.priority = priority;
-    }
-
-    @Basic
-    @Column(name = "ConditionID", nullable = false, insertable = true, updatable = true)
-    public int getConditionId() {
-        return conditionId;
-    }
-
-    public void setConditionId(int conditionId) {
-        this.conditionId = conditionId;
     }
 
     @Basic
@@ -129,7 +119,6 @@ public class Rule {
 
         Rule rule = (Rule) o;
 
-        if (conditionId != rule.conditionId) return false;
         if (currentValue != rule.currentValue) return false;
         if (nextValue != rule.nextValue) return false;
         if (ownerId != rule.ownerId) return false;
@@ -148,7 +137,6 @@ public class Rule {
         result = 31 * result + (ruleName != null ? ruleName.hashCode() : 0);
         result = 31 * result + (ruleDesc != null ? ruleDesc.hashCode() : 0);
         result = 31 * result + priority;
-        result = 31 * result + conditionId;
         result = 31 * result + currentValue;
         result = 31 * result + nextValue;
         result = 31 * result + worldId;

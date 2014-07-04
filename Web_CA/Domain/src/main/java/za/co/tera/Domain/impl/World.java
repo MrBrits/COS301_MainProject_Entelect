@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/03.
+ * Created by Christo on 2014/07/04.
  */
 @Entity
 public class World {
@@ -16,20 +16,23 @@ public class World {
     private int worldDimension;
     private int worldWidth;
     private int worldHeight;
-    private int worldLength;
+    private int worldDepth;
     private int ownerId;
-    public World()
-    {}
-    public World(String worldName,String worldDesc,int worldDimension,int worldWidth,int worldHeight,int worldLength,int ownerId)
+
+    public World(String worldName,String worldDesc,int worldDimension,int worldWidth,int worldHeight,int worldDepth,int ownerId)
     {
         this.worldName=worldName;
         this.worldDesc=worldDesc;
         this.worldDimension=worldDimension;
         this.worldWidth=worldWidth;
         this.worldHeight=worldHeight;
-        this.worldLength=worldLength;
+        this.worldDepth=worldDepth;
         this.ownerId=ownerId;
     }
+
+    public World()
+    {}
+
     @Id
     @Column(name = "WorldID", nullable = false, insertable = true, updatable = true)
     public int getWorldId() {
@@ -51,7 +54,7 @@ public class World {
     }
 
     @Basic
-    @Column(name = "WorldDesc", nullable = false, insertable = true, updatable = true, length = 100)
+    @Column(name = "WorldDesc", nullable = false, insertable = true, updatable = true, length = 300)
     public String getWorldDesc() {
         return worldDesc;
     }
@@ -91,13 +94,13 @@ public class World {
     }
 
     @Basic
-    @Column(name = "WorldLength", nullable = false, insertable = true, updatable = true)
-    public int getWorldLength() {
-        return worldLength;
+    @Column(name = "WorldDepth", nullable = false, insertable = true, updatable = true)
+    public int getWorldDepth() {
+        return worldDepth;
     }
 
-    public void setWorldLength(int worldLength) {
-        this.worldLength = worldLength;
+    public void setWorldDepth(int worldDepth) {
+        this.worldDepth = worldDepth;
     }
 
     @Basic
@@ -118,10 +121,10 @@ public class World {
         World world = (World) o;
 
         if (ownerId != world.ownerId) return false;
+        if (worldDepth != world.worldDepth) return false;
         if (worldDimension != world.worldDimension) return false;
         if (worldHeight != world.worldHeight) return false;
         if (worldId != world.worldId) return false;
-        if (worldLength != world.worldLength) return false;
         if (worldWidth != world.worldWidth) return false;
         if (worldDesc != null ? !worldDesc.equals(world.worldDesc) : world.worldDesc != null) return false;
         if (worldName != null ? !worldName.equals(world.worldName) : world.worldName != null) return false;
@@ -137,7 +140,7 @@ public class World {
         result = 31 * result + worldDimension;
         result = 31 * result + worldWidth;
         result = 31 * result + worldHeight;
-        result = 31 * result + worldLength;
+        result = 31 * result + worldDepth;
         result = 31 * result + ownerId;
         return result;
     }
