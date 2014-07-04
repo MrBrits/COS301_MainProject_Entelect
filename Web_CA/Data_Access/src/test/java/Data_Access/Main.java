@@ -122,6 +122,6 @@ public class Main {
         ConditionTypeDOA conditionTypeDOA = new ConditionTypeDOA();
         conditionTypeDOA.insertConditionType("Move to this","simulate");*/
         ConditionDOA conditionDOA = new ConditionDOA();
-        conditionDOA.insertCondition(1,5,1,1,2);
+        conditionDOA.insertCondition(1,5,1,1,1);
     }
 }

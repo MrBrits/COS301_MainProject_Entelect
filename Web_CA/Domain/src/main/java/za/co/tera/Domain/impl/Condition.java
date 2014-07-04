@@ -16,16 +16,17 @@ public class Condition {
     private int directionId;
     private int conditionTypeId;
     private int ruleId;
+
     public Condition()
     {}
-    public Condition(int stateToBeFound,int amountToBeFound,int directionId,int conditionTypeId,int ruleId)
-    {
 
-        this.stateToBeFound=stateToBeFound;
-        this.amountToBeFound=amountToBeFound;
-        this.directionId=directionId;
-        this.conditionTypeId=conditionTypeId;
-        this.ruleId=ruleId;
+    public Condition(int stateToBeFound, int amountToBeFound, int directionId, int conditionTypeId, int ruleId)
+    {
+        this.stateToBeFound = stateToBeFound;
+        this.amountToBeFound = amountToBeFound;
+        this.directionId = directionId;
+        this.conditionTypeId = conditionTypeId;
+        this.ruleId = ruleId;
     }
     @Id
     @Column(name = "ConditionID", nullable = false, insertable = true, updatable = true)
