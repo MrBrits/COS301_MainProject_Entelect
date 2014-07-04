@@ -8,6 +8,6 @@ import za.co.tera.Business.User.UserEntityManager;
 public class Main {
     public static void main(String[] args) {
         UserEntityManager userEntityManager = new UserEntityManager();
-        userEntityManager.CreateUser("John", "Doe", "john@gmial.com", "123", "Admin");
+        userEntityManager.CreateUser("John", "Doe", "john@gmial.com", "123", "Admins");
     }
 }
