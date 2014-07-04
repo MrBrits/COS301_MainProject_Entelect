@@ -34,17 +34,28 @@ public class ConditionDOA  implements EntityDOA<Condition>{
     }
     @Override
     public void saveOrUpdate(Condition object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.saveOrUpdate(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public void delete(Condition object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.delete(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public Condition find(int id) {
-        return new Condition();
+
+        Session session= getSession();
+        session.beginTransaction();
+        return (Condition)session.get(Condition.class,id);
     }
 
     @Override

@@ -105,15 +105,16 @@ public class Main {
             User item = (User)i.next();
             System.out.println(item.getUserFirstName()+" "+item.getUserLastName());
         }*/
-        //Net probleme with fk--------------------------------------------S
+        //Net probleme with fk--------------------------------------------
+
         UserDOA userDOA = new UserDOA();
-        userDOA.insertUser("Stephan","Viljoen","email","pass","admin");
+        userDOA.insertUser("Stephan..","Viljoen","email","pass","admin");
         WorldDOA worldDOA = new WorldDOA();
         worldDOA.insertWorld("Game of live","live/dead",1,10,10,10,1);
         StateDOA stateDOA = new StateDOA();
         stateDOA.insertState("Dead","dead",1.0,"255,255,255",1);
         RuleDOA ruleDOA = new RuleDOA();
-        ruleDOA.insertRule("Progress","progress",1,1,1,1,1,1);
+        ruleDOA.insertRule("Progress","progress",1,1,1,11,1);
         DirectionDOA directionDOA = new DirectionDOA();
         directionDOA.insertDirection("Up");
         ConditionTypeDOA conditionTypeDOA = new ConditionTypeDOA();

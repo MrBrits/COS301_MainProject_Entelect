@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source source="LOCAL" name="MySQL - @localhost" uuid="88f806e9-2673-4553-9ae6-105d3a3cb27c">
-    <database-info product="MySQL" version="5.6.12-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -15,16 +15,16 @@
       <column name="ConditionTypeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="RuleID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ConditionID"/>
+      <foreign-key name="condition_ibfk_4" columns="RuleID" ref-table="rule" ref-schema="" ref-catalog="web_ca" ref-columns="RuleID" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="condition_ibfk_1" columns="StateToBeFound" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="condition_ibfk_2" columns="DirectionID" ref-table="direction" ref-schema="" ref-catalog="web_ca" ref-columns="DirectionID" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="condition_ibfk_3" columns="ConditionTypeID" ref-table="conditiontype" ref-schema="" ref-catalog="web_ca" ref-columns="ConditionTypeID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="condition_ibfk_4" columns="RuleID" ref-table="rule" ref-schema="" ref-catalog="web_ca" ref-columns="RuleID" update-rule="0" delete-rule="0" deferrability="2"/>
       <index name="StateToBeFound" unique="false" columns="DirectionID,ConditionTypeID"/>
     </table>
     <table name="conditiontype" schema="" catalog="web_ca" type="TABLE">
       <column name="ConditionTypeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="ConditionName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
-      <column name="ConditionDesc" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ConditionDesc" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="ConditionTypeID"/>
       <exported-key name="condition_ibfk_3" table="condition" schema="" catalog="web_ca" columns="ConditionTypeID"/>
     </table>
@@ -36,8 +36,8 @@
       <column name="StateID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="WorldID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="CoordinateID"/>
-      <foreign-key name="coordinate_ibfk_1" columns="StateID" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="coordinate_ibfk_2" columns="WorldID" ref-table="world" ref-schema="" ref-catalog="web_ca" ref-columns="WorldID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="coordinate_ibfk_1" columns="StateID" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="direction" schema="" catalog="web_ca" type="TABLE">
       <column name="DirectionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -48,24 +48,25 @@
     <table name="rule" schema="" catalog="web_ca" type="TABLE">
       <column name="RuleID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="RuleName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
-      <column name="RuleDesc" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="RuleDesc" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <column name="Priority" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ConditionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="CurrentValue" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="NextValue" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="WorldID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="OwnerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="RuleID"/>
+      <foreign-key name="rule_ibfk_5" columns="WorldID" ref-table="world" ref-schema="" ref-catalog="web_ca" ref-columns="WorldID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="rule_ibfk_1" columns="OwnerID" ref-table="user" ref-schema="" ref-catalog="web_ca" ref-columns="UserID" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="rule_ibfk_3" columns="CurrentValue" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="rule_ibfk_4" columns="NextValue" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="rule_ibfk_5" columns="WorldID" ref-table="world" ref-schema="" ref-catalog="web_ca" ref-columns="WorldID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="condition_ibfk_4" table="condition" schema="" catalog="web_ca" columns="RuleID"/>
-      <index name="ConditionID" unique="false" columns="CurrentValue,NextValue,OwnerID"/>
+      <index name="ConditionID" unique="false" columns="ConditionID,CurrentValue,NextValue,OwnerID"/>
     </table>
     <table name="state" schema="" catalog="web_ca" type="TABLE">
       <column name="StateID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="StateName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
-      <column name="StateDesc" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="StateDesc" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <column name="StateValue" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
       <column name="StateRGB" sqlType="VARCHAR" precision="11" scale="0" nullable="false" jdbcType="12"/>
       <column name="OwnerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -93,11 +94,11 @@
     <table name="world" schema="" catalog="web_ca" type="TABLE">
       <column name="WorldID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="WorldName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
-      <column name="WorldDesc" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="WorldDesc" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <column name="WorldDimension" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="WorldWidth" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="WorldHeight" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="WorldDepth" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="WorldLength" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="OwnerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="WorldID"/>
       <foreign-key name="world_ibfk_1" columns="OwnerID" ref-table="user" ref-schema="" ref-catalog="web_ca" ref-columns="UserID" update-rule="0" delete-rule="0" deferrability="2"/>

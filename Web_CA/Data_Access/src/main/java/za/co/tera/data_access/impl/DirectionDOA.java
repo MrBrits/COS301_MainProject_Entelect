@@ -34,17 +34,28 @@ public class DirectionDOA implements EntityDOA<Direction> {
     }
     @Override
     public void saveOrUpdate(Direction object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.saveOrUpdate(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public void delete(Direction object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.delete(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public Direction find(int id) {
-        return new Direction();
+
+        Session session= getSession();
+        session.beginTransaction();
+        return (Direction)session.get(Direction.class,id);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -34,22 +35,35 @@ public class WorldDOA implements EntityDOA<World>{
     }
     @Override
     public void saveOrUpdate(World object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.saveOrUpdate(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public void delete(World object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.delete(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public World find(int id) {
-        return new World();
+        Session session= getSession();
+        session.beginTransaction();
+        return (World)session.get(World.class,id);
     }
 
     @Override
     public List<World> findAllObject() {
-        return null;
+        Session session= getSession();
+        Query query = session.createQuery("from User");
+        List<World> worlds= query.list();
+        return worlds;
     }
     public void insertWorld(String worldName,String worldDesc,int worldDimension,int worldWidth,int worldHeight,int worldDepth,int ownerId)
     {

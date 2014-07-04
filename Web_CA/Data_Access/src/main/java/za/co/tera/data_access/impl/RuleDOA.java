@@ -34,17 +34,28 @@ public class RuleDOA implements EntityDOA<Rule>{
     }
     @Override
     public void saveOrUpdate(Rule object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.saveOrUpdate(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public void delete(Rule object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.delete(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public Rule find(int id) {
-        return new Rule();
+
+        Session session= getSession();
+        session.beginTransaction();
+        return (Rule)session.get(Rule.class,id);
     }
 
     @Override

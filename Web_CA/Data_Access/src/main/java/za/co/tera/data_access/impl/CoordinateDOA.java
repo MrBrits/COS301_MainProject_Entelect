@@ -34,17 +34,27 @@ public class CoordinateDOA implements EntityDOA<Coordinate> {
     }
     @Override
     public void saveOrUpdate(Coordinate object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.saveOrUpdate(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public void delete(Coordinate object) {
         Session session= getSession();
+        session.beginTransaction();
+        session.delete(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public Coordinate find(int id) {
-        return new Coordinate();
+
+        Session session= getSession();
+        session.beginTransaction();
+        return (Coordinate)session.get(Coordinate.class,id);
     }
 
     @Override

@@ -34,17 +34,28 @@ public class StateDOA implements EntityDOA<State> {
     }
     @Override
     public void saveOrUpdate(State object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.saveOrUpdate(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public void delete(State object) {
+
         Session session= getSession();
+        session.beginTransaction();
+        session.delete(object);
+        session.getTransaction().commit();
     }
 
     @Override
     public State find(int id) {
-        return new State();
+
+        Session session= getSession();
+        session.beginTransaction();
+        return (State)session.get(State.class,id);
     }
 
     @Override
