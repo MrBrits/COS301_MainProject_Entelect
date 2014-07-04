@@ -30,6 +30,9 @@
         <module name="Presentation" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Presentation" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

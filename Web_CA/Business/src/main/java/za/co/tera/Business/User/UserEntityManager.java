@@ -1,4 +1,4 @@
-package za.co.tera.Business.User;
+package za.co.tera.business.User;
 
 import za.co.tera.data_access.impl.UserDOA;
 

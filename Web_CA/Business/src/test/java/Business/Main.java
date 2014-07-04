@@ -1,6 +1,6 @@
 package Business;
 
-import za.co.tera.Business.User.UserEntityManager;
+import za.co.tera.business.User.UserEntityManager;
 
 /**
  * Created by Christo on 2014/07/04.
