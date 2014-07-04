@@ -64,7 +64,7 @@ public class ConditionDOA  implements EntityDOA<Condition>{
     }
     public void insertCondition(int stateToBeFound, int amountToBeFound,int directionId,int conditionTypeId,int ruleId)
     {
-        Condition condition = new Condition(stateToBeFound,amountToBeFound,directionId,conditionTypeId,ruleId);
+        Condition condition = new Condition(1,5,1,1,1);
         Session session= getSession();
         session.beginTransaction();
         session.save(condition);

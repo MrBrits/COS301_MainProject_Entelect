@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/03.
+ * Created by Laptop on 7/4/2014.
  */
 @Entity
 public class Condition {
@@ -16,15 +16,17 @@ public class Condition {
     private int directionId;
     private int conditionTypeId;
     private int ruleId;
+
     public Condition()
     {}
-    public Condition(int stateToBeFound, int amountToBeFound,int directionId,int conditionTypeId,int ruleId )
+
+    public Condition(int stateToBeFound, int amountToBeFound, int directionId, int conditionTypeId, int ruleId)
     {
-        this.stateToBeFound=stateToBeFound;
-        this.amountToBeFound=amountToBeFound;
-        this.directionId=directionId;
-        this.conditionTypeId= conditionTypeId;
-        this.ruleId =ruleId;
+        this.stateToBeFound = stateToBeFound;
+        this.amountToBeFound = amountToBeFound;
+        this.directionId = directionId;
+        this.conditionTypeId = conditionTypeId;
+        this.ruleId = ruleId;
     }
     @Id
     @Column(name = "ConditionID", nullable = false, insertable = true, updatable = true)
