@@ -41,8 +41,18 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+        </dependency>
 
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>nexus-site</id>
+            <url>http://central_nexus/server</url>
+        </repository>
+    </distributionManagement>
     <build>
         <finalName>FirstController</finalName>
         <plugins>
