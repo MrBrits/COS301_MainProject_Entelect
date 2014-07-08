@@ -1,21 +1,20 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-import za.co.tera.Domain.impl.World;
-import za.co.tera.data_access.base.EntityDOA;
+import za.co.tera.Domain.impl.Rule;
+import za.co.tera.data_access.base.EntityDAO;
 
 import java.util.List;
 
 /**
  * Created by Laptop on 7/3/2014.
  */
-public class WorldDOA implements EntityDOA<World>{
+public class RuleDAO implements EntityDAO<Rule> {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
@@ -34,7 +33,7 @@ public class WorldDOA implements EntityDOA<World>{
         return ourSessionFactory.openSession();
     }
     @Override
-    public void saveOrUpdate(World object) {
+    public void saveOrUpdate(Rule object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -43,7 +42,7 @@ public class WorldDOA implements EntityDOA<World>{
     }
 
     @Override
-    public void delete(World object) {
+    public void delete(Rule object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -52,25 +51,24 @@ public class WorldDOA implements EntityDOA<World>{
     }
 
     @Override
-    public World find(int id) {
+    public Rule find(int id) {
+
         Session session= getSession();
         session.beginTransaction();
-        return (World)session.get(World.class,id);
+        return (Rule)session.get(Rule.class,id);
     }
 
     @Override
-    public List<World> findAllObject() {
-        Session session= getSession();
-        Query query = session.createQuery("from User");
-        List<World> worlds= query.list();
-        return worlds;
+    public List<Rule> findAllObject() {
+        return null;
     }
-    public void insertWorld(String worldName,String worldDesc,int worldDimension,int worldWidth,int worldHeight,int worldDepth,int ownerId)
+
+    public void insertRule(String ruleName,String ruleDesc,int priority,int currentValue,int nextValue,int worldId,int ownerId)
     {
-        World world = new World(worldName,worldDesc,worldDimension,worldWidth,worldHeight,worldDepth,ownerId);
+        Rule rule = new Rule( ruleName,ruleDesc,priority,currentValue,nextValue,worldId,ownerId);
         Session session= getSession();
         session.beginTransaction();
-        session.save(world);
+        session.save(rule);
         session.getTransaction().commit();
     }
 }

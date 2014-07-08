@@ -6,15 +6,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-import za.co.tera.Domain.impl.Condition;
-import za.co.tera.data_access.base.EntityDOA;
+import za.co.tera.Domain.impl.Direction;
+import za.co.tera.data_access.base.EntityDAO;
 
 import java.util.List;
 
 /**
  * Created by Laptop on 7/3/2014.
  */
-public class ConditionDOA  implements EntityDOA<Condition>{
+public class DirectionDAO implements EntityDAO<Direction> {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
@@ -33,7 +33,7 @@ public class ConditionDOA  implements EntityDOA<Condition>{
         return ourSessionFactory.openSession();
     }
     @Override
-    public void saveOrUpdate(Condition object) {
+    public void saveOrUpdate(Direction object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -42,7 +42,7 @@ public class ConditionDOA  implements EntityDOA<Condition>{
     }
 
     @Override
-    public void delete(Condition object) {
+    public void delete(Direction object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -51,23 +51,24 @@ public class ConditionDOA  implements EntityDOA<Condition>{
     }
 
     @Override
-    public Condition find(int id) {
+    public Direction find(int id) {
 
         Session session= getSession();
         session.beginTransaction();
-        return (Condition)session.get(Condition.class,id);
+        return (Direction)session.get(Direction.class,id);
     }
 
     @Override
-    public List<Condition> findAllObject() {
+    public List<Direction> findAllObject() {
         return null;
     }
-    public void insertCondition(int stateToBeFound, int amountToBeFound,int directionId,int conditionTypeId,int ruleId)
+
+    public void insertDirection(String directionName)
     {
-        Condition condition = new Condition(1,5,1,1,1);
+        Direction direction = new Direction( directionName);
         Session session= getSession();
         session.beginTransaction();
-        session.save(condition);
+        session.save(direction);
         session.getTransaction().commit();
     }
 }

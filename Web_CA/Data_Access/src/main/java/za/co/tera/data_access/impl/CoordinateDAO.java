@@ -6,15 +6,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-import za.co.tera.Domain.impl.Rule;
-import za.co.tera.data_access.base.EntityDOA;
+import za.co.tera.Domain.impl.Coordinate;
+import za.co.tera.data_access.base.EntityDAO;
 
 import java.util.List;
 
 /**
  * Created by Laptop on 7/3/2014.
  */
-public class RuleDOA implements EntityDOA<Rule>{
+public class CoordinateDAO implements EntityDAO<Coordinate> {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
@@ -33,7 +33,7 @@ public class RuleDOA implements EntityDOA<Rule>{
         return ourSessionFactory.openSession();
     }
     @Override
-    public void saveOrUpdate(Rule object) {
+    public void saveOrUpdate(Coordinate object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -42,8 +42,7 @@ public class RuleDOA implements EntityDOA<Rule>{
     }
 
     @Override
-    public void delete(Rule object) {
-
+    public void delete(Coordinate object) {
         Session session= getSession();
         session.beginTransaction();
         session.delete(object);
@@ -51,24 +50,24 @@ public class RuleDOA implements EntityDOA<Rule>{
     }
 
     @Override
-    public Rule find(int id) {
+    public Coordinate find(int id) {
 
         Session session= getSession();
         session.beginTransaction();
-        return (Rule)session.get(Rule.class,id);
+        return (Coordinate)session.get(Coordinate.class,id);
     }
 
     @Override
-    public List<Rule> findAllObject() {
+    public List<Coordinate> findAllObject() {
         return null;
     }
 
-    public void insertRule(String ruleName,String ruleDesc,int priority,int currentValue,int nextValue,int worldId,int ownerId)
+    public void insertCoordinate(int coordinateX,int coordinateY, int coordinateZ,int stateId,int worldId)
     {
-        Rule rule = new Rule( ruleName,ruleDesc,priority,currentValue,nextValue,worldId,ownerId);
+        Coordinate coordinate = new Coordinate(coordinateX,coordinateY,coordinateZ,stateId,worldId);
         Session session= getSession();
         session.beginTransaction();
-        session.save(rule);
+        session.save(coordinate);
         session.getTransaction().commit();
     }
 }

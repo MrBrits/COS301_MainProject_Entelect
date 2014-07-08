@@ -6,15 +6,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-import za.co.tera.Domain.impl.Direction;
-import za.co.tera.data_access.base.EntityDOA;
+import za.co.tera.Domain.impl.State;
+import za.co.tera.data_access.base.EntityDAO;
 
 import java.util.List;
 
 /**
  * Created by Laptop on 7/3/2014.
  */
-public class DirectionDOA implements EntityDOA<Direction> {
+public class StateDAO implements EntityDAO<State> {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
@@ -33,7 +33,7 @@ public class DirectionDOA implements EntityDOA<Direction> {
         return ourSessionFactory.openSession();
     }
     @Override
-    public void saveOrUpdate(Direction object) {
+    public void saveOrUpdate(State object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -42,7 +42,7 @@ public class DirectionDOA implements EntityDOA<Direction> {
     }
 
     @Override
-    public void delete(Direction object) {
+    public void delete(State object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -51,24 +51,24 @@ public class DirectionDOA implements EntityDOA<Direction> {
     }
 
     @Override
-    public Direction find(int id) {
+    public State find(int id) {
 
         Session session= getSession();
         session.beginTransaction();
-        return (Direction)session.get(Direction.class,id);
+        return (State)session.get(State.class,id);
     }
 
     @Override
-    public List<Direction> findAllObject() {
+    public List<State> findAllObject() {
         return null;
     }
 
-    public void insertDirection(String directionName)
+    public void insertState(String stateName,String stateDesc, double stateValue,String stateRgb,int ownerId)
     {
-        Direction direction = new Direction( directionName);
+        State state = new State( stateName,stateDesc,stateValue,stateRgb,ownerId);
         Session session= getSession();
         session.beginTransaction();
-        session.save(direction);
+        session.save(state);
         session.getTransaction().commit();
     }
 }

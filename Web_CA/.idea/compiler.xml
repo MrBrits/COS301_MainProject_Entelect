@@ -31,7 +31,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Business" target="1.6" />
+      <module name="Data_Access" target="1.6" />
+      <module name="Domain" target="1.6" />
       <module name="Presentation" target="1.6" />
+      <module name="Web_CA" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

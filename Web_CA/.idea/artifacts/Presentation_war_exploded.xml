@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="Presentation:war exploded">
-    <output-path>$PROJECT_DIR$/Presentation/target/FirstController</output-path>
+    <output-path>$PROJECT_DIR$/Presentation/target/Presentation-1.0-SNAPSHOT</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="Presentation/web/Web" />
       <element id="directory" name="WEB-INF">

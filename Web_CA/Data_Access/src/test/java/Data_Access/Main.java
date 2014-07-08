@@ -121,7 +121,7 @@ public class Main {
         directionDOA.insertDirection("Up");
         ConditionTypeDOA conditionTypeDOA = new ConditionTypeDOA();
         conditionTypeDOA.insertConditionType("Move to this","simulate");*/
-        ConditionDOA conditionDOA = new ConditionDOA();
+        ConditionDAO conditionDOA = new ConditionDAO();
         conditionDOA.insertCondition(1,5,1,1,1);
     }
 }

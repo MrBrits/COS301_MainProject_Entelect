@@ -1,21 +1,20 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-import za.co.tera.Domain.impl.User;
-import za.co.tera.data_access.base.EntityDOA;
+import za.co.tera.Domain.impl.Conditiontype;
+import za.co.tera.data_access.base.EntityDAO;
 
 import java.util.List;
 
 /**
  * Created by Laptop on 7/3/2014.
  */
-public class UserDOA implements EntityDOA<User> {
+public class ConditionTypeDAO implements EntityDAO<Conditiontype> {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
@@ -34,7 +33,7 @@ public class UserDOA implements EntityDOA<User> {
         return ourSessionFactory.openSession();
     }
     @Override
-    public void saveOrUpdate(User object) {
+    public void saveOrUpdate(Conditiontype object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -43,7 +42,7 @@ public class UserDOA implements EntityDOA<User> {
     }
 
     @Override
-    public void delete(User object) {
+    public void delete(Conditiontype object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -52,27 +51,25 @@ public class UserDOA implements EntityDOA<User> {
     }
 
     @Override
-    public User find(int id) {
+    public Conditiontype find(int id) {
 
         Session session= getSession();
         session.beginTransaction();
-        return (User)session.get(User.class,id);
+        return (Conditiontype)session.get(Conditiontype.class,id);
     }
 
     @Override
-    public List findAllObject() {
-       Session session= getSession();
-        Query query = session.createQuery("from User");
-        List<User> users= query.list();
-        return users;
+    public List<Conditiontype> findAllObject() {
+        return null;
     }
 
-    public void insertUser(String userFirstName,String userLastName,String userEmail,String userPassword,String userRole)
+    public void insertConditionType(String conditionName,String conditionDesc)
     {
-        User user = new User(userFirstName,userLastName,userEmail,userPassword,userRole);
+        Conditiontype conditiontype = new Conditiontype(conditionName,conditionDesc);
         Session session= getSession();
         session.beginTransaction();
-        session.save(user);
+        session.save(conditiontype);
         session.getTransaction().commit();
+
     }
 }

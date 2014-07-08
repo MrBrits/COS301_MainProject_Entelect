@@ -1,20 +1,21 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-import za.co.tera.Domain.impl.Conditiontype;
-import za.co.tera.data_access.base.EntityDOA;
+import za.co.tera.Domain.impl.World;
+import za.co.tera.data_access.base.EntityDAO;
 
 import java.util.List;
 
 /**
  * Created by Laptop on 7/3/2014.
  */
-public class ConditionTypeDOA implements EntityDOA<Conditiontype>{
+public class WorldDAO implements EntityDAO<World> {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
@@ -33,7 +34,7 @@ public class ConditionTypeDOA implements EntityDOA<Conditiontype>{
         return ourSessionFactory.openSession();
     }
     @Override
-    public void saveOrUpdate(Conditiontype object) {
+    public void saveOrUpdate(World object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -42,7 +43,7 @@ public class ConditionTypeDOA implements EntityDOA<Conditiontype>{
     }
 
     @Override
-    public void delete(Conditiontype object) {
+    public void delete(World object) {
 
         Session session= getSession();
         session.beginTransaction();
@@ -51,25 +52,25 @@ public class ConditionTypeDOA implements EntityDOA<Conditiontype>{
     }
 
     @Override
-    public Conditiontype find(int id) {
-
+    public World find(int id) {
         Session session= getSession();
         session.beginTransaction();
-        return (Conditiontype)session.get(Conditiontype.class,id);
+        return (World)session.get(World.class,id);
     }
 
     @Override
-    public List<Conditiontype> findAllObject() {
-        return null;
+    public List<World> findAllObject() {
+        Session session= getSession();
+        Query query = session.createQuery("from User");
+        List<World> worlds= query.list();
+        return worlds;
     }
-
-    public void insertConditionType(String conditionName,String conditionDesc)
+    public void insertWorld(String worldName,String worldDesc,int worldDimension,int worldWidth,int worldHeight,int worldDepth,int ownerId)
     {
-        Conditiontype conditiontype = new Conditiontype(conditionName,conditionDesc);
+        World world = new World(worldName,worldDesc,worldDimension,worldWidth,worldHeight,worldDepth,ownerId);
         Session session= getSession();
         session.beginTransaction();
-        session.save(conditiontype);
+        session.save(world);
         session.getTransaction().commit();
-
     }
 }
