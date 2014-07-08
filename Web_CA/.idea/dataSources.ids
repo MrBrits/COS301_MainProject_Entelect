@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source source="LOCAL" name="MySQL - @localhost" uuid="88f806e9-2673-4553-9ae6-105d3a3cb27c">
+  <data-source source="LOCAL" name="MySQL - web_ca@localhost" uuid="88f806e9-2673-4553-9ae6-105d3a3cb27c">
     <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -15,12 +15,11 @@
       <column name="ConditionTypeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="RuleID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ConditionID"/>
-      <foreign-key name="condition_ibfk_3" columns="ConditionTypeID" ref-table="conditiontype" ref-schema="" ref-catalog="web_ca" ref-columns="ConditionTypeID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="condition_ibfk_1" columns="StateToBeFound" ref-table="state" ref-schema="" ref-catalog="web_ca" ref-columns="StateID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="condition_ibfk_2" columns="DirectionID" ref-table="direction" ref-schema="" ref-catalog="web_ca" ref-columns="DirectionID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="condition_ibfk_2" columns="DirectionID" ref-table="direction" ref-schema="" ref-catalog="web_ca" ref-columns="DirectionID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="condition_ibfk_3" columns="ConditionTypeID" ref-table="conditiontype" ref-schema="" ref-catalog="web_ca" ref-columns="ConditionTypeID" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="condition_ibfk_4" columns="RuleID" ref-table="rule" ref-schema="" ref-catalog="web_ca" ref-columns="RuleID" update-rule="0" delete-rule="0" deferrability="2"/>
       <index name="StateToBeFound" unique="false" columns="DirectionID,ConditionTypeID"/>
-      <index name="StateToBeFound_2" unique="false" columns="StateToBeFound"/>
     </table>
     <table name="conditiontype" schema="" catalog="web_ca" type="TABLE">
       <column name="ConditionTypeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
