@@ -1025,7 +1025,7 @@
       <workItem from="1404892669570" duration="226000" />
       <workItem from="1404892956747" duration="667000" />
       <workItem from="1404894213914" duration="5582000" />
-      <workItem from="1404901625610" duration="1143000" />
+      <workItem from="1404901625610" duration="1152000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1119,11 +1119,15 @@
       <created>1404902754741</created>
       <updated>1404902754741</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Bootstrap and Angular">
+      <created>1404902776936</created>
+      <updated>1404902776936</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109822000" />
+    <option name="totallyTimeSpent" value="109831000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
