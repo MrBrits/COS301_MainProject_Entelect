@@ -89,8 +89,8 @@
       <file leaf-file-name="index.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58219177" vertical-offset="0" max-vertical-offset="292">
-              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.52397263" vertical-offset="0" max-vertical-offset="292">
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -1025,7 +1025,7 @@
       <workItem from="1404892669570" duration="226000" />
       <workItem from="1404892956747" duration="667000" />
       <workItem from="1404894213914" duration="5582000" />
-      <workItem from="1404901625610" duration="1152000" />
+      <workItem from="1404901625610" duration="1265000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1123,11 +1123,15 @@
       <created>1404902776936</created>
       <updated>1404902776936</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Bootstrap and Angular">
+      <created>1404902785017</created>
+      <updated>1404902785017</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109831000" />
+    <option name="totallyTimeSpent" value="109944000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1638,8 +1642,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58219177" vertical-offset="0" max-vertical-offset="292">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.52397263" vertical-offset="0" max-vertical-offset="292">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1652,8 +1656,8 @@
           <artifact-editor>
             <show-content>
               <type id="artifact" />
-              <type id="javaee-facet-resources" />
               <type id="jpa-descriptors" />
+              <type id="javaee-facet-resources" />
               <type id="library" />
             </show-content>
           </artifact-editor>
