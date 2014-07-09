@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app>
 <head>
+    <script type="text/javascript" src="resources/js/lib/angular.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +17,7 @@
     <link href="resources/css/lib/starter-template.css" rel="stylesheet">
 </head>
 
-<body>
+<body ng-app>
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -42,8 +43,8 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <input type="text" ng-model="name">
+        <h2>Welcome {{name}}</h2>
     </div>
 
 </div><!-- /.container -->
