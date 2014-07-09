@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class  UserController {
-    @RequestMapping("/test")
+    @RequestMapping(value = "/test" )
     public String test()    {
         return "hello";
     }

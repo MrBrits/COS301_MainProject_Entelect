@@ -11,9 +11,7 @@ import za.co.tera.data_access.base.EntityDAO;
 
 import java.util.List;
 
-/**
- * Created by Laptop on 7/3/2014.
- */
+@SuppressWarnings("deprecation")
 public class DirectionDAO implements EntityDAO<Direction> {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
