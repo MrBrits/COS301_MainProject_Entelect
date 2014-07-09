@@ -10,10 +10,10 @@
     <title>Starter Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/lib/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="resources/css/starter-template.css" rel="stylesheet">
+    <link href="resources/css/lib/starter-template.css" rel="stylesheet">
 </head>
 
 <body>
@@ -53,8 +53,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="resources/js/jquery-1.11.1.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
-<script src="resources/js/angular.min.js">alert();</script>
+<script src="resources/js/lib/jquery-1.11.1.min.js"></script>
+<script src="resources/js/lib/bootstrap.min.js"></script>
+<script src="resources/js/lib/angular.min.js"></script>
 </body>
 </html>
