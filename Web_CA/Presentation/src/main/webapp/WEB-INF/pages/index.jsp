@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="utf-8">
-    <title>Egghead.io</title>
+<html >
+<head>
+
     <link rel="stylesheet" href="resources/css/lib/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="resources/js/input.js"></script>
 </head>
-<body ng-app="app" ng-controller="AppCtrl as app">
+<body  ng-app="app" ng-controller="AppCtrl as app">
 
-<input type="text" ng-model="app.person.firstName" />
-<input type="text" ng-model="app.person.lastName" />
-<input value="Submit" type="button" ng-click="addPerson(app.person)"/>
+<input name="firstname"type="text" ng-model="app.person.firstName" />
+<input name="lastname" type="text" ng-model="app.person.lastName" />
+<input type="button" ng-click="app.addPerson(app.person)" />
 
-<ul>
-    <li ng-repeat="person in app.people">
-        {{person.firstName}} {{person.lastName}}
-    </li>
-</ul>
 
-<script type="text/javascript" src="resources/js/lib/angular.min.js"></script>
-<script type="text/javascript" src="resources/js/input.js"></script>
+
+
 </body>
 </html>

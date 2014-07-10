@@ -5,7 +5,6 @@ package za.co.tera.presentation.controller;
  */
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.maven.model.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,11 +28,14 @@ public class IndexController {
 
             return  new ModelAndView("index");
         }
-    //@RequestParam("firstName") String firstName,@RequestParam("age") String age
-        @RequestMapping(value = "/getAllProfiles", method = RequestMethod.POST)
-        public String postForm(Model model,@RequestParam("firstName") String firstName,@RequestParam("age") String age) {
-            return "test";
+        @RequestMapping(value = "/op",  method = RequestMethod.GET)
+        public String methodWithRequestParams(@RequestParam(value = "firstname", required = false) String firstname,@RequestParam(value = "lastname", required = false) String lastname)
+        {
+             return "test";
         }
+
+        // do something with params
+
         @RequestMapping(value = "/getAllProfiles", method = RequestMethod.GET)
         public @ResponseBody
         String getAllProfiles( ModelMap model ) {

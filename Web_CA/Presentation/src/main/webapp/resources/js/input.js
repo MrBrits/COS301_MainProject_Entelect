@@ -2,12 +2,14 @@ var app = angular.module("app", []);
 
 app.controller("AppCtrl", function($http) {
     var app = this;
-    app.addUser = function(person) {
-        $http.post("http://localhost:8080/getAllProfiles", person)
+
+    app.addPerson = function(person) {
+
+        $http.post("/http://localhost:8080/tempies",person)
             .success(function(data) {
-               alert("true")
-            }.error(function () {
-                    alert("fail");
-            }));
+                alert("wen");
+            }).error(function () {
+                alert("fail");
+            });
     }
-})
+});
