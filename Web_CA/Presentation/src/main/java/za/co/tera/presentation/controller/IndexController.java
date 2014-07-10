@@ -5,13 +5,12 @@ package za.co.tera.presentation.controller;
  */
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.mortbay.util.ajax.JSON;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import za.co.tera.Business.User.UserEntityManager;
+import za.co.tera.Domain.impl.User;
 
 @Controller
 public class IndexController {
@@ -49,11 +48,40 @@ public class IndexController {
             }
             return jsonString;
         }
-    @RequestMapping(value = "/getAllProfiles", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/getAll", method = RequestMethod.POST)
     public @ResponseBody
-    String getlProfiles(@RequestBody JSON user) {
+    void getlProfiles(@RequestBody String user) {
 
-        return "hello";
+
+        //return serializer.serialize( p );
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            User user1 = mapper.readValue(user, User.class);
+            UserEntityManager userEntityManager = new UserEntityManager();
+            userEntityManager.createUser(user1);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+
+
+/*
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(new File("C:\\Users\\Laptop\\Desktop\\user.json"), user);
+
+            mapper = new ObjectMapper();
+            User tuser = mapper.readValue(new File("C:\\Users\\Laptop\\Desktop\\user.json"), User.class);
+            UserEntityManager userEntityManager = new UserEntityManager();
+            userEntityManager.createUser(tuser);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Notdone");
+        }*/
+
        //return user.getUserLastName();
     }
 
