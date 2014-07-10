@@ -28,10 +28,10 @@ public class IndexController {
 
             return  new ModelAndView("index");
         }
-        @RequestMapping(value = "/op",  method = RequestMethod.GET)
-        public String methodWithRequestParams(@RequestParam(value = "firstname", required = false) String firstname,@RequestParam(value = "lastname", required = false) String lastname)
+        @RequestMapping(value = "/op",  method = RequestMethod.POST)
+        public String methodWithRequestParams(@RequestParam("userFirstName") String firstname,@RequestParam("userLastName") String userLastName,@RequestParam("userEmail") String userEmail,@RequestParam("userPassword") String userPassword)
         {
-             return "test";
+            return " ";
         }
 
         // do something with params
@@ -50,5 +50,12 @@ public class IndexController {
             }
             return jsonString;
         }
+    @RequestMapping(value = "/getAllProfiles", method = RequestMethod.POST)
+    public @ResponseBody
+    String getlProfiles( ) {
+
+        return "hello";
+       //return user.getUserLastName();
+    }
 
 }
