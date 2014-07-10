@@ -10,36 +10,36 @@ import java.util.List;
  */
 public class UserEntityManager {
 
-    private UserDAO user = new UserDAO();
+    private UserDAO userDAO = new UserDAO();
 
     public void createUser(User newUser)
     {
-        user.insertUser(newUser.getUserFirstName(), newUser.getUserLastName(), newUser.getUserEmail(), newUser.getUserPassword(), newUser.getUserRole());
+        userDAO.insertUser(newUser.getUserFirstName(), newUser.getUserLastName(), newUser.getUserEmail(), newUser.getUserPassword(), newUser.getUserRole());
     }
 
     public void createUser(String userFirstName,String userLastName,String userEmail,String userPassword,String userRole)
     {
-        user.insertUser(userFirstName, userLastName, userEmail, userPassword, userRole);
+        userDAO.insertUser(userFirstName, userLastName, userEmail, userPassword, userRole);
     }
 
     public void deleteUser(User delUser)
     {
-        user.delete(delUser);
+        userDAO.delete(delUser);
     }
 
     public void updateUser(User updateUser)
     {
-        user.saveOrUpdate(updateUser);
+        userDAO.saveOrUpdate(updateUser);
     }
 
     public User findUser(int ID)
     {
-        return user.find(ID);
+        return userDAO.find(ID);
     }
 
     public List<User> findAllUsers()
     {
-        List<User> userList = user.findAllObject();
+        List<User> userList = userDAO.findAllObject();
         return  userList;
     }
 

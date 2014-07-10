@@ -6,18 +6,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/03.
+ * Created by Christo on 2014/07/10.
  */
 @Entity
 public class Direction {
     private int directionId;
-    private String directionName;
-    public Direction()
-    {}
-    public Direction(String directionName)
-    {
-        this.directionName=directionName;
+    private String directionDesc;
+
+    public Direction(){
     }
+
+    public Direction(String directionDesc)
+    {
+        this.directionDesc = directionDesc;
+    }
+
     @Id
     @Column(name = "DirectionID", nullable = false, insertable = true, updatable = true)
     public int getDirectionId() {
@@ -29,13 +32,13 @@ public class Direction {
     }
 
     @Basic
-    @Column(name = "DirectionName", nullable = false, insertable = true, updatable = true, length = 20)
-    public String getDirectionName() {
-        return directionName;
+    @Column(name = "DirectionDesc", nullable = false, insertable = true, updatable = true, length = 28)
+    public String getDirectionDesc() {
+        return directionDesc;
     }
 
-    public void setDirectionName(String directionName) {
-        this.directionName = directionName;
+    public void setDirectionDesc(String directionDesc) {
+        this.directionDesc = directionDesc;
     }
 
     @Override
@@ -46,7 +49,7 @@ public class Direction {
         Direction direction = (Direction) o;
 
         if (directionId != direction.directionId) return false;
-        if (directionName != null ? !directionName.equals(direction.directionName) : direction.directionName != null)
+        if (directionDesc != null ? !directionDesc.equals(direction.directionDesc) : direction.directionDesc != null)
             return false;
 
         return true;
@@ -55,7 +58,7 @@ public class Direction {
     @Override
     public int hashCode() {
         int result = directionId;
-        result = 31 * result + (directionName != null ? directionName.hashCode() : 0);
+        result = 31 * result + (directionDesc != null ? directionDesc.hashCode() : 0);
         return result;
     }
 }

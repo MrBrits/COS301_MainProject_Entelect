@@ -10,36 +10,36 @@ import java.util.List;
  */
 public class StateEntityManager {
 
-    private StateDAO state = new StateDAO();
+    private StateDAO stateDAO = new StateDAO();
 
     public void createState(State newState)
     {
-        state.insertState(newState.getStateName(), newState.getStateDesc(), newState.getStateValue(), newState.getStateRgb(), newState.getOwnerId());
+        stateDAO.insertState(newState.getStateName(), newState.getStateDesc(), newState.getStateValue(), newState.getStateRgb(), newState.getOwnerId());
     }
 
     public void createState(String stateName, String stateDesc, int stateValue, String stateRGB, int ownerID)
     {
-        state.insertState(stateName, stateDesc, stateValue, stateRGB, ownerID);
+        stateDAO.insertState(stateName, stateDesc, stateValue, stateRGB, ownerID);
     }
 
     public void deleteState(State delState)
     {
-        state.delete(delState);
+        stateDAO.delete(delState);
     }
 
     public void updateState(State updateState)
     {
-        state.saveOrUpdate(updateState);
+        stateDAO.saveOrUpdate(updateState);
     }
 
     public State findState(int ID)
     {
-        return state.find(ID);
+        return stateDAO.find(ID);
     }
 
     public List<State> findAllStates()
     {
-        List<State> stateList = state.findAllObject();
+        List<State> stateList = stateDAO.findAllObject();
         return  stateList;
     }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 04, 2014 at 08:49 AM
+-- Generation Time: Jul 10, 2014 at 08:33 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -50,14 +50,10 @@ CREATE TABLE IF NOT EXISTS `condition` (
 
 CREATE TABLE IF NOT EXISTS `conditiontype` (
   `ConditionTypeID` int(11) NOT NULL AUTO_INCREMENT,
-  `ConditionName` varchar(20) NOT NULL,
-  `ConditionDesc` varchar(300) NOT NULL,
+  `ConditionTypeName` varchar(20) DEFAULT NULL,
+  `ConditionTypeDesc` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`ConditionTypeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `conditiontype`
---
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -87,11 +83,7 @@ CREATE TABLE IF NOT EXISTS `direction` (
   `DirectionID` int(11) NOT NULL AUTO_INCREMENT,
   `DirectionName` varchar(20) NOT NULL,
   PRIMARY KEY (`DirectionID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `direction`
---
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -131,11 +123,7 @@ CREATE TABLE IF NOT EXISTS `state` (
   `OwnerID` int(11) NOT NULL,
   PRIMARY KEY (`StateID`),
   KEY `OwnerID` (`OwnerID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `state`
---
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -153,11 +141,31 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`UserID`),
   KEY `UserID` (`UserID`),
   KEY `UserID_2` (`UserID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `user`
 --
+
+INSERT INTO `user` (`UserID`, `UserFirstName`, `UserLastName`, `UserEmail`, `UserPassword`, `UserRole`) VALUES
+(1, 'John', 'Doe', 'john@gmial.com', '123', 'Admin'),
+(2, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(3, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(4, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(5, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(6, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(7, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(8, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(9, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(10, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(11, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(12, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(13, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(14, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(15, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(16, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(17, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(18, 'hello', 'hello', 'email@e.com', 'pass', 'user');
 
 -- --------------------------------------------------------
 
@@ -177,11 +185,7 @@ CREATE TABLE IF NOT EXISTS `world` (
   PRIMARY KEY (`WorldID`),
   KEY `RuleID` (`OwnerID`),
   KEY `OwnerID` (`OwnerID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `world`
---
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Constraints for dumped tables

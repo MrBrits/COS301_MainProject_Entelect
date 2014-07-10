@@ -10,36 +10,36 @@ import java.util.List;
  */
 public class ConditionTypeEntityManager {
 
-    private ConditionTypeDAO conditionType = new ConditionTypeDAO();
+    private ConditionTypeDAO conditionTypeDAO = new ConditionTypeDAO();
 
     public void createConditionType(Conditiontype newConditionType)
     {
-        conditionType.insertConditionType(newConditionType.getConditionTypeName(), newConditionType.getConditionDesc());
+        conditionTypeDAO.insertConditionType(newConditionType.getConditionTypeName(), newConditionType.getConditionDesc());
     }
 
     public void createConditionType(String conditionTypeName, String conditionTypeDesc)
     {
-        conditionType.insertConditionType(conditionTypeName, conditionTypeDesc);
+        conditionTypeDAO.insertConditionType(conditionTypeName, conditionTypeDesc);
     }
 
     public void deleteConditionType(Conditiontype delConditionType)
     {
-        conditionType.delete(delConditionType);
+        conditionTypeDAO.delete(delConditionType);
     }
 
     public void updateConditionType(Conditiontype updateConditionType)
     {
-        conditionType.saveOrUpdate(updateConditionType);
+        conditionTypeDAO.saveOrUpdate(updateConditionType);
     }
 
     public Conditiontype findConditionType(int ID)
     {
-        return conditionType.find(ID);
+        return conditionTypeDAO.find(ID);
     }
 
     public List<Conditiontype> findAllConditionTypes()
     {
-        List<Conditiontype> conditionTypeList = conditionType.findAllObject();
+        List<Conditiontype> conditionTypeList = conditionTypeDAO.findAllObject();
         return  conditionTypeList;
     }
 }

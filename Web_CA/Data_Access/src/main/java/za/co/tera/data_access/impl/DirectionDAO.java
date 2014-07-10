@@ -12,7 +12,9 @@ import za.co.tera.data_access.base.EntityDAO;
 
 import java.util.List;
 
-@SuppressWarnings("deprecation")
+/**
+ * Created by Christo on 2014/07/10.
+ */
 public class DirectionDAO implements EntityDAO<Direction> {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
@@ -65,9 +67,9 @@ public class DirectionDAO implements EntityDAO<Direction> {
         return directionList;
     }
 
-    public void insertDirection(String directionName)
+    public void insertDirection(String directionDesc)
     {
-        Direction direction = new Direction( directionName);
+        Direction direction = new Direction(directionDesc);
         Session session= getSession();
         session.beginTransaction();
         session.save(direction);

@@ -10,36 +10,36 @@ import java.util.List;
  */
 public class DirectionEntityManager {
 
-    private DirectionDAO direction = new DirectionDAO();
+    private DirectionDAO directionDAO = new DirectionDAO();
 
     public void createDirection(Direction newDirection)
     {
-        direction.insertDirection(newDirection.getDirectionName());
+        directionDAO.insertDirection(newDirection.getDirectionDesc());
     }
 
     public void createDirection(String directionName)
     {
-        direction.insertDirection(directionName);
+        directionDAO.insertDirection(directionName);
     }
 
     public void deleteDirection(Direction delDirection)
     {
-        direction.delete(delDirection);
+        directionDAO.delete(delDirection);
     }
 
     public void updateDirection(Direction updateDirection)
     {
-        direction.saveOrUpdate(updateDirection);
+        directionDAO.saveOrUpdate(updateDirection);
     }
 
     public Direction findDirection(int ID)
     {
-        return direction.find(ID);
+        return directionDAO.find(ID);
     }
 
     public List<Direction> findAllDirections()
     {
-        List<Direction> directionList = direction.findAllObject();
+        List<Direction> directionList = directionDAO.findAllObject();
         return  directionList;
     }
 }

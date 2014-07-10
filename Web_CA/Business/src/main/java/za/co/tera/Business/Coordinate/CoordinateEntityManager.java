@@ -10,36 +10,36 @@ import java.util.List;
  */
 public class CoordinateEntityManager {
 
-    private CoordinateDAO coordinate = new CoordinateDAO();
+    private CoordinateDAO coordinateDAO = new CoordinateDAO();
 
     public void createCoordinate(Coordinate newCoordinate)
     {
-        coordinate.insertCoordinate(newCoordinate.getCoordinateX(), newCoordinate.getCoordinateY(), newCoordinate.getCoordinateZ(), newCoordinate.getStateId(), newCoordinate.getWorldId());
+        coordinateDAO.insertCoordinate(newCoordinate.getCoordinateX(), newCoordinate.getCoordinateY(), newCoordinate.getCoordinateZ(), newCoordinate.getStateId(), newCoordinate.getWorldId());
     }
 
     public void createCoordinate(String coordinateName, int coordinateX, int coordinateY, int coordinateZ, int stateID, int worldID)
     {
-        coordinate.insertCoordinate(coordinateX, coordinateY, coordinateZ, stateID, worldID);
+        coordinateDAO.insertCoordinate(coordinateX, coordinateY, coordinateZ, stateID, worldID);
     }
 
     public void deleteCoordinate(Coordinate delCoordinate)
     {
-        coordinate.delete(delCoordinate);
+        coordinateDAO.delete(delCoordinate);
     }
 
     public void updateCoordinate(Coordinate updateCoordinate)
     {
-        coordinate.saveOrUpdate(updateCoordinate);
+        coordinateDAO.saveOrUpdate(updateCoordinate);
     }
 
     public Coordinate findCoordinate(int ID)
     {
-        return coordinate.find(ID);
+        return coordinateDAO.find(ID);
     }
 
     public List<Coordinate> findAllCoordinates()
     {
-        List<Coordinate> coordinateList = coordinate.findAllObject();
+        List<Coordinate> coordinateList = coordinateDAO.findAllObject();
         return  coordinateList;
     }
 }

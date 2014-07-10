@@ -10,36 +10,36 @@ import java.util.List;
  */
 public class WorldEntityManager {
 
-    private WorldDAO world = new WorldDAO();
+    private WorldDAO worldDAO = new WorldDAO();
 
     public void createWorld(World newWorld)
     {
-        world.insertWorld(newWorld.getWorldName(), newWorld.getWorldDesc(), newWorld.getWorldDimension(), newWorld.getWorldWidth(), newWorld.getWorldHeight(), newWorld.getWorldDepth(), newWorld.getOwnerId());
+        worldDAO.insertWorld(newWorld.getWorldName(), newWorld.getWorldDesc(), newWorld.getWorldDimension(), newWorld.getWorldWidth(), newWorld.getWorldHeight(), newWorld.getWorldDepth(), newWorld.getOwnerId());
     }
 
     public void createWorld(String worldName, String worldDesc, int worldDimension, int worldWidth, int worldHeight, int worldDepth, int ownerID)
     {
-        world.insertWorld(worldName, worldDesc, worldDimension, worldWidth, worldHeight, worldDepth, ownerID);
+        worldDAO.insertWorld(worldName, worldDesc, worldDimension, worldWidth, worldHeight, worldDepth, ownerID);
     }
 
     public void deleteWorld(World delWorld)
     {
-        world.delete(delWorld);
+        worldDAO.delete(delWorld);
     }
 
     public void updateWorld(World updateWorld)
     {
-        world.saveOrUpdate(updateWorld);
+        worldDAO.saveOrUpdate(updateWorld);
     }
 
     public World findWorld(int ID)
     {
-        return world.find(ID);
+        return worldDAO.find(ID);
     }
 
     public List<World> findAllWorlds()
     {
-        List<World> worldList = world.findAllObject();
+        List<World> worldList = worldDAO.findAllObject();
         return  worldList;
     }
 }

@@ -10,36 +10,36 @@ import java.util.List;
  */
 public class RuleEntityManager {
     
-    private RuleDAO rule = new RuleDAO();
+    private RuleDAO ruleDAO = new RuleDAO();
 
     public void createRule(Rule newRule)
     {
-        rule.insertRule(newRule.getRuleName(), newRule.getRuleDesc(), newRule.getPriority(), newRule.getCurrentValue(), newRule.getNextValue(), newRule.getWorldId(), newRule.getOwnerId());
+        ruleDAO.insertRule(newRule.getRuleName(), newRule.getRuleDesc(), newRule.getPriority(), newRule.getCurrentValue(), newRule.getNextValue(), newRule.getWorldId(), newRule.getOwnerId());
     }
 
     public void createRule(String ruleName, String ruleDesc, int rulePriority, int ruleCurrentValue, int ruleNextValue, int worldID, int ownerID)
     {
-        rule.insertRule(ruleName, ruleDesc, rulePriority, ruleCurrentValue, ruleNextValue, worldID, ownerID);
+        ruleDAO.insertRule(ruleName, ruleDesc, rulePriority, ruleCurrentValue, ruleNextValue, worldID, ownerID);
     }
 
     public void deleteRule(Rule delRule)
     {
-        rule.delete(delRule);
+        ruleDAO.delete(delRule);
     }
 
     public void updateRule(Rule updateRule)
     {
-        rule.saveOrUpdate(updateRule);
+        ruleDAO.saveOrUpdate(updateRule);
     }
 
     public Rule findRule(int ID)
     {
-        return rule.find(ID);
+        return ruleDAO.find(ID);
     }
 
     public List<Rule> findAllRules()
     {
-        List<Rule> ruleList = rule.findAllObject();
+        List<Rule> ruleList = ruleDAO.findAllObject();
         return  ruleList;
     }
     
