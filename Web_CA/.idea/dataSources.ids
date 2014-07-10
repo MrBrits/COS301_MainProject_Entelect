@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source source="LOCAL" name="MySQL - web_ca@localhost" uuid="88f806e9-2673-4553-9ae6-105d3a3cb27c">
-    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+    <database-info product="MySQL" version="5.6.12-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -23,8 +23,8 @@
     </table>
     <table name="conditiontype" schema="" catalog="web_ca" type="TABLE">
       <column name="ConditionTypeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="ConditionName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
-      <column name="ConditionDesc" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ConditionTypeName" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ConditionTypeDesc" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="ConditionTypeID"/>
       <exported-key name="condition_ibfk_3" table="condition" schema="" catalog="web_ca" columns="ConditionTypeID"/>
     </table>
