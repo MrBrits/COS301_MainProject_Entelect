@@ -5,12 +5,11 @@ package za.co.tera.presentation.controller;
  */
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.mortbay.util.ajax.JSON;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import za.co.tera.Business.User.UserEntityManager;
 
@@ -50,9 +49,9 @@ public class IndexController {
             }
             return jsonString;
         }
-    @RequestMapping(value = "/getAllProfiles", method = RequestMethod.POST)
+    @RequestMapping(value = "/getAllProfiles", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
-    String getlProfiles( ) {
+    String getlProfiles(@RequestBody JSON user) {
 
         return "hello";
        //return user.getUserLastName();
