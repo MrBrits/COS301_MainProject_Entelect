@@ -1,6 +1,7 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -57,8 +58,12 @@ public class ConditionDAO implements EntityDAO<Condition> {
 
     @Override
     public List<Condition> findAllObject() {
-        return null;
+        Session session= getSession();
+        Query query = session.createQuery("from Condition");
+        List<Condition> conditionList = query.list();
+        return conditionList;
     }
+
     public void insertCondition(int stateToBeFound, int amountToBeFound,int directionId,int conditionTypeId,int ruleId)
     {
         Condition condition = new Condition(1,5,1,1,1);

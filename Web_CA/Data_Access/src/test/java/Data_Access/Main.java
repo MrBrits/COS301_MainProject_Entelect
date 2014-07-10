@@ -23,7 +23,7 @@ public class Main {
         session.save(user);
 
 /*
-        World world = new World();
+        za.co.tera.Business.World world = new za.co.tera.Business.World();
         world.setWorldName("Falling Object");
         world.setWorldDesc("USed to test how gravity affects certain states with other states.");
         world.setWorldDimension(2);

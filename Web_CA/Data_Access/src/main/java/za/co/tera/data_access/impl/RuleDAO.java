@@ -1,6 +1,7 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -58,7 +59,10 @@ public class RuleDAO implements EntityDAO<Rule> {
 
     @Override
     public List<Rule> findAllObject() {
-        return null;
+        Session session= getSession();
+        Query query = session.createQuery("from Rule");
+        List<Rule> ruleList = query.list();
+        return ruleList;
     }
 
     public void insertRule(String ruleName,String ruleDesc,int priority,int currentValue,int nextValue,int worldId,int ownerId)

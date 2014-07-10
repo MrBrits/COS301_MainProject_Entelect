@@ -60,8 +60,8 @@ public class WorldDAO implements EntityDAO<World> {
     public List<World> findAllObject() {
         Session session= getSession();
         Query query = session.createQuery("from User");
-        List<World> worlds= query.list();
-        return worlds;
+        List<World> worldList = query.list();
+        return worldList;
     }
     public void insertWorld(String worldName,String worldDesc,int worldDimension,int worldWidth,int worldHeight,int worldDepth,int ownerId)
     {

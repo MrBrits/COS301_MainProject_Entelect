@@ -58,11 +58,11 @@ public class UserDAO implements EntityDAO<User> {
     }
 
     @Override
-    public List findAllObject() {
+    public List<User> findAllObject() {
        Session session= getSession();
         Query query = session.createQuery("from User");
-        List<User> users= query.list();
-        return users;
+        List<User> userList = query.list();
+        return userList;
     }
 
     public void insertUser(String userFirstName,String userLastName,String userEmail,String userPassword,String userRole)

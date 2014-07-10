@@ -1,6 +1,7 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -57,7 +58,10 @@ public class CoordinateDAO implements EntityDAO<Coordinate> {
 
     @Override
     public List<Coordinate> findAllObject() {
-        return null;
+        Session session= getSession();
+        Query query = session.createQuery("from Coordinate");
+        List<Coordinate> coordinateList = query.list();
+        return coordinateList;
     }
 
     public void insertCoordinate(int coordinateX,int coordinateY, int coordinateZ,int stateId,int worldId)
