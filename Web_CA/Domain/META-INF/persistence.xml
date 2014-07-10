@@ -2,7 +2,6 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="DomainPersistenceUnit">
-        <class>za.co.tera.Domain.impl.Condition</class>
         <class>za.co.tera.Domain.impl.Conditiontype</class>
         <class>za.co.tera.Domain.impl.Coordinate</class>
         <class>za.co.tera.Domain.impl.Direction</class>
@@ -10,8 +9,9 @@
         <class>za.co.tera.Domain.impl.State</class>
         <class>za.co.tera.Domain.impl.User</class>
         <class>za.co.tera.Domain.impl.World</class>
+        <class>za.co.tera.Domain.impl.Rulecondition</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/web_ca"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value=""/>

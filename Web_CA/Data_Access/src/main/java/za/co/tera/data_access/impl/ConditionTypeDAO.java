@@ -1,6 +1,7 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -58,7 +59,10 @@ public class ConditionTypeDAO implements EntityDAO<Conditiontype> {
 
     @Override
     public List<Conditiontype> findAllObject() {
-        return null;
+        Session session= getSession();
+        Query query = session.createQuery("from Conditiontype");
+        List<Conditiontype> conditionTypeList = query.list();
+        return conditionTypeList;
     }
 
     public void insertConditionType(String conditionName,String conditionDesc)

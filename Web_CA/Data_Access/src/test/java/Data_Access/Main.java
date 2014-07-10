@@ -1,5 +1,5 @@
 package Data_Access;
-import za.co.tera.data_access.impl.*;
+
 public class Main {
 
     //Used for logging of something
@@ -23,7 +23,7 @@ public class Main {
         session.save(user);
 
 /*
-        World world = new World();
+        za.co.tera.Business.World world = new za.co.tera.Business.World();
         world.setWorldName("Falling Object");
         world.setWorldDesc("USed to test how gravity affects certain states with other states.");
         world.setWorldDimension(2);
@@ -104,24 +104,22 @@ public class Main {
             System.out.println(item.getUserFirstName()+" "+item.getUserLastName());
         }*/
         //Net probleme with fk--------------------------------------------
+/*
+        UserDAO userDAO = new UserDAO();
+        userDAO.insertUser("Stephan..","Viljoen","email","pass","admin");
+        WorldDAO worldDAO = new WorldDAO();
+        worldDAO.insertWorld("Game of live","live/dead",1,10,10,10,1);
+        StateDAO stateDAO = new StateDAO();
+        stateDAO.insertState("Dead","dead",1.0,"255,255,255",1);
+        CoordinateDAO coordinateDAO = new CoordinateDAO();
+        coordinateDAO.insertCoordinate(0,0,0,1,1);
 
-        /*UserDOA userDOA = new UserDOA();
-        userDOA.insertUser("Stephan..","Viljoen","email","pass","admin");
-        WorldDOA worldDOA = new WorldDOA();
-        worldDOA.insertWorld("Game of live","live/dead",1,10,10,10,1);
-        StateDOA stateDOA = new StateDOA();
-        stateDOA.insertState("Dead","dead",1.0,"255,255,255",1);
-        CoordinateDOA coordinateDOA = new CoordinateDOA();
-        coordinateDOA.insertCoordinate(0,0,0,1,1);
+        RuleDAO ruleDAO = new RuleDAO();
+        ruleDAO.insertRule("Progress","progress",1,1,1,1,1);
 
-        RuleDOA ruleDOA = new RuleDOA();
-        ruleDOA.insertRule("Progress","progress",1,1,1,1,1);
-
-        DirectionDOA directionDOA = new DirectionDOA();
-        directionDOA.insertDirection("Up");
-        ConditionTypeDOA conditionTypeDOA = new ConditionTypeDOA();
-        conditionTypeDOA.insertConditionType("Move to this","simulate");*/
-        ConditionDAO conditionDOA = new ConditionDAO();
-        conditionDOA.insertCondition(1,5,1,1,1);
+        DirectionDAO directionDAO = new DirectionDAO();
+        directionDAO.insertDirection("0000000000000011111111111111");
+        RuleConditionDAO ruleConditionDAO = new RuleConditionDAO();
+        ruleConditionDAO.insertRulecondition(5,1,1,6,1);*/
     }
 }

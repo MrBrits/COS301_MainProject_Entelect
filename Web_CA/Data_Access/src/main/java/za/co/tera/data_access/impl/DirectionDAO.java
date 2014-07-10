@@ -1,6 +1,7 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -11,7 +12,9 @@ import za.co.tera.data_access.base.EntityDAO;
 
 import java.util.List;
 
-@SuppressWarnings("deprecation")
+/**
+ * Created by Christo on 2014/07/10.
+ */
 public class DirectionDAO implements EntityDAO<Direction> {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
@@ -58,12 +61,15 @@ public class DirectionDAO implements EntityDAO<Direction> {
 
     @Override
     public List<Direction> findAllObject() {
-        return null;
+        Session session= getSession();
+        Query query = session.createQuery("from Direction");
+        List<Direction> directionList = query.list();
+        return directionList;
     }
 
-    public void insertDirection(String directionName)
+    public void insertDirection(String directionDesc)
     {
-        Direction direction = new Direction( directionName);
+        Direction direction = new Direction(directionDesc);
         Session session= getSession();
         session.beginTransaction();
         session.save(direction);

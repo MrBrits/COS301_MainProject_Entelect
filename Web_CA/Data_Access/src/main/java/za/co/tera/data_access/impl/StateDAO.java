@@ -1,6 +1,7 @@
 package za.co.tera.data_access.impl;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -58,7 +59,10 @@ public class StateDAO implements EntityDAO<State> {
 
     @Override
     public List<State> findAllObject() {
-        return null;
+        Session session= getSession();
+        Query query = session.createQuery("from State");
+        List<State> stateList = query.list();
+        return stateList;
     }
 
     public void insertState(String stateName,String stateDesc, double stateValue,String stateRgb,int ownerId)

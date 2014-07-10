@@ -11,14 +11,14 @@ import javax.persistence.Id;
 @Entity
 public class Conditiontype {
     private int conditionTypeId;
-    private String conditionName;
-    private String conditionDesc;
+    private String conditionTypeName;
+    private String conditionTypeDesc;
     public Conditiontype()
     {}
-    public Conditiontype(String conditionName,String conditionDesc)
+    public Conditiontype(String conditionTypeName,String conditionTypeDesc)
     {
-        this.conditionName=conditionName;
-        this.conditionDesc=conditionDesc;
+        this.conditionTypeName=conditionTypeName;
+        this.conditionTypeDesc=conditionTypeDesc;
     }
     @Id
     @Column(name = "ConditionTypeID", nullable = false, insertable = true, updatable = true)
@@ -31,23 +31,23 @@ public class Conditiontype {
     }
 
     @Basic
-    @Column(name = "ConditionName", nullable = false, insertable = true, updatable = true, length = 20)
-    public String getConditionName() {
-        return conditionName;
+    @Column(name = "ConditionTypeName", nullable = false, insertable = true, updatable = true, length = 20)
+    public String getConditionTypeName() {
+        return conditionTypeName;
     }
 
-    public void setConditionName(String conditionName) {
-        this.conditionName = conditionName;
+    public void setConditionTypeName(String conditionName) {
+        this.conditionTypeName = conditionName;
     }
 
     @Basic
-    @Column(name = "ConditionDesc", nullable = false, insertable = true, updatable = true, length = 100)
+    @Column(name = "ConditionTypeDesc", nullable = false, insertable = true, updatable = true, length = 100)
     public String getConditionDesc() {
-        return conditionDesc;
+        return conditionTypeDesc;
     }
 
     public void setConditionDesc(String conditionDesc) {
-        this.conditionDesc = conditionDesc;
+        this.conditionTypeDesc = conditionDesc;
     }
 
     @Override
@@ -58,9 +58,9 @@ public class Conditiontype {
         Conditiontype that = (Conditiontype) o;
 
         if (conditionTypeId != that.conditionTypeId) return false;
-        if (conditionDesc != null ? !conditionDesc.equals(that.conditionDesc) : that.conditionDesc != null)
+        if (conditionTypeDesc != null ? !conditionTypeDesc.equals(that.conditionTypeDesc) : that.conditionTypeDesc != null)
             return false;
-        if (conditionName != null ? !conditionName.equals(that.conditionName) : that.conditionName != null)
+        if (conditionTypeName != null ? !conditionTypeName.equals(that.conditionTypeName) : that.conditionTypeName != null)
             return false;
 
         return true;
@@ -69,8 +69,8 @@ public class Conditiontype {
     @Override
     public int hashCode() {
         int result = conditionTypeId;
-        result = 31 * result + (conditionName != null ? conditionName.hashCode() : 0);
-        result = 31 * result + (conditionDesc != null ? conditionDesc.hashCode() : 0);
+        result = 31 * result + (conditionTypeName != null ? conditionTypeName.hashCode() : 0);
+        result = 31 * result + (conditionTypeDesc != null ? conditionTypeDesc.hashCode() : 0);
         return result;
     }
 }
