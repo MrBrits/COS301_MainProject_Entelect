@@ -8,26 +8,19 @@
             <meta name="author" content="">
             <link rel="icon" href="../../favicon.ico">
 
-            <title>Jumbotron Template for Bootstrap</title>
+            <title>Web CA</title>
 
             <!-- Bootstrap core CSS -->
-            <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+            <link href="resources/css/lib/bootstrap.min.css" rel="stylesheet">
+            <link href="resources/css/jumbotron.css" rel="stylesheet">
 
             <!-- Custom styles for this template -->
             <script src="resources/js/lib/jquery-1.11.1.min.js"></script>
             <script src="resources/js/lib/bootstrap.min.js"></script>
-            <script src="resources/js/lib/Angular/angular.min.js"></script>
-            <link href="resources/css/jumbotron.css" rel="stylesheet">
-            <script src="resources/js/lib/Angular/angular-resource.min.js"></script>
-            <script src="resources/js/lib/Angular/angular-route.min.js"></script>
+            <script src="resources/js/lib/angular.min.js"></script>
+            <script src="resources/js/lib/angular-route.min.js"></script>
+            <script src="resources/js/lib/angular-resource.min.js"></script>
             <script src="resources/js/app.js"></script>
-            <script type="text/javascript">
-                $('.nav ul li').on('click', function() {
-                    alert('clicked');
-                    $(this).parent().parent().find('.active').removeClass('active');
-                    $(this).parent().addClass('active');
-                });
-            </script>
         </head>
 
         <body>
@@ -45,9 +38,9 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav" role="tablist">
-                        <li class="active"><a href="/"  data-toggle="pill" roll="tab">Home</a></li>
-                        <li><a href = "#/register" data-toggle="pill" roll="tab">Register</a></li>
-                        <li><a href="#/home" data-toggle="pill" roll="tab">Contact</a></li>
+                        <li class="active"><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');" href="/"  data-toggle="pill" roll="tab">Home</a></li>
+                        <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');" href = "#/register" data-toggle="pill" roll="tab">Register</a></li>
+                        <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');"  href="#/home" data-toggle="pill" roll="tab">Contact</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" role="form">
                         <div class="form-group">
@@ -66,7 +59,7 @@
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header modal-success">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="purchaseLabel">Sign-up</h4>
                     </div>

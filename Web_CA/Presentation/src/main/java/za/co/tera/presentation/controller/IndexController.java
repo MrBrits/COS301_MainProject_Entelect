@@ -25,7 +25,7 @@ public class IndexController {
         @RequestMapping(value = "/", method = RequestMethod.GET)
         public ModelAndView httpServiceGetExample( ModelMap model ) {
 
-            return  new ModelAndView("index");
+            return  new ModelAndView("index2");
         }
         @RequestMapping(value = "/op",  method = RequestMethod.POST)
         public String methodWithRequestParams(@RequestParam("userFirstName") String firstname,@RequestParam("userLastName") String userLastName,@RequestParam("userEmail") String userEmail,@RequestParam("userPassword") String userPassword)
