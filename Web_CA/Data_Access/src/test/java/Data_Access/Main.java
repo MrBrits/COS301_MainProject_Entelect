@@ -1,7 +1,5 @@
 package Data_Access;
 
-import za.co.tera.data_access.impl.RuleConditionDAO;
-
 public class Main {
 
     //Used for logging of something
@@ -120,8 +118,8 @@ public class Main {
         ruleDAO.insertRule("Progress","progress",1,1,1,1,1);
 
         DirectionDAO directionDAO = new DirectionDAO();
-        directionDAO.insertDirection("0000000000000011111111111111");*/
+        directionDAO.insertDirection("0000000000000011111111111111");
         RuleConditionDAO ruleConditionDAO = new RuleConditionDAO();
-        ruleConditionDAO.insertRulecondition(5,1,1,6,1);
+        ruleConditionDAO.insertRulecondition(5,1,1,6,1);*/
     }
 }

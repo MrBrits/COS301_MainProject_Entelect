@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 10, 2014 at 08:33 AM
+-- Generation Time: Jul 10, 2014 at 10:41 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -25,26 +25,6 @@ USE `web_ca`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `condition`
---
-
-CREATE TABLE IF NOT EXISTS `condition` (
-  `ConditionID` int(11) NOT NULL AUTO_INCREMENT,
-  `StateToBeFound` int(11) NOT NULL,
-  `AmountToBeFound` int(11) NOT NULL,
-  `DirectionID` int(11) NOT NULL,
-  `ConditionTypeID` int(11) NOT NULL,
-  `RuleID` int(11) NOT NULL,
-  PRIMARY KEY (`ConditionID`),
-  KEY `StateToBeFound` (`StateToBeFound`,`DirectionID`,`ConditionTypeID`),
-  KEY `DirectionID` (`DirectionID`),
-  KEY `ConditionTypeID` (`ConditionTypeID`),
-  KEY `RuleID` (`RuleID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `conditiontype`
 --
 
@@ -53,7 +33,14 @@ CREATE TABLE IF NOT EXISTS `conditiontype` (
   `ConditionTypeName` varchar(20) DEFAULT NULL,
   `ConditionTypeDesc` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`ConditionTypeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `conditiontype`
+--
+
+INSERT INTO `conditiontype` (`ConditionTypeID`, `ConditionTypeName`, `ConditionTypeDesc`) VALUES
+(1, 'Move to this', 'simulate');
 
 -- --------------------------------------------------------
 
@@ -71,7 +58,14 @@ CREATE TABLE IF NOT EXISTS `coordinate` (
   PRIMARY KEY (`CoordinateID`),
   KEY `StateID` (`StateID`),
   KEY `WorldID` (`WorldID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `coordinate`
+--
+
+INSERT INTO `coordinate` (`CoordinateID`, `CoordinateX`, `CoordinateY`, `CoordinateZ`, `StateID`, `WorldID`) VALUES
+(1, 0, 0, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -81,9 +75,18 @@ CREATE TABLE IF NOT EXISTS `coordinate` (
 
 CREATE TABLE IF NOT EXISTS `direction` (
   `DirectionID` int(11) NOT NULL AUTO_INCREMENT,
-  `DirectionName` varchar(20) NOT NULL,
+  `DirectionDesc` varchar(28) NOT NULL,
   PRIMARY KEY (`DirectionID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `direction`
+--
+
+INSERT INTO `direction` (`DirectionID`, `DirectionDesc`) VALUES
+(6, '0000000000000000000000000000'),
+(7, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0'),
+(8, '0000000000000011111111111111');
 
 -- --------------------------------------------------------
 
@@ -106,7 +109,41 @@ CREATE TABLE IF NOT EXISTS `rule` (
   KEY `NextValue` (`NextValue`),
   KEY `OwnerID` (`OwnerID`),
   KEY `WorldID` (`WorldID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `rule`
+--
+
+INSERT INTO `rule` (`RuleID`, `RuleName`, `RuleDesc`, `Priority`, `CurrentValue`, `NextValue`, `WorldID`, `OwnerID`) VALUES
+(1, 'Progress', 'progress', 1, 1, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rulecondition`
+--
+
+CREATE TABLE IF NOT EXISTS `rulecondition` (
+  `RuleConditionID` int(11) NOT NULL AUTO_INCREMENT,
+  `AmountToFind` int(11) NOT NULL,
+  `StateToFind` int(11) NOT NULL,
+  `ConditionTypeID` int(11) NOT NULL,
+  `DirectionID` int(11) NOT NULL,
+  `RuleID` int(11) NOT NULL,
+  PRIMARY KEY (`RuleConditionID`),
+  KEY `StateToFind` (`StateToFind`),
+  KEY `ConditionTypeID` (`ConditionTypeID`),
+  KEY `DirectionID` (`DirectionID`),
+  KEY `RuleID` (`RuleID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `rulecondition`
+--
+
+INSERT INTO `rulecondition` (`RuleConditionID`, `AmountToFind`, `StateToFind`, `ConditionTypeID`, `DirectionID`, `RuleID`) VALUES
+(1, 5, 1, 1, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -123,7 +160,14 @@ CREATE TABLE IF NOT EXISTS `state` (
   `OwnerID` int(11) NOT NULL,
   PRIMARY KEY (`StateID`),
   KEY `OwnerID` (`OwnerID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `state`
+--
+
+INSERT INTO `state` (`StateID`, `StateName`, `StateDesc`, `StateValue`, `StateRGB`, `OwnerID`) VALUES
+(1, 'Dead', 'dead', 1, '255,255,255', 1);
 
 -- --------------------------------------------------------
 
@@ -141,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`UserID`),
   KEY `UserID` (`UserID`),
   KEY `UserID_2` (`UserID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `user`
@@ -165,7 +209,8 @@ INSERT INTO `user` (`UserID`, `UserFirstName`, `UserLastName`, `UserEmail`, `Use
 (15, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
 (16, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
 (17, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
-(18, 'hello', 'hello', 'email@e.com', 'pass', 'user');
+(18, 'hello', 'hello', 'email@e.com', 'pass', 'user'),
+(19, 'Stephan..', 'Viljoen', 'email', 'pass', 'admin');
 
 -- --------------------------------------------------------
 
@@ -185,20 +230,18 @@ CREATE TABLE IF NOT EXISTS `world` (
   PRIMARY KEY (`WorldID`),
   KEY `RuleID` (`OwnerID`),
   KEY `OwnerID` (`OwnerID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `world`
+--
+
+INSERT INTO `world` (`WorldID`, `WorldName`, `WorldDesc`, `WorldDimension`, `WorldWidth`, `WorldHeight`, `WorldDepth`, `OwnerID`) VALUES
+(1, 'Game of live', 'live/dead', 1, 10, 10, 10, 1);
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `condition`
---
-ALTER TABLE `condition`
-  ADD CONSTRAINT `condition_ibfk_1` FOREIGN KEY (`StateToBeFound`) REFERENCES `state` (`StateID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `condition_ibfk_2` FOREIGN KEY (`DirectionID`) REFERENCES `direction` (`DirectionID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `condition_ibfk_3` FOREIGN KEY (`ConditionTypeID`) REFERENCES `conditiontype` (`ConditionTypeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `condition_ibfk_4` FOREIGN KEY (`RuleID`) REFERENCES `rule` (`RuleID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `coordinate`
@@ -215,6 +258,15 @@ ALTER TABLE `rule`
   ADD CONSTRAINT `rule_ibfk_3` FOREIGN KEY (`CurrentValue`) REFERENCES `state` (`StateID`),
   ADD CONSTRAINT `rule_ibfk_4` FOREIGN KEY (`NextValue`) REFERENCES `state` (`StateID`),
   ADD CONSTRAINT `rule_ibfk_5` FOREIGN KEY (`WorldID`) REFERENCES `world` (`WorldID`);
+
+--
+-- Constraints for table `rulecondition`
+--
+ALTER TABLE `rulecondition`
+  ADD CONSTRAINT `rulecondition_ibfk_4` FOREIGN KEY (`RuleID`) REFERENCES `rule` (`RuleID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rulecondition_ibfk_1` FOREIGN KEY (`StateToFind`) REFERENCES `state` (`StateID`),
+  ADD CONSTRAINT `rulecondition_ibfk_2` FOREIGN KEY (`ConditionTypeID`) REFERENCES `conditiontype` (`ConditionTypeID`),
+  ADD CONSTRAINT `rulecondition_ibfk_3` FOREIGN KEY (`DirectionID`) REFERENCES `direction` (`DirectionID`);
 
 --
 -- Constraints for table `state`
