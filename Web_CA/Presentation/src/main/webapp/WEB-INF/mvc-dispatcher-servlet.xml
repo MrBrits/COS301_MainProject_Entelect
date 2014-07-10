@@ -13,6 +13,7 @@
     <context:component-scan base-package="za.co.tera.presentation.controller"/>
     <mvc:annotation-driven/>
     <mvc:resources mapping="resources/**" location="resources/" />
+    <mvc:resources mapping="partials/*" location="resources/partials" />
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
