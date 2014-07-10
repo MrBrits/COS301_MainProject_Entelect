@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * Created by Christo on 2014/07/03.
  */
 @Entity
-public class User {
+public class User{
     private int userId;
     private String userFirstName;
     private String userLastName;
@@ -18,6 +18,7 @@ public class User {
     private String userRole;
     public User()
     {}
+
     public User( String userFirstName,String userLastName,String userEmail,String userPassword,String userRole)
     {
         this.userFirstName=userFirstName;
