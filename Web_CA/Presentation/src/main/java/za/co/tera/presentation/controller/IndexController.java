@@ -14,25 +14,17 @@ import za.co.tera.Domain.impl.User;
 
 @Controller
 public class IndexController {
-       /* @RequestMapping(method = RequestMethod.GET)
-        public String printWelcome(ModelMap model) {
 
-            return "test";
-        }*/
-
-
-        @RequestMapping(value = "/", method = RequestMethod.GET)
+        @RequestMapping(value = "/index", method = RequestMethod.GET)
         public ModelAndView httpServiceGetExample( ModelMap model ) {
 
-            return  new ModelAndView("index2");
+            return  new ModelAndView("test");
         }
-        @RequestMapping(value = "/op",  method = RequestMethod.POST)
-        public String methodWithRequestParams(@RequestParam("userFirstName") String firstname,@RequestParam("userLastName") String userLastName,@RequestParam("userEmail") String userEmail,@RequestParam("userPassword") String userPassword)
-        {
-            return " ";
-        }
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView gfhdghdg( ModelMap model ) {
 
-        // do something with params
+        return  new ModelAndView("index2");
+    }
 
         @RequestMapping(value = "/getAllProfiles", method = RequestMethod.GET)
         public @ResponseBody
@@ -48,41 +40,23 @@ public class IndexController {
             }
             return jsonString;
         }
-    @RequestMapping(value = "/getAll", method = RequestMethod.POST)
-    public @ResponseBody
-    void getlProfiles(@RequestBody String user) {
+        @RequestMapping(value = "/getAll", method = RequestMethod.POST)
+        public @ResponseBody
+        void getlProfiles(@RequestBody String user) {
 
 
-        //return serializer.serialize( p );
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            User user1 = mapper.readValue(user, User.class);
-            UserEntityManager userEntityManager = new UserEntityManager();
-            userEntityManager.createUser(user1);
+            //return serializer.serialize( p );
+            try {
+                ObjectMapper mapper = new ObjectMapper();
+                User user1 = mapper.readValue(user, User.class);
+                UserEntityManager userEntityManager = new UserEntityManager();
+                userEntityManager.createUser(user1);
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+
         }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
-
-
-
-/*
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            mapper.writeValue(new File("C:\\Users\\Laptop\\Desktop\\user.json"), user);
-
-            mapper = new ObjectMapper();
-            User tuser = mapper.readValue(new File("C:\\Users\\Laptop\\Desktop\\user.json"), User.class);
-            UserEntityManager userEntityManager = new UserEntityManager();
-            userEntityManager.createUser(tuser);
-        }
-        catch(Exception e)
-        {
-            System.out.println("Notdone");
-        }*/
-
-       //return user.getUserLastName();
-    }
 
 }

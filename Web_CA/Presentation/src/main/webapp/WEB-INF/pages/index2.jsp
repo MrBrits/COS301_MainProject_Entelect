@@ -21,6 +21,7 @@
             <script src="resources/js/lib/angular-route.min.js"></script>
             <script src="resources/js/lib/angular-resource.min.js"></script>
             <script src="resources/js/app.js"></script>
+
         </head>
 
         <body>
@@ -40,7 +41,7 @@
                     <ul class="nav navbar-nav" role="tablist">
                         <li class="active"><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');" href="/"  data-toggle="pill" roll="tab">Home</a></li>
                         <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');" href = "#/register" data-toggle="pill" roll="tab">Register</a></li>
-                        <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');"  href="#/home" data-toggle="pill" roll="tab">Contact</a></li>
+                        <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');"  href="#/user" data-toggle="pill" roll="tab">Users</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" role="form">
                         <div class="form-group">
@@ -56,7 +57,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="AppCtrl as web_ca">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header modal-success">
@@ -69,42 +70,42 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label">Firstname</label>
                                 <div class="col-xs-4">
-                                    <input type="text" id="" class="form-control" placeholder="Firstname">
+                                    <input type="text" id="userFirstName" class="form-control" ng-model="web_ca.user.userFirstName" placeholder="Firstname">
                                     <span class="help-block"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label">Lastname</label>
                                 <div class="col-xs-4">
-                                    <input type="password" id="" class="form-control" placeholder="Lastname">
+                                    <input type="text" id="userLastName" class="form-control" ng-model="web_ca.user.userLastName" placeholder="Lastname">
                                     <span class="help-block"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label">Email</label>
                                 <div class="col-xs-4">
-                                    <input type="email" id="" class="form-control" placeholder="Email">
+                                    <input type="email" id="userEmail" class="form-control"  ng-model="web_ca.user.userEmail" placeholder="Email">
                                     <span class="help-block"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label">Password</label>
                                 <div class="col-xs-4">
-                                    <input type="password" id="" class="form-control" placeholder="Password">
+                                    <input type="password" id="userPassword" class="form-control"  ng-model="web_ca.user.userPassword" placeholder="Password">
                                     <span class="help-block"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label">Retype</label>
                                 <div class="col-xs-4">
-                                    <input type="password" id="" class="form-control" placeholder="Password">
+                                    <input type="password" id="utug" class="form-control" placeholder="Password">
                                     <span class="help-block"></span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-offset-2 col-xs-4">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Register</button>
+                                    <button type="button" class="btn btn-primary" ng-click="web_ca.addUser(web_ca.user)">Register</button>
                                 </div>
                             </div>
                         </form>
@@ -113,8 +114,11 @@
             </div>
         </div>
 
+
+
         <div class = "container">
             <div class = "main" ng-view></div>
+
         </div>
     </body>
 </html>

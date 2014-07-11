@@ -15,30 +15,16 @@
         <li class="artist cf">{{temp.name}}</li>
         <li class="artist cf">{{temp.surname}}</li>
     </ul>-->
+       <input  ng-model="searchText"/>
        <table class="table">
-           <tr>
-               <th>ID
-               </th>
-               <th>Name
-               </th>
-               <th>LastName
-               </th>
-               <th>Password
-               </th>
-               <th>Role
-               </th>
-           </tr>
-           <tr ng-repeat="profile in profiles">
-               <td>{{profile.userId}}
-               </td>
-               <td>{{profile.userFirstName + " " + profile.userLastName}}
-               </td>
-               <td>{{profile.userEmail}}
-               </td>
-               <td>{{profile.userPassword}}
-               </td>
-               <td>{{profile.userRole}}
-               </td>
+
+           <tr ng-repeat="profile in profiles | filter:searchText">
+               <td>{{profile.userId}}</td>
+               <td>{{profile.userFirstName}} </td>
+               <td>{{profile.userLastName}}</td>
+               <td>{{profile.userEmail}}</td>
+               <td>{{profile.userPassword}}</td>
+               <td>{{profile.useRole}}</td>
            </tr>
        </table>
    </div>
