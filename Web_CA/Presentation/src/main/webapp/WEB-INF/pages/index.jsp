@@ -21,7 +21,10 @@
             <script src="resources/js/lib/angular-route.min.js"></script>
             <script src="resources/js/lib/angular-resource.min.js"></script>
             <script src="resources/js/app.js"></script>
-
+            <script src="resources/js/statescript.js"></script>
+            <script src="resources/js/userscript.js"></script>
+            <script src="resources/js/rulescript.js"></script>
+            <script src="resources/js/worldscript.js"></script>
         </head>
 
         <body>
@@ -44,20 +47,13 @@
                         <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');"  href="#/user" data-toggle="pill" roll="tab">Users</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" role="form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Email" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" placeholder="Password" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-success">Sign in</button>
-                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Register</button>
+                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Logout</button>
                     </form>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
 
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="AppCtrl as web_ca">
+       <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UserSetCtr as web_ca">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header modal-success">
@@ -112,7 +108,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
 
 
