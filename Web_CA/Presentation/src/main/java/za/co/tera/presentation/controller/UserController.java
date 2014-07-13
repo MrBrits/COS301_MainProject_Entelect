@@ -32,7 +32,7 @@ public class UserController {
         }
         return jsonString;
     }
-    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/UserSetCtr", method = RequestMethod.POST)
     public @ResponseBody
     void createUser(@RequestBody String user) {
 

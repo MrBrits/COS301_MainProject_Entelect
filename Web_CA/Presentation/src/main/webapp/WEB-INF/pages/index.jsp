@@ -42,8 +42,8 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav" role="tablist">
-                        <li class="active"><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');" href="/"  data-toggle="pill" roll="tab">Home</a></li>
-                        <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');" href = "#/register" data-toggle="pill" roll="tab">Register</a></li>
+                        <li class="active"><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');" href="#/register"  data-toggle="pill" roll="tab">Home</a></li>
+                      <!--  <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');" href = "#/register" data-toggle="pill" roll="tab">Register</a></li>-->
                         <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');"  href="#/user" data-toggle="pill" roll="tab">Users</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" role="form">

@@ -59,7 +59,7 @@ public class WorldDAO implements EntityDAO<World> {
     @Override
     public List<World> findAllObject() {
         Session session= getSession();
-        Query query = session.createQuery("from User");
+        Query query = session.createQuery("from World");
         List<World> worldList = query.list();
         return worldList;
     }

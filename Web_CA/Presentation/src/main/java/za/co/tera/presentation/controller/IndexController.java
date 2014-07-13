@@ -21,7 +21,7 @@ public class IndexController {
 
         return new ModelAndView("index");
     }
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView getIndex(ModelMap model) {
 
         return new ModelAndView("login");
