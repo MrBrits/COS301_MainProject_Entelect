@@ -7,13 +7,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/IndexController.java" afterPath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/IndexController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/UserController.java" afterPath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/data_access/impl/WorldDAO.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/data_access/impl/WorldDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/app.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/login.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/login.jsp" />
+    <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="Changed Data_Access &quot;World&quot; getAll objects">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Web_CA.iws" />
@@ -957,7 +951,7 @@
       <workItem from="1405020625237" duration="1214000" />
       <workItem from="1405052145423" duration="20466000" />
       <workItem from="1405191923385" duration="47236000" />
-      <workItem from="1405291745831" duration="911000" />
+      <workItem from="1405291745831" duration="1045000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1087,11 +1081,15 @@
       <created>1405290996263</created>
       <updated>1405290996263</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Changed Data_Access &quot;World&quot; getAll objects">
+      <created>1405292738041</created>
+      <updated>1405292738041</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212189000" />
+    <option name="totallyTimeSpent" value="212323000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1227,7 +1225,8 @@
     <MESSAGE value="Working progress : angularjs post v2" />
     <MESSAGE value="User Register and users view included into index2" />
     <MESSAGE value="Worlds, Rules and States get in collapsible entity, with additional views and supporting files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worlds, Rules and States get in collapsible entity, with additional views and supporting files" />
+    <MESSAGE value="Changed Data_Access &quot;World&quot; getAll objects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Data_Access &quot;World&quot; getAll objects" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
