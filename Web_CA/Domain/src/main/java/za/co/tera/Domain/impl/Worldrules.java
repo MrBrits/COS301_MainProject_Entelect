@@ -12,6 +12,15 @@ public class Worldrules {
     private int worldId;
     private int ruleId;
 
+    public Worldrules()
+    {}
+
+    public Worldrules(int worldId, int ruleId)
+    {
+        this.worldId = worldId;
+        this.ruleId = ruleId;
+    }
+
     @Basic
     @Column(name = "WorldID", nullable = false, insertable = true, updatable = true)
     public int getWorldId() {

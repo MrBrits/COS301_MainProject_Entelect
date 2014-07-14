@@ -14,6 +14,15 @@ public class Ruleresultneighbours {
     private String neighbours;
     private int ruleResultId;
 
+    public Ruleresultneighbours()
+    {}
+
+    public  Ruleresultneighbours(String neighbours, int ruleResultId)
+    {
+        this.neighbours = neighbours;
+        this.ruleResultId = ruleResultId;
+    }
+
     @Id
     @Column(name = "RuleResultNeighID", nullable = false, insertable = true, updatable = true)
     public int getRuleResultNeighId() {

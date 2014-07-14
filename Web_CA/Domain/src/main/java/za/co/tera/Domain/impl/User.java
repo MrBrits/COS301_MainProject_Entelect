@@ -17,6 +17,18 @@ public class User {
     private String userPassword;
     private String userRole;
 
+    public User()
+    {}
+
+    public User(String userFirstName, String userLastName, String userEmail, String userPassword, String userRole)
+    {
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.userRole = userRole;
+    }
+
     @Id
     @Column(name = "UserID", nullable = false, insertable = true, updatable = true)
     public int getUserId() {

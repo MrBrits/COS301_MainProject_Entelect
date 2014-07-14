@@ -17,6 +17,18 @@ public class State {
     private String stateHex;
     private int ownerId;
 
+    public State()
+    {}
+
+    public State(String stateName, String stateDesc, int stateValue, String stateHex, int ownerId)
+    {
+        this.stateName = stateName;
+        this.stateDesc = stateDesc;
+        this.stateValue = stateValue;
+        this.stateHex = stateHex;
+        this.ownerId = ownerId;
+    }
+
     @Id
     @Column(name = "StateID", nullable = false, insertable = true, updatable = true)
     public int getStateId() {

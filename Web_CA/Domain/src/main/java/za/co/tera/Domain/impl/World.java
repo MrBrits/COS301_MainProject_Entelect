@@ -19,6 +19,21 @@ public class World {
     private int worldDepth;
     private int ownerId;
 
+    public World()
+    {}
+
+    public World(String worldName, String worldDesc, int worldDimension, int worldWidth, int worldHeight, int worldDepth, int ownerId)
+    {
+        this.worldName = worldName;
+        this.worldDesc = worldDesc;
+        this.worldDimension = worldDimension;
+        this.worldWidth = worldWidth;
+        this.worldHeight = worldHeight;
+        this.worldDepth = worldDepth;
+        this.ownerId = ownerId;
+    }
+
+
     @Id
     @Column(name = "WorldID", nullable = false, insertable = true, updatable = true)
     public int getWorldId() {

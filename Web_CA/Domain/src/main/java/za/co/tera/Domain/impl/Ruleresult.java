@@ -15,6 +15,16 @@ public class Ruleresult {
     private String operand;
     private Integer resultValue;
 
+    public Ruleresult()
+    {}
+
+    public Ruleresult(String operation, String operand, int resultValue)
+    {
+        this.operation = operation;
+        this.operand = operand;
+        this.resultValue = resultValue;
+    }
+
     @Id
     @Column(name = "RuleResultID", nullable = false, insertable = true, updatable = true)
     public int getRuleResultId() {

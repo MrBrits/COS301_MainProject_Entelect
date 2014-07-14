@@ -16,6 +16,17 @@ public class Rulecondition {
     private String operand;
     private int compareValue;
 
+    public Rulecondition()
+    {}
+
+    public Rulecondition(byte isNot, String operation, String operand, int compareValue)
+    {
+        this.isNot = isNot;
+        this.operation = operation;
+        this.operand = operand;
+        this.compareValue = compareValue;
+    }
+
     @Id
     @Column(name = "RuleConditionID", nullable = false, insertable = true, updatable = true)
     public int getRuleConditionId() {

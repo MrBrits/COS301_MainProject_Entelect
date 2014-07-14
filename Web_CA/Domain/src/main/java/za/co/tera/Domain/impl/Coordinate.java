@@ -17,6 +17,18 @@ public class Coordinate {
     private int value;
     private int worldId;
 
+    public Coordinate()
+    {}
+
+    public Coordinate(int coordinateX, int coordinateY, int coordinateZ, int value, int worldId)
+    {
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
+        this.coordinateZ = coordinateZ;
+        this.value = value;
+        this.worldId = worldId;
+    }
+
     @Id
     @Column(name = "CoordinateID", nullable = false, insertable = true, updatable = true)
     public int getCoordinateId() {
