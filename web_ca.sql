@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 10, 2014 at 10:41 AM
+-- Generation Time: Jul 14, 2014 at 12:16 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -25,26 +25,6 @@ USE `web_ca`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `conditiontype`
---
-
-CREATE TABLE IF NOT EXISTS `conditiontype` (
-  `ConditionTypeID` int(11) NOT NULL AUTO_INCREMENT,
-  `ConditionTypeName` varchar(20) DEFAULT NULL,
-  `ConditionTypeDesc` varchar(300) DEFAULT NULL,
-  PRIMARY KEY (`ConditionTypeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `conditiontype`
---
-
-INSERT INTO `conditiontype` (`ConditionTypeID`, `ConditionTypeName`, `ConditionTypeDesc`) VALUES
-(1, 'Move to this', 'simulate');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `coordinate`
 --
 
@@ -53,10 +33,9 @@ CREATE TABLE IF NOT EXISTS `coordinate` (
   `CoordinateX` int(11) NOT NULL,
   `CoordinateY` int(11) NOT NULL,
   `CoordinateZ` int(11) NOT NULL,
-  `StateID` int(11) NOT NULL,
+  `Value` int(11) NOT NULL,
   `WorldID` int(11) NOT NULL,
   PRIMARY KEY (`CoordinateID`),
-  KEY `StateID` (`StateID`),
   KEY `WorldID` (`WorldID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -64,29 +43,8 @@ CREATE TABLE IF NOT EXISTS `coordinate` (
 -- Dumping data for table `coordinate`
 --
 
-INSERT INTO `coordinate` (`CoordinateID`, `CoordinateX`, `CoordinateY`, `CoordinateZ`, `StateID`, `WorldID`) VALUES
-(1, 0, 0, 0, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `direction`
---
-
-CREATE TABLE IF NOT EXISTS `direction` (
-  `DirectionID` int(11) NOT NULL AUTO_INCREMENT,
-  `DirectionDesc` varchar(28) NOT NULL,
-  PRIMARY KEY (`DirectionID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
-
---
--- Dumping data for table `direction`
---
-
-INSERT INTO `direction` (`DirectionID`, `DirectionDesc`) VALUES
-(6, '0000000000000000000000000000'),
-(7, '\0\0\0\0\0\0\0\0\0\0\0\0\0\0'),
-(8, '0000000000000011111111111111');
+INSERT INTO `coordinate` (`CoordinateID`, `CoordinateX`, `CoordinateY`, `CoordinateZ`, `Value`, `WorldID`) VALUES
+(1, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -99,24 +57,21 @@ CREATE TABLE IF NOT EXISTS `rule` (
   `RuleName` varchar(20) NOT NULL,
   `RuleDesc` varchar(300) NOT NULL,
   `Priority` int(11) NOT NULL,
-  `CurrentValue` int(11) NOT NULL,
-  `NextValue` int(11) NOT NULL,
-  `WorldID` int(11) NOT NULL,
+  `RuleConditionID` int(11) NOT NULL,
+  `RuleResultID` int(11) NOT NULL,
   `OwnerID` int(11) NOT NULL,
   PRIMARY KEY (`RuleID`),
-  KEY `ConditionID` (`CurrentValue`,`NextValue`,`OwnerID`),
-  KEY `CurrentValue` (`CurrentValue`),
-  KEY `NextValue` (`NextValue`),
+  KEY `ConditionID` (`OwnerID`),
   KEY `OwnerID` (`OwnerID`),
-  KEY `WorldID` (`WorldID`)
+  KEY `ConditionID_2` (`RuleConditionID`,`RuleResultID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `rule`
 --
 
-INSERT INTO `rule` (`RuleID`, `RuleName`, `RuleDesc`, `Priority`, `CurrentValue`, `NextValue`, `WorldID`, `OwnerID`) VALUES
-(1, 'Progress', 'progress', 1, 1, 1, 1, 1);
+INSERT INTO `rule` (`RuleID`, `RuleName`, `RuleDesc`, `Priority`, `RuleConditionID`, `RuleResultID`, `OwnerID`) VALUES
+(1, 'Progress', 'progress', 1, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -126,24 +81,62 @@ INSERT INTO `rule` (`RuleID`, `RuleName`, `RuleDesc`, `Priority`, `CurrentValue`
 
 CREATE TABLE IF NOT EXISTS `rulecondition` (
   `RuleConditionID` int(11) NOT NULL AUTO_INCREMENT,
-  `AmountToFind` int(11) NOT NULL,
-  `StateToFind` int(11) NOT NULL,
-  `ConditionTypeID` int(11) NOT NULL,
-  `DirectionID` int(11) NOT NULL,
-  `RuleID` int(11) NOT NULL,
-  PRIMARY KEY (`RuleConditionID`),
-  KEY `StateToFind` (`StateToFind`),
-  KEY `ConditionTypeID` (`ConditionTypeID`),
-  KEY `DirectionID` (`DirectionID`),
-  KEY `RuleID` (`RuleID`)
+  `isNot` tinyint(1) NOT NULL,
+  `Operation` varchar(10) NOT NULL,
+  `Operand` varchar(2) NOT NULL,
+  `CompareValue` int(11) NOT NULL,
+  PRIMARY KEY (`RuleConditionID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `rulecondition`
 --
 
-INSERT INTO `rulecondition` (`RuleConditionID`, `AmountToFind`, `StateToFind`, `ConditionTypeID`, `DirectionID`, `RuleID`) VALUES
-(1, 5, 1, 1, 6, 1);
+INSERT INTO `rulecondition` (`RuleConditionID`, `isNot`, `Operation`, `Operand`, `CompareValue`) VALUES
+(1, 0, '', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ruleconditionneighbours`
+--
+
+CREATE TABLE IF NOT EXISTS `ruleconditionneighbours` (
+  `RuleConditionNeighID` int(11) NOT NULL AUTO_INCREMENT,
+  `Neighbours` varchar(26) NOT NULL,
+  `RuleConditionID` int(11) NOT NULL,
+  PRIMARY KEY (`RuleConditionNeighID`),
+  KEY `RuleConditionID` (`RuleConditionID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ruleresult`
+--
+
+CREATE TABLE IF NOT EXISTS `ruleresult` (
+  `RuleResultID` int(11) NOT NULL AUTO_INCREMENT,
+  `Operation` varchar(10) NOT NULL,
+  `Operand` varchar(2) NOT NULL,
+  `ResultValue` int(11) DEFAULT NULL,
+  PRIMARY KEY (`RuleResultID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ruleresultneighbours`
+--
+
+CREATE TABLE IF NOT EXISTS `ruleresultneighbours` (
+  `RuleResultNeighID` int(11) NOT NULL AUTO_INCREMENT,
+  `Neighbours` varchar(26) NOT NULL,
+  `RuleResultID` int(11) NOT NULL,
+  PRIMARY KEY (`RuleResultNeighID`),
+  KEY `RuleResultID` (`RuleResultID`),
+  KEY `RuleResultID_2` (`RuleResultID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -155,8 +148,8 @@ CREATE TABLE IF NOT EXISTS `state` (
   `StateID` int(11) NOT NULL AUTO_INCREMENT,
   `StateName` varchar(20) NOT NULL,
   `StateDesc` varchar(300) NOT NULL,
-  `StateValue` double NOT NULL,
-  `StateRGB` varchar(11) NOT NULL,
+  `StateValue` int(11) NOT NULL,
+  `StateHex` varchar(7) NOT NULL,
   `OwnerID` int(11) NOT NULL,
   PRIMARY KEY (`StateID`),
   KEY `OwnerID` (`OwnerID`)
@@ -166,8 +159,8 @@ CREATE TABLE IF NOT EXISTS `state` (
 -- Dumping data for table `state`
 --
 
-INSERT INTO `state` (`StateID`, `StateName`, `StateDesc`, `StateValue`, `StateRGB`, `OwnerID`) VALUES
-(1, 'Dead', 'dead', 1, '255,255,255', 1);
+INSERT INTO `state` (`StateID`, `StateName`, `StateDesc`, `StateValue`, `StateHex`, `OwnerID`) VALUES
+(1, 'Dead', 'dead', 1, '255,255', 1);
 
 -- --------------------------------------------------------
 
@@ -239,6 +232,19 @@ CREATE TABLE IF NOT EXISTS `world` (
 INSERT INTO `world` (`WorldID`, `WorldName`, `WorldDesc`, `WorldDimension`, `WorldWidth`, `WorldHeight`, `WorldDepth`, `OwnerID`) VALUES
 (1, 'Game of live', 'live/dead', 1, 10, 10, 10, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `worldrules`
+--
+
+CREATE TABLE IF NOT EXISTS `worldrules` (
+  `WorldID` int(11) NOT NULL,
+  `RuleID` int(11) NOT NULL,
+  KEY `WorldID` (`WorldID`),
+  KEY `RuleID` (`RuleID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Constraints for dumped tables
 --
@@ -247,26 +253,25 @@ INSERT INTO `world` (`WorldID`, `WorldName`, `WorldDesc`, `WorldDimension`, `Wor
 -- Constraints for table `coordinate`
 --
 ALTER TABLE `coordinate`
-  ADD CONSTRAINT `coordinate_ibfk_1` FOREIGN KEY (`StateID`) REFERENCES `state` (`StateID`),
   ADD CONSTRAINT `coordinate_ibfk_2` FOREIGN KEY (`WorldID`) REFERENCES `world` (`WorldID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rule`
 --
 ALTER TABLE `rule`
-  ADD CONSTRAINT `rule_ibfk_1` FOREIGN KEY (`OwnerID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rule_ibfk_3` FOREIGN KEY (`CurrentValue`) REFERENCES `state` (`StateID`),
-  ADD CONSTRAINT `rule_ibfk_4` FOREIGN KEY (`NextValue`) REFERENCES `state` (`StateID`),
-  ADD CONSTRAINT `rule_ibfk_5` FOREIGN KEY (`WorldID`) REFERENCES `world` (`WorldID`);
+  ADD CONSTRAINT `rule_ibfk_1` FOREIGN KEY (`OwnerID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rulecondition`
+-- Constraints for table `ruleconditionneighbours`
 --
-ALTER TABLE `rulecondition`
-  ADD CONSTRAINT `rulecondition_ibfk_4` FOREIGN KEY (`RuleID`) REFERENCES `rule` (`RuleID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rulecondition_ibfk_1` FOREIGN KEY (`StateToFind`) REFERENCES `state` (`StateID`),
-  ADD CONSTRAINT `rulecondition_ibfk_2` FOREIGN KEY (`ConditionTypeID`) REFERENCES `conditiontype` (`ConditionTypeID`),
-  ADD CONSTRAINT `rulecondition_ibfk_3` FOREIGN KEY (`DirectionID`) REFERENCES `direction` (`DirectionID`);
+ALTER TABLE `ruleconditionneighbours`
+  ADD CONSTRAINT `ruleconditionneighbours_ibfk_1` FOREIGN KEY (`RuleConditionID`) REFERENCES `rulecondition` (`RuleConditionID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `ruleresultneighbours`
+--
+ALTER TABLE `ruleresultneighbours`
+  ADD CONSTRAINT `ruleresultneighbours_ibfk_1` FOREIGN KEY (`RuleResultID`) REFERENCES `ruleresult` (`RuleResultID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `state`
@@ -279,6 +284,13 @@ ALTER TABLE `state`
 --
 ALTER TABLE `world`
   ADD CONSTRAINT `world_ibfk_1` FOREIGN KEY (`OwnerID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `worldrules`
+--
+ALTER TABLE `worldrules`
+  ADD CONSTRAINT `worldrules_ibfk_2` FOREIGN KEY (`RuleID`) REFERENCES `rule` (`RuleID`),
+  ADD CONSTRAINT `worldrules_ibfk_1` FOREIGN KEY (`WorldID`) REFERENCES `world` (`WorldID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
