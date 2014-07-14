@@ -2,14 +2,16 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="DomainPersistenceUnit">
-        <class>za.co.tera.Domain.impl.Conditiontype</class>
-        <class>za.co.tera.Domain.impl.Coordinate</class>
-        <class>za.co.tera.Domain.impl.Direction</class>
-        <class>za.co.tera.Domain.impl.Rule</class>
-        <class>za.co.tera.Domain.impl.State</class>
-        <class>za.co.tera.Domain.impl.User</class>
-        <class>za.co.tera.Domain.impl.World</class>
+        <class>za.co.tera.Domain.impl.za.co.tera.Business.Coordinate</class>
+        <class>za.co.tera.Domain.impl.za.co.tera.Business.Rule</class>
+        <class>za.co.tera.Domain.impl.za.co.tera.Business.State</class>
+        <class>za.co.tera.Domain.impl.za.co.tera.Business.User</class>
+        <class>za.co.tera.Domain.impl.za.co.tera.Business.World</class>
         <class>za.co.tera.Domain.impl.Rulecondition</class>
+        <class>za.co.tera.Domain.impl.Ruleconditionneighbours</class>
+        <class>za.co.tera.Domain.impl.Ruleresult</class>
+        <class>za.co.tera.Domain.impl.Ruleresultneighbours</class>
+        <class>za.co.tera.Domain.impl.Worldrules</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/web_ca"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

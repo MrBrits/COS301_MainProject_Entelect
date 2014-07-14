@@ -14,7 +14,7 @@ public class Main {
         session.beginTransaction();
 
 
-        User user = new User();
+        za.co.tera.Business.User user = new za.co.tera.Business.User();
         user.setUserEmail("john@gmail.com");
         user.setUserFirstName("John");
         user.setUserLastName("Doe");
@@ -23,7 +23,7 @@ public class Main {
         session.save(user);
 
 /*
-        za.co.tera.Business.World world = new za.co.tera.Business.World();
+        za.co.tera.Business.za.co.tera.Business.World world = new za.co.tera.Business.za.co.tera.Business.World();
         world.setWorldName("Falling Object");
         world.setWorldDesc("USed to test how gravity affects certain states with other states.");
         world.setWorldDimension(2);
@@ -34,7 +34,7 @@ public class Main {
         session.save(world);
 
 
-        State state = new State();
+        za.co.tera.Business.State state = new za.co.tera.Business.State();
         state.setOwnerId(5);
         state.setStateName("Rock");
         state.setStateDesc("A naturally occurring solid aggregate of minerals or mineraloids.");
@@ -43,7 +43,7 @@ public class Main {
         session.save(state);
 
 
-        State state2 = new State();
+        za.co.tera.Business.State state2 = new za.co.tera.Business.State();
         state2.setOwnerId(5);
         state2.setStateName("Air");
         state2.setStateDesc("Mainly composed of nitrogen, oxygen and argon.");
@@ -57,7 +57,7 @@ public class Main {
         session.save(direct);
 
 
-     /*   Rule rule = new Rule();
+     /*   za.co.tera.Business.Rule rule = new za.co.tera.Business.Rule();
         rule.setRuleName("Gravity");
         rule.setRuleDesc("A natural phenomenon by which all physical bodies attract each other.");
         rule.setPriority(1);
@@ -81,7 +81,7 @@ public class Main {
         condition.setRuleID(2);
         session.save(condition);
 
-        Coordinate coordinate = new Coordinate();
+        za.co.tera.Business.Coordinate coordinate = new za.co.tera.Business.Coordinate();
         coordinate.setCoordinateX(0);
         coordinate.setCoordinateY(0);
         coordinate.setCoordinateZ(-1);
@@ -90,7 +90,7 @@ public class Main {
         session.save(coordinate);
 
 
-        Coordinate coordinate2 = new Coordinate();
+        za.co.tera.Business.Coordinate coordinate2 = new za.co.tera.Business.Coordinate();
         coordinate2.setCoordinateX(0);
         coordinate2.setCoordinateY(1);
         coordinate2.setCoordinateZ(-1);
@@ -99,8 +99,8 @@ public class Main {
         session.save(coordinate2);
 
 */
-               /* for(Iterator<User> i = users.iterator(); i.hasNext(); ) {
-            User item = (User)i.next();
+               /* for(Iterator<za.co.tera.Business.User> i = users.iterator(); i.hasNext(); ) {
+            za.co.tera.Business.User item = (za.co.tera.Business.User)i.next();
             System.out.println(item.getUserFirstName()+" "+item.getUserLastName());
         }*/
         //Net probleme with fk--------------------------------------------

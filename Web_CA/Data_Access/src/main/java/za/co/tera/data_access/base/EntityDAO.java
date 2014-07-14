@@ -1,4 +1,4 @@
-package za.co.tera.data_access.base;
+package za.co.tera.Data_Access.base;
 
 import java.io.Serializable;
 import java.util.List;

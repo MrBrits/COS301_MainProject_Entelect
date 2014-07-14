@@ -1,4 +1,4 @@
-package za.co.tera.data_access.impl;
+package za.co.tera.Data_Access.impl;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import za.co.tera.Domain.impl.Direction;
-import za.co.tera.data_access.base.EntityDAO;
+import za.co.tera.Data_Access.base.EntityDAO;
 
 import java.util.List;
 

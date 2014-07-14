@@ -6,26 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/03.
+ * Created by Christo on 2014/07/14.
  */
 @Entity
 public class State {
     private int stateId;
     private String stateName;
     private String stateDesc;
-    private double stateValue;
-    private String stateRgb;
+    private int stateValue;
+    private String stateHex;
     private int ownerId;
-    public State()
-    {}
-    public State(String stateName,String stateDesc, double stateValue,String stateRgb,int ownerId)
-    {
-        this.stateName=stateName;
-        this.stateDesc=stateDesc;
-        this.stateValue=stateValue;
-        this.stateRgb=stateRgb;
-        this.ownerId=ownerId;
-    }
+
     @Id
     @Column(name = "StateID", nullable = false, insertable = true, updatable = true)
     public int getStateId() {
@@ -47,7 +38,7 @@ public class State {
     }
 
     @Basic
-    @Column(name = "StateDesc", nullable = false, insertable = true, updatable = true, length = 100)
+    @Column(name = "StateDesc", nullable = false, insertable = true, updatable = true, length = 300)
     public String getStateDesc() {
         return stateDesc;
     }
@@ -57,23 +48,23 @@ public class State {
     }
 
     @Basic
-    @Column(name = "StateValue", nullable = false, insertable = true, updatable = true, precision = 0)
-    public double getStateValue() {
+    @Column(name = "StateValue", nullable = false, insertable = true, updatable = true)
+    public int getStateValue() {
         return stateValue;
     }
 
-    public void setStateValue(double stateValue) {
+    public void setStateValue(int stateValue) {
         this.stateValue = stateValue;
     }
 
     @Basic
-    @Column(name = "StateRGB", nullable = false, insertable = true, updatable = true, length = 11)
-    public String getStateRgb() {
-        return stateRgb;
+    @Column(name = "StateHex", nullable = false, insertable = true, updatable = true, length = 7)
+    public String getStateHex() {
+        return stateHex;
     }
 
-    public void setStateRgb(String stateRgb) {
-        this.stateRgb = stateRgb;
+    public void setStateHex(String stateHex) {
+        this.stateHex = stateHex;
     }
 
     @Basic
@@ -95,24 +86,21 @@ public class State {
 
         if (ownerId != state.ownerId) return false;
         if (stateId != state.stateId) return false;
-        if (Double.compare(state.stateValue, stateValue) != 0) return false;
+        if (stateValue != state.stateValue) return false;
         if (stateDesc != null ? !stateDesc.equals(state.stateDesc) : state.stateDesc != null) return false;
+        if (stateHex != null ? !stateHex.equals(state.stateHex) : state.stateHex != null) return false;
         if (stateName != null ? !stateName.equals(state.stateName) : state.stateName != null) return false;
-        if (stateRgb != null ? !stateRgb.equals(state.stateRgb) : state.stateRgb != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = stateId;
+        int result = stateId;
         result = 31 * result + (stateName != null ? stateName.hashCode() : 0);
         result = 31 * result + (stateDesc != null ? stateDesc.hashCode() : 0);
-        temp = Double.doubleToLongBits(stateValue);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (stateRgb != null ? stateRgb.hashCode() : 0);
+        result = 31 * result + stateValue;
+        result = 31 * result + (stateHex != null ? stateHex.hashCode() : 0);
         result = 31 * result + ownerId;
         return result;
     }

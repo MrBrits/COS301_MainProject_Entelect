@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/03.
+ * Created by Christo on 2014/07/14.
  */
 @Entity
 public class Coordinate {
@@ -14,18 +14,9 @@ public class Coordinate {
     private int coordinateX;
     private int coordinateY;
     private int coordinateZ;
-    private int stateId;
+    private int value;
     private int worldId;
-    public Coordinate()
-    {}
-    public Coordinate(int coordinateX,int coordinateY, int coordinateZ,int stateId,int worldId)
-    {
-        this.coordinateX=coordinateX;
-        this.coordinateY=coordinateY;
-        this.coordinateZ=coordinateZ;
-        this.stateId=stateId;
-        this.worldId=worldId;
-    }
+
     @Id
     @Column(name = "CoordinateID", nullable = false, insertable = true, updatable = true)
     public int getCoordinateId() {
@@ -67,13 +58,13 @@ public class Coordinate {
     }
 
     @Basic
-    @Column(name = "StateID", nullable = false, insertable = true, updatable = true)
-    public int getStateId() {
-        return stateId;
+    @Column(name = "Value", nullable = false, insertable = true, updatable = true)
+    public int getValue() {
+        return value;
     }
 
-    public void setStateId(int stateId) {
-        this.stateId = stateId;
+    public void setValue(int value) {
+        this.value = value;
     }
 
     @Basic
@@ -97,7 +88,7 @@ public class Coordinate {
         if (coordinateX != that.coordinateX) return false;
         if (coordinateY != that.coordinateY) return false;
         if (coordinateZ != that.coordinateZ) return false;
-        if (stateId != that.stateId) return false;
+        if (value != that.value) return false;
         if (worldId != that.worldId) return false;
 
         return true;
@@ -109,7 +100,7 @@ public class Coordinate {
         result = 31 * result + coordinateX;
         result = 31 * result + coordinateY;
         result = 31 * result + coordinateZ;
-        result = 31 * result + stateId;
+        result = 31 * result + value;
         result = 31 * result + worldId;
         return result;
     }

@@ -6,27 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/03.
+ * Created by Christo on 2014/07/14.
  */
 @Entity
-public class User{
+public class User {
     private int userId;
     private String userFirstName;
     private String userLastName;
     private String userEmail;
     private String userPassword;
     private String userRole;
-    public User()
-    {}
 
-    public User( String userFirstName,String userLastName,String userEmail,String userPassword,String userRole)
-    {
-        this.userFirstName=userFirstName;
-        this.userLastName=userLastName;
-        this.userEmail=userEmail;
-        this.userPassword=userPassword;
-        this.userRole=userRole;
-    }
     @Id
     @Column(name = "UserID", nullable = false, insertable = true, updatable = true)
     public int getUserId() {

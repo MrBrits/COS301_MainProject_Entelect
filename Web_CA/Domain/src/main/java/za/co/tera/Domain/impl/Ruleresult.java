@@ -9,31 +9,20 @@ import javax.persistence.Id;
  * Created by Christo on 2014/07/14.
  */
 @Entity
-public class Rulecondition {
-    private int ruleConditionId;
-    private byte isNot;
+public class Ruleresult {
+    private int ruleResultId;
     private String operation;
     private String operand;
-    private int compareValue;
+    private Integer resultValue;
 
     @Id
-    @Column(name = "RuleConditionID", nullable = false, insertable = true, updatable = true)
-    public int getRuleConditionId() {
-        return ruleConditionId;
+    @Column(name = "RuleResultID", nullable = false, insertable = true, updatable = true)
+    public int getRuleResultId() {
+        return ruleResultId;
     }
 
-    public void setRuleConditionId(int ruleConditionId) {
-        this.ruleConditionId = ruleConditionId;
-    }
-
-    @Basic
-    @Column(name = "isNot", nullable = false, insertable = true, updatable = true)
-    public byte getIsNot() {
-        return isNot;
-    }
-
-    public void setIsNot(byte isNot) {
-        this.isNot = isNot;
+    public void setRuleResultId(int ruleResultId) {
+        this.ruleResultId = ruleResultId;
     }
 
     @Basic
@@ -57,13 +46,13 @@ public class Rulecondition {
     }
 
     @Basic
-    @Column(name = "CompareValue", nullable = false, insertable = true, updatable = true)
-    public int getCompareValue() {
-        return compareValue;
+    @Column(name = "ResultValue", nullable = true, insertable = true, updatable = true)
+    public Integer getResultValue() {
+        return resultValue;
     }
 
-    public void setCompareValue(int compareValue) {
-        this.compareValue = compareValue;
+    public void setResultValue(Integer resultValue) {
+        this.resultValue = resultValue;
     }
 
     @Override
@@ -71,24 +60,22 @@ public class Rulecondition {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Rulecondition that = (Rulecondition) o;
+        Ruleresult that = (Ruleresult) o;
 
-        if (compareValue != that.compareValue) return false;
-        if (isNot != that.isNot) return false;
-        if (ruleConditionId != that.ruleConditionId) return false;
+        if (ruleResultId != that.ruleResultId) return false;
         if (operand != null ? !operand.equals(that.operand) : that.operand != null) return false;
         if (operation != null ? !operation.equals(that.operation) : that.operation != null) return false;
+        if (resultValue != null ? !resultValue.equals(that.resultValue) : that.resultValue != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = ruleConditionId;
-        result = 31 * result + (int) isNot;
+        int result = ruleResultId;
         result = 31 * result + (operation != null ? operation.hashCode() : 0);
         result = 31 * result + (operand != null ? operand.hashCode() : 0);
-        result = 31 * result + compareValue;
+        result = 31 * result + (resultValue != null ? resultValue.hashCode() : 0);
         return result;
     }
 }

@@ -1,76 +1,8 @@
-package za.co.tera.data_access.impl;
+package za.co.tera.Data_Access.impl;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
-import za.co.tera.Domain.impl.State;
-import za.co.tera.data_access.base.EntityDAO;
+/**
+ * Created by Christo on 2014/07/14.
+ */
 
-import java.util.List;
-
-@SuppressWarnings("deprecation")
-public class StateDAO implements EntityDAO<State> {
-    private static final SessionFactory ourSessionFactory;
-    private static final ServiceRegistry serviceRegistry;
-
-    static {
-        try {
-            Configuration configuration = new Configuration();
-            configuration.configure();
-            serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-            ourSessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
-        }
-    }
-
-    public static Session getSession() throws HibernateException {
-        return ourSessionFactory.openSession();
-    }
-    @Override
-    public void saveOrUpdate(State object) {
-
-        Session session= getSession();
-        session.beginTransaction();
-        session.saveOrUpdate(object);
-        session.getTransaction().commit();
-    }
-
-    @Override
-    public void delete(State object) {
-
-        Session session= getSession();
-        session.beginTransaction();
-        session.delete(object);
-        session.getTransaction().commit();
-    }
-
-    @Override
-    public State find(int id) {
-
-        Session session= getSession();
-        session.beginTransaction();
-        return (State)session.get(State.class,id);
-    }
-
-    @Override
-    public List<State> findAllObject() {
-        Session session= getSession();
-        Query query = session.createQuery("from State");
-        List<State> stateList = query.list();
-        return stateList;
-    }
-
-    public void insertState(String stateName,String stateDesc, double stateValue,String stateRgb,int ownerId)
-    {
-        State state = new State( stateName,stateDesc,stateValue,stateRgb,ownerId);
-        Session session= getSession();
-        session.beginTransaction();
-        session.save(state);
-        session.getTransaction().commit();
-    }
+public class StateDAO {
 }

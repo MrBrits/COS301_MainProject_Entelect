@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Christo on 2014/07/04.
+ * Created by Christo on 2014/07/14.
  */
 @Entity
 public class World {
@@ -18,20 +18,6 @@ public class World {
     private int worldHeight;
     private int worldDepth;
     private int ownerId;
-
-    public World(String worldName,String worldDesc,int worldDimension,int worldWidth,int worldHeight,int worldDepth,int ownerId)
-    {
-        this.worldName=worldName;
-        this.worldDesc=worldDesc;
-        this.worldDimension=worldDimension;
-        this.worldWidth=worldWidth;
-        this.worldHeight=worldHeight;
-        this.worldDepth=worldDepth;
-        this.ownerId=ownerId;
-    }
-
-    public World()
-    {}
 
     @Id
     @Column(name = "WorldID", nullable = false, insertable = true, updatable = true)
