@@ -7,156 +7,171 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="Changed Data_Access &quot;World&quot; getAll objects">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/Rule/impl/RuleService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleconditionDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Ruleconditionneighbours.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleconditionneighboursDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Ruleresult.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleresultDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Ruleresultneighbours.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleresultneighboursDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/World/impl/WorldService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Worldrules.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/WorldrulesDAO.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleconditionDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__antlr_antlr_2_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__aopalliance_aopalliance_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__classworlds_classworlds_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_fasterxml_jackson_core_jackson_core_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_fasterxml_jackson_core_jackson_databind_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_github_stephenc_high_scale_lib_high_scale_lib_1_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_github_stephenc_jamm_0_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_google_guava_guava_r08.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_googlecode_concurrentlinkedhashmap_concurrentlinkedhashmap_lru_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_googlecode_json_simple_json_simple_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_jcraft_jsch_0_1_27.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__com_thoughtworks_xstream_xstream_1_4_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__commons_cli_commons_cli_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__commons_cli_commons_cli_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__commons_codec_commons_codec_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__commons_collections_commons_collections_3_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__commons_io_commons_io_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__commons_lang_commons_lang_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__commons_logging_commons_logging_1_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__javax_javaee_api_6_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__javax_servlet_servlet_api_2_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__jline_jline_0_9_94.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__jtidy_jtidy_4aug2000r7_dev.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__junit_junit_3_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__log4j_log4j_1_2_16.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__mysql_mysql_connector_java_5_1_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_antlr_antlr_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_antlr_antlr_runtime_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_antlr_stringtemplate_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_cassandra_cassandra_all_0_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_cassandra_cassandra_thrift_0_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_cassandra_deps_avro_1_4_0_cassandra_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_commons_commons_compress_1_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_httpcomponents_httpclient_4_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_httpcomponents_httpcore_4_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_doxia_doxia_sink_api_1_0_alpha_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_archiver_2_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_artifact_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_artifact_manager_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_core_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_error_diagnostics_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_model_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_monitor_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_plugin_api_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_plugin_descriptor_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_plugin_parameter_documenter_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_plugin_registry_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_profile_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_project_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_repository_metadata_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_maven_settings_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_plugins_maven_war_plugin_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_reporting_maven_reporting_api_2_0_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_shared_maven_filtering_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_wagon_wagon_file_1_0_beta_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_wagon_wagon_http_lightweight_1_0_beta_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_wagon_wagon_http_shared_1_0_beta_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_wagon_wagon_provider_api_1_0_beta_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_wagon_wagon_ssh_1_0_beta_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_wagon_wagon_ssh_common_1_0_beta_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_maven_wagon_wagon_ssh_external_1_0_beta_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_apache_thrift_libthrift_0_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_codehaus_jackson_jackson_core_asl_1_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_codehaus_jackson_jackson_mapper_asl_1_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_codehaus_plexus_plexus_archiver_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_codehaus_plexus_plexus_container_default_1_0_alpha_9_stable_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_codehaus_plexus_plexus_interactivity_api_1_0_alpha_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_codehaus_plexus_plexus_interpolation_1_15.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_codehaus_plexus_plexus_io_2_0_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_codehaus_plexus_plexus_utils_3_0_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_hibernate_common_hibernate_commons_annotations_4_0_4_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_hibernate_hibernate_core_4_3_5_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_javassist_javassist_3_18_1_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_jboss_jandex_1_1_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_jboss_logging_jboss_logging_3_1_3_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_jboss_logging_jboss_logging_annotations_1_2_0_Beta1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_mortbay_jetty_jetty_6_1_22.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_mortbay_jetty_jetty_util_6_1_22.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_mortbay_jetty_servlet_api_2_5_20081211.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_slf4j_slf4j_log4j12_1_5_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_sonatype_plexus_plexus_build_api_0_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_springframework_spring_aop_4_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_springframework_spring_beans_4_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_springframework_spring_context_4_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_springframework_spring_core_4_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_springframework_spring_expression_4_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_springframework_spring_test_4_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_springframework_spring_web_4_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_springframework_spring_webmvc_4_0_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_tukaani_xz_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__org_yaml_snakeyaml_1_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__xmlpull_xmlpull_1_1_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\.idea\libraries\Maven__xpp3_xpp3_min_1_1_4c.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\ConditionType\ConditionTypeEntityManager.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\Coordinate\CoordinateEntityManager.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\Direction\DirectionEntityManager.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\RuleCondition\RuleConditionEntityManager.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\Rule\RuleEntityManager.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\State\StateEntityManager.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\User\UserEntityManager.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\World\WorldEntityManager.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\Data_Access\impl\ConditionTypeDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\Conditiontype.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\Direction.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\Coordinate\CoordinateEntityManager.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/Coordinate/impl/CoordinateService.java" />
-      <change type="MOVED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\State\StateEntityManager.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/State/impl/StateService.java" />
-      <change type="MOVED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\User\UserEntityManager.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/User/impl/UserService.java" />
+    <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="Structure implemented to work wih dependency injection">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/base/AbstractDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/CoordinateDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/CoordinateDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Coordinate/impl/CoordinateServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__classworlds_classworlds_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_stephenc_high_scale_lib_high_scale_lib_1_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_stephenc_jamm_0_2_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_r08.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_concurrentlinkedhashmap_concurrentlinkedhashmap_lru_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_27.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_thoughtworks_xstream_xstream_1_4_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_api_6_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jline_jline_0_9_94.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jtidy_jtidy_4aug2000r7_dev.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr_3_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr_runtime_3_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_stringtemplate_3_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cassandra_cassandra_all_0_8_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cassandra_cassandra_thrift_0_8_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cassandra_deps_avro_1_4_0_cassandra_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_doxia_doxia_sink_api_1_0_alpha_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_archiver_2_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_manager_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_core_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_error_diagnostics_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_model_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_monitor_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_api_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_descriptor_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_parameter_documenter_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_registry_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_profile_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_project_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_repository_metadata_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_settings_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_plugins_maven_war_plugin_2_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_reporting_maven_reporting_api_2_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_shared_maven_filtering_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_file_1_0_beta_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_lightweight_1_0_beta_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_shared_1_0_beta_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_provider_api_1_0_beta_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_1_0_beta_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_common_1_0_beta_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_external_1_0_beta_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_thrift_libthrift_0_6_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_4_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_4_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_archiver_2_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_container_default_1_0_alpha_9_stable_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_interactivity_api_1_0_alpha_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_interpolation_1_15.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_io_2_0_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_3_0_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_4_0_4_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_4_3_5_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_18_1_GA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_1_1_0_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_3_GA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_annotations_1_2_0_Beta1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_0_0_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_6_1_22.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_22.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_servlet_api_2_5_20081211.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_5_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_plexus_plexus_build_api_0_0_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_0_5_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_0_5_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_0_5_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_0_5_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_0_5_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_0_5_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_0_5_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_0_5_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_tukaani_xz_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xmlpull_xmlpull_1_1_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xpp3_xpp3_min_1_1_4c.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleConditionDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleConditionNeighboursDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionNeighboursDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleResultDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleResultNeighboursDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultNeighboursDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/RuleServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/StateDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/StateDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/State/impl/StateServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/UserDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/UserDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/impl/UserServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/WorldDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/WorldDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/WorldRulesDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/WorldRulesDaoImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/World/impl/WorldServiceImpl.java" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\base\EntityDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\CoordinateDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\RuleConditionDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\RuleDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\RuleconditionneighboursDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\RuleresultDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\RuleresultneighboursDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\StateDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\UserDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\WorldDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\WorldrulesDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\src\test\java\Web_ca\AppTest.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\Coordinate\impl\CoordinateService.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Coordinate/base/CoordinateService.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\Rule\impl\RuleService.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/base/RuleService.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\State\impl\StateService.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/State/base/StateService.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\User\impl\UserService.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/base/UserService.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\World\impl\WorldService.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/World/base/WorldService.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Data_Access\src\main\java\za\co\tera\data_access\impl\DirectionDAO.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/base/impl/AbstractDaoImpl.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\Coordinate.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Coordinate.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\Rule.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Rule.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\Rulecondition.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Rulecondition.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\Ruleconditionneighbours.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleconditionneighbours.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\Ruleresult.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresult.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\Ruleresultneighbours.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresultneighbours.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\State.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/State.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\User.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/User.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\World.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/World.java" />
+      <change type="MOVED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main\java\za\co\tera\Domain\impl\Worldrules.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Worldrules.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Coordinate.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Coordinate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/CoordinateDAO.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/CoordinateDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/Data_Access.iml" afterPath="$PROJECT_DIR$/Data_Access/Data_Access.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/DirectionDAO.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/DirectionDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/Domain.iml" afterPath="$PROJECT_DIR$/Domain/Domain.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/base/EntityDAO.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/base/EntityDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Business/src/test/java/Business/Main.java" afterPath="$PROJECT_DIR$/Business/src/test/java/Business/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/Main.java" afterPath="$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Rule.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Rule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/Presentation.iml" afterPath="$PROJECT_DIR$/Presentation/Presentation.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/RuleController.java" afterPath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/RuleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleDAO.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Rulecondition.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/Rulecondition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/State.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/State.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/StateController.java" afterPath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/StateController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/StateDAO.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/StateDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/User.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/UserController.java" afterPath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/UserDAO.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/World.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/Domain/impl/World.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/WorldController.java" afterPath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/WorldController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/WorldDAO.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/WorldDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/Data_Access/src/main/resources/hibernate.cfg.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/Domain/META-INF/persistence.xml" />
@@ -190,145 +205,110 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WorldrulesDAO.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/WorldrulesDAO.java">
+      <file leaf-file-name="test.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/test.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+            <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="459">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DirectionDAO.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/DirectionDAO.java">
+      <file leaf-file-name="register.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/register.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1224">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state vertical-scroll-proportion="-15.692307" vertical-offset="153" max-vertical-offset="2074">
+              <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoordinateDAO.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/CoordinateDAO.java">
+      <file leaf-file-name="AbstractDaoImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/base/impl/AbstractDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23247863" vertical-offset="0" max-vertical-offset="585">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="1836">
+              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1949#1950#0" expanded="true" />
+                <element signature="e#2003#2004#0" expanded="true" />
+                <element signature="e#2093#2094#0" expanded="true" />
+                <element signature="e#2125#2126#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="persistence.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Domain/META-INF/persistence.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4089347" vertical-offset="0" max-vertical-offset="582">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data_Access/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="2142">
-              <caret line="6" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/login.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2244">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoordinateService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/Coordinate/impl/CoordinateService.java">
+      <file leaf-file-name="Data_Access.iml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data_Access/Data_Access.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/AppTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="2465">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#369#370#0" expanded="true" />
-                <element signature="e#430#431#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#616#617#0" expanded="true" />
-                <element signature="e#676#677#0" expanded="true" />
-                <element signature="e#728#729#0" expanded="true" />
-                <element signature="e#773#774#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RuleService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/Rule/impl/RuleService.java">
+      <file leaf-file-name="users.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/users.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.1929824" vertical-offset="136" max-vertical-offset="782">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#309#310#0" expanded="true" />
-                <element signature="e#352#353#0" expanded="true" />
-                <element signature="e#400#401#0" expanded="true" />
-                <element signature="e#439#440#0" expanded="true" />
-                <element signature="e#490#491#0" expanded="true" />
-                <element signature="e#538#539#0" expanded="true" />
-                <element signature="e#578#579#0" expanded="true" />
-                <element signature="e#617#618#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="289">
+              <caret line="1" column="52" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StateService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/State/impl/StateService.java">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="782">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#323#324#0" expanded="true" />
-                <element signature="e#369#370#0" expanded="true" />
-                <element signature="e#420#421#0" expanded="true" />
-                <element signature="e#461#462#0" expanded="true" />
-                <element signature="e#515#516#0" expanded="true" />
-                <element signature="e#565#566#0" expanded="true" />
-                <element signature="e#607#608#0" expanded="true" />
-                <element signature="e#647#648#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/User/impl/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="629">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#325#326#0" expanded="true" />
-                <element signature="e#368#369#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorldService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/World/impl/WorldService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#318#319#0" expanded="true" />
-                <element signature="e#364#365#0" expanded="true" />
-                <element signature="e#415#416#0" expanded="true" />
-                <element signature="e#456#457#0" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-                <element signature="e#560#561#0" expanded="true" />
-                <element signature="e#602#603#0" expanded="true" />
-                <element signature="e#642#643#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -347,57 +327,57 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/State/StateEntityManager.java" />
-        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/User/UserEntityManager.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/Main.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/input.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/data.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/style.css" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/index/IndexController.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/user/UserController.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/statescript.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/welcome.jsp" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/app2.jsp" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/StateController.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/home.jsp" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/app2.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/statescript.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/userscript.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/rulescript.jsp" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/ruleScript.js" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionNeighboursDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultNeighboursDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/StateDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/WorldDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleConditionDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleConditionNeighboursDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleResultDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleResultNeighboursDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/StateDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/WorldDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/WorldRulesDao.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/CoordinateDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionNeighboursDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/StateDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/WorldDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/WorldRulesDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Worldrules.java" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultNeighboursDaoImpl.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/CoordinateService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/StateService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/b/StateService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/Rule/RuleService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/Rule/base/RuleService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Coordinate/base/CoordinateService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/base/RuleService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/RuleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Coordinate/impl/CoordinateServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/State/base/StateService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/State/impl/StateServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/base/UserService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/World/base/WorldService.java" />
+        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/World/impl/WorldServiceImpl.java" />
         <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/RuleController.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/test.jsp" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/StateController.java" />
         <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/WorldController.java" />
-        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/World/WorldEntityManager.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/users.jsp" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index2.jsp" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/register.jsp" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/app.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/IndexController.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/data_access/impl/WorldDAO.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/login.jsp" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp" />
+        <option value="$PROJECT_DIR$/Business/src/test/java/Business/Main.java" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/users.jsp" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/register.jsp" />
+        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/base/impl/AbstractDaoImpl.java" />
         <option value="$PROJECT_DIR$/Domain/META-INF/persistence.xml" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/resources/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/CoordinateDAO.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleconditionDAO.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleconditionneighboursDAO.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleDAO.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleresultneighboursDAO.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/StateDAO.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/UserDAO.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/WorldDAO.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/WorldrulesDAO.java" />
-        <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleresultDAO.java" />
-        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/World/WorldService.java" />
-        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/User/UserService.java" />
-        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/State/StateService.java" />
-        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/Rule/RuleService.java" />
-        <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/Coordinate/CoordinateService.java" />
       </list>
     </option>
   </component>
@@ -433,8 +413,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1186" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -492,6 +472,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -500,81 +481,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Business" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Business" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Business" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Business" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -607,7 +515,7 @@
     <property name="options.splitter.main.proportions" value="0.15288714" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/Domain/src/main/java" />
     <property name="JPA.DatabaseSchemaImportDialog" value="88f806e9-2673-4553-9ae6-105d3a3cb27c" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
@@ -618,28 +526,28 @@
       <recent name="za.co.tera.presentation.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\World" />
-      <recent name="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\User" />
-      <recent name="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\State" />
-      <recent name="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\Rule" />
-      <recent name="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\za\co\tera\Business\Coordinate" />
+      <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp" />
+      <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\World" />
+      <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\State" />
+      <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\Rule" />
+      <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main\java\Coordinate" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="za.co.tera.domain.impl" />
       <recent name="za.co.tera.Data_Access.impl" />
       <recent name="za.co.tera.Domain.impl" />
       <recent name="za.co.tera.web_ca.domain.layer" />
       <recent name="Domain.java.impl" />
-      <recent name="Domain.impl" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Domain.java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Business\src\main" />
+      <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Domain\src\main" />
       <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\js" />
       <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\img" />
       <recent name="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\WEB-INF" />
-      <recent name="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp" />
-      <recent name="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\js" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Runner">
@@ -756,6 +664,28 @@
           <artifact name="Presentation:war" />
         </option>
       </method>
+    </configuration>
+    <configuration default="false" name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Business.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Business.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Business" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -998,12 +928,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -1022,6 +946,12 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -1136,19 +1066,21 @@
         </option>
       </method>
     </configuration>
-    <list size="6">
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.Web" />
       <item index="2" class="java.lang.String" itemvalue="Tomcat Server.Runner" />
       <item index="3" class="java.lang.String" itemvalue="Maven.Presentation [tomcat7:run]" />
       <item index="4" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp" />
       <item index="5" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp (1)" />
+      <item index="6" class="java.lang.String" itemvalue="Application.Main (1)" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp" />
-        <item index="2" class="java.lang.String" itemvalue="Maven.Presentation [tomcat7:run]" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp" />
+        <item index="3" class="java.lang.String" itemvalue="Maven.Presentation [tomcat7:run]" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1226,6 +1158,11 @@
       <workItem from="1405291745831" duration="1045000" />
       <workItem from="1405331198554" duration="111000" />
       <workItem from="1405331333809" duration="3136000" />
+      <workItem from="1405342298501" duration="258000" />
+      <workItem from="1405342651417" duration="166000" />
+      <workItem from="1405342836600" duration="1915000" />
+      <workItem from="1405358660800" duration="856000" />
+      <workItem from="1405359585885" duration="15897000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1363,7 +1300,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215570000" />
+    <option name="totallyTimeSpent" value="234662000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1386,80 +1323,44 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1186" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26207906" sideWeight="0.3600629" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2657082" sideWeight="0.3613707" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19472913" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33226836" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32102728" sideWeight="0.22205438" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32037914" sideWeight="0.22205438" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16211878" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26207906" sideWeight="0.6399371" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4371069" sideWeight="0.77794564" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2657082" sideWeight="0.63707167" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43696684" sideWeight="0.77794564" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22012578" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21990521" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5778491" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5616" sideWeight="0.36609337" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39146918" sideWeight="0.8895613" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31722054" sideWeight="0.22829582" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49839228" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17296073" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39146918" sideWeight="0.8895613" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24312268" sideWeight="0.43396226" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6368" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32102728" sideWeight="0.22205438" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16211878" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31722054" sideWeight="0.7717042" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5008026" sideWeight="0.77794564" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22052068" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5778491" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5616" sideWeight="0.36609337" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3916533" sideWeight="0.8895613" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31722054" sideWeight="0.22829582" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49839228" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17296073" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1500,7 +1401,8 @@
     <MESSAGE value="User Register and users view included into index2" />
     <MESSAGE value="Worlds, Rules and States get in collapsible entity, with additional views and supporting files" />
     <MESSAGE value="Changed Data_Access &quot;World&quot; getAll objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed Data_Access &quot;World&quot; getAll objects" />
+    <MESSAGE value="Structure implemented to work wih dependency injection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Structure implemented to work wih dependency injection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1516,205 +1418,520 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Domain/META-INF/persistence.xml">
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleConditionNeighboursDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="8" column="87" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/StateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/WorldDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/CoordinateDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#442#443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionNeighboursDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/StateDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="9" column="76" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/WorldDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/WorldRulesDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="9" column="65" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2023">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/resources/hibernate.cfg.xml">
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Worldrules.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/WorldRulesDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultNeighboursDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="9" column="64" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Coordinate/base/CoordinateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Coordinate/impl/CoordinateServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="260" max-vertical-offset="816">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#733#734#0" expanded="true" />
+            <element signature="e#815#816#0" expanded="true" />
+            <element signature="e#867#868#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/base/RuleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/State/base/StateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/RuleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="35" max-vertical-offset="816">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/State/impl/StateServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="816">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#703#704#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#800#801#0" expanded="true" />
+            <element signature="e#844#845#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/World/base/WorldService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/World/impl/WorldServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="799">
+          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#705#706#0" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+            <element signature="e#791#792#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="21" column="38" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/RuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="561">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/WorldController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="595">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="547">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/userscript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/statescript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="547">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="547">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/test/java/Business/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/base/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Business/src/test/java/Business/AppTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleconditionneighboursDAO.java">
+    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="612">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/StateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="595">
+          <caret line="25" column="12" selection-start-line="16" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleconditionDAO.java">
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleresultDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/RuleresultneighboursDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/StateDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/WorldDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/WorldrulesDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/DirectionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="2142">
-          <caret line="6" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="833">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2244">
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="2244">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2142">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/World/impl/WorldService.java">
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="459">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/users.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="289">
+          <caret line="1" column="52" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.692307" vertical-offset="153" max-vertical-offset="2074">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/Data_Access.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/AppTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="2465">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#456#457#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#560#561#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/User/impl/UserService.java">
+    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/base/impl/AbstractDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="629">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="1836">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#325#326#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#1949#1950#0" expanded="true" />
+            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="e#2093#2094#0" expanded="true" />
+            <element signature="e#2125#2126#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/State/impl/StateService.java">
+    <entry file="file://$PROJECT_DIR$/Domain/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="782">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#515#516#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/Rule/impl/RuleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1929824" vertical-offset="136" max-vertical-offset="782">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#617#618#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/Business/Coordinate/impl/CoordinateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/Data_Access/impl/CoordinateDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23247863" vertical-offset="0" max-vertical-offset="585">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4089347" vertical-offset="0" max-vertical-offset="582">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>

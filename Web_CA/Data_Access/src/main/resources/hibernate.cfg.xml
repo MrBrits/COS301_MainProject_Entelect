@@ -9,17 +9,16 @@
     <property name="connection.username">root</property>
     <property name="connection.password"></property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
-      <mapping class="za.co.tera.Data_Access.impl.CoordinateDAO"/>
-      <mapping class="za.co.tera.Data_Access.impl.RuleDAO"/>
-      <mapping class="za.co.tera.Data_Access.impl.RuleconditionDAO"/>
-      <mapping class="za.co.tera.Data_Access.impl.RuleconditionneighboursDAO"/>
-      <mapping class="za.co.tera.Data_Access.impl.RuleresultDAO"/>
-      <mapping class="za.co.tera.Data_Access.impl.RuleresultneighboursDAO"/>
-      <mapping class="za.co.tera.Data_Access.impl.StateDAO"/>
-      <mapping class="za.co.tera.Data_Access.impl.UserDAO"/>
-      <mapping class="za.co.tera.Data_Access.impl.WorldDAO"/>
-      <mapping class="za.co.tera.Data_Access.impl.WorldrulesDAO"/>
-
+      <mapping class="za.co.tera.web_ca.domain.impl.Coordinate"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Rule"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Rulecondition"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Ruleconditionneighbours"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Ruleresult"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Ruleresultneighbours"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.State"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.User"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.World"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Worldrules"/>
       <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>

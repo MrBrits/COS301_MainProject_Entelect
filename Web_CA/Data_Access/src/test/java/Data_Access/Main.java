@@ -1,11 +1,25 @@
 package Data_Access;
 
+import za.co.tera.web_ca.data_access.UserDao;
+import za.co.tera.web_ca.data_access.impl.UserDaoImpl;
+import za.co.tera.web_ca.domain.impl.User;
+
 public class Main {
 
     //Used for logging of something
     //private static final Logger LOGGER = LoggerFactory.getLogger(Web_ca.class);
 
     public static void main(final String[] args) throws Exception {
+
+        UserDao userDao = new UserDaoImpl();
+
+            User user = userDao.findById(1);
+        System.out.println(user.getUserFirstName());
+        user.setUserLastName("poep");
+        userDao.delete(user);
+
+
+
         /*Configuration configuration = new Configuration();
         configuration.configure();
 

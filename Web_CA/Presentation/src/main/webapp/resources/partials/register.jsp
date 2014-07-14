@@ -12,7 +12,7 @@
                 </div>
                 <div id="state" class="panel-collapse collapse">
                     <div ng-controller="StateGetCtr">
-                        <input class="form-control" placeholder="Search za.co.tera.Business.State" ng-model="search.stateName"/>
+                        <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
                         <table class="table">
                             <tr ng-repeat="state in states | filter:search">
                                 <td><button type="button" ng-style="{'background-color':state.stateRgb}" class="btn btn-default btn-lg" ></button> <label>{{state.stateName}}</label><br>
@@ -32,7 +32,7 @@
                 </div>
                 <div id="rule" class="panel-collapse collapse">
                     <div ng-controller="RuleGetCtr">
-                        <input class="form-control" placeholder="Search za.co.tera.Business.Rule" ng-model="search.ruleName"/>
+                        <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
                         <table class="table">
                             <tr ng-repeat="rule in rules | filter:search">
                                 <td><button type="button" class="btn btn-default btn-lg" ></button> <label>{{rule.ruleName}}</label><br>
@@ -52,7 +52,7 @@
                 </div>
                 <div id="world" class="panel-collapse collapse">
                     <div ng-controller="WorldGetCtr">
-                        <input class="form-control" placeholder="Search za.co.tera.Business.World" ng-model="search.worldName"/>
+                        <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
                                 <td><button type="button" class="btn btn-default btn-lg" ></button> <label>{{world.worldName}}</label><br>

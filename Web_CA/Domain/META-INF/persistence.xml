@@ -2,16 +2,16 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="DomainPersistenceUnit">
-        <class>za.co.tera.Domain.impl.za.co.tera.Business.Coordinate</class>
-        <class>za.co.tera.Domain.impl.za.co.tera.Business.Rule</class>
-        <class>za.co.tera.Domain.impl.za.co.tera.Business.State</class>
-        <class>za.co.tera.Domain.impl.za.co.tera.Business.User</class>
-        <class>za.co.tera.Domain.impl.za.co.tera.Business.World</class>
-        <class>za.co.tera.Domain.impl.Rulecondition</class>
-        <class>za.co.tera.Domain.impl.Ruleconditionneighbours</class>
-        <class>za.co.tera.Domain.impl.Ruleresult</class>
-        <class>za.co.tera.Domain.impl.Ruleresultneighbours</class>
-        <class>za.co.tera.Domain.impl.Worldrules</class>
+        <class>za.co.tera.web_ca.domain.impl.Coordinate</class>
+        <class>za.co.tera.web_ca.domain.impl.Rule</class>
+        <class>za.co.tera.web_ca.domain.impl.State</class>
+        <class>za.co.tera.web_ca.domain.impl.User</class>
+        <class>za.co.tera.web_ca.domain.impl.World</class>
+        <class>za.co.tera.web_ca.domain.impl.Rulecondition</class>
+        <class>za.co.tera.web_ca.domain.impl.Ruleconditionneighbours</class>
+        <class>za.co.tera.web_ca.domain.impl.Ruleresult</class>
+        <class>za.co.tera.web_ca.domain.impl.Ruleresultneighbours</class>
+        <class>za.co.tera.web_ca.domain.impl.Worldrules</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/web_ca"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
