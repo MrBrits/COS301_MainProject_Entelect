@@ -1,11 +1,14 @@
 var web_ca = angular.module('user_app', []);
 
-web_ca.controller("UserSetCtr", function($http) {
+var site = "localhost:8080";
+var mainUser;
+
+web_ca.controller("UserRegisterController", function($http) {
     var app = this;
-    app.addUser = function(user) {
-        user.userRole="User";
-        alert(JSON.stringify(user))
-        $http.post("http://localhost:8080/UserSet",user)
+    app.addUser = function(userReg) {
+        userReg.userRole="User";
+        alert(JSON.stringify(userReg));
+        $http.post("http://" + site + "/UserSet",userReg)
             .success(function(data) {
                 alert(data);
             }).error(function () {
@@ -13,6 +16,28 @@ web_ca.controller("UserSetCtr", function($http) {
             });
     };
 });
+
+web_ca.controller("UserLoginController", function($http) {
+    var app = this;
+    app.loginUser = function(userLogin) {
+        $http.post("http://" + site + "/UserLogin",userLogin)
+            .success(function(data) {
+                if (data == "")
+                {
+                    alert("Invalid credentials.");
+                }
+                else
+                {
+                    mainUser = data;
+                    window.open("index/" + data.userId,"_self");
+                }
+
+            }).error(function () {
+                alert("SERVER ERROR");
+            });
+    };
+});
+
 web_ca.controller("UserGetCtr", function ($scope, $http) {
     var app = this;
 
@@ -24,3 +49,8 @@ web_ca.controller("UserGetCtr", function ($scope, $http) {
 
         });
 });
+function getStuff()
+{
+
+    alert(JSON.stringify(mainUser));
+}

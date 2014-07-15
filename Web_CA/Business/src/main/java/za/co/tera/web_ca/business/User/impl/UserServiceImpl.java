@@ -34,9 +34,13 @@ public class UserServiceImpl implements UserService{
         userDAO.save(updateUser);
     }
 
-    public User findUser(int ID)
+    public User findUserById(int ID)
     {
         return userDAO.findById(ID);
+    }
+
+    public User loginUser(User loginUser){
+         return userDAO.loginUser(loginUser.getUserEmail(), loginUser.getUserPassword());
     }
 
     public List<User> findAllUsers()

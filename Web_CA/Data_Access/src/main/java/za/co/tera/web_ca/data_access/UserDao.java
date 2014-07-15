@@ -10,6 +10,6 @@ public interface UserDao extends AbstractDao<User> {
     public boolean validateRegistrarEmail(User user);
     public String getUserEmail(int id);
     public String getFullName(int id);
-    public Boolean validateLogin(String userEmail,String userPassword);
+    public User loginUser(String userEmail,String userPassword);
 
 }

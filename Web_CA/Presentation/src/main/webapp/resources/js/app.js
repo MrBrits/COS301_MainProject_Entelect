@@ -20,7 +20,7 @@ web_ca.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'resources/partials/register.jsp/#rule'
         })
         .otherwise({
-            redirectTo : '/home'
+            redirectTo : '/'
         })
 
 

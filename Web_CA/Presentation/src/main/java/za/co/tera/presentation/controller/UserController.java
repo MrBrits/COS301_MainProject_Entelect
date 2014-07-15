@@ -33,4 +33,11 @@ public class UserController {
         else
             return user.getUserEmail() + " already registered.";
     }
+
+    @RequestMapping(value = "/UserLogin", method = RequestMethod.POST)
+    public @ResponseBody
+    User loginUser(@RequestBody User user)
+    {
+        return userService.loginUser(user);
+    }
 }

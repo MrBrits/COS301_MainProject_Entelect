@@ -63,19 +63,20 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao {
      *                      FALSE->If validation was unsuccessful
      */
     @Override
-    public Boolean validateLogin(String userEmail, String userPassword) {
-
-        boolean valid = true;
+    public User loginUser(String userEmail, String userPassword) {
         Session session= getSession();
         Query query = session.createQuery("From User user where user.userEmail = :userEmail and  user.userPassword = :userPassword");
         query.setParameter("userEmail", userEmail);
         query.setParameter("userPassword", userPassword);
         List<User> userList = query.list();
-        if (userList.isEmpty())
-            valid = false;
 
-        return valid;
+        if (userList.isEmpty()) {
+            System.out.println("NULL");
+            return null;
 
+        }
+        else
+            return userList.get(0);
     }
 
 

@@ -1,8 +1,5 @@
 package Data_Access;
 
-import za.co.tera.web_ca.data_access.UserDao;
-import za.co.tera.web_ca.data_access.impl.UserDaoImpl;
-
 public class Main {
 
     //Used for logging of something
@@ -10,8 +7,7 @@ public class Main {
 
     public static void main(final String[] args) throws Exception {
 
-        UserDao userDao = new UserDaoImpl();
-        System.out.println(userDao.validateLogin("evf","efv"));
+
 
 
 
