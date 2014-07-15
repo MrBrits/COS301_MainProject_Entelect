@@ -35,8 +35,10 @@ public class UserController {
     }
     @RequestMapping(value = "/UserSet", method = RequestMethod.POST)
     public @ResponseBody
-    void createUser(@RequestBody User user) {
-        System.out.println("reached");
-        userService.createUser(user);
+    String createUser(@RequestBody User user) {
+        if (userService.createUser(user))
+            return "User: " + user.getUserFirstName() + " successfully registered.";
+        else
+            return user.getUserEmail() + " already registered.";
     }
 }

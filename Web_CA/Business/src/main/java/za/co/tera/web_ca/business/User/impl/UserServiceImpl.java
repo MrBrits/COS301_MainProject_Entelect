@@ -14,9 +14,14 @@ public class UserServiceImpl implements UserService{
 
    private UserDao userDAO = new UserDaoImpl();
 
-    public void createUser(User newUser)
+    public boolean createUser(User newUser)
     {
-        userDAO.save(newUser);
+        if (userDAO.validateRegistrarEmail(newUser)) {
+            userDAO.save(newUser);
+            return true;
+        }
+        else
+            return false;
     }
 
     public void deleteUser(User delUser)

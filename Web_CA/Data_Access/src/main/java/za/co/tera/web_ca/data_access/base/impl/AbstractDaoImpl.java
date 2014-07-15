@@ -68,7 +68,7 @@ public class AbstractDaoImpl<T extends Serializable> implements AbstractDao<T>
     @Override
     public List<T> findAll() {
         Session session= getSession();
-        Query query = session.createQuery("from "+type.getSimpleName());
+        Query query = session.createQuery("from " + type.getSimpleName());
         List<T> objects = query.list();
         return objects;
     }

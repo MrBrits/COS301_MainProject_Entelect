@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface UserService {
 
-    public void createUser(User newUser);
+    public boolean createUser(User newUser);
     public void deleteUser(User delUser);
     public void updateUser(User updateUser);
     public User findUser(int ID);

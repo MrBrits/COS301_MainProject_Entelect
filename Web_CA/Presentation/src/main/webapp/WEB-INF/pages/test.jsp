@@ -17,9 +17,9 @@
             user.userRole="User";
             $http.post("http://localhost:8080/UserSet",user)
                     .success(function(data) {
-                        alert("Saved");
+                        alert("WIN");
                     }).error(function () {
-                        alert("fail");
+                        alert("SERVER ERROR");
                     });
         };
         });

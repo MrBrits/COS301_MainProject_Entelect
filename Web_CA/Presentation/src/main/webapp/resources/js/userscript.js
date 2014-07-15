@@ -7,9 +7,9 @@ web_ca.controller("UserSetCtr", function($http) {
         alert(JSON.stringify(user))
         $http.post("http://localhost:8080/UserSet",user)
             .success(function(data) {
-                alert("Saved");
+                alert(data);
             }).error(function () {
-                alert("fail");
+                alert("SERVER ERROR");
             });
     };
 });
