@@ -10,7 +10,7 @@
                         </a>
                     </h4>
                 </div>
-                <div id="state" class="panel-collapse collapse">
+               <!-- <div id="state" class="panel-collapse collapse">
                     <div ng-controller="StateGetCtr">
                         <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
                         <table class="table">
@@ -20,7 +20,7 @@
                             </tr>
                         </table>
                     </div>
-                </div>
+                </div>-->
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -51,7 +51,7 @@
                     </h4>
                 </div>
                 <div id="world" class="panel-collapse collapse">
-                    <div ng-controller="WorldGetCtr">
+                   <!-- <div ng-controller="WorldGetCtr">
                         <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
@@ -59,7 +59,7 @@
                                     <p>{{world.worldDesc}}</p>  </td>
                             </tr>
                         </table>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

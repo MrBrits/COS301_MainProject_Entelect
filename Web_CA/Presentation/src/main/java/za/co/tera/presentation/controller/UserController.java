@@ -7,11 +7,13 @@ package za.co.tera.presentation.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import za.co.tera.web_ca.business.User.base.UserService;
 import za.co.tera.web_ca.business.User.impl.UserServiceImpl;
+import za.co.tera.web_ca.domain.impl.User;
 
 @Controller
 public class UserController {
@@ -31,20 +33,20 @@ public class UserController {
         }
         return jsonString;
     }
-   /* @RequestMapping(value = "/UserSet", method = RequestMethod.POST)
+    @RequestMapping(value = "/UserSet", method = RequestMethod.POST)
     public @ResponseBody
-    void createUser(@RequestBody String user) {
+    void createUser(@RequestBody User user) {
 
-        try {
+        /*try {
             ObjectMapper mapper = new ObjectMapper();
             User user1 = mapper.readValue(user, User.class);
-            userService.createUser(user1);
+
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-        }
-
-    }*/
+        }*/
+        userService.createUser(user);
+    }
 
 }

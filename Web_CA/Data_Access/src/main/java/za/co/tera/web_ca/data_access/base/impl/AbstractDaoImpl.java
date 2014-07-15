@@ -80,7 +80,7 @@ public class AbstractDaoImpl<T extends Serializable> implements AbstractDao<T>
             session.beginTransaction();
             session.saveOrUpdate(object);
             session.getTransaction().commit();
-            System.out.println("saved");
+
         }
     }
 

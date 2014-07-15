@@ -7,16 +7,36 @@
 <script src="resources/js/lib/angular.min.js"></script>
 <script src="resources/js/lib/angular-route.min.js"></script>
 <script src="resources/js/lib/angular-resource.min.js"></script>
-<script src="resources/js/rulescript.js"></script>
+    <script>
+        var web_ca = angular.module('app', []);
+
+
+        web_ca.controller("UserSetCtr", function($http) {
+        var app = this;
+        app.addUser = function(user) {
+            user.userRole="User";
+            $http.post("http://localhost:8080/UserSet",user)
+                    .success(function(data) {
+                        alert("Saved");
+                    }).error(function () {
+                        alert("fail");
+                    });
+        };
+        });
+    </script>
 </head>
 <body>
-<div ng-controller="WorldGetCtr">
-    <table class="table">
-        <tr ng-repeat="world in worlds">
-            <td><button type="button" class="btn btn-default btn-lg" ></button> <label>{{world.worldName}}</label><br>
-                <p>{{world.worldDesc}}</p>  </td>
-        </tr>
-    </table>
+<div >
+    <div  ng-controller="UserSetCtr as app">
+
+        <label>firstName</label><input type ="text" ng-model="app.person.userFirstName"/><br>
+        <label>lastName</label><input type ="text" ng-model="app.person.userLastName"/><br>
+        <label>email</label><input type ="text" ng-model="app.person.userEmail"/><br>
+        <label>password</label><input type ="text" ng-model="app.person.userPassword"/><br>
+        <label></label><input type="button" ng-click="app.addUser(app.person)" /><br>
+        </div>
+
+
 </div>
 </body>
 </html>
