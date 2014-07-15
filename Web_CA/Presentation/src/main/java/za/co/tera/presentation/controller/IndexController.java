@@ -19,7 +19,7 @@ public class IndexController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView getIndex2(ModelMap model) {
 
-        return new ModelAndView("test");
+        return new ModelAndView("index");
     }
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView getIndex(ModelMap model) {

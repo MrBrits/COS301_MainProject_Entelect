@@ -21,9 +21,9 @@
             <script src="resources/js/lib/angular-route.min.js"></script>
             <script src="resources/js/lib/angular-resource.min.js"></script>
             <script src="resources/js/app.js"></script>
-            <!--<script src="resources/js/statescript.js"></script>
+            <script src="resources/js/statescript.js"></script>
             <script src="resources/js/userscript.js"></script>
-            <script src="resources/js/worldscript.js"></script>-->
+            <script src="resources/js/worldscript.js"></script>
             <script src="resources/js/rulescript.js"></script>
 
         </head>
@@ -54,7 +54,7 @@
             </div>
         </div>
 
-       <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UserSetCtr as web_ca">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UserSetCtr as web_ca">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header modal-success">
@@ -102,15 +102,14 @@
                             <div class="form-group">
                                 <div class="col-xs-offset-2 col-xs-4">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" ng-click="web_ca.addUser(web_ca.user)">Register</button>
+                                    <button type="submit" class="btn btn-primary" ng-click="web_ca.addUser(web_ca.user)">Register</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>-->
-
+        </div>
 
 
         <div class = "container">

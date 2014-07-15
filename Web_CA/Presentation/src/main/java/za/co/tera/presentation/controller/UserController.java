@@ -36,17 +36,7 @@ public class UserController {
     @RequestMapping(value = "/UserSet", method = RequestMethod.POST)
     public @ResponseBody
     void createUser(@RequestBody User user) {
-
-        /*try {
-            ObjectMapper mapper = new ObjectMapper();
-            User user1 = mapper.readValue(user, User.class);
-
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }*/
+        System.out.println("reached");
         userService.createUser(user);
     }
-
 }

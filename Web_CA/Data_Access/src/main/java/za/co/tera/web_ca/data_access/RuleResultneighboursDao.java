@@ -6,5 +6,5 @@ import za.co.tera.web_ca.domain.impl.Ruleresultneighbours;
 /**
  * Created by Laptop on 7/14/2014.
  */
-public interface RuleResultNeighboursDao extends AbstractDao<Ruleresultneighbours> {
+public interface RuleResultneighboursDao extends AbstractDao<Ruleresultneighbours> {
 }

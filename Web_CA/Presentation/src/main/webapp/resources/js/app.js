@@ -1,4 +1,4 @@
-var web_ca = angular.module('web_ca', ['ngRoute','rule_app']);
+var web_ca = angular.module('web_ca', ['ngRoute','rule_app', 'user_app', 'world_app', 'state_app']);
 web_ca.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
         when('/home', {

@@ -2,18 +2,14 @@ var web_ca = angular.module('user_app', []);
 
 web_ca.controller("UserSetCtr", function($http) {
     var app = this;
-
     app.addUser = function(user) {
-
-        var User = user;
-        User.userRole="User";
-        var jsonstr = JSON.stringify(User);
-
-        $http.post("http://localhost:8080/createUser",jsonstr)
+        user.userRole="User";
+        alert(JSON.stringify(user))
+        $http.post("http://localhost:8080/UserSet",user)
             .success(function(data) {
                 alert("Saved");
             }).error(function () {
-
+                alert("fail");
             });
     };
 });
