@@ -47,6 +47,7 @@
                       <!--  <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');" href = "#/register" data-toggle="pill" roll="tab">Register</a></li>-->
                         <li><a onclick = "$(this).parent().parent().find('.active').removeClass('active'); $(this).parent().addClass('active');"  href="#/user" data-toggle="pill" roll="tab">Users</a></li>
                     </ul>
+
                     <form class="navbar-form navbar-right" role="form">
                         <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Logout</button>
                     </form>
