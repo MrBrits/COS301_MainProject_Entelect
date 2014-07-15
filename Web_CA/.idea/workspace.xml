@@ -8,20 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/main.jsp" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\WEB-INF\pages\login.jsp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\WEB-INF\pages\test.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/IndexController.java" afterPath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/IndexController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/Main.java" afterPath="$PROJECT_DIR$/Data_Access/src/test/java/Data_Access/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/UserController.java" afterPath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/UserDao.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/UserDaoImpl.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/UserDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/base/UserService.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/base/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/User/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/app.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/home.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/userscript.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/userscript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Web_CA.iws" />
@@ -1558,7 +1544,7 @@
       <workItem from="1405428028086" duration="3020000" />
       <workItem from="1405431216053" duration="6408000" />
       <workItem from="1405437680994" duration="312000" />
-      <workItem from="1405438077356" duration="4804000" />
+      <workItem from="1405438077356" duration="4856000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1704,11 +1690,15 @@
       <created>1405434070102</created>
       <updated>1405434070102</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="User Login">
+      <created>1405442902465</created>
+      <updated>1405442902465</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261151000" />
+    <option name="totallyTimeSpent" value="261203000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1785,7 +1775,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Hibernate moved to Domain" />
     <MESSAGE value="Domain Package" />
     <MESSAGE value="Data Access" />
     <MESSAGE value="Hibernate is working now" />
@@ -1810,7 +1799,8 @@
     <MESSAGE value="JSON object get/post" />
     <MESSAGE value="Form submission working" />
     <MESSAGE value="Registrar Email Validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registrar Email Validation" />
+    <MESSAGE value="User Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="User Login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
