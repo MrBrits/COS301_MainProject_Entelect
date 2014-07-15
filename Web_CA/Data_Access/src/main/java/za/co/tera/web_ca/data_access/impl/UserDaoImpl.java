@@ -31,7 +31,7 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao {
         String userEmail = user.getUserEmail();
 
         Session session= getSession();
-        Query query = session.createQuery("From User use where use.userEmail = :userEmail");
+        Query query = session.createQuery("From User user where user.userEmail = :userEmail");
         query.setParameter("userEmail", userEmail);
         List<User> userList = query.list();
 
@@ -50,5 +50,33 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao {
     public String getFullName(int id) {
         return null;
     }
+
+        /*
+     * Checks the database to see if the users email exist
+     * and corresponds to the email. If the pair corresponds TRUE
+     * returned else FALSE is returned.
+     *
+     * @param userEmail - a String email is supplied when logging in
+     * @param userPassword - a String password is supplied when logging in
+     *
+     * @return boolean -    TRUE->If validation was successful
+     *                      FALSE->If validation was unsuccessful
+     */
+    @Override
+    public Boolean validateLogin(String userEmail, String userPassword) {
+
+        boolean valid = true;
+        Session session= getSession();
+        Query query = session.createQuery("From User user where user.userEmail = :userEmail and  user.userPassword = :userPassword");
+        query.setParameter("userEmail", userEmail);
+        query.setParameter("userPassword", userPassword);
+        List<User> userList = query.list();
+        if (userList.isEmpty())
+            valid = false;
+
+        return valid;
+
+    }
+
 
 }

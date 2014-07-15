@@ -2,7 +2,6 @@ package Data_Access;
 
 import za.co.tera.web_ca.data_access.UserDao;
 import za.co.tera.web_ca.data_access.impl.UserDaoImpl;
-import za.co.tera.web_ca.domain.impl.User;
 
 public class Main {
 
@@ -12,11 +11,8 @@ public class Main {
     public static void main(final String[] args) throws Exception {
 
         UserDao userDao = new UserDaoImpl();
+        System.out.println(userDao.validateLogin("evf","efv"));
 
-            User user = userDao.findById(1);
-        System.out.println(user.getUserFirstName());
-        user.setUserLastName("poep");
-        userDao.delete(user);
 
 
 

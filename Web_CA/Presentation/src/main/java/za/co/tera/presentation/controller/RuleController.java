@@ -18,31 +18,18 @@ import java.util.List;
 
 @Controller
 public class RuleController {
+
     RuleService ruleService = new RuleServiceImpl();
+
     @RequestMapping(value = "/getAllRules", method = RequestMethod.GET)
     public @ResponseBody List<Rule> getAllRules( ModelMap model ) {
         return ruleService.findAllRules();
     }
-    /*@RequestMapping(value = "/postRule/{postId}/{username}", method = RequestMethod.GET)
-    public @ResponseBody void upVote(
-            @PathVariable(value = "postId") int postId,
-            @PathVariable(value = "username") String username) {
 
-        postRatingService.upVote(postId, username);
-    }*/
     @RequestMapping(value = "/postRule", method = RequestMethod.POST)
     public @ResponseBody void postRule(@RequestBody Rule rule) {
-
-        /*try {
-            ObjectMapper mapper = new ObjectMapper();
-            User user1 = mapper.readValue(user, User.class);
-            ruleService.createRule(rule);
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }*/
         ruleService.createRule(rule);
     }
+
    }
 
