@@ -8,7 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\js\indexscript.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Web_CA.iws" />
@@ -1194,7 +1193,7 @@
       <workItem from="1405437680994" duration="312000" />
       <workItem from="1405438077356" duration="4856000" />
       <workItem from="1405587641621" duration="19200000" />
-      <workItem from="1405616833421" duration="1011000" />
+      <workItem from="1405616833421" duration="1125000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1348,11 +1347,15 @@
       <created>1405617857822</created>
       <updated>1405617857822</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="User main page working with id and displaying name">
+      <created>1405617890030</created>
+      <updated>1405617890030</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281414000" />
+    <option name="totallyTimeSpent" value="281528000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
