@@ -5,7 +5,7 @@ web_ca.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'resources/partials/home.jsp'
         })
         .when('/register', {
-            templateUrl: 'resources/partials/register.jsp'
+            templateUrl: 'resources/partials/home.jsp'
         })
         .when('/user', {
             templateUrl: 'resources/partials/users.jsp'
@@ -20,8 +20,7 @@ web_ca.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'resources/partials/register.jsp/#rule'
         })
         .otherwise({
-            redirectTo : '/'
-        })
+            redirectTo : '/home' })
 
 
 }]);

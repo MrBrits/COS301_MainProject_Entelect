@@ -15,5 +15,5 @@ public interface WorldService {
     public void updateWorld(World updateWorld);
     public World findWorld(int ID);
     public List<World> findAllWorlds();
-
+    public List<World> findWorldByUserId(int ID);
 }

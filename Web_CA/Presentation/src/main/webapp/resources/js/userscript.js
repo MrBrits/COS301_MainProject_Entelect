@@ -30,6 +30,7 @@ web_ca.controller("UserLoginController", function($http) {
                 {
                     mainUser = data;
                     window.open("index/" + data.userId,"_self");
+
                 }
 
             }).error(function () {
@@ -49,8 +50,16 @@ web_ca.controller("UserGetCtr", function ($scope, $http) {
 
         });
 });
-function getStuff()
-{
+web_ca.controller("UserByIdGet", function ($scope, $http) {
+    var app = this;
 
-    alert(JSON.stringify(mainUser));
-}
+    $http.get("http://localhost:8080/getUserById/"+23)
+        .success(function (data) {
+           $scope.User = data;
+           // alert(JSON.stringify(data));
+         //   alert("done");
+
+        }).error(function () {
+            alert("error");
+        });
+});

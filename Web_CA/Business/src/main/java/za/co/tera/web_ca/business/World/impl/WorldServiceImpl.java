@@ -38,4 +38,10 @@ public class WorldServiceImpl implements WorldService{
         List<World> worldList = worldDAO.findAll();
         return  worldList;
     }
+
+    @Override
+    public List<World> findWorldByUserId(int ID) {
+        List<World> worldList = worldDAO.findWorldByUserId(ID);
+        return  worldList;
+    }
 }

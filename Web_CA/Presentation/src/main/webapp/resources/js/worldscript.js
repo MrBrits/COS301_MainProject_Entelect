@@ -8,6 +8,20 @@ web_ca.controller("WorldGetCtr", function ($scope, $http) {
             $scope.worlds = data;
 
         }).error(function () {
-            alert("fail");
+            alert("fail--world");
         });
+});
+
+web_ca.controller("GetWorldByUserId", function ($scope, $http) {
+    var app = this;
+
+    $http.get("http://localhost:8080/getWorldByUserId/"+23)
+        .success(function (data) {
+            $scope.worlds = data;
+
+
+        }).error(function () {
+            alert("error");
+        });
+
 });

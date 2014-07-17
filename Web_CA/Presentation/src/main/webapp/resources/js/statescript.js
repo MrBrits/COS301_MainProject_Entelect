@@ -6,8 +6,22 @@ web_ca.controller("StateGetCtr", function ($scope, $http) {
     $http.get("http://localhost:8080/getAllStates")
         .success(function (data) {
             $scope.states = data;
+            alert("done---state");
+        }).error(function () {
+            alert("fail---state");
+        });
+});
+web_ca.controller("GetStateByUserId", function ($scope, $http) {
+    var app = this;
+
+    $http.get("http://localhost:8080/getStateByUserId/"+23)
+        .success(function (data) {
+            $scope.states = data;
+            // alert(JSON.stringify(data));
+         //   alert("done");
 
         }).error(function () {
-            alert("fail");
+            alert("error");
         });
+
 });

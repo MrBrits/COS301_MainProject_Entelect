@@ -12,7 +12,7 @@ web_ca.controller("RuleGetCtr", function ($scope, $http) {
             $scope.rules = data;
 
         }).error(function () {
-            alert("fail");
+            alert("fail--rule");
         });
 });
 web_ca.controller("RuleSetCtr", function ($scope, $http) {
@@ -27,4 +27,18 @@ web_ca.controller("RuleSetCtr", function ($scope, $http) {
      alert("fail");
      });*/
     alert("Ddf");
+});
+web_ca.controller("GetRuleByUserId", function ($scope, $http) {
+    var app = this;
+
+    $http.get("http://localhost:8080/getRuleByUserId/"+23)
+        .success(function (data) {
+            $scope.rules = data;
+            // alert(JSON.stringify(data));
+            //   alert("done");
+
+        }).error(function () {
+            alert("error");
+        });
+
 });

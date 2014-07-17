@@ -13,6 +13,7 @@ public interface StateService {
     public void createState(State newState);
     public void deleteState(State delState);
     public void updateState(State updateState);
+    public List<State> findStateByUserId(int ID);
     public State findState(int ID);
     public List<State> findAllStates();
 }

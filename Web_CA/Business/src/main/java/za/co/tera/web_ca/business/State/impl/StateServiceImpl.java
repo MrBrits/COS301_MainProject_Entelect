@@ -39,4 +39,10 @@ public class StateServiceImpl implements StateService{
         List<State> stateList = stateDAO.findAll();
         return  stateList;
     }
+
+    @Override
+    public List<State> findStateByUserId(int ID) {
+        List<State> stateList = stateDAO.findStateByUserId(ID);
+        return  stateList;
+    }
 }

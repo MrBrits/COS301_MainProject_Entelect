@@ -1,8 +1,8 @@
 package Business;
 
-import za.co.tera.web_ca.business.User.base.UserService;
-import za.co.tera.web_ca.business.User.impl.UserServiceImpl;
-import za.co.tera.web_ca.domain.impl.User;
+import za.co.tera.web_ca.business.World.base.WorldService;
+import za.co.tera.web_ca.business.World.impl.WorldServiceImpl;
+import za.co.tera.web_ca.domain.impl.World;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        UserService userEntityManager = new UserServiceImpl();
-        List<User> temp=userEntityManager.findAllUsers();
-        for (int i = 0; i < temp.size(); i++) {
-            System.out.println(temp.get(i).getUserFirstName());
+        WorldService stateService = new WorldServiceImpl();
+        List<World> statelist =stateService.findWorldByUserId(23);
+        for (int i = 0; i < statelist.size(); i++) {
+            System.out.println(statelist.get(i).getWorldName());
         }
     }
 }

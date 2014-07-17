@@ -39,4 +39,10 @@ public class RuleServiceImpl implements RuleService {
         List<Rule> ruleList = ruleDao.findAll();
         return  ruleList;
     }
+
+    @Override
+    public List<Rule> findRuleByUserId(int ID) {
+        List<Rule> ruleList = ruleDao.findRuleByUserId(ID);
+        return  ruleList;
+    }
 }

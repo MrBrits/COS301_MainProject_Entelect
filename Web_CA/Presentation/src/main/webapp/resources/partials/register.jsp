@@ -10,8 +10,8 @@
                         </a>
                     </h4>
                 </div>
-               <!-- <div id="state" class="panel-collapse collapse">
-                    <div ng-controller="StateGetCtr">
+               <div id="state" class="panel-collapse collapse">
+                    <div ng-controller="GetStateByUserId">
                         <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
                         <table class="table">
                             <tr ng-repeat="state in states | filter:search">
@@ -20,7 +20,7 @@
                             </tr>
                         </table>
                     </div>
-                </div>-->
+                </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -31,7 +31,7 @@
                     </h4>
                 </div>
                 <div id="rule" class="panel-collapse collapse">
-                    <div ng-controller="RuleGetCtr">
+                    <div ng-controller="GetRuleByUserId">
                         <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
                         <table class="table">
                             <tr ng-repeat="rule in rules | filter:search">
@@ -51,7 +51,7 @@
                     </h4>
                 </div>
                 <div id="world" class="panel-collapse collapse">
-                   <!-- <div ng-controller="WorldGetCtr">
+                    <div ng-controller="GetWorldByUserId">
                         <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
@@ -59,7 +59,7 @@
                                     <p>{{world.worldDesc}}</p>  </td>
                             </tr>
                         </table>
-                    </div>-->
+                    </div>
                 </div>
             </div>
         </div>

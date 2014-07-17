@@ -6,10 +6,7 @@ package za.co.tera.presentation.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import za.co.tera.web_ca.business.State.base.StateService;
 import za.co.tera.web_ca.business.State.impl.StateServiceImpl;
 import za.co.tera.web_ca.domain.impl.State;
@@ -29,6 +26,14 @@ public class StateController {
     @RequestMapping(value = "/postState", method = RequestMethod.POST)
     public @ResponseBody void postState(@RequestBody State state) {
         stateService.createState(state);
+    }
+
+
+    @RequestMapping(value = "/getStateByUserId/{userId}", method = RequestMethod.GET)
+    public @ResponseBody
+    List<State> getUserById( @PathVariable(value = "userId") int userId) {
+
+        return stateService.findStateByUserId(userId);
     }
 }
 

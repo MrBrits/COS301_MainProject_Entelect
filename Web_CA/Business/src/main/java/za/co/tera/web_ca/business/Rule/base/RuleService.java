@@ -14,5 +14,6 @@ public interface RuleService {
     public void updateRule(Rule updateRule);
     public Rule findRule(int ID);
     public List<Rule> findAllRules();
+    public List<Rule> findRuleByUserId(int ID);
 
 }

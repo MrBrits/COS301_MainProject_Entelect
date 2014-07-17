@@ -6,10 +6,7 @@ package za.co.tera.presentation.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import za.co.tera.web_ca.business.Rule.base.RuleService;
 import za.co.tera.web_ca.business.Rule.impl.RuleServiceImpl;
 import za.co.tera.web_ca.domain.impl.Rule;
@@ -31,5 +28,12 @@ public class RuleController {
         ruleService.createRule(rule);
     }
 
+
+    @RequestMapping(value = "/getRuleByUserId/{userId}", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Rule> getUserById( @PathVariable(value = "userId") int userId) {
+
+        return ruleService.findRuleByUserId(userId);
+    }
    }
 

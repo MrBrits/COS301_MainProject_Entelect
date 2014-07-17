@@ -45,7 +45,6 @@
                 <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Register</button>
             </form>
         </div><!--/.nav-collapse -->
-    </div>
 </div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UserRegisterController as web_ca">

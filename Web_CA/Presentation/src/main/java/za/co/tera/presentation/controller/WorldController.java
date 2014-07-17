@@ -6,10 +6,7 @@ package za.co.tera.presentation.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import za.co.tera.web_ca.business.World.base.WorldService;
 import za.co.tera.web_ca.business.World.impl.WorldServiceImpl;
 import za.co.tera.web_ca.domain.impl.World;
@@ -32,4 +29,10 @@ public class WorldController {
         worldService.createWorld(world);
     }
 
+    @RequestMapping(value = "/getWorldByUserId/{userId}", method = RequestMethod.GET)
+    public @ResponseBody
+    List<World> getUserById( @PathVariable(value = "userId") int userId) {
+        System.out.println(worldService.findWorldByUserId(userId).size());
+        return worldService.findWorldByUserId(userId);
+    }
 }
