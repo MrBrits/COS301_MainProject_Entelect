@@ -46,7 +46,7 @@
             </form>
         </div><!--/.nav-collapse -->
 </div>
-
+</div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UserRegisterController as web_ca">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -106,8 +106,10 @@
 
 
 <div class = "container">
-    <div class = "main" ng-view></div>
+    <div class = "main" ng-view>
 
+    </div>
 </div>
 </body>
+
 </html>

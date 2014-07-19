@@ -16,6 +16,9 @@ web_ca.config(['$routeProvider', function($routeProvider) {
         .when('/state', {
             templateUrl: 'resources/partials/register.jsp/#state'
         })
+        .when('/:userId', {
+            templateUrl: 'resources/partials/register.jsp/#state'
+        })
         .when('/rule', {
             templateUrl: 'resources/partials/register.jsp/#rule'
         })
