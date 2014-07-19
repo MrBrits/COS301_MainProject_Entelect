@@ -29,7 +29,7 @@ web_ca.controller("UserLoginController", function($http) {
                 else
                 {
                     mainUser = data;
-                    window.open("index/" + data.userId,"_self");
+                    window.open(data.userId,"_self");
 
                 }
 
