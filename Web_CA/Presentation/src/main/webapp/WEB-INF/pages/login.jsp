@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="resources/img/favicon_12.ico">
 
     <title>Web CA</title>
 
@@ -20,16 +20,16 @@
     <script src="resources/js/lib/angular.min.js"></script>
     <script src="resources/js/lib/angular-route.min.js"></script>
     <script src="resources/js/lib/angular-resource.min.js"></script>
-    <script src="resources/js/app.js"></script>
-    <script src="resources/js/statescript.js"></script>
-    <script src="resources/js/userscript.js"></script>
-
-    <script src="resources/js/worldscript.js"></script>
-    <script src="resources/js/rulescript.js"></script>
+    <script src="resources/js/loginRouter.js"></script>
+    <script src="resources/js/user_Script.js"></script>
 </head>
 
 <body>
-
+<!--
+*
+*   For navigation
+*
+-->
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -44,9 +44,14 @@
                 </div>
                 <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Register</button>
             </form>
-        </div><!--/.nav-collapse -->
+        </div>
+    </div>
 </div>
-</div>
+<!--
+*
+*Register Module box
+*
+-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UserRegisterController as web_ca">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -102,9 +107,11 @@
         </div>
     </div>
 </div>
-
-
-
+<!--
+*
+*   For partials angularjs
+*
+-->
 <div class = "container">
     <div class = "main" ng-view>
 

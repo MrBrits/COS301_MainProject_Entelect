@@ -1,6 +1,7 @@
 /**
  * Created by Laptop on 7/15/2014.
  */
+var User ="";
 var web_ca = angular.module('rule_app', []);
 
 web_ca.controller("RuleGetCtr", function ($scope, $http) {
@@ -31,7 +32,10 @@ web_ca.controller("RuleSetCtr", function ($scope, $http) {
 web_ca.controller("GetRuleByUserId", function ($scope, $http) {
     var app = this;
 
-    $http.get("http://localhost:8080/getRuleByUserId/"+23)
+//alert("Done");
+
+    var userId=document.getElementById("userId").value;
+    $http.get("http://localhost:8080/getRuleByUserId/"+userId)
         .success(function (data) {
             $scope.rules = data;
             // alert(JSON.stringify(data));

@@ -14,8 +14,9 @@ web_ca.controller("WorldGetCtr", function ($scope, $http) {
 
 web_ca.controller("GetWorldByUserId", function ($scope, $http) {
     var app = this;
+    var userId=document.getElementById("userId").value;
 
-    $http.get("http://localhost:8080/getWorldByUserId/"+23)
+    $http.get("http://localhost:8080/getWorldByUserId/"+userId)
         .success(function (data) {
             $scope.worlds = data;
 

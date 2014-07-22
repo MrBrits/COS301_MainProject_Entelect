@@ -19,18 +19,22 @@ web_ca.controller("UserRegisterController", function($http) {
 
 web_ca.controller("UserLoginController", function($http) {
     var app = this;
-    app.loginUser = function(userLogin) {
+
+
+    app.loginUser = function(userLogin,$location) {
         $http.post("http://" + site + "/UserLogin",userLogin)
             .success(function(data) {
                 if (data == "")
                 {
                     alert("Invalid credentials.");
+
                 }
                 else
                 {
-                    mainUser = data;
-                    window.open(data.userId,"_self");
+                    alert("hello");
+                    window.location='/'+data.userId+'/'+data.userFirstName+" "+data.userLastName;
 
+                    //
                 }
 
             }).error(function () {
@@ -55,9 +59,9 @@ web_ca.controller("UserByIdGet", function ($scope, $http) {
 
     $http.get("http://localhost:8080/getUserById/"+23)
         .success(function (data) {
-           $scope.User = data;
-           // alert(JSON.stringify(data));
-         //   alert("done");
+            $scope.User = data;
+            // alert(JSON.stringify(data));
+            //   alert("done");
 
         }).error(function () {
             alert("error");
