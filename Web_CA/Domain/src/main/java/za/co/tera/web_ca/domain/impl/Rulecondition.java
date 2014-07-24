@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by Christo on 2014/07/14.
+ * Created by Christo on 2014/07/24.
  */
 @Entity
-public class Rulecondition  implements Serializable {
+public class Rulecondition implements Serializable {
     private int ruleConditionId;
-    private byte isNot;
+    private boolean isNot;
     private String operation;
     private String operand;
     private int compareValue;
@@ -20,7 +20,7 @@ public class Rulecondition  implements Serializable {
     public Rulecondition()
     {}
 
-    public Rulecondition(byte isNot, String operation, String operand, int compareValue)
+    public Rulecondition(boolean isNot, String operation, String operand, int compareValue)
     {
         this.isNot = isNot;
         this.operation = operation;
@@ -40,11 +40,11 @@ public class Rulecondition  implements Serializable {
 
     @Basic
     @Column(name = "isNot", nullable = false, insertable = true, updatable = true)
-    public byte getIsNot() {
+    public boolean isNot() {
         return isNot;
     }
 
-    public void setIsNot(byte isNot) {
+    public void setNot(boolean isNot) {
         this.isNot = isNot;
     }
 
@@ -97,7 +97,7 @@ public class Rulecondition  implements Serializable {
     @Override
     public int hashCode() {
         int result = ruleConditionId;
-        result = 31 * result + (int) isNot;
+        result = 31 * result + (isNot ? 1 : 0);
         result = 31 * result + (operation != null ? operation.hashCode() : 0);
         result = 31 * result + (operand != null ? operand.hashCode() : 0);
         result = 31 * result + compareValue;

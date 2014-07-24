@@ -15,6 +15,15 @@ public class Worldrules implements Serializable{
     private int worldId;
     private int ruleId;
 
+    public Worldrules()
+    {}
+
+    public Worldrules(int worldId, int ruleId)
+    {
+        this.worldId = worldId;
+        this.ruleId = ruleId;
+    }
+
     @Id
     @Column(name = "WorldRulesID", nullable = false, insertable = true, updatable = true)
     public int getWorldRulesId() {
