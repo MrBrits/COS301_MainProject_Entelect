@@ -27,7 +27,7 @@ web_ca.controller("RuleSetCtr", function ($scope, $http) {
      }).error(function () {
      alert("fail");
      });*/
-    alert("Ddf");
+    //alert("Ddf");
 });
 web_ca.controller("GetRuleByUserId", function ($scope, $http) {
     var app = this;

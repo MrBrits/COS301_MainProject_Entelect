@@ -8,8 +8,6 @@ import java.util.List;
  * Created by Stepahn on 2014/07/14.
  */
 public interface StateService {
-
-
     public void createState(State newState);
     public void deleteState(State delState);
     public void updateState(State updateState);

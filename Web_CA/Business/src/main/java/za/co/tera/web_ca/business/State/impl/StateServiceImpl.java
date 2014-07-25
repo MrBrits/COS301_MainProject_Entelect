@@ -34,8 +34,7 @@ public class StateServiceImpl implements StateService{
         return stateDAO.findById(ID);
     }
     @Override
-    public List<State> findAllStates()
-    {
+    public List<State> findAllStates()  {
         List<State> stateList = stateDAO.findAll();
         return  stateList;
     }

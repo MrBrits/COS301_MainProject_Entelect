@@ -3,6 +3,5 @@ web_ca.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
         when('/', {
             templateUrl: 'resources/partials/loginHome.jsp'
-
         });
 }]);

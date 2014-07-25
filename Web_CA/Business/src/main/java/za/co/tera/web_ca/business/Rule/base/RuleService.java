@@ -15,5 +15,4 @@ public interface RuleService {
     public Rule findRule(int ID);
     public List<Rule> findAllRules();
     public List<Rule> findRuleByUserId(int ID);
-
 }

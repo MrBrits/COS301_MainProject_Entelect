@@ -11,5 +11,4 @@ public interface UserDao extends AbstractDao<User> {
     public String getUserEmail(int id);
     public String getFullName(int id);
     public User loginUser(String userEmail,String userPassword);
-
 }

@@ -13,6 +13,7 @@ import java.util.List;
 public class RuleServiceImpl implements RuleService {
 
     private RuleDao ruleDao = new RuleDaoImpl();
+
     @Override
     public void createRule(Rule newRule)
     {
@@ -34,12 +35,10 @@ public class RuleServiceImpl implements RuleService {
         return ruleDao.findById(ID);
     }
     @Override
-    public List<Rule> findAllRules()
-    {
+    public List<Rule> findAllRules()    {
         List<Rule> ruleList = ruleDao.findAll();
         return  ruleList;
     }
-
     @Override
     public List<Rule> findRuleByUserId(int ID) {
         List<Rule> ruleList = ruleDao.findRuleByUserId(ID);
