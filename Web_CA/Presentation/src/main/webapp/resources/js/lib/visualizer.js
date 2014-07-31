@@ -47,10 +47,12 @@ var methods= new function()	{
         }
     }
 
-    this.Change_rotation_speed;
+    this.Change_rotation_speed=function() {
+        controls.autoRotateSpeed = this.Rotation_Speed * 2;
+    }
 
     this.Speed = 1;
-    this.Rotation_Speed = 0.02;
+    this.Rotation_Speed = 2;
 }
 
 //var doc=document.getElementById("canvas");
@@ -61,7 +63,7 @@ var container = document.getElementById( 'canvas').appendChild(renderer.domEleme
 //container.appendChild();
 
 var h=0;
-var sizex = 1, sizey = 10,sizez = 10;
+var sizex = 10, sizey = 10,sizez = 10;
 for(var z = 0; z < sizez; z++){
     var i = 0;
     cubes[h] = new Array();
@@ -119,7 +121,9 @@ var gui = new dat.GUI();
 gui.add(methods, 'Rotate');
 gui.add(methods, 'Start_Stop');
 gui.add(methods, 'Change_Layer');
-gui.add(methods, 'Rotation_Speed',0,0.5);
+gui.add(methods, 'Rotation_Speed',0,10).onFinishChange(function()	{
+    methods.Change_rotation_speed();
+});
 gui.add(methods, 'Speed',0,10).onFinishChange(function()	{
     methods.Change_speed();
 });
@@ -241,22 +245,28 @@ function changeState()
 
     var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
 
-    var intersects = raycaster.intersectObjects(scene.children);
+    var intersects = raycaster.intersectObjects(scene.children, true);
 
     if(layer==-1)
     {
-
-        intersects[0].object.material.color.setHex(0xDA4D1A);
+        if(typeof intersects[0] !== 'undefined')
+            intersects[0].object.material.color.setHex(0xDA4D1A);
     }
     else
     {
-
-
         for(var i =0;i<intersects.length;i++) {
-            if (intersects[i].object.visible == true) {
-                intersects[i].object.material.color.setHex(0xDA4D1A);
-            }
+            if(typeof intersects[i] !== 'undefined')
+                if (intersects[i].object.visible == true) {
+                    intersects[i].object.material.color.setHex(0xDA4D1A);
+                    break;
+                }
         }
     }
 
 }
+
+function onWindowResize() {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	renderer.setSize( window.innerWidth, window.innerHeight );
+}
+window.addEventListener( 'resize', onWindowResize, false );
