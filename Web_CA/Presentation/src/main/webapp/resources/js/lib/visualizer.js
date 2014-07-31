@@ -59,9 +59,9 @@ var methods= new function()	{
 //$("#canvas").appendChild("hello");
 var container = document.getElementById( 'canvas').appendChild(renderer.domElement);
 //container.appendChild();
-//document.getElementById("canvas").appendChild(gui.domElement);
+
 var h=0;
-var sizex = 1, sizey = 50,sizez = 50;
+var sizex = 1, sizey = 10,sizez = 10;
 for(var z = 0; z < sizez; z++){
     var i = 0;
     cubes[h] = new Array();
@@ -116,8 +116,6 @@ controls = new THREE.OrbitControls(camera);
 controls.addEventListener('change', render);
 
 var gui = new dat.GUI();
-gui.add(methods, 'Rotate');
-gui.add(methods, 'Start_Stop');
 gui.add(methods, 'Rotate');
 gui.add(methods, 'Start_Stop');
 gui.add(methods, 'Change_Layer');
@@ -181,6 +179,7 @@ function randomFairColor() {
 var layer=-1;
 
 function temp()	{
+    layer++;
     for (var i3 = 0; i3 < sizez; i3++) {
         for (var i = 0; i < sizex; i++) {
             for (var i2 = 0; i2 < sizey; i2++) {
@@ -195,9 +194,9 @@ function temp()	{
             }
         }
     }
-    layer++;
-    if(layer>7)
-        layer=-1;
+
+    if(layer>sizey-2)
+        layer=-2;
 }
 
 function player()	{
@@ -210,47 +209,54 @@ function stop()	{
 
 document.addEventListener( 'mousedown', mouseDowner, false );
 document.addEventListener( 'mouseup', mouseUpper, false );
-document.addEventListener( 'mousemove', tempers, false );
+document.addEventListener( 'mousemove', mouseMover, false );
 
 
 
-var mouseclick=false;
+var mouseClick=false;
 
 function mouseDowner()
 {
-    mouseclick=true;
+    mouseClick=true;
+    changeState();
 }
 function mouseUpper()
 {
-    mouseclick=false;
+    mouseClick=false;
 }
 //Colouring of Blocks
-function tempers(event)
+function mouseMover(event)
 {
     if(event.button==0) {
-        if(mouseclick)	{
-            var vector = new THREE.Vector3(( event.clientX / window.innerWidth ) * 2 - 1, -( event.clientY / window.innerHeight ) * 2 + 1, 0.5);
-            projector.unprojectVector(vector, camera);
+        if(mouseClick)	{
+            changeState();
+        }
+    }
+}
 
-            var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+function changeState()
+{
+    var vector = new THREE.Vector3(( event.clientX / window.innerWidth ) * 2 - 1, -( event.clientY / window.innerHeight ) * 2 + 1, 0.5);
+    projector.unprojectVector(vector, camera);
 
-            var intersects = raycaster.intersectObjects(scene.children);
+    var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
 
-            if (intersects.length > 0) {
+    var intersects = raycaster.intersectObjects(scene.children);
 
-                //if (intersects[0].object.visible==false)
-                //{
+    if(layer==-1)
+    {
 
-                intersects[0].object.material.color.setHex(0xDA4D1A);
-                /*
-                 intersects[0].object.visible=true;
-                 }
-                 else if (intersects[0].object.visible==true)
-                 {
+        intersects[0].object.material.color.setHex(0xDA4D1A);
+    }
+    else
+    {
 
-                 intersects[0].object.visible=false;
-                 }*/
+
+        for(var i =0;i<intersects.length;i++) {
+            if (intersects[i].object.visible == true) {
+                intersects[i].object.material.color.setHex(0xDA4D1A);
             }
         }
     }
+
 }
