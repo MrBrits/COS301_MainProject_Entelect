@@ -15,7 +15,7 @@
     <link href="resources/css/jumbotron.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <script src="resources/js/lib/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="resources/js/lib/jquery-2.0.0.min.js"></script>
     <script src="resources/js/lib/bootstrap.min.js"></script>
     <script src="resources/js/lib/angular.min.js"></script>
     <script src="resources/js/lib/angular-route.min.js"></script>
@@ -25,6 +25,8 @@
     <script src="resources/js/userscript.js"></script>
     <script src="resources/js/worldscript.js"></script>
     <script src="resources/js/rulescript.js"></script>
+    <script type="text/javascript" src="resources/js/lib/three.min.js"></script>
+
 </head>
 
 <body>

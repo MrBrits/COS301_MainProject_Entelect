@@ -118,4 +118,5 @@ public class User  implements Serializable {
         result = 31 * result + (userRole != null ? userRole.hashCode() : 0);
         return result;
     }
+
 }

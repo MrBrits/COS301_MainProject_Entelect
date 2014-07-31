@@ -1,10 +1,10 @@
 package Business;
 
+import za.co.tera.web_ca.business.User.base.UserService;
+import za.co.tera.web_ca.business.User.impl.UserServiceImpl;
 import za.co.tera.web_ca.business.World.base.WorldService;
 import za.co.tera.web_ca.business.World.impl.WorldServiceImpl;
 import za.co.tera.web_ca.domain.impl.World;
-
-import java.util.List;
 
 /**
  * Created by Christo on 2014/07/04.
@@ -12,9 +12,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         WorldService stateService = new WorldServiceImpl();
-        List<World> statelist =stateService.findWorldByUserId(23);
-        for (int i = 0; i < statelist.size(); i++) {
-            System.out.println(statelist.get(i).getWorldName());
-        }
+        UserService userServiceer= new UserServiceImpl();
+
+        World world = new World("world","world",2,5,5,5,23);
+        stateService.createWorld(world);
+
     }
 }
