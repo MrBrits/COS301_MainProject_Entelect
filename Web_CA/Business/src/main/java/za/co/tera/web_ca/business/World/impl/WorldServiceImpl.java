@@ -33,8 +33,7 @@ public class WorldServiceImpl implements WorldService{
         return worldDAO.findById(ID);
     }
 
-    public List<World> findAllWorlds()
-    {
+    public List<World> findAllWorlds()  {
         List<World> worldList = worldDAO.findAll();
         return  worldList;
     }

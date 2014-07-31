@@ -14,5 +14,4 @@ public interface CoordinateService {
     public void updateCoordinate(Coordinate updateCoordinate);
     public Coordinate findCoordinate(int ID);
     public List<Coordinate> findAllCoordinates();
-
 }

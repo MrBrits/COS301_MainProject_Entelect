@@ -20,8 +20,7 @@ public class UserServiceImpl implements UserService{
             userDAO.save(newUser);
             return true;
         }
-        else
-            return false;
+        else return false;
     }
 
     public void deleteUser(User delUser)
@@ -39,12 +38,11 @@ public class UserServiceImpl implements UserService{
         return userDAO.findById(ID);
     }
 
-    public User loginUser(User loginUser){
+    public User loginUser(User loginUser)   {
          return userDAO.loginUser(loginUser.getUserEmail(), loginUser.getUserPassword());
     }
 
-    public List<User> findAllUsers()
-    {
+    public List<User> findAllUsers()    {
         List<User> userList = userDAO.findAll();
         return  userList;
     }

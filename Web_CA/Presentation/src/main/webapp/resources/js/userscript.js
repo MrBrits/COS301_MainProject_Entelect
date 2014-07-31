@@ -24,17 +24,11 @@ web_ca.controller("UserLoginController", function($http) {
     app.loginUser = function(userLogin,$location) {
         $http.post("http://" + site + "/UserLogin",userLogin)
             .success(function(data) {
-                if (data == "")
-                {
+                if (data == "") {
                     alert("Invalid credentials.");
-
                 }
-                else
-                {
-
+                else    {
                     window.location='/'+data.userId;
-
-                    //
                 }
 
             }).error(function () {
@@ -50,7 +44,8 @@ web_ca.controller("UserGetCtr", function ($scope, $http) {
         .success(function (data) {
             $scope.profiles = data;
 
-        }).error(function () {
+        })
+        .error(function () {
 
         });
 });
@@ -63,7 +58,8 @@ web_ca.controller("UserByIdGet", function ($scope, $http) {
             // alert(JSON.stringify(data));
             //   alert("done");
 
-        }).error(function () {
+        })
+        .error(function () {
             alert("error");
         });
 });

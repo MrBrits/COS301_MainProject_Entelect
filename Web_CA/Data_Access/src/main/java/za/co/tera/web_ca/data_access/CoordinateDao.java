@@ -6,5 +6,4 @@ import za.co.tera.web_ca.domain.impl.Coordinate;
 /**
  * Created by Laptop on 7/14/2014.
  */
-public interface CoordinateDao extends AbstractDao<Coordinate> {
-}
+public interface CoordinateDao extends AbstractDao<Coordinate> {}

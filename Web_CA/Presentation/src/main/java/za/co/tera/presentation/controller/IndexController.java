@@ -32,7 +32,7 @@ public class IndexController {
     public @ResponseBody
     ModelAndView getMainPage(ModelMap model, @PathVariable(value = "userId") int userId) {
 
-        User user=userService.findUserById(userId);
+        User user = userService.findUserById(userId);
         String userFullName = user.getUserFirstName()+" "+user.getUserLastName();
         model.addAttribute("userFullName", userFullName);
         model.addAttribute("userId", userId);

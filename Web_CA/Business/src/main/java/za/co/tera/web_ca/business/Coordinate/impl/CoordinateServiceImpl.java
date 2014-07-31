@@ -37,6 +37,6 @@ public class CoordinateServiceImpl implements CoordinateService{
     public List<Coordinate> findAllCoordinates()
     {
         List<Coordinate> coordinateList = coordinateDao.findAll();
-        return  coordinateList;
+        return coordinateList;
     }
 }

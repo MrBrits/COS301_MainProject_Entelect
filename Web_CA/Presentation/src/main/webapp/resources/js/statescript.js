@@ -14,7 +14,7 @@ web_ca.controller("StateGetCtr", function ($scope, $http) {
 web_ca.controller("GetStateByUserId", function ($scope, $http) {
     var app = this;
 
-    var userId=document.getElementById("userId").value;
+    var userId = document.getElementById("userId").value;
 
     $http.get("http://localhost:8080/getStateByUserId/"+userId)
         .success(function (data) {
