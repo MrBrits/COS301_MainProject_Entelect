@@ -35,6 +35,12 @@ public class StateController {
 
         return stateService.findStateByUserId(userId);
     }
+    @RequestMapping(value = "/AddState", method = RequestMethod.POST)
+    public @ResponseBody
+    String createState(@RequestBody State state) {
+        stateService.createState(state);
+        return "YEAh";
+    }
 }
 
 

@@ -27,3 +27,18 @@ web_ca.controller("GetStateByUserId", function ($scope, $http) {
         });
 
 });
+web_ca.controller("statesAddController", function($http) {
+    var app = this;
+    app.addState = function(state) {
+
+        state.stateHex=document.getElementById("colour").value;
+        state.ownerId=document.getElementById("userId").value;
+        alert(JSON.stringify(state));
+        $http.post("http://" + site + "/AddState",state)
+            .success(function(data) {
+                alert(data);
+            }).error(function () {
+                alert("SERVER ERROR");
+            });
+    };
+});
