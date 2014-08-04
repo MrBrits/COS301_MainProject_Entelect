@@ -78,43 +78,36 @@
         <div class="modal-content">
             <div class="modal-header modal-success">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="purchaseLabel">Register</h4>
+                <h4 class="modal-title" id="purchaseLabel">Add State</h4>
             </div>
             <div class = "container">
                 <br/>
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">Firstname</label>
+                        <label class="col-xs-2 control-label">State Name</label>
                         <div class="col-xs-4">
                             <input type="text" id="userFirstName" class="form-control" ng-model="web_ca.userReg.userFirstName" placeholder="Firstname">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">Lastname</label>
+                        <label class="col-xs-2 control-label">State Description</label>
                         <div class="col-xs-4">
                             <input type="text" id="userLastName" class="form-control" ng-model="web_ca.userReg.userLastName" placeholder="Lastname">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">Email</label>
+                        <label class="col-xs-2 control-label">State Value</label>
                         <div class="col-xs-4">
-                            <input type="email" id="userEmail" class="form-control"  ng-model="web_ca.userReg.userEmail" placeholder="Email">
+                            <input type="text" id="userEmail" class="form-control"  ng-model="web_ca.userReg.userEmail" placeholder="Email">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">Password</label>
+                        <label class="col-xs-2 control-label">State Colour</label>
                         <div class="col-xs-4">
-                            <input type="password" id="userPassword" class="form-control"  ng-model="web_ca.userReg.userPassword" placeholder="Password">
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-xs-2 control-label">Retype</label>
-                        <div class="col-xs-4">
-                            <input type="password" id="userRePassword" class="form-control" ng-model="web_app.userReg.userRePassword" placeholder="Password">
+                            <input type="color" id="userPassword" class="form-control"  ng-model="web_ca.userReg.userPassword" placeholder="Password">
                             <span class="help-block"></span>
                         </div>
                     </div>
