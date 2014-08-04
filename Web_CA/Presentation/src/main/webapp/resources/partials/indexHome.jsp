@@ -13,6 +13,7 @@
                 <div id="state" class="panel-collapse collapse">
                     <div ng-controller="GetStateByUserId">
                         <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
+                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Add new State</button>
                         <table class="table">
                             <tr ng-repeat="state in states | filter:search">
                                 <td><button type="button" ng-style="{'background-color':state.stateRgb}" class="btn btn-default btn-lg" ></button> <label>{{state.stateName}}</label><br>
@@ -72,6 +73,61 @@
     </div>
 </div>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UserRegisterController as web_ca">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-success">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="purchaseLabel">Register</h4>
+            </div>
+            <div class = "container">
+                <br/>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Firstname</label>
+                        <div class="col-xs-4">
+                            <input type="text" id="userFirstName" class="form-control" ng-model="web_ca.userReg.userFirstName" placeholder="Firstname">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Lastname</label>
+                        <div class="col-xs-4">
+                            <input type="text" id="userLastName" class="form-control" ng-model="web_ca.userReg.userLastName" placeholder="Lastname">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Email</label>
+                        <div class="col-xs-4">
+                            <input type="email" id="userEmail" class="form-control"  ng-model="web_ca.userReg.userEmail" placeholder="Email">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Password</label>
+                        <div class="col-xs-4">
+                            <input type="password" id="userPassword" class="form-control"  ng-model="web_ca.userReg.userPassword" placeholder="Password">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Retype</label>
+                        <div class="col-xs-4">
+                            <input type="password" id="userRePassword" class="form-control" ng-model="web_app.userReg.userRePassword" placeholder="Password">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-2 col-xs-4">
+                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addUser(web_ca.userReg)">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!--<div class="container">
 <div class="row">
 <div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
