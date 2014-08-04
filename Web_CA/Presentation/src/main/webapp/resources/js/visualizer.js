@@ -30,7 +30,7 @@ var methods= new function()	{
     }
 
     this.Change_Layer=function()	{
-        temp();
+        changeWorldLayer();
     }
 
     this.Change_speed=function()	{
@@ -54,13 +54,24 @@ var methods= new function()	{
     this.Rotation_Speed = 2;
 }
 
+//Creation of control menu
+var gui = new dat.GUI();
+gui.add(methods, 'Rotate');
+gui.add(methods, 'Start_Stop');
+gui.add(methods, 'Change_Layer');
+gui.add(methods, 'Rotation_Speed',0,10).onFinishChange(function()	{
+    methods.Change_rotation_speed();
+});
+gui.add(methods, 'Speed',0,10).onFinishChange(function()	{
+    methods.Change_speed();
+});
+
 //var doc=document.getElementById("canvas");
 //document.getElementById("canvas").add(renderer.domElement);
 //document.body.appendChild(renderer.domElement);
 //$("#canvas").appendChild("hello");
 var container = document.getElementById( 'canvas').appendChild(renderer.domElement);
 //container.appendChild();
-
 
 
 //Creation of cube array and adding the array to the scene
@@ -97,6 +108,7 @@ var light = new THREE.AmbientLight(0x505050);
 scene.add(light);
 projector = new THREE.Projector();
 
+//POSITION.SET(x,y,z)
 //Adding light source from a certain angle
 var directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
 directionalLight.position.set(0, 1, 1);
@@ -125,18 +137,6 @@ camera.position.x = 50;
 controls = new THREE.OrbitControls(camera);
 controls.addEventListener('change', render);
 
-//Creation of control menu
-var gui = new dat.GUI();
-gui.add(methods, 'Rotate');
-gui.add(methods, 'Start_Stop');
-gui.add(methods, 'Change_Layer');
-gui.add(methods, 'Rotation_Speed',0,10).onFinishChange(function()	{
-    methods.Change_rotation_speed();
-});
-gui.add(methods, 'Speed',0,10).onFinishChange(function()	{
-    methods.Change_speed();
-});
-
 for(var i = 0; i < 7; i++) {
     controls.pan(new THREE.Vector3( 1, 0, 0 ));
     controls.pan(new THREE.Vector3( 0, 1, 0 ));
@@ -145,16 +145,16 @@ for(var i = 0; i < 7; i++) {
 //Start and Stop of simulation
 function StartAndStop()	{
     if(play == true) {
-        for (var i3 = 0; i3 < sizez; i3++) {
-            for (var i = 0; i < sizex; i++) {
-                for (var i2 = 0; i2 < sizey; i2++) {
+        for (var height = 0; height < sizez; height++) {
+            for (var length = 0; length < sizex; length++) {
+                for (var depth = 0; depth < sizey; depth++) {
                     //cubes[i2][i].material.color.setHex(randomFairColor() );
                     if (Math.random() < 0.5)	{
-                        cubes[i3][i][i2].material.opacity =0;
+                        cubes[height][length][depth].material.opacity =0;
                     }
                     else {
-                        cubes[i3][i][i2].material.opacity =1;
-                        cubes[i3][i][i2].material.color.setHex(randomFairColor());
+                        cubes[height][length][depth].material.opacity =1;
+                        cubes[height][length][depth].material.color.setHex(randomFairColor());
                     }
                 }
             }
@@ -183,7 +183,7 @@ var render = function () {
 render();
 renderer.setSize($(window).width(), $(window).height());
 
-//Random colour creation and returned
+//Random colour creation and returned as RGB value
 function randomFairColor() {
     var min = 64;
     var max = 224;
@@ -193,20 +193,21 @@ function randomFairColor() {
     return r + g + b;
 }
 
-//Changing of which layer is being viewed and used
+//Changing of layers, which layer is being viewed and used
+//layer = -1 -> The entire world
+//layer = 0 -> The bottom most layer of the world, regarding the y-axis
 var layer=-1;
-function temp()	{
+function changeWorldLayer()	{
     layer++;
-    for (var i3 = 0; i3 < sizez; i3++) {
-        for (var i = 0; i < sizex; i++) {
-            for (var i2 = 0; i2 < sizey; i2++) {
-                if(layer==-1)
-                    cubes[i3][i][i2].visible = true;
-                else if(layer==i2)
-                    cubes[i3][i][i2].visible = true;
-                else	{
-                    cubes[i3][i][i2].visible = false;
-                    //scene.remove(cubes[i3][i][i2]);
+    for (var height = 0; height < sizez; height++) {
+        for (var length = 0; length < sizex; length++) {
+            for (var depth = 0; depth < sizey; depth++) {
+                if(layer == -1)
+                    cubes[height][length][depth].visible = true;
+                else if(layer == depth)
+                    cubes[height][length][depth].visible = true;
+                else{
+                    cubes[height][length][depth].visible = false;
                 }
             }
         }
@@ -216,36 +217,40 @@ function temp()	{
         layer=-2;
 }
 
-//Event Listeners
+//Event Listeners for mouse controls
 document.addEventListener( 'mousedown', mouseDowner, false );
 document.addEventListener( 'mouseup', mouseUpper, false );
 document.addEventListener( 'mousemove', mouseDrag, false );
 
-var mouseClick=false;
-
+//Boolean to check if mouse button is being clicked
+//Used mainly to test for click and drag functionality
+var leftMouseClick=false;
+//Click any mouse button
 function mouseDowner(event) {
+    //Left - 0
+    //Middle - 1
+    //Right - 2
     if (event.button == 0) {
-        mouseClick = true;
+        leftMouseClick = true;
         changeState();
     }
 
 }
-function mouseUpper(event)
-{
-    mouseClick=false;
+//Release any mouse button
+function mouseUpper(event){
+    leftMouseClick=false;
 }
-//Colouring of Blocks
-function mouseDrag(event)
-{
-    if(mouseClick) {
-        if(event.button==0)	{
-            changeState();
-        }
+//Calls change state if mouse is moving whilst left mouse button is being held down
+//Mouse move event not explicitly being used. This function is triggered when mouse is moved
+function mouseDrag(){
+    if(leftMouseClick) {
+        changeState();
     }
 }
 
-//Finding which cubes intersects with ,mouse curser when left mouse button is clicked
+//Finding which cubes intersects with mouse cursor when left mouse button is clicked
 //Changing of the state of cube that intersects which is also visible
+//This function is only called when left mouse button is clicked
 function changeState()
 {
     var vector = new THREE.Vector3(( event.clientX / window.innerWidth ) * 2 - 1, -( event.clientY / window.innerHeight ) * 2 + 1, 0.5);
@@ -253,15 +258,20 @@ function changeState()
 
     var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
 
+    //Finds all elements that are in the position of the cursor
     var intersects = raycaster.intersectObjects(scene.children, true);
+
 
     if(layer==-1)
     {
+        //If entire world (all layers) are being viewed. Only change what user can see
         if(typeof intersects[0] !== 'undefined')
             intersects[0].object.material.color.setHex(0xDA4D1A);
     }
     else
     {
+        //When individual layers are being viewed. Only changes elements that are visible
+        //Removing the visibility check will change the state of all elements that are in position with the cursor
         for(var i =0;i<intersects.length;i++) {
             if(typeof intersects[i] !== 'undefined')
                 if (intersects[i].object.visible == true) {
