@@ -26,3 +26,18 @@ web_ca.controller("GetWorldByUserId", function ($scope, $http) {
         });
 
 });
+
+web_ca.controller("AddWorldController", function($http) {
+    var app = this;
+    app.addWorld = function(world) {
+
+        world.ownerId=document.getElementById("userId").value;
+        alert(JSON.stringify(world));
+        $http.post("http://" + site + "/AddWorld",world)
+            .success(function(data) {
+                alert(data);
+            }).error(function () {
+                alert("SERVER ERROR");
+            });
+    };
+});

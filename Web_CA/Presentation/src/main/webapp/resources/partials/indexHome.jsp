@@ -76,7 +76,7 @@
     </div>
 </div>
 <!--Adding a new state to your profile-->
-<div class="modal fade" id="AddstateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="statesAddController as web_ca">
+<div class="modal fade" id="AddstateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="AddStateController as web_ca">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
@@ -89,34 +89,34 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Name</label>
                         <div class="col-xs-4">
-                            <input type="text" class="form-control" ng-model="web_ca.stateadd.stateName" placeholder="Name">
+                            <input type="text" class="form-control" ng-model="web_ca.newState.stateName" placeholder="Name">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Description</label>
                         <div class="col-xs-4">
-                            <input type="text"  class="form-control" ng-model="web_ca.stateadd.stateDesc" placeholder="Description">
+                            <input type="text"  class="form-control" ng-model="web_ca.newState.stateDesc" placeholder="Description">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Value</label>
                         <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateValue" placeholder="Value">
+                            <input type="number" class="form-control"  ng-model="web_ca.newState.stateValue" placeholder="Value">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Colour</label>
                         <div class="col-xs-4">
-                            <input type="color" id ="colour" class="form-control"  ng-model="web_ca.stateadd.stateHex" placeholder="Colour">
+                            <input type="color" id ="colour" class="form-control"  ng-model="web_ca.newState.stateHex" placeholder="Colour">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
-                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addState(web_ca.stateadd)">Add</button>
+                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addState(web_ca.newState)">Add</button>
                         </div>
                     </div>
                 </form>
@@ -125,7 +125,7 @@
     </div>
 </div>
 <!-- Add new World-->
-<div class="modal fade" id="AddWorldModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="statesAddController as web_ca">
+<div class="modal fade" id="AddWorldModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="AddWorldController as web_ca">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
@@ -138,49 +138,53 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Name</label>
                         <div class="col-xs-4">
-                            <input type="text" class="form-control" ng-model="web_ca.stateadd.stateName" placeholder="Name">
+                            <input type="text" class="form-control" ng-model="web_ca.newWorld.worldName" placeholder="Name">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Description</label>
                         <div class="col-xs-4">
-                            <input type="text"  class="form-control" ng-model="web_ca.stateadd.stateDesc" placeholder="Description">
+                            <input type="text"  class="form-control" ng-model="web_ca.newWorld.worldDesc" placeholder="Description">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Dimension</label>
                         <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateValue" placeholder="Value">
+                            <select class="form-control" ng-model="web_ca.newWorld.worldDimension">
+                                <option value="1">1D</option>
+                                <option value="2">2D</option>
+                                <option value="3">3D</option>
+                            </select>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Width</label>
                         <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateHex" placeholder="Colour">
+                            <input type="number" class="form-control"  ng-model="web_ca.newWorld.worldWidth" placeholder="Width">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Height</label>
                         <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateHex" placeholder="Colour">
+                            <input type="number" class="form-control"  ng-model="web_ca.newWorld.worldHeight" placeholder="Height">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Depth</label>
                         <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateHex" placeholder="Colour">
+                            <input type="number" class="form-control"  ng-model="web_ca.newWorld.worldDepth" placeholder="Depth">
                             <span class="help-block"></span>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
-                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addState(web_ca.stateadd)">Add</button>
+                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addWorld(web_ca.newWorld)">Add</button>
                         </div>
                     </div>
                 </form>

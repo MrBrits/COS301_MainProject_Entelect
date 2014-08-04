@@ -23,11 +23,12 @@ web_ca.controller("GetStateByUserId", function ($scope, $http) {
             //   alert("done");
 
         }).error(function () {
-            alert("error");
+            alert("SERVER ERROR");
         });
 
 });
-web_ca.controller("statesAddController", function($http) {
+
+web_ca.controller("AddStateController", function($http) {
     var app = this;
     app.addState = function(state) {
 

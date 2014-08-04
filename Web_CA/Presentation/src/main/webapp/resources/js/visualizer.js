@@ -94,7 +94,7 @@ for(var z = 0; z < sizez; z++){
                 opacity:1
             });
             cubes[height][length][depth] = new THREE.Mesh(geometry, material);
-            cubes[height][length][depth].position = new THREE.Vector3(x*1.509, y*1.509, z*1.509);
+            cubes[height][length][depth].position = new THREE.Vector3(((sizex)/2+1.509)+(x*1.509), (y*1.509), (z*1.509));
             scene.add(cubes[height][length][depth]);
             depth++;
         }

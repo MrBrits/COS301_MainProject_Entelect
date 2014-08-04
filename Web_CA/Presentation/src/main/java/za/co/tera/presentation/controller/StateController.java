@@ -32,14 +32,16 @@ public class StateController {
     @RequestMapping(value = "/getStateByUserId/{userId}", method = RequestMethod.GET)
     public @ResponseBody
     List<State> getUserById( @PathVariable(value = "userId") int userId) {
-
         return stateService.findStateByUserId(userId);
     }
+
     @RequestMapping(value = "/AddState", method = RequestMethod.POST)
     public @ResponseBody
     String createState(@RequestBody State state) {
         stateService.createState(state);
-        return "YEAh";
+        return "State Added";
+
+
     }
 }
 

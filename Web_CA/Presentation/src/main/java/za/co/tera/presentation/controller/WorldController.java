@@ -35,4 +35,11 @@ public class WorldController {
         System.out.println(worldService.findWorldByUserId(userId).size());
         return worldService.findWorldByUserId(userId);
     }
+
+    @RequestMapping(value = "/AddWorld", method = RequestMethod.POST)
+    public @ResponseBody
+    String createState(@RequestBody World world) {
+        worldService.createWorld(world);
+        return "World Added";
+    }
 }
