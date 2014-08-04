@@ -21,7 +21,7 @@
     <script src="resources/js/lib/angular-route.min.js"></script>
     <script src="resources/js/lib/angular-resource.min.js"></script>
     <script src="resources/js/loginRouter.js"></script>
-    <script src="resources/js/user_Script.js"></script>
+    <script src="resources/js/userscript.js"></script>
 </head>
 
 <body>

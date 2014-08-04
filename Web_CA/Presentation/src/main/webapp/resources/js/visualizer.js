@@ -4,14 +4,13 @@ var camera = new THREE.PerspectiveCamera(30, $(window).width() / $(window).heigh
 var renderer = new THREE.WebGLRenderer();
 var cubes = new Array();
 var controls;
-var play=false;
+var play = false;
 var projector;
 var realSpeed = 0;
 
-//FUNCTIONS FOR THE CONTROLS
+//FUNCTIONS FOR THE CONTROL WINDOW
 var methods= new function()	{
-    var callTeee = null;
-
+    var runSimulation = null;
     this.Rotate = function()	{
         controls.autoRotater();
     }
@@ -19,13 +18,13 @@ var methods= new function()	{
     this.Start_Stop = function()	{
 
         realSpeed = (10 - this.Speed) * 100;
-        clearInterval(callTeee);
+        clearInterval(runSimulation);
         if (play)	{
-            clearInterval(callTeee);
+            clearInterval(runSimulation);
             play = false;
         }
         else	{
-            callTeee = setInterval(function(){StartAndStop()}, realSpeed);
+            runSimulation = setInterval(function(){StartAndStop()}, realSpeed);
             play = true;
         }
     }
@@ -38,12 +37,12 @@ var methods= new function()	{
         if(this.Speed != 0)	{
             realSpeed = (10 - this.Speed) * 100;
             if (play)	{
-                clearInterval(callTeee);
-                callTeee = setInterval(function(){StartAndStop()}, realSpeed);
+                clearInterval(runSimulation);
+                runSimulation = setInterval(function(){StartAndStop()}, realSpeed);
             }
         }
         else	{
-            clearInterval(callTeee);
+            clearInterval(runSimulation);
         }
     }
 
@@ -62,14 +61,17 @@ var methods= new function()	{
 var container = document.getElementById( 'canvas').appendChild(renderer.domElement);
 //container.appendChild();
 
-var h=0;
+
+
+//Creation of cube array and adding the array to the scene
+var height =0;
 var sizex = 10, sizey = 10,sizez = 10;
 for(var z = 0; z < sizez; z++){
-    var i = 0;
-    cubes[h] = new Array();
+    var length = 0;
+    cubes[height] = new Array();
     for(var x = 0; x < sizex; x ++) {
-        var j = 0;
-        cubes[h][i] = new Array();
+        var depth = 0;
+        cubes[height][length] = new Array();
         for(var y = 0; y < sizey; y ++)	{
             var geometry = new THREE.CubeGeometry(1.5, 1.5, 1.5);
             var material = new THREE.MeshPhongMaterial({
@@ -80,36 +82,42 @@ for(var z = 0; z < sizez; z++){
                 transparent:true,
                 opacity:1
             });
-            cubes[h][i][j] = new THREE.Mesh(geometry, material);
-            cubes[h][i][j].position = new THREE.Vector3(x*1.509, y*1.509, z*1.509);
-            scene.add(cubes[h][i][j]);
-            j++;
+            cubes[height][length][depth] = new THREE.Mesh(geometry, material);
+            cubes[height][length][depth].position = new THREE.Vector3(x*1.509, y*1.509, z*1.509);
+            scene.add(cubes[height][length][depth]);
+            depth++;
         }
-        i++;
+        length++;
     }
-    h++;
+    height++;
 }
 
+//Creation of a light source
 var light = new THREE.AmbientLight(0x505050);
 scene.add(light);
 projector = new THREE.Projector();
 
+//Adding light source from a certain angle
 var directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
 directionalLight.position.set(0, 1, 1);
 scene.add(directionalLight);
 
+//Adding light source from a certain angle
 directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
 directionalLight.position.set(1, 1, 0);
 scene.add(directionalLight);
 
+//Adding light source from a certain angle
 directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
 directionalLight.position.set(0, -1, -1);
 scene.add(directionalLight);
 
+//Adding light source from a certain angle
 directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
 directionalLight.position.set(-1, -1, 0);
 scene.add(directionalLight);
 
+//Starting position of camera
 camera.position.z = 50;
 camera.position.y = 50;
 camera.position.x = 50;
@@ -117,6 +125,7 @@ camera.position.x = 50;
 controls = new THREE.OrbitControls(camera);
 controls.addEventListener('change', render);
 
+//Creation of control menu
 var gui = new dat.GUI();
 gui.add(methods, 'Rotate');
 gui.add(methods, 'Start_Stop');
@@ -132,6 +141,8 @@ for(var i = 0; i < 7; i++) {
     controls.pan(new THREE.Vector3( 1, 0, 0 ));
     controls.pan(new THREE.Vector3( 0, 1, 0 ));
 }
+
+//Start and Stop of simulation
 function StartAndStop()	{
     if(play == true) {
         for (var i3 = 0; i3 < sizez; i3++) {
@@ -151,6 +162,7 @@ function StartAndStop()	{
     }
 }
 
+//Rendering of ALL cubes
 var render = function () {
     if(typeof array === 'object' && array.length > 0) {
         var k = 0;
@@ -171,6 +183,7 @@ var render = function () {
 render();
 renderer.setSize($(window).width(), $(window).height());
 
+//Random colour creation and returned
 function randomFairColor() {
     var min = 64;
     var max = 224;
@@ -180,8 +193,8 @@ function randomFairColor() {
     return r + g + b;
 }
 
+//Changing of which layer is being viewed and used
 var layer=-1;
-
 function temp()	{
     layer++;
     for (var i3 = 0; i3 < sizez; i3++) {
@@ -203,41 +216,36 @@ function temp()	{
         layer=-2;
 }
 
-function player()	{
-    play=true;
-}
-
-function stop()	{
-    play=false;
-}
-
+//Event Listeners
 document.addEventListener( 'mousedown', mouseDowner, false );
 document.addEventListener( 'mouseup', mouseUpper, false );
-document.addEventListener( 'mousemove', mouseMover, false );
-
-
+document.addEventListener( 'mousemove', mouseDrag, false );
 
 var mouseClick=false;
 
-function mouseDowner()
-{
-    mouseClick=true;
-    changeState();
+function mouseDowner(event) {
+    if (event.button == 0) {
+        mouseClick = true;
+        changeState();
+    }
+
 }
-function mouseUpper()
+function mouseUpper(event)
 {
     mouseClick=false;
 }
 //Colouring of Blocks
-function mouseMover(event)
+function mouseDrag(event)
 {
-    if(event.button==0) {
-        if(mouseClick)	{
+    if(mouseClick) {
+        if(event.button==0)	{
             changeState();
         }
     }
 }
 
+//Finding which cubes intersects with ,mouse curser when left mouse button is clicked
+//Changing of the state of cube that intersects which is also visible
 function changeState()
 {
     var vector = new THREE.Vector3(( event.clientX / window.innerWidth ) * 2 - 1, -( event.clientY / window.innerHeight ) * 2 + 1, 0.5);
