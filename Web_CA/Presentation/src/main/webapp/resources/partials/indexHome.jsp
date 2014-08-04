@@ -34,6 +34,7 @@
                 <div id="rule" class="panel-collapse collapse">
                     <div ng-controller="GetRuleByUserId">
                         <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
+                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#AddRuleModal">Add new Rule</button>
 
                         <table class="table">
                             <tr ng-repeat="rule in rules | filter:search">
@@ -58,7 +59,7 @@
                         <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#AddWorldModal">Add new World</button>
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
-                                <td><button type="button" class="btn btn-default btn-lg" ></button> <label>{{world.worldName}}</label><br>
+                                <td><button type="button" class="btn btn-default btn-lg" ></button> <span class="glyphicon glyphicon-trash"></span> <label>{{world.worldName}}</label><br>
                                     <p>{{world.worldDesc}}</p>  </td>
                             </tr>
                         </table>
@@ -171,6 +172,85 @@
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Depth</label>
+                        <div class="col-xs-4">
+                            <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateHex" placeholder="Colour">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-2 col-xs-4">
+                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addState(web_ca.stateadd)">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add new Rule-->
+<div class="modal fade" id="AddRuleModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="statesAddController as web_ca">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-success">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="purchaseLabel3">Add Rule</h4>
+            </div>
+            <div class = "container">
+                <br/>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Name</label>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" ng-model="web_ca.stateadd.stateName" placeholder="Name">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Description</label>
+                        <div class="col-xs-4">
+                            <input type="text"  class="form-control" ng-model="web_ca.stateadd.stateDesc" placeholder="Description">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Priority</label>
+                        <div class="col-xs-4">
+                            <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateValue" placeholder="Value">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Operand</label>
+                            <div class="col-xs-4">
+                                <select class="form-control">
+                                    <option value="one"> < </option>
+                                    <option value="two"> > </option>
+                                    <option value="three"> >= </option>
+                                    <option value="four"> <= </option>
+                                    <option value="four"> == </option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Operator</label>
+                            <div class="col-xs-4">
+                                <select class="form-control">
+                                    <option value="one">SUM</option>
+                                    <option value="two">AVG</option>
+                                    <option value="three">MIN</option>
+                                    <option value="four">MAX</option>
+                                    <option value="five">COUNT</option>
+                                    <option value="five">EXACT</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">State Value</label>
                         <div class="col-xs-4">
                             <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateHex" placeholder="Colour">
                             <span class="help-block"></span>
