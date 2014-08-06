@@ -59,8 +59,11 @@
                         <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#AddWorldModal">Add new World</button>
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
-                                <td><button type="button" class="btn btn-default btn-lg" ></button> <span class="glyphicon glyphicon-trash"></span> <label>{{world.worldName}}</label><br>
-                                    <p>{{world.worldDesc}}</p>  </td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-lg" ></button> <span class="glyphicon glyphicon-trash"></span>
+                                    <label>{{world.worldName}}</label><br>
+                                    <p>{{world.worldDesc}}</p>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -96,7 +99,7 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Description</label>
                         <div class="col-xs-4">
-                            <input type="text"  class="form-control" ng-model="web_ca.newState.stateDesc" placeholder="Description">
+                            <textarea class="form-control" ng-model="web_ca.newState.stateDesc" placeholder="Description"></textarea>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -145,7 +148,7 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Description</label>
                         <div class="col-xs-4">
-                            <input type="text"  class="form-control" ng-model="web_ca.newWorld.worldDesc" placeholder="Description">
+                            <textarea ng-maxlength="140" class="form-control" ng-model="web_ca.newWorld.worldDesc" placeholder="Description"></textarea>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -193,7 +196,7 @@
     </div>
 </div>
 <!-- Add new Rule-->
-<div class="modal fade" id="AddRuleModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="statesAddController as web_ca">
+<div class="modal fade" id="AddRuleModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="AddRuleController as web_ca">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
@@ -206,34 +209,32 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Name</label>
                         <div class="col-xs-4">
-                            <input type="text" class="form-control" ng-model="web_ca.stateadd.stateName" placeholder="Name">
+                            <input type="text" class="form-control" ng-model="web_ca.newRule.ruleName" placeholder="Name">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Description</label>
                         <div class="col-xs-4">
-                            <input type="text"  class="form-control" ng-model="web_ca.stateadd.stateDesc" placeholder="Description">
+                            <textarea class="form-control" ng-model="web_ca.newRule.ruleDesc" placeholder="Description"></textarea>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Priority</label>
                         <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateValue" placeholder="Value">
+                            <input type="number" class="form-control"  ng-model="web_ca.newRule.Priority" placeholder="1 - Highest, 100 - Lowest">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
+                        <label>Condition of Rule</label>
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">Operand</label>
+                            <label class="col-xs-2 control-label">Is Not</label>
                             <div class="col-xs-4">
-                                <select class="form-control">
-                                    <option value="one"> < </option>
-                                    <option value="two"> > </option>
-                                    <option value="three"> >= </option>
-                                    <option value="four"> <= </option>
-                                    <option value="four"> == </option>
+                                <select class="form-control" ng-model="web_ca.newRuleCon.isNot">
+                                    <option value="true">TRUE</option>
+                                    <option value="false">FALSE</option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>
@@ -241,29 +242,93 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Operator</label>
                             <div class="col-xs-4">
-                                <select class="form-control">
-                                    <option value="one">SUM</option>
-                                    <option value="two">AVG</option>
-                                    <option value="three">MIN</option>
-                                    <option value="four">MAX</option>
-                                    <option value="five">COUNT</option>
-                                    <option value="five">EXACT</option>
+                                <select class="form-control" ng-model="web_ca.newRuleCon.Operation">
+                                    <option value="SUM">SUM</option>
+                                    <option value="AVG">AVG</option>
+                                    <option value="MIN">MIN</option>
+                                    <option value="MAX">MAX</option>
+                                    <option value="COUNT">COUNT</option>
+                                    <option value="EXACT">EXACT</option>
                                 </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Condition Neighbours</label>
+                            <div class="col-xs-4">
+                                <select class="form-control" ng-model="web_ca.newRuleConNeigh.Neighbours">
+                                    <option value="00000000000000000000000000"> 00000000000000000000000000 </option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Operand</label>
+                            <div class="col-xs-4">
+                                <select class="form-control" ng-model="web_ca.newRuleCon.Operand">
+                                    <option value="<"> < </option>
+                                    <option value=">"> > </option>
+                                    <option value=">="> >= </option>
+                                    <option value="<="> <= </option>
+                                    <option value="=="> == </option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Compare Value</label>
+                            <div class="col-xs-4">
+                                <input type="number" class="form-control"  ng-model="web_ca.newRuleCon.CompareValue" placeholder="Choose State">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">State Value</label>
-                        <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="web_ca.stateadd.stateHex" placeholder="Colour">
-                            <span class="help-block"></span>
+                        <label>Result of Rule</label>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Operand</label>
+                            <div class="col-xs-4">
+                                <select class="form-control" ng-model="web_ca.newRuleRes.Operand">
+                                    <option value="=="> == </option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Operator</label>
+                            <div class="col-xs-4">
+                                <select class="form-control" ng-model="web_ca.newRuleRes.Operator">
+                                    <option value="SUM">SUM</option>
+                                    <option value="AVG">AVG</option>
+                                    <option value="MIN">MIN</option>
+                                    <option value="MAX">MAX</option>
+                                    <option value="COUNT">COUNT</option>
+                                    <option value="EXACT">EXACT</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Result Neighbours</label>
+                            <div class="col-xs-4">
+                                <select class="form-control" ng-model="web_ca.newRuleResNeigh.Neighbours">
+                                    <option value="00000000000000000000000000"> 00000000000000000000000000 </option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <label align="center">OR</label>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Result Value</label>
+                            <div class="col-xs-4">
+                                <input type="number" class="form-control"  ng-model="web_ca.newRuleRes.ResultValue" placeholder="Choose State">
+                                <span class="help-block"></span>
+                            </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
-                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addState(web_ca.stateadd)">Add</button>
+                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addRule(web_ca.newRule, web_ca.newRuleCon, web_ca.newRuleRes, web_ca.newRuleConNeigh, web_ca.newRuleResNeigh)">Add</button>
                         </div>
                     </div>
                 </form>
@@ -320,4 +385,4 @@
 </div>
 </div>
 </div>
-</div>-->
+</div>

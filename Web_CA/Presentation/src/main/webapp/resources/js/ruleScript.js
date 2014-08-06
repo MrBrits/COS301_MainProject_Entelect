@@ -46,3 +46,27 @@ web_ca.controller("GetRuleByUserId", function ($scope, $http) {
         });
 
 });
+
+web_ca.controller("AddRuleController", function($http) {
+    var app = this;
+    app.addRule = function(rule, con, res, conNeigh, resNeigh) {
+        rule.ownerId=document.getElementById("userId").value;
+
+        alert(JSON.stringify(rule));
+
+        alert(JSON.stringify(con));
+        alert(JSON.stringify(res));
+
+        alert(JSON.stringify(conNeigh));
+        alert(JSON.stringify(resNeigh));
+        /*
+        $http.post("http://" + site + "/AddRule",rule)
+            .success(function(data) {
+                alert(data);
+            }).error(function () {
+                alert("SERVER ERROR");
+        });
+        */
+    };
+
+});

@@ -35,5 +35,12 @@ public class RuleController {
 
         return ruleService.findRuleByUserId(userId);
     }
-   }
+
+    @RequestMapping(value = "/AddRule", method = RequestMethod.POST)
+    public @ResponseBody
+    String createState(@RequestBody Rule rule) {
+       ruleService.createRule(rule);
+        return "Rule Added";
+    }
+}
 

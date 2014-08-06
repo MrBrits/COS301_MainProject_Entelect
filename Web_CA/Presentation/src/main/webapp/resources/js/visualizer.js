@@ -264,7 +264,7 @@ function changeState()
 
     if(layer==-1)
     {
-        //If entire world (all layers) are being viewed. Only change what user can see
+        //If entire world (all layers) are being viewed. Only change outer layer
         if(typeof intersects[0] !== 'undefined')
             intersects[0].object.material.color.setHex(0xDA4D1A);
     }

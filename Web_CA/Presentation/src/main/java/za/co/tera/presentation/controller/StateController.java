@@ -40,8 +40,6 @@ public class StateController {
     String createState(@RequestBody State state) {
         stateService.createState(state);
         return "State Added";
-
-
     }
 }
 
