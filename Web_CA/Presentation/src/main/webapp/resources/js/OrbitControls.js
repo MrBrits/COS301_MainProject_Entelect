@@ -1,6 +1,6 @@
 
 
-THREE.OrbitControls = function ( object, domElement ) {
+THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     this.object = object;
     this.domElement = ( domElement !== undefined ) ? domElement : document;
@@ -13,7 +13,9 @@ THREE.OrbitControls = function ( object, domElement ) {
 
     this.userZoom = true;
     this.userZoomSpeed = 1.0;
-
+    this.wx=wx;
+    this.wy=wy;
+    this.wz=wz;
     this.userRotate = true;
     this.userRotateSpeed = 1.0;
 
@@ -182,7 +184,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
         position.copy( this.center ).add( offset );
 
-        this.object.lookAt( this.center );
+        this.object.lookAt( new THREE.Vector3(this.wx*1.509, this.wy*1.509, this.wz*1.509) );
 
         thetaDelta = 0;
         phiDelta = 0;

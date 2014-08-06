@@ -94,7 +94,7 @@ for(var z = 0; z < sizez; z++){
                 opacity:1
             });
             cubes[height][length][depth] = new THREE.Mesh(geometry, material);
-            cubes[height][length][depth].position = new THREE.Vector3(((sizex)/2+1.509)+(x*1.509), (y*1.509), (z*1.509));
+            cubes[height][length][depth].position = new THREE.Vector3(x*1.509, y*1.509, z*1.509);
             scene.add(cubes[height][length][depth]);
             depth++;
         }
@@ -134,7 +134,7 @@ camera.position.z = 50;
 camera.position.y = 50;
 camera.position.x = 50;
 
-controls = new THREE.OrbitControls(camera);
+controls = new THREE.OrbitControls(camera,Math.ceil(this.sizex/2),Math.ceil(this.sizey/2),Math.ceil(this.sizez/2));
 controls.addEventListener('change', render);
 
 for(var i = 0; i < 7; i++) {
