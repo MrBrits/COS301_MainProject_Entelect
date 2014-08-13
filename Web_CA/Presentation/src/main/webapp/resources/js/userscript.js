@@ -54,12 +54,12 @@ web_ca.controller("UserByIdGet", function ($scope, $http) {
 
     $http.get("http://localhost:8080/getUserById/"+23)
         .success(function (data) {
-            $scope.User = data;
+           // $scope.User = data;
             // alert(JSON.stringify(data));
             //   alert("done");
 
         })
         .error(function () {
-            alert("error");
+           // alert("error");
         });
 });

@@ -89,7 +89,6 @@ public class AbstractDaoImpl<T extends Serializable> implements AbstractDao<T>
         session.beginTransaction();
         session.delete(object);
         session.getTransaction().commit();
-        System.out.println("deleted");
     }
 
     @Override

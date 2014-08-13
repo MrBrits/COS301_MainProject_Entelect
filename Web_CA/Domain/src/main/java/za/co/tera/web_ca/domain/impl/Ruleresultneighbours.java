@@ -4,24 +4,21 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
- * Created by Christo on 2014/07/14.
+ * Created by Christo on 2014/08/13.
  */
 @Entity
-public class Ruleresultneighbours  implements Serializable {
+public class Ruleresultneighbours {
     private int ruleResultNeighId;
     private String neighbours;
-    private int ruleResultId;
 
-    public Ruleresultneighbours()
-    {}
+    public Ruleresultneighbours() {
+    }
 
-    public  Ruleresultneighbours(String neighbours, int ruleResultId)
-    {
+    public Ruleresultneighbours(int ruleResultNeighId, String neighbours) {
+        this.ruleResultNeighId = ruleResultNeighId;
         this.neighbours = neighbours;
-        this.ruleResultId = ruleResultId;
     }
 
     @Id
@@ -44,16 +41,6 @@ public class Ruleresultneighbours  implements Serializable {
         this.neighbours = neighbours;
     }
 
-    @Basic
-    @Column(name = "RuleResultID", nullable = false, insertable = true, updatable = true)
-    public int getRuleResultId() {
-        return ruleResultId;
-    }
-
-    public void setRuleResultId(int ruleResultId) {
-        this.ruleResultId = ruleResultId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,7 +48,6 @@ public class Ruleresultneighbours  implements Serializable {
 
         Ruleresultneighbours that = (Ruleresultneighbours) o;
 
-        if (ruleResultId != that.ruleResultId) return false;
         if (ruleResultNeighId != that.ruleResultNeighId) return false;
         if (neighbours != null ? !neighbours.equals(that.neighbours) : that.neighbours != null) return false;
 
@@ -72,7 +58,6 @@ public class Ruleresultneighbours  implements Serializable {
     public int hashCode() {
         int result = ruleResultNeighId;
         result = 31 * result + (neighbours != null ? neighbours.hashCode() : 0);
-        result = 31 * result + ruleResultId;
         return result;
     }
 }

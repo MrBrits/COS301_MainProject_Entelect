@@ -1,6 +1,6 @@
 package za.co.tera.web_ca.business.Rule.base;
 
-import za.co.tera.web_ca.domain.impl.Rule;
+import za.co.tera.web_ca.domain.impl.*;
 
 import java.util.List;
 
@@ -9,7 +9,14 @@ import java.util.List;
  */
 public interface RuleService {
 
-    public void createRule(Rule newRule);
+    public boolean createRule(Rule newRule);
+
+    public int createRuleCon(Rulecondition newRuleCon);
+    public void createRuleConNeigh(Ruleconditionneighbours newRuleConNeigh);
+
+    public int createRuleRes(Ruleresult newRuleRes);
+    public void createRuleResNeigh(Ruleresultneighbours newRuleResNeigh);
+
     public void deleteRule(Rule delRule);
     public void updateRule(Rule updateRule);
     public Rule findRule(int ID);

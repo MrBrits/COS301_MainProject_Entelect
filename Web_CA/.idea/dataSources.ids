@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source source="LOCAL" name="MySQL - web_ca@localhost" uuid="88f806e9-2673-4553-9ae6-105d3a3cb27c">
-    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+    <database-info product="MySQL" version="5.6.12-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -22,16 +22,17 @@
       <column name="RuleName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <column name="RuleDesc" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
       <column name="Priority" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="RuleConditionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="RuleResultID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="RuleConID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="RuleResID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="OwnerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="RuleID"/>
-      <foreign-key name="rule_ibfk_1" columns="OwnerID" ref-table="user" ref-schema="" ref-catalog="web_ca" ref-columns="UserID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="rule_ibfk_2" columns="RuleConditionID" ref-table="rulecondition" ref-schema="" ref-catalog="web_ca" ref-columns="RuleConditionID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="rule_ibfk_3" columns="RuleResultID" ref-table="ruleresult" ref-schema="" ref-catalog="web_ca" ref-columns="RuleResultID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="rule_ibfk_3" columns="RuleConID" ref-table="rulecondition" ref-schema="" ref-catalog="web_ca" ref-columns="RuleConditionID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="rule_ibfk_1" columns="OwnerID" ref-table="user" ref-schema="" ref-catalog="web_ca" ref-columns="UserID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="rule_ibfk_2" columns="RuleResID" ref-table="ruleresult" ref-schema="" ref-catalog="web_ca" ref-columns="RuleResultID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="worldrules_ibfk_2" table="worldrules" schema="" catalog="web_ca" columns="RuleID"/>
       <index name="ConditionID" unique="false" columns="OwnerID"/>
-      <index name="ConditionID_2" unique="false" columns="RuleConditionID,RuleResultID"/>
+      <index name="ConditionID_2" unique="false" columns="RuleConID,RuleResID"/>
+      <index name="RuleResultID" unique="false" columns="RuleResID"/>
     </table>
     <table name="rulecondition" schema="" catalog="web_ca" type="TABLE">
       <column name="RuleConditionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -39,33 +40,33 @@
       <column name="Operation" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
       <column name="Operand" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
       <column name="CompareValue" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="NeighboursID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="RuleConditionID"/>
-      <exported-key name="rule_ibfk_2" table="rule" schema="" catalog="web_ca" columns="RuleConditionID"/>
-      <exported-key name="ruleconditionneighbours_ibfk_1" table="ruleconditionneighbours" schema="" catalog="web_ca" columns="RuleConditionID"/>
+      <foreign-key name="rulecondition_ibfk_1" columns="NeighboursID" ref-table="ruleconditionneighbours" ref-schema="" ref-catalog="web_ca" ref-columns="RuleConditionNeighID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="rule_ibfk_3" table="rule" schema="" catalog="web_ca" columns="RuleConID"/>
     </table>
     <table name="ruleconditionneighbours" schema="" catalog="web_ca" type="TABLE">
       <column name="RuleConditionNeighID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="Neighbours" sqlType="VARCHAR" precision="26" scale="0" nullable="false" jdbcType="12"/>
-      <column name="RuleConditionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="RuleConditionNeighID"/>
-      <foreign-key name="ruleconditionneighbours_ibfk_1" columns="RuleConditionID" ref-table="rulecondition" ref-schema="" ref-catalog="web_ca" ref-columns="RuleConditionID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="rulecondition_ibfk_1" table="rulecondition" schema="" catalog="web_ca" columns="NeighboursID"/>
     </table>
     <table name="ruleresult" schema="" catalog="web_ca" type="TABLE">
       <column name="RuleResultID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="Operation" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
       <column name="Operand" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
       <column name="ResultValue" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="NeighboursID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="RuleResultID"/>
-      <exported-key name="rule_ibfk_3" table="rule" schema="" catalog="web_ca" columns="RuleResultID"/>
-      <exported-key name="ruleresultneighbours_ibfk_1" table="ruleresultneighbours" schema="" catalog="web_ca" columns="RuleResultID"/>
+      <foreign-key name="ruleresult_ibfk_1" columns="NeighboursID" ref-table="ruleresultneighbours" ref-schema="" ref-catalog="web_ca" ref-columns="RuleResultNeighID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="rule_ibfk_2" table="rule" schema="" catalog="web_ca" columns="RuleResID"/>
+      <index name="NeighboursID_2" unique="false" columns="NeighboursID"/>
     </table>
     <table name="ruleresultneighbours" schema="" catalog="web_ca" type="TABLE">
       <column name="RuleResultNeighID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="Neighbours" sqlType="VARCHAR" precision="26" scale="0" nullable="false" jdbcType="12"/>
-      <column name="RuleResultID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="RuleResultNeighID"/>
-      <foreign-key name="ruleresultneighbours_ibfk_1" columns="RuleResultID" ref-table="ruleresult" ref-schema="" ref-catalog="web_ca" ref-columns="RuleResultID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <index name="RuleResultID_2" unique="false" columns="RuleResultID"/>
+      <exported-key name="ruleresult_ibfk_1" table="ruleresult" schema="" catalog="web_ca" columns="NeighboursID"/>
     </table>
     <table name="state" schema="" catalog="web_ca" type="TABLE">
       <column name="StateID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>

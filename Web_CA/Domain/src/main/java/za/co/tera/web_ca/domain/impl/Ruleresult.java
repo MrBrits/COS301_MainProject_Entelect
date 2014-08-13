@@ -4,26 +4,27 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
- * Created by Christo on 2014/07/14.
+ * Created by Christo on 2014/08/13.
  */
 @Entity
-public class Ruleresult  implements Serializable {
+public class Ruleresult {
     private int ruleResultId;
     private String operation;
     private String operand;
     private Integer resultValue;
+    private int neighboursId;
 
     public Ruleresult()
     {}
 
-    public Ruleresult(String operation, String operand, int resultValue)
-    {
+    public Ruleresult(int ruleResultId, String operation, String operand, Integer resultValue, int neighboursId) {
+        this.ruleResultId = ruleResultId;
         this.operation = operation;
         this.operand = operand;
         this.resultValue = resultValue;
+        this.neighboursId = neighboursId;
     }
 
     @Id
@@ -66,6 +67,16 @@ public class Ruleresult  implements Serializable {
         this.resultValue = resultValue;
     }
 
+    @Basic
+    @Column(name = "NeighboursID", nullable = false, insertable = true, updatable = true)
+    public int getNeighboursId() {
+        return neighboursId;
+    }
+
+    public void setNeighboursId(int neighboursId) {
+        this.neighboursId = neighboursId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,6 +84,7 @@ public class Ruleresult  implements Serializable {
 
         Ruleresult that = (Ruleresult) o;
 
+        if (neighboursId != that.neighboursId) return false;
         if (ruleResultId != that.ruleResultId) return false;
         if (operand != null ? !operand.equals(that.operand) : that.operand != null) return false;
         if (operation != null ? !operation.equals(that.operation) : that.operation != null) return false;
@@ -87,6 +99,7 @@ public class Ruleresult  implements Serializable {
         result = 31 * result + (operation != null ? operation.hashCode() : 0);
         result = 31 * result + (operand != null ? operand.hashCode() : 0);
         result = 31 * result + (resultValue != null ? resultValue.hashCode() : 0);
+        result = 31 * result + neighboursId;
         return result;
     }
 }

@@ -2,12 +2,13 @@
  * Created by Laptop on 7/15/2014.
  */
 var User ="";
+var site = "localhost:8080";
 var web_ca = angular.module('rule_app', []);
 
 web_ca.controller("RuleGetCtr", function ($scope, $http) {
     var app = this;
 
-    $http.get("http://localhost:8080/getAllRules")
+    $http.get("http://" + site + "/getAllRules")
         .success(function (data) {
             //alert(data);
             $scope.rules = data;
@@ -16,26 +17,12 @@ web_ca.controller("RuleGetCtr", function ($scope, $http) {
             alert("fail--rule");
         });
 });
-web_ca.controller("RuleSetCtr", function ($scope, $http) {
-    var app = this;
-    /*
-     $http.get("http://localhost:8080/getAllRules")
-     .success(function (data) {
-     //alert(data);
-     $scope.rules = data;
 
-     }).error(function () {
-     alert("fail");
-     });*/
-    //alert("Ddf");
-});
 web_ca.controller("GetRuleByUserId", function ($scope, $http) {
     var app = this;
 
-//alert("Done");
-
     var userId=document.getElementById("userId").value;
-    $http.get("http://localhost:8080/getRuleByUserId/"+userId)
+    $http.get("http://" + site + "/getRuleByUserId/"+userId)
         .success(function (data) {
             $scope.rules = data;
             // alert(JSON.stringify(data));
@@ -52,21 +39,63 @@ web_ca.controller("AddRuleController", function($http) {
     app.addRule = function(rule, con, res, conNeigh, resNeigh) {
         rule.ownerId=document.getElementById("userId").value;
 
-        alert(JSON.stringify(rule));
+        //alert(JSON.stringify(rule));
+        //alert(JSON.stringify(res));
 
-        alert(JSON.stringify(con));
-        alert(JSON.stringify(res));
+        //alert(JSON.stringify(resNeigh));
 
-        alert(JSON.stringify(conNeigh));
-        alert(JSON.stringify(resNeigh));
+        //Add RuleCondition
+        $http.post("http://" + site + "/AddRuleCons",con)
+            .success(function(data) {
+                conNeigh.ruleConditionId = data;
+                rule.ruleConditionId = data;
+                if (data == 0)
+                {
+                    alert("Rule Condition could not be found");
+                }
+                //Add RuleConditionNeighbour
+                $http.post("http://" + site + "/AddRuleConNeigh", conNeigh)
+                    .success(function(data) {
+                    }).error(function () {
+                        alert("RULE CONDITION NEIGHBOUR: SERVER ERROR");
+                });
+            }).error(function () {
+                alert("RULE CONDITION: SERVER ERROR");
+        });
+
+        alert(JSON.stringify("NEIGH " + conNeigh));
+
         /*
-        $http.post("http://" + site + "/AddRule",rule)
+        //Add RuleResult
+        $http.post("http://" + site + "/AddRuleRes", res, false)
+            .success(function(data) {
+                resNeigh.ruleResultId = data;
+                rule.ruleResultId = data;
+                 if (data == 0)
+                 {
+                    alert("Rule Result could not be found");
+                 }
+                 //Add RuleResultNeighbour
+                 $http.post("http://" + site + "/AddRuleResNeigh", resNeigh, false)
+                     .success(function(data) {
+                     alert(data);
+                    }).error(function () {
+                     alert("RULE RESULT NEIGHBOUR: SERVER ERROR");
+                 });
+            }).error(function () {
+                alert("RULE RESULT: SERVER ERROR");
+            });
+
+
+        //Add Rule
+        $http.post("http://" + site + "/AddRule",rule, false)
             .success(function(data) {
                 alert(data);
             }).error(function () {
-                alert("SERVER ERROR");
+                alert("RULE: SERVER ERROR");
         });
         */
+
     };
 
 });

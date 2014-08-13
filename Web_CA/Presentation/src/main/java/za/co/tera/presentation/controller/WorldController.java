@@ -32,7 +32,6 @@ public class WorldController {
     @RequestMapping(value = "/getWorldByUserId/{userId}", method = RequestMethod.GET)
     public @ResponseBody
     List<World> getUserById( @PathVariable(value = "userId") int userId) {
-        System.out.println(worldService.findWorldByUserId(userId).size());
         return worldService.findWorldByUserId(userId);
     }
 

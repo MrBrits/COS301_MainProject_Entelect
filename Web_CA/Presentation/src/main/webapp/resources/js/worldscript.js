@@ -1,9 +1,11 @@
 var web_ca = angular.module('world_app', []);
 
+var site = "localhost:8080";
+
 web_ca.controller("WorldGetCtr", function ($scope, $http) {
     var app = this;
 
-    $http.get("http://localhost:8080/getAllWorlds")
+    $http.get("http://" + site + "/getAllWorlds")
         .success(function (data) {
             $scope.worlds = data;
 
@@ -16,7 +18,7 @@ web_ca.controller("GetWorldByUserId", function ($scope, $http) {
     var app = this;
     var userId=document.getElementById("userId").value;
 
-    $http.get("http://localhost:8080/getWorldByUserId/"+userId)
+    $http.get("http://" + site + "/getWorldByUserId/"+userId)
         .success(function (data) {
             $scope.worlds = data;
 

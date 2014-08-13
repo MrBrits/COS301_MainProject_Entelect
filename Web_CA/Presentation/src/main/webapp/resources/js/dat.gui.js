@@ -2813,7 +2813,6 @@ dat.GUI = dat.gui.GUI = (function (css, saveDialogueContents, styleSheet, contro
 
   function markPresetModified(gui, modified) {
     var opt = gui.__preset_select[gui.__preset_select.selectedIndex];
-//    console.log('mark', modified, opt);
     if (modified) {
       opt.innerHTML = opt.value + "*";
     } else {
@@ -3647,10 +3646,7 @@ dat.dom.CenteredDiv = (function (dom, common) {
     this.domElement.style.left = window.innerWidth/2 - dom.getWidth(this.domElement) / 2 + 'px';
     this.domElement.style.top = window.innerHeight/2 - dom.getHeight(this.domElement) / 2 + 'px';
   };
-  
-  function lockScroll(e) {
-    console.log(e);
-  }
+
 
   return CenteredDiv;
 

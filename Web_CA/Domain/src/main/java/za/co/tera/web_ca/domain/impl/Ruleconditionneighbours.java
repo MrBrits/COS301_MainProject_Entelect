@@ -4,24 +4,21 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
- * Created by Christo on 2014/07/14.
+ * Created by Christo on 2014/08/13.
  */
 @Entity
-public class Ruleconditionneighbours  implements Serializable {
+public class Ruleconditionneighbours {
     private int ruleConditionNeighId;
     private String neighbours;
-    private int ruleConditionId;
 
-    public Ruleconditionneighbours()
-    {}
+    public Ruleconditionneighbours() {
+    }
 
-    public  Ruleconditionneighbours(String neighbours, int ruleConditionId)
-    {
+    public Ruleconditionneighbours(int ruleConditionNeighId, String neighbours) {
+        this.ruleConditionNeighId = ruleConditionNeighId;
         this.neighbours = neighbours;
-        this.ruleConditionId = ruleConditionId;
     }
 
     @Id
@@ -44,16 +41,6 @@ public class Ruleconditionneighbours  implements Serializable {
         this.neighbours = neighbours;
     }
 
-    @Basic
-    @Column(name = "RuleConditionID", nullable = false, insertable = true, updatable = true)
-    public int getRuleConditionId() {
-        return ruleConditionId;
-    }
-
-    public void setRuleConditionId(int ruleConditionId) {
-        this.ruleConditionId = ruleConditionId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,7 +48,6 @@ public class Ruleconditionneighbours  implements Serializable {
 
         Ruleconditionneighbours that = (Ruleconditionneighbours) o;
 
-        if (ruleConditionId != that.ruleConditionId) return false;
         if (ruleConditionNeighId != that.ruleConditionNeighId) return false;
         if (neighbours != null ? !neighbours.equals(that.neighbours) : that.neighbours != null) return false;
 
@@ -72,7 +58,6 @@ public class Ruleconditionneighbours  implements Serializable {
     public int hashCode() {
         int result = ruleConditionNeighId;
         result = 31 * result + (neighbours != null ? neighbours.hashCode() : 0);
-        result = 31 * result + ruleConditionId;
         return result;
     }
 }

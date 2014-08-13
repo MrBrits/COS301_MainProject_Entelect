@@ -71,7 +71,6 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao {
         List<User> userList = query.list();
 
         if (userList.isEmpty()) {
-            System.out.println("NULL");
             return null;
 
         }

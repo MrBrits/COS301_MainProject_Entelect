@@ -223,14 +223,14 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">Priority</label>
                         <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="web_ca.newRule.Priority" placeholder="1 - Highest, 100 - Lowest">
+                            <input type="number" class="form-control"  ng-model="web_ca.newRule.priority" placeholder="1 - Highest, 100 - Lowest">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Condition of Rule</label>
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">Is Not</label>
+                            <label class="col-xs-2 control-label" >Is Not</label>
                             <div class="col-xs-4">
                                 <select class="form-control" ng-model="web_ca.newRuleCon.isNot">
                                     <option value="true">TRUE</option>
@@ -242,7 +242,7 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Operator</label>
                             <div class="col-xs-4">
-                                <select class="form-control" ng-model="web_ca.newRuleCon.Operation">
+                                <select class="form-control" ng-model="web_ca.newRuleCon.operation">
                                     <option value="SUM">SUM</option>
                                     <option value="AVG">AVG</option>
                                     <option value="MIN">MIN</option>
@@ -256,7 +256,7 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Condition Neighbours</label>
                             <div class="col-xs-4">
-                                <select class="form-control" ng-model="web_ca.newRuleConNeigh.Neighbours">
+                                <select class="form-control" ng-model="web_ca.newRuleConNeigh.neighbours">
                                     <option value="00000000000000000000000000"> 00000000000000000000000000 </option>
                                 </select>
                                 <span class="help-block"></span>
@@ -265,7 +265,7 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Operand</label>
                             <div class="col-xs-4">
-                                <select class="form-control" ng-model="web_ca.newRuleCon.Operand">
+                                <select class="form-control" ng-model="web_ca.newRuleCon.operand">
                                     <option value="<"> < </option>
                                     <option value=">"> > </option>
                                     <option value=">="> >= </option>
@@ -278,7 +278,7 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Compare Value</label>
                             <div class="col-xs-4">
-                                <input type="number" class="form-control"  ng-model="web_ca.newRuleCon.CompareValue" placeholder="Choose State">
+                                <input type="number" class="form-control"  ng-model="web_ca.newRuleCon.compareValue" placeholder="Choose State">
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -288,7 +288,7 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Operand</label>
                             <div class="col-xs-4">
-                                <select class="form-control" ng-model="web_ca.newRuleRes.Operand">
+                                <select class="form-control" ng-model="web_ca.newRuleRes.operand">
                                     <option value="=="> == </option>
                                 </select>
                                 <span class="help-block"></span>
@@ -297,7 +297,7 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Operator</label>
                             <div class="col-xs-4">
-                                <select class="form-control" ng-model="web_ca.newRuleRes.Operator">
+                                <select class="form-control" ng-model="web_ca.newRuleRes.operation">
                                     <option value="SUM">SUM</option>
                                     <option value="AVG">AVG</option>
                                     <option value="MIN">MIN</option>
@@ -311,7 +311,7 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Result Neighbours</label>
                             <div class="col-xs-4">
-                                <select class="form-control" ng-model="web_ca.newRuleResNeigh.Neighbours">
+                                <select class="form-control" ng-model="web_ca.newRuleResNeigh.neighbours">
                                     <option value="00000000000000000000000000"> 00000000000000000000000000 </option>
                                 </select>
                                 <span class="help-block"></span>
@@ -321,7 +321,7 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Result Value</label>
                             <div class="col-xs-4">
-                                <input type="number" class="form-control"  ng-model="web_ca.newRuleRes.ResultValue" placeholder="Choose State">
+                                <input type="number" class="form-control"  ng-model="web_ca.newRuleRes.resultValue" placeholder="Choose State">
                                 <span class="help-block"></span>
                             </div>
                         </div>

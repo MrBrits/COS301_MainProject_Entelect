@@ -1,9 +1,11 @@
 var web_ca = angular.module('state_app', []);
 
+var site = "localhost:8080";
+
 web_ca.controller("StateGetCtr", function ($scope, $http) {
     var app = this;
 
-    $http.get("http://localhost:8080/getAllStates")
+    $http.get("http://" + site + "/getAllStates")
         .success(function (data) {
             $scope.states = data;
             //alert("done---state");
@@ -16,7 +18,7 @@ web_ca.controller("GetStateByUserId", function ($scope, $http) {
 
     var userId = document.getElementById("userId").value;
 
-    $http.get("http://localhost:8080/getStateByUserId/"+userId)
+    $http.get("http://" + site + "/getStateByUserId/"+userId)
         .success(function (data) {
             $scope.states = data;
             // alert(JSON.stringify(data));
