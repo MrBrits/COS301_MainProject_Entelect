@@ -4,12 +4,13 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by Christo on 2014/08/13.
  */
 @Entity
-public class Ruleconditionneighbours {
+public class Ruleconditionneighbours implements Serializable {
     private int ruleConditionNeighId;
     private String neighbours;
 

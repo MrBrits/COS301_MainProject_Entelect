@@ -4,12 +4,13 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by Christo on 2014/08/13.
  */
 @Entity
-public class Ruleresult {
+public class Ruleresult implements Serializable {
     private int ruleResultId;
     private String operation;
     private String operand;
