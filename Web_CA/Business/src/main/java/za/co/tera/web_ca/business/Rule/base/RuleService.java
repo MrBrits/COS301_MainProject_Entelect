@@ -12,10 +12,10 @@ public interface RuleService {
     public boolean createRule(Rule newRule);
 
     public int createRuleCon(Rulecondition newRuleCon);
-    public void createRuleConNeigh(Ruleconditionneighbours newRuleConNeigh);
+    public int createRuleConNeigh(Ruleconditionneighbours newRuleConNeigh);
 
     public int createRuleRes(Ruleresult newRuleRes);
-    public void createRuleResNeigh(Ruleresultneighbours newRuleResNeigh);
+    public int createRuleResNeigh(Ruleresultneighbours newRuleResNeigh);
 
     public void deleteRule(Rule delRule);
     public void updateRule(Rule updateRule);

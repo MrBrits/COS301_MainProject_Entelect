@@ -1,9 +1,5 @@
 package za.co.tera.presentation.controller;
 
-/**
- * Created by Laptop on 7/4/2014.
- */
-
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,6 +33,12 @@ public class RuleController {
         return ruleService.findRuleByUserId(userId);
     }
 
+    @RequestMapping(value = "/AddRuleConNeigh", method = RequestMethod.POST)
+    public @ResponseBody
+    int createRuleConNeigh(@RequestBody Ruleconditionneighbours ruleConNeigh) {
+        return ruleService.createRuleConNeigh(ruleConNeigh);
+    }
+
     @RequestMapping(value = "/AddRuleCons", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleCon(@RequestBody JSONObject ruleCon) {
@@ -49,40 +51,29 @@ public class RuleController {
         {
             isNot = false;
         }
-       //Rulecondition rulecondition = new Rulecondition(isNot, ruleCon.get("operation").toString(),ruleCon.get("operand").toString(),Integer.parseInt(ruleCon.get("compareValue").toString()));
-
-        return 1;//ruleService.createRuleCon(rulecondition);
+        Rulecondition rulecondition = new Rulecondition(isNot, ruleCon.get("operation").toString(),ruleCon.get("operand").toString(),Integer.parseInt(ruleCon.get("compareValue").toString()),Integer.parseInt(ruleCon.get("neighboursId").toString()));
+        return ruleService.createRuleCon(rulecondition);
     }
 
-    @RequestMapping(value = "/AddRuleConNeigh", method = RequestMethod.POST)
+    @RequestMapping(value = "/AddRuleResNeigh", method = RequestMethod.POST)
     public @ResponseBody
-    void createRuleConNeigh(@RequestBody Ruleconditionneighbours ruleConNeigh) {
-        ruleService.createRuleConNeigh(ruleConNeigh);
+    int createRuleResNeigh(@RequestBody Ruleresultneighbours ruleResNeigh) {
+        return ruleService.createRuleResNeigh(ruleResNeigh);
     }
 
     @RequestMapping(value = "/AddRuleRes", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleRes(@RequestBody Ruleresult ruleRes) {
-        System.out.println("CONTROLLER: ADD RULERES");
-
         return ruleService.createRuleRes(ruleRes);
-    }
-
-    @RequestMapping(value = "/AddRuleResNeigh", method = RequestMethod.POST)
-    public @ResponseBody
-    void createRuleResNeigh(@RequestBody Ruleresultneighbours ruleResNeigh) {
-        System.out.println("CONTROLLER: ADD RULERESNEIGH");
-        ruleService.createRuleResNeigh(ruleResNeigh);
     }
 
     @RequestMapping(value = "/AddRule", method = RequestMethod.POST)
     public @ResponseBody
     String createRule(@RequestBody Rule rule) {
-        System.out.println("CONTROLLER: ADD RULE");
-       if (ruleService.createRule(rule))
-           return "Rule Added";
-       else
-           return "Nothing added";
+        if (ruleService.createRule(rule))
+            return "Rule " + rule.getRuleName() +" Added";
+
+        return "No new Rule has been added";
     }
 
 }

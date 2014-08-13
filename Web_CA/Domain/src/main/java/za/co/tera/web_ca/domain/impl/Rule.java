@@ -15,8 +15,8 @@ public class Rule  implements Serializable {
     private String ruleName;
     private String ruleDesc;
     private int priority;
-    private int ruleConditionId;
-    private int ruleResultId;
+    private int ruleConId;
+    private int ruleResId;
     private int ownerId;
 
     public Rule()
@@ -27,8 +27,8 @@ public class Rule  implements Serializable {
         this.ruleName = ruleName;
         this.ruleDesc = ruleDesc;
         this.priority = priority;
-        this.ruleConditionId = ruleConditionId;
-        this.ruleResultId = ruleResultId;
+        this.ruleConId = ruleConditionId;
+        this.ruleResId = ruleResultId;
         this.ownerId = ownerId;
     }
 
@@ -73,23 +73,23 @@ public class Rule  implements Serializable {
     }
 
     @Basic
-    @Column(name = "RuleConditionID", nullable = false, insertable = true, updatable = true)
+    @Column(name = "RuleConID", nullable = false, insertable = true, updatable = true)
     public int getRuleConditionId() {
-        return ruleConditionId;
+        return ruleConId;
     }
 
     public void setRuleConditionId(int ruleConditionId) {
-        this.ruleConditionId = ruleConditionId;
+        this.ruleConId = ruleConditionId;
     }
 
     @Basic
-    @Column(name = "RuleResultID", nullable = false, insertable = true, updatable = true)
+    @Column(name = "RuleResID", nullable = false, insertable = true, updatable = true)
     public int getRuleResultId() {
-        return ruleResultId;
+        return ruleResId;
     }
 
     public void setRuleResultId(int ruleResultId) {
-        this.ruleResultId = ruleResultId;
+        this.ruleResId = ruleResultId;
     }
 
     @Basic
@@ -111,9 +111,9 @@ public class Rule  implements Serializable {
 
         if (ownerId != rule.ownerId) return false;
         if (priority != rule.priority) return false;
-        if (ruleConditionId != rule.ruleConditionId) return false;
+        if (ruleConId != rule.ruleConId) return false;
         if (ruleId != rule.ruleId) return false;
-        if (ruleResultId != rule.ruleResultId) return false;
+        if (ruleResId != rule.ruleResId) return false;
         if (ruleDesc != null ? !ruleDesc.equals(rule.ruleDesc) : rule.ruleDesc != null) return false;
         if (ruleName != null ? !ruleName.equals(rule.ruleName) : rule.ruleName != null) return false;
 
@@ -126,8 +126,8 @@ public class Rule  implements Serializable {
         result = 31 * result + (ruleName != null ? ruleName.hashCode() : 0);
         result = 31 * result + (ruleDesc != null ? ruleDesc.hashCode() : 0);
         result = 31 * result + priority;
-        result = 31 * result + ruleConditionId;
-        result = 31 * result + ruleResultId;
+        result = 31 * result + ruleConId;
+        result = 31 * result + ruleResId;
         result = 31 * result + ownerId;
         return result;
     }

@@ -23,8 +23,7 @@ public class Rulecondition implements Serializable {
 
     }
 
-    public Rulecondition(int ruleConditionId, boolean isNot, String operation, String operand, int compareValue, int neighboursId) {
-        this.ruleConditionId = ruleConditionId;
+    public Rulecondition(boolean isNot, String operation, String operand, int compareValue, int neighboursId) {
         this.isNot = isNot;
         this.operation = operation;
         this.operand = operand;

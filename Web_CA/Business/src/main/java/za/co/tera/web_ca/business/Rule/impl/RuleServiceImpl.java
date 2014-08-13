@@ -23,7 +23,6 @@ public class RuleServiceImpl implements RuleService {
     @Override
     public boolean createRule(Rule newRule)
     {
-        System.out.println("SERVICE: ADD RULE");
         ruleDao.save(newRule);
         return true;
     }
@@ -31,28 +30,49 @@ public class RuleServiceImpl implements RuleService {
     @Override
     public int createRuleCon(Rulecondition newRuleCon)
     {
-        ruleConditionDao.save(newRuleCon);
-        return ruleConditionDao.getRuleConditionId(newRuleCon);
+        int Id = ruleConditionDao.getRuleConditionId(newRuleCon);
+
+        if (Id == 0) {
+            ruleConditionDao.save(newRuleCon);
+            Id = ruleConditionDao.getRuleConditionId(newRuleCon);
+        }
+        return Id;
     }
 
     @Override
-    public void createRuleConNeigh(Ruleconditionneighbours newRuleConNeigh)
+    public int createRuleConNeigh(Ruleconditionneighbours newRuleConNeigh)
     {
-        ruleConditionNeighboursDao.save(newRuleConNeigh);
+        int Id = ruleConditionNeighboursDao.getRuleConNeighId(newRuleConNeigh);
+
+        if (Id == 0) {
+            ruleConditionNeighboursDao.save(newRuleConNeigh);
+            Id = ruleConditionNeighboursDao.getRuleConNeighId(newRuleConNeigh);
+        }
+        return Id;
     }
 
     @Override
     public int createRuleRes(Ruleresult newRuleRes)
     {
-        System.out.println("SERVICE: ADD RULERES");
-        ruleResultDao.save(newRuleRes);
-        return ruleResultDao.getRuleResultId(newRuleRes);
+
+        int Id = ruleResultDao.getRuleResultId(newRuleRes);
+
+        if (Id == 0) {
+            ruleResultDao.save(newRuleRes);
+            Id = ruleResultDao.getRuleResultId(newRuleRes);
+        }
+        return Id;
     }
     @Override
-    public void createRuleResNeigh(Ruleresultneighbours newRuleResNeigh)
+    public int createRuleResNeigh(Ruleresultneighbours newRuleResNeigh)
     {
-        System.out.println("SERVICE: ADD RULERESNEIGH");
-        ruleResultNeighboursDao.save(newRuleResNeigh);
+        int Id = ruleResultNeighboursDao.getRuleResNeighId(newRuleResNeigh);
+
+        if (Id == 0) {
+            ruleResultNeighboursDao.save(newRuleResNeigh);
+            Id = ruleResultNeighboursDao.getRuleResNeighId(newRuleResNeigh);
+        }
+        return Id;
     }
 
     @Override

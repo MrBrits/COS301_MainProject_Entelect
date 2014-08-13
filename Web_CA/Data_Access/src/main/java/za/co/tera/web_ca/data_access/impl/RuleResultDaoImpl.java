@@ -8,9 +8,6 @@ import za.co.tera.web_ca.domain.impl.Ruleresult;
 
 import java.util.List;
 
-/**
- * Created by Laptop on 7/14/2014.
- */
 public class RuleResultDaoImpl extends AbstractDaoImpl<Ruleresult> implements RuleResultDao {
     public RuleResultDaoImpl()
     {
