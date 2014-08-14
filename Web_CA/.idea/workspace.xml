@@ -8,10 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/img/glyphicons_016_bin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/img/glyphicons_030_pencil.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/flash.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/pace.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/cellclass.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/cellclass.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/stylesheet.css" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" />
     </list>
     <ignored path="Web_CA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,101 +43,103 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Rulecondition.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Rulecondition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="2159">
-              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="indexSimulator.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="306">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="340">
+              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="indexHome.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="cellclass.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/cellclass.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexRouter.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/indexRouter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrbitControls.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/OrbitControls.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2958" max-vertical-offset="6375">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexHome.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6245614" vertical-offset="978" max-vertical-offset="7089">
-              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="70" selection-end-column="59" />
+            <state vertical-scroll-proportion="-9.807693" vertical-offset="1258" max-vertical-offset="7089">
+              <caret line="89" column="35" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rulescript.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js">
+      <file leaf-file-name="flash.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/flash.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1955">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8143712" vertical-offset="510" max-vertical-offset="1445">
+              <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RuleServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/RuleServiceImpl.java">
+      <file leaf-file-name="pace.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/pace.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1853">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+              <caret line="1" column="12266" selection-start-line="1" selection-start-column="12266" selection-end-line="1" selection-end-column="12266" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="visualizer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2601">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractDaoImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/base/impl/AbstractDaoImpl.java">
+      <file leaf-file-name="stylesheet.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="1802">
-              <caret line="81" column="46" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RuleDaoImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleDaoImpl.java">
+      <file leaf-file-name="worldclass.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="527">
-              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RuleResultNeighboursDaoImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultNeighboursDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="646">
-              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RuleConditionNeighboursDaoImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionNeighboursDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="646">
-              <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RuleResultDaoImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="629">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1481" max-vertical-offset="3383">
+              <caret line="193" column="0" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -153,19 +159,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/User.java" />
-        <option value="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/World.java" />
-        <option value="$PROJECT_DIR$/Business/src/test/java/Business/Main.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/temp.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/OrbitControls.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/visualizer2.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/stylesheet.css" />
         <option value="$USER_HOME$/Desktop/simulator/visualizer.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/visualizer.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/login.jsp" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/StateController.java" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/dat.gui.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/WorldController.java" />
@@ -204,6 +203,13 @@
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/ruleScript.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/pace.min.js" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/cellclass.js" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/stylesheet.css" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/flash.css" />
       </list>
     </option>
   </component>
@@ -299,6 +305,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -472,6 +479,14 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -495,17 +510,72 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Web_CA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Web_CA" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Web_CA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Web_CA" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Presentation" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -929,6 +999,12 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -947,12 +1023,6 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -1094,8 +1164,8 @@
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
       <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.Web" />
-      <item index="3" class="java.lang.String" itemvalue="Maven.Presentation [tomcat7:run]" />
-      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.Runner" />
+      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.Runner" />
+      <item index="4" class="java.lang.String" itemvalue="Maven.Presentation [tomcat7:run]" />
       <item index="5" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp" />
       <item index="6" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp (1)" />
     </list>
@@ -1222,6 +1292,7 @@
       <workItem from="1408006040086" duration="669000" />
       <workItem from="1408006846213" duration="1069000" />
       <workItem from="1408007941609" duration="952000" />
+      <workItem from="1408050158340" duration="2812000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1435,7 +1506,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387114000" />
+    <option name="totallyTimeSpent" value="389926000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1459,7 +1530,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08186196" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1471,20 +1542,20 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3207547" sideWeight="0.33006042" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16211878" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16211878" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29229608" sideWeight="0.5534591" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40449437" sideWeight="0.6699396" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2920937" sideWeight="0.5534591" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40402478" sideWeight="0.6699396" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5778491" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37311178" sideWeight="0.54653937" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38844302" sideWeight="0.88872623" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3869969" sideWeight="0.88872623" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31722054" sideWeight="0.22829582" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49839228" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17296073" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1553,69 +1624,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Presentation/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1428">
-          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/Presentation.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="383" max-vertical-offset="2431">
-          <caret line="29" column="76" selection-start-line="29" selection-start-column="75" selection-end-line="29" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/OrbitControls.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6341">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4229" max-vertical-offset="5032">
-          <caret line="267" column="48" selection-start-line="267" selection-start-column="48" selection-end-line="267" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/StateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83168316" vertical-offset="106" max-vertical-offset="697">
-          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="42" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Business/src/test/java/Business/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/angular.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3222" max-vertical-offset="3655">
-          <caret line="211" column="185" selection-start-line="211" selection-start-column="185" selection-end-line="211" selection-end-column="185" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/three.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="11535" max-vertical-offset="12172">
-          <caret line="687" column="223" selection-start-line="687" selection-start-column="223" selection-end-line="687" selection-end-column="223" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/WorldController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39013454" vertical-offset="200" max-vertical-offset="646">
-          <caret line="33" column="74" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/dat.gui.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7697368" vertical-offset="61478" max-vertical-offset="62050">
@@ -1644,8 +1652,8 @@
           <OriginalElement>za.co.tera.web_ca.domain.impl</OriginalElement>
           <nodes>
             <node x="" y="">za.co.tera.web_ca.domain.impl.Worldrules</node>
-            <node x="" y="">za.co.tera.web_ca.domain.impl.Rulecondition</node>
             <node x="" y="">za.co.tera.web_ca.domain.impl.Coordinate</node>
+            <node x="" y="">za.co.tera.web_ca.domain.impl.Rulecondition</node>
             <node x="" y="">za.co.tera.web_ca.domain.impl.World</node>
             <node x="" y="">za.co.tera.web_ca.domain.impl.Rule</node>
             <node x="" y="">za.co.tera.web_ca.domain.impl.State</node>
@@ -1830,8 +1838,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultNeighboursDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="493">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="646">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1866,24 +1874,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="476">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="629">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionNeighboursDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="493">
-          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="646">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="374">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="527">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1898,8 +1906,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/RuleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1290" max-vertical-offset="1615">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1853">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1914,32 +1922,106 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Rulecondition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1683">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="306">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="2159">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1955">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1955">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/jumbotron.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6245614" vertical-offset="978" max-vertical-offset="7089">
-          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="70" selection-end-column="59" />
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="1258" max-vertical-offset="7089">
+          <caret line="89" column="35" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="340">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/pace.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+          <caret line="1" column="12266" selection-start-line="1" selection-start-column="12266" selection-end-line="1" selection-end-column="12266" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/indexRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2601">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1481" max-vertical-offset="3383">
+          <caret line="193" column="0" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/cellclass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/OrbitControls.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6375">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/flash.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8143712" vertical-offset="510" max-vertical-offset="1445">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
           <folding />
         </state>
       </provider>

@@ -21,8 +21,9 @@ function world(xSize, ySize, zSize, scene)	{
                 cellArray [height][length] = new Array();
                 for(var x = 0; x < xSize; x++)	{
                     var geometry = new THREE.CubeGeometry(1.5, 1.5, 1.5);
+                    var colour = randomFairColor();
                     var material = new THREE.MeshPhongMaterial({
-                        color: randomFairColor(),
+                        color: colour,
                         ambient: 0x808080,
                         specular: 0xffffff,
                         shininess: 20,
@@ -33,6 +34,8 @@ function world(xSize, ySize, zSize, scene)	{
                     cellArray [height][length][depth] = new cell(x,y,z,cubes);
                     cellArray [height][length][depth].cube.position = new THREE.Vector3(x*1.509, y*1.509, z*1.509);
                     this.scene.add(cellArray [height][length][depth].cube);
+                    cellArray [height][length][depth].invis = true;
+                    cellArray [height][length][depth].colour = colour;
                     depth++;
                 }
                 length++;
@@ -52,11 +55,16 @@ function world(xSize, ySize, zSize, scene)	{
                     var x2 = 0;
                     for (var x = 0; x < xSize; x++) {
                         if (Math.random() < 0.5)	{
-                            cellArray[z][y][x].cube.material.opacity = 0;
+                            cellArray[z][y][x].cube.material.opacity = 0.05;
+                            cellArray[z][y][x].cube.material.color.setHex("0xffffff");
+                            cellArray[z][y][x].colour = 0;
                         }
                         else {
-                            cellArray[z][y][x].cube.material.opacity = 1;
-                            cellArray[z][y][x].cube.material.color.setHex(randomFairColor());
+                            if(cellArray[z][y][x].invis == true)
+                                cellArray[z][y][x].cube.material.opacity = 1;
+                            var c = randomFairColor();
+                            cellArray[z][y][x].cube.material.color.setHex(c);
+                            cellArray[z][y][x].colour = c;
                         }
                     }
                     x2+=1;
@@ -75,17 +83,24 @@ function world(xSize, ySize, zSize, scene)	{
         for (var z = 0; z < zSize; z++) {
             for (var y = 0; y < ySize; y++) {
                 for (var x = 0; x < xSize; x++) {
-                    if(this.layer==-1)
-                        cellArray[z][y][x].cube.visible = true;
-                    else if(this.layer==y)
-                        cellArray[z][y][x].cube.visible = true;
+                    if(this.layer==-1)	{
+                        cellArray[z][y][x].invis = true;
+                        if(cellArray[z][y][x].colour != 0)
+                            cellArray[z][y][x].toggleInvis();
+                    }
+                    else if(this.layer==y)	{
+                        cellArray[z][y][x].invis = true;
+                        if(cellArray[z][y][x].colour != 0)
+                            cellArray[z][y][x].toggleInvis();
+                    }
                     else	{
-                        cellArray[z][y][x].cube.visible = false;
+                        cellArray[z][y][x].invis = false;
+                        if(cellArray[z][y][x].colour != 0)
+                            cellArray[z][y][x].toggleInvis();
                     }
                 }
             }
         }
-
         if(this.layer > ySize - 2)
             this.layer = -2;
     }
@@ -143,14 +158,15 @@ function changeState()
     else	{
         for(var i =0; i < intersects.length; i++) {
             if(typeof intersects[i] !== 'undefined')
-                if (intersects[i].object.visible == true) {
-                    var tx=Math.floor(intersects[i].object.position.x/1.5);
-                    var ty=Math.floor(intersects[i].object.position.y/1.5);
-                    var tz=Math.floor(intersects[i].object.position.z/1.5);
-                    //intersects[i].object.material.color.setHex(0xDA4D1A);
-                    this.cellArray[tz][ty][tx].cube.material.color.setHex(0xDA4D1A);
-                    break;
-                }
+                var tx=Math.floor(intersects[i].object.position.x/1.5);
+            var ty=Math.floor(intersects[i].object.position.y/1.5);
+            var tz=Math.floor(intersects[i].object.position.z/1.5);
+            if(this.cellArray[tz][ty][tx].invis == true)	{
+                this.cellArray[tz][ty][tx].cube.material.color.setHex(0xDA4D1A);
+                this.cellArray[tz][ty][tx].cube.material.opacity = 1;
+                this.cellArray[tz][ty][tx].colour = 0xDA4D1A;
+                break;
+            }
         }
     }
 }
@@ -168,7 +184,6 @@ function randomFairColor() {
     var b = (Math.floor(Math.random() * (max - min + 1)) + min);
     return r + g + b;
 }
-
 
 
 

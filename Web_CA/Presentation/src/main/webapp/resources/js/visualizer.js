@@ -1,3 +1,8 @@
+Pace.on("done", function(){
+    $("#canvas").removeClass("cover");
+    dat.GUI.toggleHide();
+});
+
 //Variables
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(30, $(window).width() / $(window).height(), 1, 1000);
@@ -58,6 +63,8 @@ var methods= new function()	{
 
 //Creation of control menu
 var gui = new dat.GUI();
+dat.GUI.toggleHide();
+gui.close();
 gui.add(methods, 'Rotate');
 gui.add(methods, 'Start_Stop');
 gui.add(methods, 'Change_Layer');
