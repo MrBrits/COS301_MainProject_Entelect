@@ -8,8 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/img/glyphicons_016_bin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/img/glyphicons_030_pencil.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Web_CA.iws" />
@@ -38,51 +39,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RuleController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/RuleController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="618" max-vertical-offset="1224">
-              <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="indexHome.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="6681">
-              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1445">
-              <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rulescript.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.94188035" vertical-offset="1302" max-vertical-offset="1955">
-              <caret line="109" column="3" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Rulecondition.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Rulecondition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
+            <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="2159">
               <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexSimulator.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="306">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexHome.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6245614" vertical-offset="978" max-vertical-offset="7089">
+              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="70" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rulescript.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1955">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,6 +104,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="527">
               <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RuleResultNeighboursDaoImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultNeighboursDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="646">
+              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -152,6 +153,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/User.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/World.java" />
         <option value="$PROJECT_DIR$/Business/src/test/java/Business/Main.java" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/temp.js" />
@@ -170,7 +172,6 @@
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/statescript.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/userscript.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
         <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/base/impl/AbstractDaoImpl.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleconditionneighbours.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresult.java" />
@@ -195,14 +196,14 @@
         <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionNeighboursDaoImpl.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Rulecondition.java" />
         <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionDaoImpl.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/ruleScript.js" />
         <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/base/RuleService.java" />
         <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleResultneighboursDao.java" />
         <option value="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultNeighboursDaoImpl.java" />
         <option value="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/RuleServiceImpl.java" />
         <option value="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/RuleController.java" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/rulescript.js" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/ruleScript.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
       </list>
     </option>
   </component>
@@ -239,7 +240,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -297,7 +298,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -373,44 +374,6 @@
               <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Web_CA" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Presentation" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -439,6 +402,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -505,14 +472,6 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -533,12 +492,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -582,10 +549,10 @@
       <recent name="za.co.tera.presentation.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\img" />
       <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\js\lib" />
       <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\css" />
       <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\css\lib" />
-      <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\img" />
       <recent name="C:\Users\Laptop\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\WEB-INF\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -962,12 +929,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -986,6 +947,12 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -1056,7 +1023,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_Web_CA" />
-        <option name="JNDI_PORT" value="1095" />
+        <option name="JNDI_PORT" value="1098" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -1127,8 +1094,8 @@
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
       <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.Web" />
-      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.Runner" />
-      <item index="4" class="java.lang.String" itemvalue="Maven.Presentation [tomcat7:run]" />
+      <item index="3" class="java.lang.String" itemvalue="Maven.Presentation [tomcat7:run]" />
+      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.Runner" />
       <item index="5" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp" />
       <item index="6" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp (1)" />
     </list>
@@ -1251,7 +1218,10 @@
       <workItem from="1407932827075" duration="550000" />
       <workItem from="1407937997957" duration="6617000" />
       <workItem from="1407947051405" duration="3205000" />
-      <workItem from="1408005455468" duration="1729000" />
+      <workItem from="1408005455468" duration="188000" />
+      <workItem from="1408006040086" duration="669000" />
+      <workItem from="1408006846213" duration="1069000" />
+      <workItem from="1408007941609" duration="952000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1461,23 +1431,11 @@
       <created>1407965255986</created>
       <updated>1407965255986</updated>
     </task>
-    <task id="LOCAL-00053" summary="Add Rule - No duplicates">
-      <created>1408005708712</created>
-      <updated>1408005708713</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Add Rule - No duplicates">
-      <created>1408007016770</created>
-      <updated>1408007016770</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Add Rule - No duplicates">
-      <created>1408007436266</created>
-      <updated>1408007436266</updated>
-    </task>
-    <option name="localTasksCounter" value="56" />
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="385965000" />
+    <option name="totallyTimeSpent" value="387114000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1500,11 +1458,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270142" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08186196" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29282576" sideWeight="0.44496855" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15373352" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1518,15 +1476,15 @@
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29282576" sideWeight="0.5534591" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40880504" sideWeight="0.6699396" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29229608" sideWeight="0.5534591" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40449437" sideWeight="0.6699396" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5778491" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37311178" sideWeight="0.54653937" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3899371" sideWeight="0.88872623" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38844302" sideWeight="0.88872623" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31722054" sideWeight="0.22829582" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49839228" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17296073" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1686,8 +1644,8 @@
           <OriginalElement>za.co.tera.web_ca.domain.impl</OriginalElement>
           <nodes>
             <node x="" y="">za.co.tera.web_ca.domain.impl.Worldrules</node>
-            <node x="" y="">za.co.tera.web_ca.domain.impl.Coordinate</node>
             <node x="" y="">za.co.tera.web_ca.domain.impl.Rulecondition</node>
+            <node x="" y="">za.co.tera.web_ca.domain.impl.Coordinate</node>
             <node x="" y="">za.co.tera.web_ca.domain.impl.World</node>
             <node x="" y="">za.co.tera.web_ca.domain.impl.Rule</node>
             <node x="" y="">za.co.tera.web_ca.domain.impl.State</node>
@@ -1734,7 +1692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9487952" vertical-offset="246" max-vertical-offset="731">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1963,26 +1920,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="6681">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1445">
-          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="306">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94188035" vertical-offset="1302" max-vertical-offset="1955">
-          <caret line="109" column="3" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1955">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6245614" vertical-offset="978" max-vertical-offset="7089">
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="70" selection-end-column="59" />
           <folding />
         </state>
       </provider>
