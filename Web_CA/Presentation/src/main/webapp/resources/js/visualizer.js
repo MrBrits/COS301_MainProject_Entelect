@@ -1,6 +1,6 @@
 Pace.on("done", function(){
     $("#canvas").removeClass("cover");
-    dat.GUI.toggleHide();
+    //dat.GUI.hidden = false;
 });
 
 //Variables
@@ -63,7 +63,7 @@ var methods= new function()	{
 
 //Creation of control menu
 var gui = new dat.GUI();
-dat.GUI.toggleHide();
+//dat.GUI.hidden = true;
 gui.close();
 gui.add(methods, 'Rotate');
 gui.add(methods, 'Start_Stop');
