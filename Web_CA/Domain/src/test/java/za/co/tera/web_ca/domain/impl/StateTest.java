@@ -26,7 +26,5 @@ public class StateTest extends TestCase {
         assertEquals(123, stateTest.getStateValue());
         assertEquals(1, stateTest.getOwnerId());
         assertEquals(-1829031396, stateTest.hashCode());
-
-        System.out.println(stateTest.hashCode());
     }
 }

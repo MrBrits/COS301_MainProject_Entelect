@@ -8,19 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/CoordinateTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleconditionTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleconditionneighboursTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultneighboursTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/StateTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/UserTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/WorldTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/WorldrulesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/Domain.iml" afterPath="$PROJECT_DIR$/Domain/Domain.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresult.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresult.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/StateTest.java" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/StateTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Web_CA.iws" />
@@ -49,11 +37,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="StateTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/StateTest.java">
+      <file leaf-file-name="Ruleresult.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="278" max-vertical-offset="629">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="30" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
+              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoordinateTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/CoordinateTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="612">
+              <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,21 +59,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ruleresult.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresult.java">
+      <file leaf-file-name="RuleresultTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="1496">
-              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RuleresultTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultTest.java">
+      <file leaf-file-name="RuleTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23247863" vertical-offset="0" max-vertical-offset="585">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="646">
+              <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StateTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/StateTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7675214" vertical-offset="10" max-vertical-offset="595">
+              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/UserTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="629">
+              <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,40 +117,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RuleConditionDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/RuleConditionDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RuleConditionDaoImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="544">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ruleconditionneighbours.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleconditionneighbours.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="986">
-              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RuleconditionneighboursTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleconditionneighboursTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="476">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
               <caret line="19" column="74" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -135,12 +129,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ruleresultneighbours.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresultneighbours.java">
+      <file leaf-file-name="RuleconditionTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleconditionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="986">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="612">
+              <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,7 +144,7 @@
       <file leaf-file-name="RuleresultneighboursTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultneighboursTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="46" max-vertical-offset="476">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
               <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -213,7 +209,6 @@
         <option value="$PROJECT_DIR$/Domain/src/test/java/Domain/AppTest.java" />
         <option value="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/UserTest.java" />
         <option value="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/WorldTest.java" />
-        <option value="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/StateTest.java" />
         <option value="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleTest.java" />
         <option value="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/CoordinateTest.java" />
         <option value="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/WorldrulesTest.java" />
@@ -222,6 +217,7 @@
         <option value="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleconditionneighboursTest.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresult.java" />
         <option value="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultTest.java" />
+        <option value="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/StateTest.java" />
       </list>
     </option>
   </component>
@@ -1194,7 +1190,7 @@
       <workItem from="1408069429153" duration="839000" />
       <workItem from="1408104428746" duration="25000" />
       <workItem from="1408104505021" duration="835000" />
-      <workItem from="1408350686537" duration="5969000" />
+      <workItem from="1408350686537" duration="6112000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1424,11 +1420,15 @@
       <created>1408007872618</created>
       <updated>1408007872618</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Unit test for the Domain layer classes">
+      <created>1408356719308</created>
+      <updated>1408356719308</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="399282000" />
+    <option name="totallyTimeSpent" value="399425000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1505,7 +1505,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Business Layer CRUD functions.&#10;Update DAOs.&#10;Changed ConditionType table" />
     <MESSAGE value="Condition and Direction table updated" />
     <MESSAGE value="Working progress : angularjs post" />
     <MESSAGE value="Working progress : angularjs post v2" />
@@ -1530,7 +1529,8 @@
     <MESSAGE value="Changed database" />
     <MESSAGE value="Add Rule - No duplicates" />
     <MESSAGE value="Added rulescript" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added rulescript" />
+    <MESSAGE value="Unit test for the Domain layer classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unit test for the Domain layer classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1774,16 +1774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/UserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="629">
-          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/WorldTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="278" max-vertical-offset="680">
@@ -1802,31 +1792,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="646">
-          <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Coordinate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="1666">
           <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/CoordinateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="612">
-          <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1848,16 +1818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleconditionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="612">
-          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleconditionneighbours.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="986">
@@ -1871,36 +1831,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="986">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultneighboursTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="46" max-vertical-offset="476">
-          <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleconditionneighboursTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="476">
-          <caret line="19" column="74" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/StateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="629">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1936,10 +1866,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/CoordinateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="612">
+          <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleconditionneighboursTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="476">
+          <caret line="19" column="74" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleconditionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="612">
+          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultneighboursTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="46" max-vertical-offset="476">
+          <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23247863" vertical-offset="0" max-vertical-offset="585">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="646">
+          <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/UserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="629">
+          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/StateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7675214" vertical-offset="10" max-vertical-offset="595">
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
