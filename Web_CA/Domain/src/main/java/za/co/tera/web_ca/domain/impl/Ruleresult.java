@@ -14,7 +14,7 @@ public class Ruleresult implements Serializable {
     private int ruleResultId;
     private String operation;
     private String operand;
-    private Integer resultValue;
+    private int resultValue;
     private int neighboursId;
 
     public Ruleresult()
@@ -60,11 +60,11 @@ public class Ruleresult implements Serializable {
 
     @Basic
     @Column(name = "ResultValue", nullable = true, insertable = true, updatable = true)
-    public Integer getResultValue() {
+    public int getResultValue() {
         return resultValue;
     }
 
-    public void setResultValue(Integer resultValue) {
+    public void setResultValue(int resultValue) {
         this.resultValue = resultValue;
     }
 
@@ -89,7 +89,7 @@ public class Ruleresult implements Serializable {
         if (ruleResultId != that.ruleResultId) return false;
         if (operand != null ? !operand.equals(that.operand) : that.operand != null) return false;
         if (operation != null ? !operation.equals(that.operation) : that.operation != null) return false;
-        if (resultValue != null ? !resultValue.equals(that.resultValue) : that.resultValue != null) return false;
+        if (resultValue != that.resultValue) return false;
 
         return true;
     }
@@ -99,7 +99,7 @@ public class Ruleresult implements Serializable {
         int result = ruleResultId;
         result = 31 * result + (operation != null ? operation.hashCode() : 0);
         result = 31 * result + (operand != null ? operand.hashCode() : 0);
-        result = 31 * result + (resultValue != null ? resultValue.hashCode() : 0);
+        result = 31 * result + resultValue;
         result = 31 * result + neighboursId;
         return result;
     }

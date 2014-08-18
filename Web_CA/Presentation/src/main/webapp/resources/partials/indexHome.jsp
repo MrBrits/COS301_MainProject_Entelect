@@ -19,7 +19,9 @@
                                 <td><button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg" ></button> <label>{{state.stateName}}</label>
                                     <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
                                     <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
-                                    <p>{{state.stateDesc}}</p>  </td>
+                                    <p>{{state.stateDesc}}</p>
+                                    <label>{{state.stateId}}</label>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -347,66 +349,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                ...
+                <h1>Delete</h1>
             </div>
             <div class="modal-body">
-                ...
+                <p>Are you sure you want to delete...?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a href="#" class="btn btn-danger danger">Delete</a>
+                <a class="btn btn-danger danger">Delete</a>
             </div>
         </div>
     </div>
-</div>
-
-<!--<div class="container">
-<div class="row">
-<div class="[ col-xs-12 col-sm-offset-1 col-sm-5 ]">
-<div class="[ panel panel-default ] panel-google-plus">
-<div class="dropdown">
-<span class="dropdown-toggle" type="button" data-toggle="dropdown">
-<span class="[ glyphicon glyphicon-chevron-down ]"></span>
-</span>
-<ul class="dropdown-menu" role="menu">
-<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-<li role="presentation" class="divider"></li>
-<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-</ul>
-</div>
-<div class="panel-google-plus-tags">
-<ul>
-<li>#NiceWorld</li>
-<li>#EpicRule</li>
-</ul>
-</div>
-<div class="panel-heading">
-<img class="[ img-circle pull-left ]" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
-<h3>John Temp</h3>
-<h5><span>Shared publicly</span> - <span>Jun 14, 2014</span> </h5>
-</div>
-<div class="panel-body">
-<p>Thank you for sharing, nicely done</p>
-</div>
-<div class="panel-footer">
-<button type="button" class="[ btn btn-default ]">+1</button>
-<button type="button" class="[ btn btn-default ]">
-<span class="[ glyphicon glyphicon-share-alt ]"></span>
-</button>
-<div class="input-placeholder">Add a comment...</div>
-</div>
-<div class="panel-google-plus-comment">
-<img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="za.co.tera.Business.User Image" />
-<div class="panel-google-plus-textarea">
-<textarea rows="4"></textarea>
-<button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
-<button type="reset" class="[ btn btn-default ]">Cancel</button>
-</div>
-<div class="clearfix"></div>
-</div>
-</div>
-</div>
-</div>
 </div>
