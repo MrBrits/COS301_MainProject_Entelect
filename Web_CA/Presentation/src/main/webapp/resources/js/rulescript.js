@@ -26,7 +26,6 @@ web_ca.controller("GetRuleByUserId", function ($scope, $http) {
         }).error(function () {
             alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
         });
-
 });
 
 web_ca.controller("AddRuleController", function($http) {

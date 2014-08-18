@@ -2,31 +2,24 @@ var web_ca = angular.module('state_app', []);
 
 var site = "localhost:8080";
 
-web_ca.controller("StateGetCtr", function ($scope, $http) {
-    var app = this;
-
-    $http.get("http://" + site + "/getAllStates")
-        .success(function (data) {
-            $scope.states = data;
-            //alert("done---state");
-        }).error(function () {
-            //alert("fail---state");
-        });
-});
-web_ca.controller("GetStateByUserId", function ($scope, $http) {
+web_ca.controller("StateManager", function ($scope, $http) {
     var app = this;
 
     var userId = document.getElementById("userId").value;
 
-    $http.get("http://" + site + "/getStateByUserId/"+userId)
-        .success(function (data) {
-            $scope.states = data;
-            // alert(JSON.stringify(data));
-            //   alert("done");
+    $scope.getStates = function(){
+        $http.get("http://" + site + "/getStateByUserId/"+userId)
+            .success(function (data) {
+                $scope.states = data;
+            }).error(function () {
+                alert("RETRIEVE STATES BY USER ID: SERVER ERROR");
+            });
+    }
 
-        }).error(function () {
-            alert("SERVER ERROR");
-        });
+    $scope.launch = function(object){
+        alert(JSON.stringify(object));
+
+    }; // end launch
 
 });
 
@@ -41,7 +34,7 @@ web_ca.controller("AddStateController", function($http) {
             .success(function(data) {
                 alert(data);
             }).error(function () {
-                alert("SERVER ERROR");
+                alert("ADD STATE: SERVER ERROR");
             });
     };
 });

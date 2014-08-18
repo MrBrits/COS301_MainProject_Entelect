@@ -1,26 +1,24 @@
-
 <div class="container marketing">
     <div class="row">
         <div class="panel-group navbar-left col-md-4" id="accordion">
-            <div class="panel panel-default">
+            <div class="panel panel-default" ng-controller="StateManager">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#state">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#state" ng-click="getStates()">
                             States
                         </a>
                     </h4>
                 </div>
-                <div id="state" class="panel-collapse collapse">
-                    <div ng-controller="GetStateByUserId">
+                <div id="state" class="panel-collapse collapse" >
+                    <div>
                         <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
                         <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#AddstateModal">Add new State</button>
-                        <table class="table">
+                        <table class="table" >
                             <tr ng-repeat="state in states | filter:search">
                                 <td><button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg" ></button> <label>{{state.stateName}}</label>
-                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
-                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-warning" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button class="btn btn-default btn-sm pull-right btn-danger" ng-click="launch('state')"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
                                     <p>{{state.stateDesc}}</p>
-                                    <label>{{state.stateId}}</label>
                                 </td>
                             </tr>
                         </table>
@@ -43,7 +41,7 @@
                         <table class="table">
                             <tr ng-repeat="rule in rules | filter:search">
                                 <td><button type="button" class="btn btn-default btn-lg" ></button> <label>{{rule.ruleName}}</label>
-                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
                                     <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
                                     <p>{{rule.ruleDesc}}</p>  </td>
                             </tr>
@@ -68,7 +66,7 @@
                                 <td>
                                     <button type="button" class="btn btn-default btn-lg" ></button> <span class="glyphicon glyphicon-trash"></span>
                                     <label>{{world.worldName}}</label>
-                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
                                     <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
                                     <p>{{world.worldDesc}}</p>
                                 </td>
