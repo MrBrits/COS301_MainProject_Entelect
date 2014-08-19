@@ -1,8 +1,11 @@
 package za.co.tera.web_ca.business.World.impl;
 
 import za.co.tera.web_ca.business.World.base.WorldService;
+import za.co.tera.web_ca.data_access.CoordinateDao;
 import za.co.tera.web_ca.data_access.WorldDao;
+import za.co.tera.web_ca.data_access.impl.CoordinateDaoImpl;
 import za.co.tera.web_ca.data_access.impl.WorldDaoImpl;
+import za.co.tera.web_ca.domain.impl.Coordinate;
 import za.co.tera.web_ca.domain.impl.World;
 
 import java.util.List;
@@ -12,10 +15,17 @@ import java.util.List;
  */
 public class WorldServiceImpl implements WorldService{
     private WorldDao worldDAO = new WorldDaoImpl();
-
+    private CoordinateDao coordinateDao = new CoordinateDaoImpl();
     public void createWorld(World newWorld)
     {
-        worldDAO.save(newWorld);
+        int worldId= worldDAO.save(newWorld).getWorldId();
+        for (int i = 0; i < newWorld.getWorldHeight(); i++) {
+            for (int j = 0; j < newWorld.getWorldWidth(); j++) {
+                for (int k = 0; k < newWorld.getWorldDepth(); k++) {
+                    coordinateDao.save(new Coordinate(i,j,k,0,worldId));
+                }
+            }
+        }
     }
 
     public void deleteWorld(World delWorld)

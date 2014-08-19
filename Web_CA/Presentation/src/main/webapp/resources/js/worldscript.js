@@ -1,7 +1,7 @@
 var web_ca = angular.module('world_app', []);
 
 var site = "localhost:8080";
-
+this.Worldidtobedeleted=0;
 web_ca.controller("WorldGetCtr", function ($scope, $http) {
     var app = this;
 
@@ -42,4 +42,27 @@ web_ca.controller("AddWorldController", function($http) {
                 alert("SERVER ERROR");
             });
     };
+});
+function deleteWorld(toBeDeleted)
+{
+    toBeDeleted=toBeDeleted.substr(1);
+    var worldId= toBeDeleted.split(";")[0];
+    var worldName= toBeDeleted.split(";")[1];
+    this.Worldidtobedeleted=worldId;
+    document.getElementById("DeleteNameWorld").innerHTML="<h3>Delete World:"+worldName+ "</h3>";
+}
+web_ca.controller("deleteWorldController", function ($scope, $http) {
+    var app = this;
+
+    app.deleteWorldFinalize = function() {
+        $http.get("http://" + site + "/deleteWorld/"+2)
+            .success(function (data) {
+
+                alert(data);
+
+            }).error(function () {
+                alert("error");
+            });
+    };
+
 });

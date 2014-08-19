@@ -16,8 +16,8 @@
                         <table class="table" >
                             <tr ng-repeat="state in states | filter:search">
                                 <td><button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg" ></button> <label>{{state.stateName}}</label>
-                                    <button type="button" class="btn btn-default btn-sm pull-right btn-warning" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
-                                    <button class="btn btn-default btn-sm pull-right btn-danger" ng-click="launch('state')"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
+                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button" onclick="deleteState(id)" id=s{{state.stateId}};{{state.stateName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-deleteState"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
                                     <p>{{state.stateDesc}}</p>
                                 </td>
                             </tr>
@@ -42,7 +42,7 @@
                             <tr ng-repeat="rule in rules | filter:search">
                                 <td><button type="button" class="btn btn-default btn-lg" ></button> <label>{{rule.ruleName}}</label>
                                     <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
-                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
+                                    <button type="button" onclick="deleteRule(id)" id=r{{rule.ruleId}};{{rule.ruleName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-deleteRule"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
                                     <p>{{rule.ruleDesc}}</p>  </td>
                             </tr>
                         </table>
@@ -64,10 +64,10 @@
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
                                 <td>
-                                    <button type="button" class="btn btn-default btn-lg" ></button> <span class="glyphicon glyphicon-trash"></span>
+                                    <button type="button" class="btn btn-default btn-lg" ></button>
                                     <label>{{world.worldName}}</label>
                                     <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
-                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-delete"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
+                                    <button type="button" onclick="deleteWorld(id)" id=w{{world.worldId}};{{world.worldName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-deleteWorld"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
                                     <p>{{world.worldDesc}}</p>
                                 </td>
                             </tr>
@@ -342,19 +342,51 @@
         </div>
     </div>
 </div>
-
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirm-deleteWorld"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="deleteWorldController as web_ca">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1>Delete</h1>
+            <div id="DeleteNameWorld" class="modal-header">
+
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete...?</p>
+                <p>Are you sure you want to delete?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger danger">Delete</a>
+                <button type="submit" class="btn btn-warning" ng-click="web_ca.deleteWorldFinalize()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirm-deleteState"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="deleteStateController as web_ca">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="DeleteNameState" class="modal-header">
+
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-default" ng-click="web_ca.deleteStateFinalize()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="confirm-deleteRule"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="deleteRuleController as web_ca">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="DeleteNameRule" class="modal-header">
+
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-warning" ng-click="web_ca.deleteRuleFinalize()">Delete</button>
             </div>
         </div>
     </div>

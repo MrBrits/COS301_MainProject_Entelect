@@ -1,11 +1,20 @@
 package Data_Access;
 
+import za.co.tera.web_ca.data_access.WorldDao;
+import za.co.tera.web_ca.data_access.impl.WorldDaoImpl;
+import za.co.tera.web_ca.domain.impl.World;
+
 public class Main {
 
     //Used for logging of something
     //private static final Logger LOGGER = LoggerFactory.getLogger(Web_ca.class);
 
     public static void main(final String[] args) throws Exception {
+        WorldDao worldDao = new WorldDaoImpl();
+
+        World world = new World("Earth","Used to test how gravity affects certain states with other states.",3,10,10,10,31);
+
+       System.out.println(worldDao.save(world).getWorldId() );
         /*
 
         User user = new User("John","Doe","jd@gmail.com","123","Admin");

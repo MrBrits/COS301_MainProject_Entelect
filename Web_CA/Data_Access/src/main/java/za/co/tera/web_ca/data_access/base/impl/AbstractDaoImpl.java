@@ -74,14 +74,21 @@ public class AbstractDaoImpl<T extends Serializable> implements AbstractDao<T>
     }
 
     @Override
-    public void save(T object) {
+    public T save(T object) {
         if(object!=null) {
             Session session = getSession();
             session.beginTransaction();
             session.saveOrUpdate(object);
             session.getTransaction().commit();
+            Query query = session.createQuery("from " + type.getSimpleName());
+            List<T> objects = query.list();
+            return objects.get(objects.size()-1);
+
         }
+        return null;
     }
+
+
 
     @Override
     public void delete(T object) {

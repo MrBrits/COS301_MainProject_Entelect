@@ -41,6 +41,12 @@ public class StateController {
         stateService.createState(state);
         return "State Added";
     }
+    @RequestMapping(value = "/stateState/{stateId}", method = RequestMethod.GET)
+    public @ResponseBody
+    String deleteState( @PathVariable(value = "stateId") int stateId) {
+        stateService.deleteState(stateService.findState(stateId));
+        return "done";
+    }
 }
 
 

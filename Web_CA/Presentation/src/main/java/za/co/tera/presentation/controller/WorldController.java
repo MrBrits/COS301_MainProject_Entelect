@@ -34,6 +34,12 @@ public class WorldController {
     List<World> getUserById( @PathVariable(value = "userId") int userId) {
         return worldService.findWorldByUserId(userId);
     }
+    @RequestMapping(value = "/deleteWorld/{worlId}", method = RequestMethod.GET)
+    public @ResponseBody
+    String deleteWorld( @PathVariable(value = "worlId") int worlId) {
+        worldService.deleteWorld(worldService.findWorld(worlId));
+        return "done";
+    }
 
     @RequestMapping(value = "/AddWorld", method = RequestMethod.POST)
     public @ResponseBody

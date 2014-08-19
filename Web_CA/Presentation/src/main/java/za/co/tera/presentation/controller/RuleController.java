@@ -75,6 +75,11 @@ public class RuleController {
 
         return "No new Rule has been added";
     }
-
+    @RequestMapping(value = "/ruleWorld/{ruleId}", method = RequestMethod.GET)
+    public @ResponseBody
+    String deleteRule( @PathVariable(value = "ruleId") int ruleId) {
+        ruleService.deleteRule(ruleService.findRule(ruleId));
+        return "done";
+    }
 }
 

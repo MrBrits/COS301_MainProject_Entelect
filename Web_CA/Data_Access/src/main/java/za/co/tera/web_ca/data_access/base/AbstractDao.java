@@ -8,7 +8,8 @@ import java.util.List;
 public interface AbstractDao<T> {
     public T findById(int id);
     public List<T> findAll();
-    public void save(T object);
+    public T save(T object);
+
     public void delete(T object);
     public long count();
 }

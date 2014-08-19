@@ -21,5 +21,6 @@ public class WorldDaoImpl extends AbstractDaoImpl<World> implements WorldDao {
         query.setParameter("ownerId", ownerId);
         List<World> worldList = query.list();
         return worldList;
+
     }
 }
