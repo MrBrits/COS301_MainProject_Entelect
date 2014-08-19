@@ -2,6 +2,7 @@ var User ="";
 var site = "localhost:8080";
 var web_ca = angular.module('rule_app', []);
 this.Ruleidtobedeleted=0;
+
 web_ca.controller("RuleGetCtr", function ($scope, $http) {
     var app = this;
 
@@ -107,19 +108,25 @@ web_ca.controller("AddRuleController", function($http) {
     };
 
 });
+/**
+ *
+ * @param toBeDeleted
+ */
 function deleteRule(toBeDeleted)
 {
     toBeDeleted=toBeDeleted.substr(1);
     var ruleId= toBeDeleted.split(";")[0];
     var ruleName= toBeDeleted.split(";")[1];
-    this.Ruleidtobedeleted=ruleId;
     document.getElementById("DeleteNameRule").innerHTML="<h3>Delete State:"+ruleName+ "</h3>";
+    document.getElementById("ruleIdhidden").value=ruleId;
 }
+
 web_ca.controller("deleteRuleController", function ($scope, $http) {
     var app = this;
 
     app.deleteRuleFinalize = function() {
-        $http.get("http://" + site + "/deleteRule/"+2)
+        var ruleId=document.getElementById("ruleIdhidden").value;
+        $http.get("http://" + site + "/deleteRule/"+ruleId)
             .success(function (data) {
 
                 alert(data);
@@ -127,6 +134,7 @@ web_ca.controller("deleteRuleController", function ($scope, $http) {
             }).error(function () {
                 alert("error");
             });
+
     };
 
 });

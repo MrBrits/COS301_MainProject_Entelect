@@ -349,6 +349,7 @@
 
             </div>
             <div class="modal-body">
+                <input id ="worldIdhidden" type="hidden" class="form-control"  ng-model="web_ca.DeleteWorld.worldId"/>
                 <p>Are you sure you want to delete?</p>
             </div>
             <div class="modal-footer">
@@ -366,11 +367,12 @@
 
             </div>
             <div class="modal-body">
+                <input id ="stateIdhidden" type="hidden" class="form-control"  ng-model="web_ca.DeleteState.stateId"/>
                 <p>Are you sure you want to delete?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-default" ng-click="web_ca.deleteStateFinalize()">Delete</button>
+                <button type="submit" class="btn btn-warning" ng-click="web_ca.deleteStateFinalize()">Delete</button>
             </div>
         </div>
     </div>
@@ -382,6 +384,7 @@
 
             </div>
             <div class="modal-body">
+                <input id ="ruleIdhidden" type="hidden" class="form-control"  ng-model="web_ca.DeleteRule.ruleId"/>
                 <p>Are you sure you want to delete?</p>
             </div>
             <div class="modal-footer">

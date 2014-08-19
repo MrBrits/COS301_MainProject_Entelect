@@ -18,22 +18,42 @@ public class WorldController {
 
     WorldService worldService =new WorldServiceImpl();
 
+    /**
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/getAllWorlds", method = RequestMethod.GET)
     public @ResponseBody
     List<World> getAllWorlds( ModelMap model ) {
         return worldService.findAllWorlds();
     }
 
+    /**
+     *
+     * @param world
+     */
     @RequestMapping(value = "/postWorld", method = RequestMethod.POST)
     public @ResponseBody void postState(@RequestBody World world) {
         worldService.createWorld(world);
     }
 
+    /**
+     *
+     * @param userId
+     * @return
+     */
     @RequestMapping(value = "/getWorldByUserId/{userId}", method = RequestMethod.GET)
     public @ResponseBody
     List<World> getUserById( @PathVariable(value = "userId") int userId) {
         return worldService.findWorldByUserId(userId);
     }
+
+    /**
+     *
+     * @param worlId
+     * @return
+     */
     @RequestMapping(value = "/deleteWorld/{worlId}", method = RequestMethod.GET)
     public @ResponseBody
     String deleteWorld( @PathVariable(value = "worlId") int worlId) {
@@ -41,6 +61,11 @@ public class WorldController {
         return "done";
     }
 
+    /**
+     *
+     * @param world
+     * @return
+     */
     @RequestMapping(value = "/AddWorld", method = RequestMethod.POST)
     public @ResponseBody
     String createState(@RequestBody World world) {

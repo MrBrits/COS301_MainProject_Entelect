@@ -19,7 +19,7 @@ import za.co.tera.web_ca.domain.impl.User;
 public class IndexController {
 
     /**
-     * Returns the main page
+     * Get 
      */
     UserService userService = new UserServiceImpl();
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -28,6 +28,12 @@ public class IndexController {
         return new ModelAndView("login");
     }
 
+    /**
+     *
+     * @param model
+     * @param userId
+     * @return
+     */
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public @ResponseBody
     ModelAndView getMainPage(ModelMap model, @PathVariable(value = "userId") int userId) {

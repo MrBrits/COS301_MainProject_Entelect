@@ -15,17 +15,30 @@ public class RuleController {
 
     RuleService ruleService = new RuleServiceImpl();
 
+    /**
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/getAllRules", method = RequestMethod.GET)
     public @ResponseBody List<Rule> getAllRules( ModelMap model ) {
         return ruleService.findAllRules();
     }
 
+    /**
+     *
+     * @param rule
+     */
     @RequestMapping(value = "/postRule", method = RequestMethod.POST)
     public @ResponseBody void postRule(@RequestBody Rule rule) {
         ruleService.createRule(rule);
     }
 
-
+    /**
+     *
+     * @param userId
+     * @return
+     */
     @RequestMapping(value = "/getRuleByUserId/{userId}", method = RequestMethod.GET)
     public @ResponseBody
     List<Rule> getUserById( @PathVariable(value = "userId") int userId) {
@@ -33,12 +46,22 @@ public class RuleController {
         return ruleService.findRuleByUserId(userId);
     }
 
+    /**
+     *
+     * @param ruleConNeigh
+     * @return
+     */
     @RequestMapping(value = "/AddRuleConNeigh", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleConNeigh(@RequestBody Ruleconditionneighbours ruleConNeigh) {
         return ruleService.createRuleConNeigh(ruleConNeigh);
     }
 
+    /**
+     *
+     * @param ruleCon
+     * @return
+     */
     @RequestMapping(value = "/AddRuleCons", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleCon(@RequestBody JSONObject ruleCon) {
@@ -55,18 +78,33 @@ public class RuleController {
         return ruleService.createRuleCon(rulecondition);
     }
 
+    /**
+     *
+     * @param ruleResNeigh
+     * @return
+     */
     @RequestMapping(value = "/AddRuleResNeigh", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleResNeigh(@RequestBody Ruleresultneighbours ruleResNeigh) {
         return ruleService.createRuleResNeigh(ruleResNeigh);
     }
 
+    /**
+     *
+     * @param ruleRes
+     * @return
+     */
     @RequestMapping(value = "/AddRuleRes", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleRes(@RequestBody Ruleresult ruleRes) {
         return ruleService.createRuleRes(ruleRes);
     }
 
+    /**
+     *
+     * @param rule
+     * @return
+     */
     @RequestMapping(value = "/AddRule", method = RequestMethod.POST)
     public @ResponseBody
     String createRule(@RequestBody Rule rule) {
@@ -75,7 +113,13 @@ public class RuleController {
 
         return "No new Rule has been added";
     }
-    @RequestMapping(value = "/ruleWorld/{ruleId}", method = RequestMethod.GET)
+
+    /**
+     *
+     * @param ruleId
+     * @return
+     */
+    @RequestMapping(value = "/deleteRule/{ruleId}", method = RequestMethod.GET)
     public @ResponseBody
     String deleteRule( @PathVariable(value = "ruleId") int ruleId) {
         ruleService.deleteRule(ruleService.findRule(ruleId));

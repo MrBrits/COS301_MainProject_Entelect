@@ -1,5 +1,12 @@
-
-
+/**
+ *
+ * @param object
+ * @param wx
+ * @param wy
+ * @param wz
+ * @param domElement
+ * @constructor
+ */
 THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     this.object = object;
@@ -62,7 +69,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     var changeEvent = { type: 'change' };
 
-
+    /**
+     *
+     * @param angle
+     */
     this.rotateLeft = function ( angle ) {
 
         if ( angle === undefined ) {
@@ -75,6 +85,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     };
 
+    /**
+     *
+     * @param angle
+     */
     this.rotateRight = function ( angle ) {
 
         if ( angle === undefined ) {
@@ -87,6 +101,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     };
 
+    /**
+     *
+     * @param angle
+     */
     this.rotateUp = function ( angle ) {
 
         if ( angle === undefined ) {
@@ -99,6 +117,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     };
 
+    /**
+     *
+     * @param angle
+     */
     this.rotateDown = function ( angle ) {
 
         if ( angle === undefined ) {
@@ -110,7 +132,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
         phiDelta += angle;
 
     };
-
+    /**
+     *
+     * @param zoomScale
+     */
     this.zoomIn = function ( zoomScale ) {
 
         if ( zoomScale === undefined ) {
@@ -123,6 +148,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     };
 
+    /**
+     *
+     * @param zoomScale
+     */
     this.zoomOut = function ( zoomScale ) {
 
         if ( zoomScale === undefined ) {
@@ -135,6 +164,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     };
 
+    /**
+     *
+     * @param distance
+     */
     this.pan = function ( distance ) {
 
         distance.transformDirection( this.object.matrix );
@@ -145,6 +178,9 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     };
 
+    /**
+     *
+     */
     this.update = function () {
 
         var position = this.object.position;
@@ -199,7 +235,9 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
         }
 
     };
-
+    /**
+     *
+     */
     this.autoRotater = function()
     {
         if(this.autoRotate==true)
@@ -207,18 +245,29 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
         else
             this.autoRotate=true;
     };
+
+    /**
+     *
+     */
     function getAutoRotationAngle() {
 
         return 2 * Math.PI / 60 / 60 * scope.autoRotateSpeed;
 
     }
 
+    /**
+     *
+     */
     function getZoomScale() {
 
         return Math.pow( 0.95, scope.userZoomSpeed );
 
     }
 
+    /**
+     *
+     * @param event
+     */
     function onMouseDown( event ) {
 
         if ( scope.enabled === false ) return;
@@ -249,6 +298,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     function onMouseMove( event ) {
 
         if ( scope.enabled === false ) return;
@@ -293,6 +346,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     function onMouseUp( event ) {
 
         if ( scope.enabled === false ) return;
@@ -305,6 +362,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     function onMouseWheel( event ) {
 
         if ( scope.enabled === false ) return;
@@ -334,6 +395,10 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     function onKeyDown( event ) {
 
         if ( scope.enabled === false ) return;
@@ -364,6 +429,9 @@ THREE.OrbitControls = function ( object,wx,wy,wz, domElement ) {
     this.domElement.addEventListener( 'keydown', onKeyDown, false );
 
 };
-
+/**
+ *
+ * @type {THREE.EventDispatcher}
+ */
 THREE.OrbitControls.prototype = Object.create( THREE.EventDispatcher.prototype );
 

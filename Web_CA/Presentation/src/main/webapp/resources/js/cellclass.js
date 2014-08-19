@@ -1,4 +1,11 @@
-//Cell Class used to contain all of the information about a cell
+
+/**
+ *
+ * @param x
+ * @param y
+ * @param z
+ * @param c
+ */
 function cell(x,y,z,c)	{
     //Variables
     this.x = x;

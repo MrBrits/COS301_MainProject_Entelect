@@ -1,7 +1,7 @@
 var web_ca = angular.module('state_app', []);
 
 var site = "localhost:8080";
-this.Stateidtobedeleted=0;
+
 web_ca.controller("StateManager", function ($scope, $http) {
     var app = this;
 
@@ -38,23 +38,26 @@ web_ca.controller("AddStateController", function($http) {
             });
     };
 });
+/**
+ * 
+ * @param toBeDeleted
+ */
 function deleteState(toBeDeleted)
 {
     toBeDeleted=toBeDeleted.substr(1);
     var stateId= toBeDeleted.split(";")[0];
     var stateName= toBeDeleted.split(";")[1];
-    this.Stateidtobedeleted=stateId;
-    alert(stateId);
     document.getElementById("DeleteNameState").innerHTML="<h3>Delete State:"+stateName+ "</h3>";
+    document.getElementById("stateIdhidden").value=stateId;
 
 
 }
 web_ca.controller("deleteStateController", function ($scope, $http) {
     var app = this;
-    alert("1");
-    app.deleteStateFinalize = function() {
 
-        $http.get("http://" + site + "/deleteState/"+2)
+    app.deleteStateFinalize = function() {
+        var stateId=document.getElementById("stateIdhidden").value;
+        $http.get("http://" + site + "/deleteState/"+stateId)
             .success(function (data) {
 
                 alert(data);

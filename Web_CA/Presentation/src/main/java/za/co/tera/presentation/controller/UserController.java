@@ -16,12 +16,24 @@ import java.util.List;
 @Controller
 public class UserController {
     UserService userService = new UserServiceImpl();
+
+    /**
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
     public @ResponseBody
     List<User> getAllUsers( ModelMap model ) {
 
         return userService.findAllUsers();
     }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "/UserSet", method = RequestMethod.POST)
     public @ResponseBody
     String createUser(@RequestBody User user) {
@@ -31,6 +43,11 @@ public class UserController {
             return user.getUserEmail() + " already registered.";
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "/UserLogin", method = RequestMethod.POST)
     public @ResponseBody
     User loginUser(@RequestBody User user)
@@ -38,6 +55,11 @@ public class UserController {
         return userService.loginUser(user);
     }
 
+    /**
+     *
+     * @param userId
+     * @return
+     */
     @RequestMapping(value = "/getUserById/{userId}", method = RequestMethod.GET)
     public @ResponseBody
     User getUserById( @PathVariable(value = "userId") int userId) {
