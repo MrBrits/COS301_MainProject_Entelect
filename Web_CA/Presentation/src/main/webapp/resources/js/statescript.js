@@ -7,6 +7,17 @@ web_ca.controller("StateManager", function ($scope, $http) {
 
     var userId = document.getElementById("userId").value;
 
+    $scope.editState = function(stateId)
+    {
+        alert(stateId);
+        $http.get("http://" + site + "/getStateById/"+stateId)
+            .success(function (data) {
+                alert(JSON.stringify(data));
+            }).error(function () {
+                alert("UPDATE GET STATE BY ID: SERVER ERROR");
+            });
+    };
+
     $scope.getStates = function(){
         $http.get("http://" + site + "/getStateByUserId/"+userId)
             .success(function (data) {
@@ -15,7 +26,18 @@ web_ca.controller("StateManager", function ($scope, $http) {
                 alert("RETRIEVE STATES BY USER ID: SERVER ERROR");
             });
     }
+    $scope.deleteStateFinalize = function() {
 
+        var stateId=document.getElementById("stateIdhidden").value;
+        $http.get("http://" + site + "/deleteState/"+stateId)
+            .success(function (data) {
+
+                alert(data);
+
+            }).error(function () {
+                alert("DELETE STATE: SERVER ERROR");
+            });
+    };
     $scope.launch = function(object){
         alert(JSON.stringify(object));
 
@@ -49,22 +71,11 @@ function deleteState(toBeDeleted)
     var stateName= toBeDeleted.split(";")[1];
     document.getElementById("DeleteNameState").innerHTML="<h3>Delete State:"+stateName+ "</h3>";
     document.getElementById("stateIdhidden").value=stateId;
-
-
 }
-web_ca.controller("deleteStateController", function ($scope, $http) {
-    var app = this;
 
-    app.deleteStateFinalize = function() {
-        var stateId=document.getElementById("stateIdhidden").value;
-        $http.get("http://" + site + "/deleteState/"+stateId)
-            .success(function (data) {
+web_ca.controller("UpdateStateManager", function ($scope, $http) {
 
-                alert(data);
 
-            }).error(function () {
-                alert("error");
-            });
-    };
 
 });
+

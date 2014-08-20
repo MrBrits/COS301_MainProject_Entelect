@@ -72,6 +72,17 @@ public class StateController {
         stateService.deleteState(stateService.findState(stateId));
         return "done";
     }
+
+    /**
+     *
+     * @param stateId
+     * @return
+     */
+    @RequestMapping(value = "/getStateById/{stateId}", method = RequestMethod.GET)
+    public @ResponseBody
+    State getStateById( @PathVariable(value = "stateId") int stateId) {
+        return stateService.findState(stateId);
+    }
 }
 
 

@@ -15,9 +15,9 @@
                         <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#AddstateModal">Add new State</button>
                         <table class="table" >
                             <tr ng-repeat="state in states | filter:search">
-                                <td><button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg" ></button> <label>{{state.stateName}}</label>
-                                    <button type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
-                                    <button type="button" onclick="deleteState(id)" id=s{{state.stateId}};{{state.stateName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-deleteState"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
+                                <td><button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg"  ></button> <label>{{state.stateName}}</label>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-warning" data-toggle="modal"  ng-click="editState(state.stateId)" id={{state.stateId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-danger" onclick="deleteState(id)" id=s{{state.stateId}};{{state.stateName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-deleteState"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
                                     <p>{{state.stateDesc}}</p>
                                 </td>
                             </tr>
@@ -133,6 +133,56 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="UpdatestateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UpdateStateManager as web_ca">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-success">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="purchaseLabel10">Update State</h4>
+            </div>
+            <div class = "container">
+                <br/>
+                <form class="form-horizontal">
+                    <input id="stateIdhiddenUpdate" type="hidden"/>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">State Name</label>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" ng-model="web_ca.newState.stateName" placeholder="Name">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">State Description</label>
+                        <div class="col-xs-4">
+                            <textarea class="form-control" ng-model="web_ca.newState.stateDesc" placeholder="Description"></textarea>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">State Value</label>
+                        <div class="col-xs-4">
+                            <input type="number" class="form-control"  ng-model="web_ca.newState.stateValue" placeholder="Value">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">State Colour</label>
+                        <div class="col-xs-4">
+                            <input type="color" class="form-control"  ng-model="web_ca.newState.stateHex" placeholder="Colour">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-2 col-xs-4">
+                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addState(web_ca.newState)">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Add new World-->
 <div class="modal fade" id="AddWorldModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="AddWorldController as web_ca">
     <div class="modal-dialog">
@@ -201,7 +251,7 @@
         </div>
     </div>
 </div>
-<!-- Add new Rule-->
+
 <div class="modal fade" id="AddRuleModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="AddRuleController as web_ca">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -360,7 +410,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="confirm-deleteState"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="deleteStateController as web_ca">
+<div class="modal fade" id="confirm-deleteState"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="StateManager as web_ca">
     <div class="modal-dialog">
         <div class="modal-content">
             <div id="DeleteNameState" class="modal-header">
@@ -372,7 +422,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-warning" ng-click="web_ca.deleteStateFinalize()">Delete</button>
+                <button type="submit" class="btn btn-danger" ng-click="deleteStateFinalize()">Delete</button>
             </div>
         </div>
     </div>
