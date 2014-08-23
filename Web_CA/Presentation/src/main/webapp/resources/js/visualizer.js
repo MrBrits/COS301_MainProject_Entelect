@@ -1,5 +1,3 @@
-
-
 //Variables
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(30, $(window).width() / $(window).height(), 1, 1000);
@@ -8,8 +6,8 @@ var cubes = new Array();
 var controls;
 
 var realSpeed = 0;
-
-var world = new world(100,100,1,scene);
+var campos=(15*8*7)/100*4;
+var world = new world(10,10,10,scene);
 world.makeGrid();
 
 //FUNCTIONS FOR THE CONTROLS
@@ -17,19 +15,27 @@ var methods= new function()	{
     var runSimulation = null;
 
     this.Rotate = function()	{
+        this.Rotation_Speed= document.getElementById("Rotation_Speed").value;
+        controls.autoRotateSpeed = this.Rotation_Speed * 2;
         controls.autoRotater();
     }
 
     this.Start_Stop = function()	{
+        this.Speed= document.getElementById("speed").value;
         realSpeed = (10 - this.Speed) * 100;
         clearInterval(runSimulation);
         if (world.play)	{
             clearInterval(runSimulation);
             world.play = false;
+
+            //alert(	document.getElementById("play_stop").src);
+            document.getElementById("play_stop").src="resources/img/play.png";
         }
         else	{
             runSimulation = setInterval(function(){world.StartAndStop()}, realSpeed);
             world.play = true;
+            document.getElementById("play_stop").src="resources/img/pause.png";
+            //alert(	document.getElementById("play_stop").src);
         }
     }
 
@@ -50,25 +56,22 @@ var methods= new function()	{
         }
     }
 
-    this.Change_rotation_speed=function() {
-        controls.autoRotateSpeed = this.Rotation_Speed * 2;
-    }
 
     this.Speed = 1;
     this.Rotation_Speed = 2;
 }
 
 //Creation of control menu
-var gui = new dat.GUI();
-gui.add(methods, 'Rotate');
-gui.add(methods, 'Start_Stop');
-gui.add(methods, 'Change_Layer');
-gui.add(methods, 'Rotation_Speed',0,10).onFinishChange(function()	{
-    methods.Change_rotation_speed();
-});
-gui.add(methods, 'Speed',0,10).onFinishChange(function()	{
-    methods.Change_speed();
-});
+/*var gui = new dat.GUI();
+ gui.add(methods, 'Rotate');
+ gui.add(methods, 'Start_Stop');
+ gui.add(methods, 'Change_Layer');
+ gui.add(methods, 'Rotation_Speed',0,10).onFinishChange(function()	{
+ methods.Change_rotation_speed();
+ });
+ gui.add(methods, 'Speed',0,10).onFinishChange(function()	{
+ methods.Change_speed();
+ });*/
 
 //Creation of a light source
 var light = new THREE.AmbientLight(0x505050);
@@ -99,9 +102,9 @@ directionalLight.position.set(-1, -1, 0);
 scene.add(directionalLight);
 
 //Starting position of camera
-camera.position.z = 50;
-camera.position.y = 50;
-camera.position.x = 50;
+camera.position.z = campos;
+camera.position.y = campos;
+camera.position.x = campos;
 
 controls = new THREE.OrbitControls(camera,Math.ceil(this.world.xSize/2),Math.ceil(this.world.ySize/2),Math.ceil(this.world.zSize/2));
 controls.addEventListener('change', render);

@@ -205,7 +205,8 @@ function changeState()
     projector.unprojectVector(vector, camera);
 
     var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
-
+    var tempcolor=document.getElementById("colorValue").value;
+    console.log(tempcolor);
     //Finds all elements that are in the position of the cursor
     var intersects = raycaster.intersectObjects(scene.children, true);
 
@@ -290,9 +291,9 @@ function changeState()
                     break;
                 }
                 else if(this.cellArray[tz][ty][tx].invis == true )	{
-                    this.cellArray[tz][ty][tx].cube.material.color.setHex(0x000000);
+                    this.cellArray[tz][ty][tx].cube.material.color.setHex(tempcolor);
                     this.cellArray[tz][ty][tx].cube.material.opacity = 1;
-                    this.cellArray[tz][ty][tx].colour = "0x000000";
+                    this.cellArray[tz][ty][tx].colour = tempcolor;
                     this.cellArray[tz][ty][tx].value = 1;
                     break;
                 }
