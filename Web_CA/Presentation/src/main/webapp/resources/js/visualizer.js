@@ -1,7 +1,4 @@
-Pace.on("done", function(){
-    $("#canvas").removeClass("cover");
-    //dat.GUI.hidden = false;
-});
+
 
 //Variables
 var scene = new THREE.Scene();
@@ -12,7 +9,7 @@ var controls;
 
 var realSpeed = 0;
 
-var world = new world(10,10,10,scene);
+var world = new world(100,100,1,scene);
 world.makeGrid();
 
 //FUNCTIONS FOR THE CONTROLS
@@ -63,8 +60,6 @@ var methods= new function()	{
 
 //Creation of control menu
 var gui = new dat.GUI();
-//dat.GUI.hidden = true;
-gui.close();
 gui.add(methods, 'Rotate');
 gui.add(methods, 'Start_Stop');
 gui.add(methods, 'Change_Layer');
@@ -142,6 +137,10 @@ function onWindowResize() {
     renderer.setSize( window.innerWidth, window.innerHeight );
 }
 window.addEventListener( 'resize', onWindowResize, false );
-$(document).ready(function()	{
+/*$(document).ready(function()	{
+ var container = document.getElementById('canvas').appendChild(renderer.domElement);
+ });*/
+
+Pace.on("done", function(){
     var container = document.getElementById('canvas').appendChild(renderer.domElement);
 });

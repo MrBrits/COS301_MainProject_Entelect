@@ -13,6 +13,7 @@ web_ca.controller("StateManager", function ($scope, $http) {
         $http.get("http://" + site + "/getStateById/"+stateId)
             .success(function (data) {
                 alert(JSON.stringify(data));
+                $scope.Ustate=data;
             }).error(function () {
                 alert("UPDATE GET STATE BY ID: SERVER ERROR");
             });

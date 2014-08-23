@@ -16,7 +16,7 @@
                         <table class="table" >
                             <tr ng-repeat="state in states | filter:search">
                                 <td><button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg"  ></button> <label>{{state.stateName}}</label>
-                                    <button type="button" class="btn btn-default btn-sm pull-right btn-warning" data-toggle="modal"  ng-click="editState(state.stateId)" id={{state.stateId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-warning" data-toggle="modal"  data-target="#UpdatestateModal" ng-click="editState(state.stateId)" id={{state.stateId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
                                     <button type="button" class="btn btn-default btn-sm pull-right btn-danger" onclick="deleteState(id)" id=s{{state.stateId}};{{state.stateName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-deleteState"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button><br>
                                     <p>{{state.stateDesc}}</p>
                                 </td>
@@ -134,7 +134,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="UpdatestateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UpdateStateManager as web_ca">
+<div class="modal fade" id="UpdatestateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="StateManager as web_ca">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
