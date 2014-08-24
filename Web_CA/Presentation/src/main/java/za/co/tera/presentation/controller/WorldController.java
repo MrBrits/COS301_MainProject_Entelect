@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import za.co.tera.web_ca.business.World.base.WorldService;
 import za.co.tera.web_ca.business.World.impl.WorldServiceImpl;
+import za.co.tera.web_ca.domain.impl.Coordinate;
 import za.co.tera.web_ca.domain.impl.World;
 
 import java.util.List;
@@ -72,4 +73,16 @@ public class WorldController {
         worldService.createWorld(world);
         return "World Added";
     }
+
+    /**
+     *
+     * @param worldId
+     * @return
+     */
+    @RequestMapping(value = "/getCoordinatesByWorldId/{worldId}", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Coordinate> getCoordinatesByWorldId( @PathVariable(value = "worldId") int worldId) {
+        return worldService.findCoordinateByWorldId(worldId);
+    }
+
 }

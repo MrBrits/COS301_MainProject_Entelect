@@ -27,7 +27,10 @@ public class WorldServiceImpl implements WorldService{
             }
         }
     }
-
+    public List<Coordinate> getWorldCoordinates(int worldID)
+    {
+        return coordinateDao.findByworldId(worldID);
+    }
     public void deleteWorld(World delWorld)
     {
         worldDAO.delete(delWorld);
@@ -52,5 +55,10 @@ public class WorldServiceImpl implements WorldService{
     public List<World> findWorldByUserId(int ID) {
         List<World> worldList = worldDAO.findWorldByUserId(ID);
         return  worldList;
+    }
+
+    @Override
+    public List<Coordinate> findCoordinateByWorldId(int worldId) {
+       return coordinateDao.findByworldId(worldId);
     }
 }

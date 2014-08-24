@@ -4,11 +4,10 @@ var camera = new THREE.PerspectiveCamera(30, $(window).width() / $(window).heigh
 var renderer = new THREE.WebGLRenderer();
 var cubes = new Array();
 var controls;
-
+var world;
 var realSpeed = 0;
 var campos=(15*8*7)/100*4;
-var world = new world(10,10,10,scene);
-world.makeGrid();
+
 
 //FUNCTIONS FOR THE CONTROLS
 var methods= new function()	{
@@ -106,7 +105,7 @@ camera.position.z = campos;
 camera.position.y = campos;
 camera.position.x = campos;
 
-controls = new THREE.OrbitControls(camera,Math.ceil(this.world.xSize/2),Math.ceil(this.world.ySize/2),Math.ceil(this.world.zSize/2));
+controls = new THREE.OrbitControls(camera,Math.ceil(10/2),Math.ceil(10/2),Math.ceil(10/2));
 controls.addEventListener('change', render);
 
 for(var i = 0; i < 7; i++) {
@@ -146,4 +145,6 @@ window.addEventListener( 'resize', onWindowResize, false );
 
 Pace.on("done", function(){
     var container = document.getElementById('canvas').appendChild(renderer.domElement);
+    world = new world(scene,camera);
+    world.makeGrid();
 });

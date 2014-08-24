@@ -1,5 +1,6 @@
 package za.co.tera.web_ca.business.World.base;
 
+import za.co.tera.web_ca.domain.impl.Coordinate;
 import za.co.tera.web_ca.domain.impl.World;
 
 import java.util.List;
@@ -45,4 +46,11 @@ public interface WorldService {
      * @return
      */
     public List<World> findWorldByUserId(int ID);
+
+    /**
+     *
+     * @param worldId
+     * @return
+     */
+    public List<Coordinate> findCoordinateByWorldId(int worldId);
 }

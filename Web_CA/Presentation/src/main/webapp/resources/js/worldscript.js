@@ -28,7 +28,8 @@ web_ca.controller("GetWorldByUserId", function ($scope, $http) {
         });
 
 });
-
+/*
+*/
 web_ca.controller("AddWorldController", function($http) {
     var app = this;
     app.addWorld = function(world) {

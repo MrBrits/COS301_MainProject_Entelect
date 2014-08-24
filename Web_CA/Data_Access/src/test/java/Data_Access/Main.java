@@ -1,8 +1,13 @@
 package Data_Access;
 
+import za.co.tera.web_ca.data_access.CoordinateDao;
 import za.co.tera.web_ca.data_access.WorldDao;
+import za.co.tera.web_ca.data_access.impl.CoordinateDaoImpl;
 import za.co.tera.web_ca.data_access.impl.WorldDaoImpl;
+import za.co.tera.web_ca.domain.impl.Coordinate;
 import za.co.tera.web_ca.domain.impl.World;
+
+import java.util.List;
 
 public class Main {
 
@@ -10,11 +15,16 @@ public class Main {
     //private static final Logger LOGGER = LoggerFactory.getLogger(Web_ca.class);
 
     public static void main(final String[] args) throws Exception {
-        WorldDao worldDao = new WorldDaoImpl();
+     /*   WorldDao worldDao = new WorldDaoImpl();
 
         World world = new World("Earth","Used to test how gravity affects certain states with other states.",3,10,10,10,31);
 
-       System.out.println(worldDao.save(world).getWorldId() );
+       System.out.println(worldDao.save(world).getWorldId() );*/
+        CoordinateDao coordinateDao = new CoordinateDaoImpl();
+        List<Coordinate> coordinateList=coordinateDao.findByworldId(4);
+        for (int i = 0; i < coordinateList.size(); i++) {
+            System.out.println(coordinateList.get(i).getValue());
+        }
         /*
 
         User user = new User("John","Doe","jd@gmail.com","123","Admin");
