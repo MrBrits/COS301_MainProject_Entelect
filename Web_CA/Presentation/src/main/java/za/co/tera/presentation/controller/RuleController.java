@@ -109,7 +109,7 @@ public class RuleController {
     public @ResponseBody
     String createRule(@RequestBody Rule rule) {
         if (ruleService.createRule(rule))
-            return "Rule " + rule.getRuleName() +" Added";
+            return "Rule added";
 
         return "No new Rule has been added";
     }
@@ -123,7 +123,7 @@ public class RuleController {
     public @ResponseBody
     String deleteRule( @PathVariable(value = "ruleId") int ruleId) {
         ruleService.deleteRule(ruleService.findRule(ruleId));
-        return "done";
+        return "Rule deleted";
     }
 }
 

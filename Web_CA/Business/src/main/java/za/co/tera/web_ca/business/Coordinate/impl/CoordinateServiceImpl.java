@@ -7,9 +7,6 @@ import za.co.tera.web_ca.domain.impl.Coordinate;
 
 import java.util.List;
 
-/**
- * Created by Laptop on 7/14/2014.
- */
 public class CoordinateServiceImpl implements CoordinateService{
 
     CoordinateDao coordinateDao = new CoordinateDaoImpl();

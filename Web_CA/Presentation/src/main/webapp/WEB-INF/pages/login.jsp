@@ -11,7 +11,7 @@
     <title>Web CA</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="resources/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/lib/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="resources/css/jumbotron.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->

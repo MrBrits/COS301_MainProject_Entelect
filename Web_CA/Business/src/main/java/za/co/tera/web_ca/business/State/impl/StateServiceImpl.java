@@ -7,16 +7,14 @@ import za.co.tera.web_ca.domain.impl.State;
 
 import java.util.List;
 
-/**
- * Created by Laptop on 7/14/2014.
- */
 public class StateServiceImpl implements StateService{
 
     private StateDao stateDAO = new StateDaoImpl();
     @Override
-    public void createState(State newState)
+    public boolean createState(State newState)
     {
         stateDAO.save(newState);
+        return true;
     }
     @Override
     public void deleteState(State delState)

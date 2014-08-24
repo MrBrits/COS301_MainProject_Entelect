@@ -3,37 +3,22 @@ var site = "localhost:8080";
 var web_ca = angular.module('rule_app', []);
 this.Ruleidtobedeleted=0;
 
-web_ca.controller("RuleGetCtr", function ($scope, $http) {
+web_ca.controller("RuleManager", function($scope, $http) {
     var app = this;
-
-    $http.get("http://" + site + "/getAllRules")
-        .success(function (data) {
-            //alert(data);
-            $scope.rules = data;
-
-        }).error(function () {
-            alert("RETRIEVE ALL RULES: SERVER ERROR");
-        });
-});
-
-web_ca.controller("GetRuleByUserId", function ($scope, $http) {
-    var app = this;
-
     var userId=document.getElementById("userId").value;
-    $http.get("http://" + site + "/getRuleByUserId/"+userId)
-        .success(function (data) {
-            $scope.rules = data;
 
-        }).error(function () {
-            alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
-        });
-});
+    $scope.getRules = function(){
+        $http.get("http://" + site + "/getRuleByUserId/"+userId)
+            .success(function (data) {
+                $scope.rules = data;
 
-web_ca.controller("AddRuleController", function($http) {
-    var app = this;
-    app.addRule = function(rule, con, res, conNeigh, resNeigh) {
-        rule.ownerId=document.getElementById("userId").value;
+            }).error(function () {
+                alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
+            });
+    }
 
+    $scope.addRule = function(rule, con, res, conNeigh, resNeigh) {
+        rule.ownerId=userId;
         //Add RuleConditionNeighbour
         $http.post("http://" + site + "/AddRuleConNeigh", conNeigh)
             .success(function(data) {
@@ -107,7 +92,18 @@ web_ca.controller("AddRuleController", function($http) {
             });
     };
 
+    $scope.deleteRuleFinalize = function() {
+        var ruleId=document.getElementById("ruleIdhidden").value;
+        $http.get("http://" + site + "/deleteRule/"+ruleId)
+            .success(function (data) {
+                alert(data);
+            }).error(function () {
+                alert("DELETE RULE: SERVER ERROR");
+            });
+    };
 });
+
+
 /**
  *
  * @param toBeDeleted
@@ -117,24 +113,6 @@ function deleteRule(toBeDeleted)
     toBeDeleted=toBeDeleted.substr(1);
     var ruleId= toBeDeleted.split(";")[0];
     var ruleName= toBeDeleted.split(";")[1];
-    document.getElementById("DeleteNameRule").innerHTML="<h3>Delete State:"+ruleName+ "</h3>";
+    document.getElementById("DeleteNameRule").innerHTML="<h3>Delete Rule: " + ruleName +"</h3>";
     document.getElementById("ruleIdhidden").value=ruleId;
 }
-
-web_ca.controller("deleteRuleController", function ($scope, $http) {
-    var app = this;
-
-    app.deleteRuleFinalize = function() {
-        var ruleId=document.getElementById("ruleIdhidden").value;
-        $http.get("http://" + site + "/deleteRule/"+ruleId)
-            .success(function (data) {
-
-                alert(data);
-
-            }).error(function () {
-                alert("error");
-            });
-
-    };
-
-});

@@ -59,7 +59,7 @@ public class WorldController {
     public @ResponseBody
     String deleteWorld( @PathVariable(value = "worlId") int worlId) {
         worldService.deleteWorld(worldService.findWorld(worlId));
-        return "done";
+        return "World deleted";
     }
 
     /**
@@ -70,8 +70,11 @@ public class WorldController {
     @RequestMapping(value = "/AddWorld", method = RequestMethod.POST)
     public @ResponseBody
     String createState(@RequestBody World world) {
-        worldService.createWorld(world);
-        return "World Added";
+        int id = worldService.createWorld(world);
+        if (id != 0)
+            return "World Added";
+        else
+            return "No new World has been added";
     }
 
     /**

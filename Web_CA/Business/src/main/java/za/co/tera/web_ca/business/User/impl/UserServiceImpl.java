@@ -7,9 +7,6 @@ import za.co.tera.web_ca.domain.impl.User;
 
 import java.util.List;
 
-/**
- * Created by Laptop on 7/14/2014.
- */
 public class UserServiceImpl implements UserService{
 
    private UserDao userDAO = new UserDaoImpl();

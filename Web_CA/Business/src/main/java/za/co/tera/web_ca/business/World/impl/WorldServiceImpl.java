@@ -10,15 +10,15 @@ import za.co.tera.web_ca.domain.impl.World;
 
 import java.util.List;
 
-/**
- * Created by Laptop on 7/14/2014.
- */
 public class WorldServiceImpl implements WorldService{
     private WorldDao worldDAO = new WorldDaoImpl();
     private CoordinateDao coordinateDao = new CoordinateDaoImpl();
-    public void createWorld(World newWorld)
+
+    public int createWorld(World newWorld)
     {
-        int worldId= worldDAO.save(newWorld).getWorldId();
+        int worldId = 0;
+
+        worldId = worldDAO.save(newWorld).getWorldId();
         for (int i = 0; i < newWorld.getWorldHeight(); i++) {
             for (int j = 0; j < newWorld.getWorldWidth(); j++) {
                 for (int k = 0; k < newWorld.getWorldDepth(); k++) {
@@ -26,6 +26,8 @@ public class WorldServiceImpl implements WorldService{
                 }
             }
         }
+
+        return worldId;
     }
     public List<Coordinate> getWorldCoordinates(int worldID)
     {

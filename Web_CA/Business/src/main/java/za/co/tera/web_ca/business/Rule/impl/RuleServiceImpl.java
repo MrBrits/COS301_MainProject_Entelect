@@ -7,9 +7,6 @@ import za.co.tera.web_ca.domain.impl.*;
 
 import java.util.List;
 
-/**
- * Created by Laptop on 7/14/2014.
- */
 public class RuleServiceImpl implements RuleService {
 
     private RuleDao ruleDao = new RuleDaoImpl();
