@@ -2,15 +2,15 @@ var web_ca = angular.module('state_app', []);
 
 var site = "localhost:8080";
 
-web_ca.controller("StateManager", function ($scope, dialog, $dialog, $http) {
+web_ca.controller("StateManager", function ($scope, $http) {
     var app = this;
 
     var userId = document.getElementById("userId").value;
 
-    alert("ENTER");
-
-
     $scope.getStates = function(){
+
+        alert("GET");
+
         $http.get("http://" + site + "/getStateByUserId/"+userId)
             .success(function (data) {
                 $scope.states = data;
@@ -30,25 +30,47 @@ web_ca.controller("StateManager", function ($scope, dialog, $dialog, $http) {
             });
     };
 
-    $scope.editState = function(stateId)
+    $scope.getEditState = function(stateId)
     {
-        alert(stateId);
         $http.get("http://" + site + "/getStateById/"+stateId)
             .success(function (data) {
 
-                alert(JSON.stringify(data));
-                $scope.Ustate = data;
+                document.getElementById("editStateTitle").innerHTML = "<h3>Edit State</h3>";
+                document.getElementById("editStateIdHidden").value = data.stateId;
 
-
+                document.getElementById("editStateName").value = data.stateName;
+                document.getElementById("editStateDesc").value = data.stateDesc;
+                document.getElementById("editStateValue").value = data.stateValue;
+                document.getElementById("editStateHex").value = data.stateHex;
 
             }).error(function () {
-                alert("UPDATE STATE: SERVER ERROR");
+                alert("GET EDIT STATE: SERVER ERROR");
+            });
+    };
+
+    $scope.editState = function()
+    {
+        id = document.getElementById("editStateIdHidden").value;
+        name = document.getElementById("editStateName").value;
+        desc = document.getElementById("editStateDesc").value;
+        value = document.getElementById("editStateValue").value;
+        hex = document.getElementById("editStateHex").value;
+
+
+        state = "{\"stateId\":"+id+",\"stateName\":\"" + name + "\",\"stateDesc\":\"" + desc + "\",\"stateValue\":" + value + ",\"stateHex\":\"" + hex + "\", \"ownerId\":" + userId + "}";
+
+        $http.post("http://" + site + "/editState",state)
+            .success(function (data) {
+                alert(data);
+                $scope.getStates();
+            }).error(function () {
+                alert("EDIT STATE: SERVER ERROR");
             });
     };
 
     $scope.deleteStateFinalize = function() {
 
-        var stateId=document.getElementById("stateIdhidden").value;
+        var stateId=document.getElementById("deleteStateIdHidden").value;
         $http.get("http://" + site + "/deleteState/"+stateId)
             .success(function (data) {
                 alert(data);
@@ -69,7 +91,7 @@ function deleteState(toBeDeleted)
     var stateId= toBeDeleted.split(";")[0];
     var stateName= toBeDeleted.split(";")[1];
     document.getElementById("DeleteNameState").innerHTML="<h3>Delete State: " + stateName +"</h3>";
-    document.getElementById("stateIdhidden").value=stateId;
+    document.getElementById("deleteStateIdHidden").value=stateId;
 }
 
 web_ca.controller("UpdateStateManager", function ($scope, $http) {

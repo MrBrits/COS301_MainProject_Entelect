@@ -79,6 +79,18 @@ public class StateController {
     State getStateById( @PathVariable(value = "stateId") int stateId) {
         return stateService.findState(stateId);
     }
+
+    /**
+     *
+     * @param state
+     * @return
+     */
+    @RequestMapping(value = "/editState", method = RequestMethod.POST)
+    public @ResponseBody
+    String editState(@RequestBody State state) {
+        stateService.updateState(state);
+        return "State has been edited";
+    }
 }
 
 

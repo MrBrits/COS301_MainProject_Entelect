@@ -11,13 +11,13 @@
                 <div id="state" class="panel-collapse collapse" >
                     <div>
                         <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
-                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#AddstateModal">Add new State</button>
+                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#AddStateModal">Add new State</button>
                         <table class="table" >
                             <tr ng-repeat="state in states | filter:search">
                                 <td>
                                     <button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg"  ></button> <label>{{state.stateName}}</label>
-                                    <button type="button" class="btn btn-default btn-sm pull-right btn-danger" onclick="deleteState(id)" id=s{{state.stateId}};{{state.stateName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#confirm-deleteState"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
-                                    <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal"  ng-click="editState(state.stateId)" id={{state.stateId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-danger" onclick="deleteState(id)" id=s{{state.stateId}};{{state.stateName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#deleteStateModal"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target="#editStateModal"  ng-click="getEditState(state.stateId)" id={{state.stateId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
                                     <br>
                                    <p>{{state.stateDesc}}</p>
                                 </td>
@@ -42,7 +42,7 @@
                             <tr ng-repeat="rule in rules | filter:search">
                                 <td>
                                     <button type="button" class="btn btn-default btn-lg" ></button> <label>{{rule.ruleName}}</label>
-                                    <button type="button" onclick="deleteRule(id)" id=r{{rule.ruleId}};{{rule.ruleName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#confirm-deleteRule"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
+                                    <button type="button" onclick="deleteRule(id)" id=r{{rule.ruleId}};{{rule.ruleName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#deleteRuleModal"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
                                     <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
                                     <br>
                                     <p>{{rule.ruleDesc}}</p>
@@ -68,7 +68,7 @@
                                 <td>
                                     <button type="button" class="btn btn-default btn-lg" ></button>
                                     <label>{{world.worldName}}</label>
-                                    <button type="button" onclick="deleteWorld(id)" id=w{{world.worldId}};{{world.worldName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#confirm-deleteWorld"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
+                                    <button type="button" onclick="deleteWorld(id)" id=w{{world.worldId}};{{world.worldName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#deleteWorldModal"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
                                     <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target=""><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
                                     <br>
                                     <p>{{world.worldDesc}}</p>
@@ -88,7 +88,7 @@
     </div>
 </div>
 <!--Adding a new state to your profile-->
-<div class="modal fade" id="AddstateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="StateManager">
+<div class="modal fade" id="AddStateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="StateManager">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
@@ -137,48 +137,48 @@
     </div>
 </div>
 
-<div class="modal fade" id="UpdatestateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UpdateStateManager as web_ca">
+<div class="modal fade" id="editStateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="StateManager">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header modal-success">
-                <h4 class="modal-title" id="purchaseLabel10">Update State</h4>
+            <div id="editStateTitle" class="modal-header modal-success">
+
             </div>
             <div class = "container">
                 <br/>
                 <form class="form-horizontal">
-                    <input id="stateIdhiddenUpdate" type="hidden"/>
+                    <input id="editStateIdHidden" ng-model="oldState.stateId" type="hidden"/>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Name</label>
                         <div class="col-xs-4">
-                            <input type="text" class="form-control" ng-model="web_ca.newState.stateName" placeholder="Name">
-                            <span class="help-block"></span>
+                            <input id="editStateName" type=text class=form-control ng-model=newState.stateName>
+                            <span class=help-block></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Description</label>
                         <div class="col-xs-4">
-                            <textarea class="form-control" ng-model="web_ca.newState.stateDesc" placeholder="Description"></textarea>
+                            <textarea id="editStateDesc" class="form-control" ng-model="oldState.stateDesc"></textarea>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Value</label>
                         <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="web_ca.newState.stateValue" placeholder="Value">
+                            <input id="editStateValue" type="number" class="form-control"  ng-model="oldState.stateValue">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Colour</label>
                         <div class="col-xs-4">
-                            <input type="color" class="form-control"  ng-model="web_ca.newState.stateHex" placeholder="Colour">
+                            <input id="editStateHex" type="color" class="form-control"  ng-model="oldState.stateHex" placeholder="Colour">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addState(web_ca.newState)">Update</button>
+                            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="editState()">Edit</button>
                         </div>
                     </div>
                 </form>
@@ -395,7 +395,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="confirm-deleteWorld"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="WorldManager">
+<div class="modal fade" id="deleteWorldModal"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="WorldManager">
     <div class="modal-dialog">
         <div class="modal-content">
             <div id="DeleteNameWorld" class="modal-header">
@@ -413,14 +413,14 @@
     </div>
 </div>
 
-<div class="modal fade" id="confirm-deleteState"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="StateManager">
+<div class="modal fade" id="deleteStateModal"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="StateManager">
     <div class="modal-dialog">
         <div class="modal-content">
             <div id="DeleteNameState" class="modal-header">
 
             </div>
             <div class="modal-body">
-                <input id ="stateIdhidden" type="hidden" class="form-control"  ng-model="DeleteState.stateId"/>
+                <input id ="deleteStateIdHidden" type="hidden" class="form-control"  ng-model="DeleteState.stateId"/>
                 <p>Are you sure you want to delete this State?</p>
             </div>
             <div class="modal-footer">
@@ -430,7 +430,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="confirm-deleteRule"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="RuleManager">
+<div class="modal fade" id="deleteRuleModal"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="RuleManager">
     <div class="modal-dialog">
         <div class="modal-content">
             <div id="DeleteNameRule" class="modal-header">
