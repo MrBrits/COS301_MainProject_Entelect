@@ -2,10 +2,12 @@ var web_ca = angular.module('state_app', []);
 
 var site = "localhost:8080";
 
-web_ca.controller("StateManager", function ($scope, $http) {
+web_ca.controller("StateManager", function ($scope, dialog, $dialog, $http) {
     var app = this;
 
     var userId = document.getElementById("userId").value;
+
+    alert("ENTER");
 
 
     $scope.getStates = function(){
@@ -33,8 +35,12 @@ web_ca.controller("StateManager", function ($scope, $http) {
         alert(stateId);
         $http.get("http://" + site + "/getStateById/"+stateId)
             .success(function (data) {
+
                 alert(JSON.stringify(data));
-                $scope.Ustate=data;
+                $scope.Ustate = data;
+
+
+
             }).error(function () {
                 alert("UPDATE STATE: SERVER ERROR");
             });
@@ -67,8 +73,6 @@ function deleteState(toBeDeleted)
 }
 
 web_ca.controller("UpdateStateManager", function ($scope, $http) {
-
-
 
 });
 

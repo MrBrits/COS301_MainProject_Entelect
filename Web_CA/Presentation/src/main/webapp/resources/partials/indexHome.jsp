@@ -92,7 +92,6 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="purchaseLabel8">Add State</h4>
             </div>
             <div class = "container">
@@ -128,6 +127,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addState(newState)">Add</button>
                         </div>
                     </div>
@@ -141,7 +141,6 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="purchaseLabel10">Update State</h4>
             </div>
             <div class = "container">
@@ -178,6 +177,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-primary" ng-click="web_ca.addState(web_ca.newState)">Update</button>
                         </div>
                     </div>
@@ -191,7 +191,6 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="purchaseLabel">Add World</h4>
             </div>
             <div class = "container">
@@ -246,6 +245,7 @@
 
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addWorld(newWorld)">Add</button>
                         </div>
                     </div>
@@ -259,7 +259,6 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="purchaseLabel3">Add Rule</h4>
             </div>
             <div class = "container">
@@ -387,6 +386,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addRule(newRule, newRuleCon, newRuleRes, newRuleConNeigh, newRuleResNeigh)">Add</button>
                         </div>
                     </div>
