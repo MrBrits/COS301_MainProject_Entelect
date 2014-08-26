@@ -65,5 +65,6 @@
 <script type="text/javascript" src="resources/js/lib/pace.min.js"></script>
 <script type="text/javascript" src="resources/js/OrbitControls.js"></script>
 <script type="text/javascript" src="resources/js/cellclass.js"></script>
+<script type="text/javascript" src="resources/js/ruleclass.js"></script>
 <script type="text/javascript" src="resources/js/visualizer.js"></script>
 

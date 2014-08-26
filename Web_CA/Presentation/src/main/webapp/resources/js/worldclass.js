@@ -1,4 +1,5 @@
 this.cellArray;
+this.ruleArray;
 this.projector;
 this.camera;
 this.tmx = 0;
@@ -15,7 +16,7 @@ this.counter=0;
 //controller to add the coordinates
 var web_ca = angular.module('coordinate_app', []);
 web_ca.controller("CoordinateManager", function ($scope, $http) {
-    $http.get("http://" + site + "/getCoordinatesByWorldId/" + 5)
+    $http.get("http://" + site + "/getCoordinatesByWorldId/" + 6)
         .success(function (data) {
             this.coordinate = data;
         }).error(function () {
@@ -26,6 +27,114 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
 });
 //function to add world
 function world(scene,cameras) {
+
+    ruleArray = new Array();
+    ruleArray.push(new rule());
+    ruleArray[0].name = "GameOfLifeRule1";
+    ruleArray[0].ruleDesc = "Under Population";
+    ruleArray[0].priority = 1;
+
+    ruleArray[0].conditionArray.push(new condition());
+    ruleArray[0].conditionArray[0].isNot = false;
+    ruleArray[0].conditionArray[0].conditionOperation = "EXACT";
+    ruleArray[0].conditionArray[0].conditionNeighbours = "000000000000010000000000000";
+    ruleArray[0].conditionArray[0].conditionOperand = "==";
+    ruleArray[0].conditionArray[0].compareValue = 1;
+    ruleArray[0].numConditions++;
+
+    ruleArray[0].conditionArray.push(new condition());
+    ruleArray[0].conditionArray[1].isNot = false;
+    ruleArray[0].conditionArray[1].conditionOperation = "SUM";
+    ruleArray[0].conditionArray[1].conditionNeighbours = "111111111111101111111111111";
+    ruleArray[0].conditionArray[1].conditionOperand = "<";
+    ruleArray[0].conditionArray[1].compareValue = 2;
+    ruleArray[0].conditionArray[1].logicalOperationPrevious = "AND";
+    ruleArray[0].numConditions++;
+
+    ruleArray[0].resultOperand = "";
+    ruleArray[0].resultOperator = "";
+    ruleArray[0].resultValue = 0;
+
+    ruleArray.push(new rule());
+    ruleArray[1].name = "GameOfLifeRule2";
+    ruleArray[1].ruleDesc = "Next Generation";
+    ruleArray[1].priority = 1;
+
+    ruleArray[1].conditionArray.push(new condition());
+    ruleArray[1].conditionArray[0].isNot = false;
+    ruleArray[1].conditionArray[0].conditionOperation = "EXACT";
+    ruleArray[1].conditionArray[0].conditionNeighbours = "000000000000010000000000000";
+    ruleArray[1].conditionArray[0].conditionOperand = "==";
+    ruleArray[1].conditionArray[0].compareValue = 1;
+
+    ruleArray[1].numConditions++;
+
+    ruleArray[1].conditionArray.push(new condition());
+    ruleArray[1].conditionArray[1].isNot = false;
+    ruleArray[1].conditionArray[1].conditionOperation = "BETWEEN";
+    ruleArray[1].conditionArray[1].conditionNeighbours = "111111111111101111111111111";
+    ruleArray[1].conditionArray[1].compareValue = 2;
+    ruleArray[1].conditionArray[1].conditionOperand = ">=";
+    ruleArray[1].conditionArray[1].compareValueHigh = 3;
+    ruleArray[1].conditionArray[1].conditionOperandSecondary = "<=";
+    ruleArray[1].conditionArray[1].logicalOperationPrevious = "AND";
+    ruleArray[1].numConditions++;
+
+    ruleArray[1].resultOperand = "";
+    ruleArray[1].resultOperator = "";
+    ruleArray[1].resultValue = 1;
+
+    ruleArray.push(new rule());
+    ruleArray[2].name = "GameOfLifeRule3";
+    ruleArray[2].ruleDesc = "Over Crowding";
+    ruleArray[2].priority = 1;
+
+    ruleArray[2].conditionArray.push(new condition());
+    ruleArray[2].conditionArray[0].isNot = false;
+    ruleArray[2].conditionArray[0].conditionOperation = "EXACT";
+    ruleArray[2].conditionArray[0].conditionNeighbours = "000000000000010000000000000";
+    ruleArray[2].conditionArray[0].conditionOperand = "==";
+    ruleArray[2].conditionArray[0].compareValue = 1;
+    ruleArray[2].numConditions++;
+
+    ruleArray[2].conditionArray.push(new condition());
+    ruleArray[2].conditionArray[1].isNot = false;
+    ruleArray[2].conditionArray[1].conditionOperation = "SUM";
+    ruleArray[2].conditionArray[1].conditionNeighbours = "111111111111101111111111111";
+    ruleArray[2].conditionArray[1].conditionOperand = ">";
+    ruleArray[2].conditionArray[1].compareValue = 3;
+    ruleArray[2].conditionArray[1].logicalOperationPrevious = "AND";
+    ruleArray[2].numConditions++;
+
+    ruleArray[2].resultOperand = "";
+    ruleArray[2].resultOperator = "";
+    ruleArray[2].resultValue = 0;
+
+    ruleArray.push(new rule());
+    ruleArray[3].name = "GameOfLifeRule4";
+    ruleArray[3].ruleDesc = "Reproduction";
+    ruleArray[3].priority = 1;
+
+    ruleArray[3].conditionArray.push(new condition());
+    ruleArray[3].conditionArray[0].isNot = false;
+    ruleArray[3].conditionArray[0].conditionOperation = "EXACT";
+    ruleArray[3].conditionArray[0].conditionNeighbours = "000000000000010000000000000";
+    ruleArray[3].conditionArray[0].conditionOperand = "==";
+    ruleArray[3].conditionArray[0].compareValue = 0;
+    ruleArray[3].numConditions++;
+
+    ruleArray[3].conditionArray.push(new condition());
+    ruleArray[3].conditionArray[1].isNot = false;
+    ruleArray[3].conditionArray[1].conditionOperation = "EXACT";
+    ruleArray[3].conditionArray[1].conditionNeighbours = "111111111111101111111111111";
+    ruleArray[3].conditionArray[1].conditionOperand = "==";
+    ruleArray[3].conditionArray[1].compareValue = 3;
+    ruleArray[3].conditionArray[1].logicalOperationPrevious = "AND";
+    ruleArray[3].numConditions++;
+
+    ruleArray[3].resultOperand = "";
+    ruleArray[3].resultOperator = "";
+    ruleArray[3].resultValue = 1;
 
     //variables for the layer system
     xbar = new Array();
@@ -128,25 +237,85 @@ function world(scene,cameras) {
 
 
     this.StartAndStop = function () {
-        if (this.play == true) {
+        if(this.play == true) {
+            var z2 = 0;
             for (var z = 0; z < tmz; z++) {
+                var y2 = 0;
                 for (var y = 0; y < tmy; y++) {
+                    var x2 = 0;
                     for (var x = 0; x < tmx; x++) {
-                        var neightbours = countNeighbours(x, y, z);
-                        if (cellArray[z][y][x].value == 1 && neightbours < 2)
-                            cellArray[z][y][x].nextValue = 0;
-                        else if (cellArray[z][y][x].value == 1 && (neightbours == 2 || neightbours == 3))
-                            cellArray[z][y][x].nextValue = 1;
-                        else if (cellArray[z][y][x].value == 1 && (neightbours == 3))
-                            cellArray[z][y][x].nextValue = 0;
-                        else if (cellArray[z][y][x].value == 0 && neightbours == 3)
-                            cellArray[z][y][x].nextValue = 1;
+                        for(var rule = 0; rule < ruleArray.length; rule++)	{
+                            var satisfied = false;
+                            for(var cond = 0; cond < ruleArray[rule].conditionArray.length; cond++)	{
+                                var neightbours = sumNeighboursAtPositions(x,y,z,ruleArray[rule].conditionArray[cond].conditionNeighbours);
+                                if(ruleArray[rule].conditionArray[cond].conditionOperation == "EXACT")	{
+                                    if(performOperation(neightbours, ruleArray[rule].conditionArray[cond].compareValue, ruleArray[rule].conditionArray[cond].conditionOperand) == true)	{
+                                        if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "")
+                                            satisfied = true;
+                                        else {
+                                            if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "AND")	{
+                                                if(satisfied == true)
+                                                    satisfied = true;
+                                                else satisfied = false;
+                                            }
+                                            else if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "OR")	{
+                                                satisfied = true;
+                                            }
+                                        }
+                                    }
+                                    else satisfied = false;
+                                }
+                                else if(ruleArray[rule].conditionArray[cond].conditionOperation == "SUM")	{
+                                    if(performOperation(neightbours, ruleArray[rule].conditionArray[cond].compareValue, ruleArray[rule].conditionArray[cond].conditionOperand) == true)	{
+                                        if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "")
+                                            satisfied = true;
+                                        else {
+                                            if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "AND")	{
+                                                if(satisfied == true)
+                                                    satisfied = true;
+                                                else satisfied = false;
+                                            }
+                                            else if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "OR")	{
+                                                satisfied = true;
+                                            }
+                                        }
+                                    }
+                                    else satisfied = false;
+                                }
+                                else if(ruleArray[rule].conditionArray[cond].conditionOperation == "BETWEEN")	{
+                                    if(performOperationBetween(neightbours, ruleArray[rule].conditionArray[cond].compareValue, ruleArray[rule].conditionArray[cond].compareValueHigh, ruleArray[rule].conditionArray[cond].conditionOperand, ruleArray[rule].conditionArray[cond].conditionOperandSecondary) == true)	{
+                                        if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "")
+                                            satisfied = true;
+                                        else {
+                                            if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "AND")	{
+                                                if(satisfied == true)
+                                                    satisfied = true;
+                                                else satisfied = false;
+                                            }
+                                            else if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "OR")	{
+                                                satisfied = true;
+                                            }
+                                        }
+                                    }
+                                    else satisfied = false;
+                                }
+                            }
+                            if(satisfied == true)	{
+                                cellArray[z][y][x].nextValue = ruleArray[rule].resultValue;
+                                satisfied = false;
+                                break;
+                            }
+                        }
+
                     }
+                    x2+=1;
                 }
+                y2+=1;
             }
-            for (var z = 0; z < tmz; z++) {
-                for (var y = 0; y < tmy; y++) {
-                    for (var x = 0; x < tmx; x++) {
+            z2+=1;
+            for(var z = 0; z < tmz; z++)	{
+                for(var y = 0; y < tmy; y++)	{
+                    for(var x = 0; x < tmx; x++)	{
                         cellArray[z][y][x].changeValue();
                     }
                 }
@@ -409,6 +578,71 @@ function countNeighbours(x, y, z) {
     return count;
 }
 
+function sumNeighboursAtPositions(x, y, z, positions)	{
+    var count = 0;
+    if(z - 1 >= 0)	{
+        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1')
+            count += cellArray[z - 1][y - 1][x - 1].value;
+        if(y + 1 <= tmy - 1 && positions.charAt(19) == '1')
+            count += cellArray[z - 1][y + 1][x].value;
+        if(y - 1 >= 0  && positions.charAt(1) == '1')
+            count += cellArray[z - 1][y - 1][x].value;
+        if(x + 1 <= tmx - 1 && positions.charAt(11) == '1')
+            count += cellArray[z - 1][y][x + 1].value;
+        if(x - 1 >= 0 && positions.charAt(9) == '1')
+            count += cellArray[z - 1][y][x - 1].value;
+        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1  && positions.charAt(20) == '1')
+            count += cellArray[z - 1][y + 1][x + 1].value;
+        if(y + 1 <= tmy - 1 && x - 1 >= 0  && positions.charAt(18) == '1')
+            count += cellArray[z - 1][y + 1][x - 1].value;
+        if(y - 1 >= 0 && x + 1 <= tmx - 1  && positions.charAt(2) == '1')
+            count += cellArray[z - 1][y - 1][x + 1].value;
+        if(positions.charAt(10) == '1')
+            count += cellArray[z - 1][y][x].value;
+    }
+
+    if(z + 1 <= tmz - 1)	{
+        if(y + 1 <= tmy - 1 && positions.charAt(25) == '1')
+            count += cellArray[z + 1][y + 1][x].value;
+        if(y - 1 >= 0  && positions.charAt(7) == '1')
+            count += cellArray[z + 1][y - 1][x].value;
+        if(x + 1 <= tmx - 1 && positions.charAt(17) == '1')
+            count += cellArray[z + 1][y][x + 1].value;
+        if(x - 1 >= 0 && positions.charAt(15) == '1')
+            count += cellArray[z + 1][y][x - 1].value;
+        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1')
+            count += cellArray[z + 1][y + 1][x + 1].value;
+        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1')
+            count += cellArray[z + 1][y - 1][x - 1].value;
+        if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1')
+            count += cellArray[z + 1][y + 1][x - 1].value;
+        if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1')
+            count += cellArray[z + 1][y - 1][x + 1].value;
+        if(positions.charAt(16) == '1')
+            count += cellArray[z + 1][y][x].value;
+    }
+
+    if(y + 1 <= tmy - 1 && positions.charAt(22) == '1')
+        count += cellArray[z][y + 1][x].value;
+    if(y - 1 >= 0 && positions.charAt(4) == '1')
+        count += cellArray[z][y - 1][x].value;
+    if(x + 1 <= tmx - 1 && positions.charAt(14) == '1')
+        count += cellArray[z][y][x + 1].value;
+    if(x - 1 >= 0 && positions.charAt(12) == '1')
+        count += cellArray[z][y][x - 1].value;
+    if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1')
+        count += cellArray[z][y + 1][x + 1].value;
+    if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1')
+        count += cellArray[z][y - 1][x - 1].value;
+    if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1')
+        count += cellArray[z][y + 1][x - 1].value;
+    if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1')
+        count += cellArray[z][y - 1][x + 1].value;
+    if(positions.charAt(13) == '1')
+        count += cellArray[z][y][x].value;
+    return count;
+}
+
 function toggleXLayer(zlayer) {  console.log("1"+zlayer);
     for (var y = 0; y < tmz; y++) {
         for (var x = 0; x < tmx; x++) {
@@ -455,9 +689,6 @@ function toggleZLayer(xlayer) {
 }
 
 function hider() {
-
-
-
     for (var i = 0; i < tmz; i++) {
 
         zbar[i].visible = document.getElementById("z").checked;
@@ -471,6 +702,58 @@ function hider() {
         ybar[i].visible = document.getElementById("y").checked;
     }
     midpoint.visible = document.getElementById("mid").checked;
+}
 
+function performOperation(neightbours, expected, conditionOperand)	{
+    var result = false;
+    if(conditionOperand == "==")	{
+        if(neightbours == expected)
+            result = true;
+    }
+    else if(conditionOperand == ">")	{
+        if(neightbours > expected)
+            result = true;
+    }
+    else if(conditionOperand == "<")	{
+        if(neightbours < expected)
+            result = true;
+    }
+    else if(conditionOperand == "<=")	{
+        if(neightbours <= expected)
+            result = true;
+    }
+    else if(conditionOperand == ">=")	{
+        if(neightbours >= expected)
+            result = true;
+    }
+    return result;
+}
 
+function performOperationBetween(neightbours, expectedLow, expectedHigh, conditionOperandLow, conditionOperandHigh)	{
+    var result = false;
+    if(conditionOperandLow == ">")	{
+        if(neightbours > expectedLow)	{
+            if(conditionOperandHigh == "<")	{
+                if(neightbours < expectedHigh)
+                    result = true;
+            }
+            else if(conditionOperandHigh == "<=")	{
+                if(neightbours <= expectedHigh)
+                    result = true;
+            }
+        }
+    }
+    else if(conditionOperandLow == ">=")	{
+        if(neightbours >= expectedLow)	{
+            if(conditionOperandHigh == "<")	{
+                if(neightbours < expectedHigh)
+                    result = true;
+            }
+            else if(conditionOperandHigh == "<=")	{
+                if(neightbours <= expectedHigh)
+                    result = true;
+            }
+        }
+    }
+    return result;
 }
