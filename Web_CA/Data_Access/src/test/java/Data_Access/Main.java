@@ -1,12 +1,24 @@
 package Data_Access;
 
-import za.co.tera.web_ca.data_access.CoordinateDao;
-import za.co.tera.web_ca.data_access.WorldDao;
-import za.co.tera.web_ca.data_access.impl.CoordinateDaoImpl;
-import za.co.tera.web_ca.data_access.impl.WorldDaoImpl;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 import za.co.tera.web_ca.domain.impl.Coordinate;
 import za.co.tera.web_ca.domain.impl.World;
 
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -15,16 +27,49 @@ public class Main {
     //private static final Logger LOGGER = LoggerFactory.getLogger(Web_ca.class);
 
     public static void main(final String[] args) throws Exception {
+
+        Writer writer = null;
+        World world= new World("Name","Desc",2,30,30,30,31);
+
+        try {
+            writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream("1.xml"), "utf-8"));
+            writer.write("<coordinateList>\n");
+            for (int i = 0; i < world.getWorldHeight(); i++) {
+
+                for (int j = 0; j < world.getWorldHeight(); j++) {
+                    for (int k = 0; k < world.getWorldDepth(); k++) {
+                        writer.write("<coordinate>\n");
+                        writer.write("<x>"+i+"</x>\n");
+                        writer.write("<y>"+j+"</y>\n");
+                        writer.write("<z>"+k+"</z>\n");
+                        writer.write("<value>"+k+"</value>\n");
+                        writer.write("</coordinate>\n");
+                    }
+                }
+
+            }
+            writer.write("</coordinateList>\n");
+
+        } catch (IOException ex) {
+            // report
+        } finally {
+
+            try {writer.close();} catch (Exception ex) {}
+        }
+
+
      /*   WorldDao worldDao = new WorldDaoImpl();
 
         World world = new World("Earth","Used to test how gravity affects certain states with other states.",3,10,10,10,31);
 
        System.out.println(worldDao.save(world).getWorldId() );*/
+       /* WorldDao worldDao = new WorldDaoImpl();
+        World world=worldDao.save(new World("name", "desc",3,5,5,5,31 ));
+
         CoordinateDao coordinateDao = new CoordinateDaoImpl();
-        List<Coordinate> coordinateList=coordinateDao.findByworldId(4);
-        for (int i = 0; i < coordinateList.size(); i++) {
-            System.out.println(coordinateList.get(i).getValue());
-        }
+        coordinateDao.saveCoordinates(world);
+*/
         /*
 
         User user = new User("John","Doe","jd@gmail.com","123","Admin");
