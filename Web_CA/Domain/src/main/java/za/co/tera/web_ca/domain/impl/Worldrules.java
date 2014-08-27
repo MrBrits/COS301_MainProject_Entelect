@@ -6,9 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * Created by Laptop on 7/14/2014.
- */
 @Entity
 public class Worldrules implements Serializable{
     private int worldRulesId;

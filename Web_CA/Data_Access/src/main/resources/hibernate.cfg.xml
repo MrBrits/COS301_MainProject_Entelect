@@ -12,9 +12,8 @@
       <mapping class="za.co.tera.web_ca.domain.impl.Coordinate"/>
       <mapping class="za.co.tera.web_ca.domain.impl.Rule"/>
       <mapping class="za.co.tera.web_ca.domain.impl.Rulecondition"/>
-      <mapping class="za.co.tera.web_ca.domain.impl.Ruleconditionneighbours"/>
       <mapping class="za.co.tera.web_ca.domain.impl.Ruleresult"/>
-      <mapping class="za.co.tera.web_ca.domain.impl.Ruleresultneighbours"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Ruleneighbours"/>
       <mapping class="za.co.tera.web_ca.domain.impl.State"/>
       <mapping class="za.co.tera.web_ca.domain.impl.User"/>
       <mapping class="za.co.tera.web_ca.domain.impl.World"/>

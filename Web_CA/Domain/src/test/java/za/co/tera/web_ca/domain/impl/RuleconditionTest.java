@@ -13,7 +13,8 @@ public class RuleconditionTest extends TestCase {
         ruleconditionTest.setNot(true);
         ruleconditionTest.setOperand("Operand");
         ruleconditionTest.setOperation("Operation");
-        ruleconditionTest.setCompareValue(123);
+        ruleconditionTest.setCompareValueOne(123.0);
+        ruleconditionTest.setCompareValueTwo(321.0);
         ruleconditionTest.setNeighboursId(1);
     }
 
@@ -23,7 +24,8 @@ public class RuleconditionTest extends TestCase {
         assertEquals(true, ruleconditionTest.isNot());
         assertEquals("Operand", ruleconditionTest.getOperand());
         assertEquals("Operation", ruleconditionTest.getOperation());
-        assertEquals(123, ruleconditionTest.getCompareValue());
+        assertEquals(123.0, ruleconditionTest.getCompareValueOne());
+        assertEquals(321.0, ruleconditionTest.getCompareValueTwo());
         assertEquals(1, ruleconditionTest.getNeighboursId());
         assertEquals(-708818232, ruleconditionTest.hashCode());
     }

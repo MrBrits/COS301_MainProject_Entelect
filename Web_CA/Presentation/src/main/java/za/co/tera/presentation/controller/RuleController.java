@@ -53,8 +53,8 @@ public class RuleController {
      */
     @RequestMapping(value = "/AddRuleConNeigh", method = RequestMethod.POST)
     public @ResponseBody
-    int createRuleConNeigh(@RequestBody Ruleconditionneighbours ruleConNeigh) {
-        return ruleService.createRuleConNeigh(ruleConNeigh);
+    int createRuleConNeigh(@RequestBody Ruleneighbours ruleConNeigh) {
+        return ruleService.createRuleNeigh(ruleConNeigh);
     }
 
     /**
@@ -62,7 +62,7 @@ public class RuleController {
      * @param ruleCon
      * @return
      */
-    @RequestMapping(value = "/AddRuleCons", method = RequestMethod.POST)
+    @RequestMapping(value = "/AddRuleCon", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleCon(@RequestBody JSONObject ruleCon) {
         boolean isNot = false;
@@ -74,7 +74,7 @@ public class RuleController {
         {
             isNot = false;
         }
-        Rulecondition rulecondition = new Rulecondition(isNot, ruleCon.get("operation").toString(),ruleCon.get("operand").toString(),Integer.parseInt(ruleCon.get("compareValue").toString()),Integer.parseInt(ruleCon.get("neighboursId").toString()));
+        Rulecondition rulecondition = new Rulecondition(isNot, ruleCon.get("operation").toString(),Integer.parseInt(ruleCon.get("neighboursId").toString()),ruleCon.get("operand").toString(),Double.parseDouble(ruleCon.get("compareValueOne").toString()), Double.parseDouble(ruleCon.get("compareValueTwo").toString()));
         return ruleService.createRuleCon(rulecondition);
     }
 
@@ -85,8 +85,8 @@ public class RuleController {
      */
     @RequestMapping(value = "/AddRuleResNeigh", method = RequestMethod.POST)
     public @ResponseBody
-    int createRuleResNeigh(@RequestBody Ruleresultneighbours ruleResNeigh) {
-        return ruleService.createRuleResNeigh(ruleResNeigh);
+    int createRuleResNeigh(@RequestBody Ruleneighbours ruleResNeigh) {
+        return ruleService.createRuleNeigh(ruleResNeigh);
     }
 
     /**

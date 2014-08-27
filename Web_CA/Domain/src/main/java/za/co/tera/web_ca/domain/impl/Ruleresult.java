@@ -6,26 +6,20 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * Created by Christo on 2014/08/13.
- */
 @Entity
 public class Ruleresult implements Serializable {
     private int ruleResultId;
     private String operation;
-    private String operand;
-    private int resultValue;
-    private int neighboursId;
+    private Integer neighboursId;
+    private Double resultValue;
 
-    public Ruleresult()
-    {}
+    public Ruleresult() {
+    }
 
-    public Ruleresult(int ruleResultId, String operation, String operand, Integer resultValue, int neighboursId) {
-        this.ruleResultId = ruleResultId;
+    public Ruleresult(String operation, Integer neighboursId, Double resultValue) {
         this.operation = operation;
-        this.operand = operand;
-        this.resultValue = resultValue;
         this.neighboursId = neighboursId;
+        this.resultValue = resultValue;
     }
 
     @Id
@@ -39,7 +33,7 @@ public class Ruleresult implements Serializable {
     }
 
     @Basic
-    @Column(name = "Operation", nullable = false, insertable = true, updatable = true, length = 10)
+    @Column(name = "Operation", nullable = true, insertable = true, updatable = true, length = 10)
     public String getOperation() {
         return operation;
     }
@@ -49,33 +43,23 @@ public class Ruleresult implements Serializable {
     }
 
     @Basic
-    @Column(name = "Operand", nullable = false, insertable = true, updatable = true, length = 2)
-    public String getOperand() {
-        return operand;
-    }
-
-    public void setOperand(String operand) {
-        this.operand = operand;
-    }
-
-    @Basic
-    @Column(name = "ResultValue", nullable = true, insertable = true, updatable = true)
-    public int getResultValue() {
-        return resultValue;
-    }
-
-    public void setResultValue(int resultValue) {
-        this.resultValue = resultValue;
-    }
-
-    @Basic
-    @Column(name = "NeighboursID", nullable = false, insertable = true, updatable = true)
-    public int getNeighboursId() {
+    @Column(name = "NeighboursID", nullable = true, insertable = true, updatable = true)
+    public Integer getNeighboursId() {
         return neighboursId;
     }
 
-    public void setNeighboursId(int neighboursId) {
+    public void setNeighboursId(Integer neighboursId) {
         this.neighboursId = neighboursId;
+    }
+
+    @Basic
+    @Column(name = "ResultValue", nullable = true, insertable = true, updatable = true, precision = 0)
+    public Double getResultValue() {
+        return resultValue;
+    }
+
+    public void setResultValue(Double resultValue) {
+        this.resultValue = resultValue;
     }
 
     @Override
@@ -85,11 +69,10 @@ public class Ruleresult implements Serializable {
 
         Ruleresult that = (Ruleresult) o;
 
-        if (neighboursId != that.neighboursId) return false;
         if (ruleResultId != that.ruleResultId) return false;
-        if (operand != null ? !operand.equals(that.operand) : that.operand != null) return false;
+        if (neighboursId != null ? !neighboursId.equals(that.neighboursId) : that.neighboursId != null) return false;
         if (operation != null ? !operation.equals(that.operation) : that.operation != null) return false;
-        if (resultValue != that.resultValue) return false;
+        if (resultValue != null ? !resultValue.equals(that.resultValue) : that.resultValue != null) return false;
 
         return true;
     }
@@ -98,9 +81,8 @@ public class Ruleresult implements Serializable {
     public int hashCode() {
         int result = ruleResultId;
         result = 31 * result + (operation != null ? operation.hashCode() : 0);
-        result = 31 * result + (operand != null ? operand.hashCode() : 0);
-        result = 31 * result + resultValue;
-        result = 31 * result + neighboursId;
+        result = 31 * result + (neighboursId != null ? neighboursId.hashCode() : 0);
+        result = 31 * result + (resultValue != null ? resultValue.hashCode() : 0);
         return result;
     }
 }

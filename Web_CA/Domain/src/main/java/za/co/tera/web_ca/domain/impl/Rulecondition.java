@@ -6,29 +6,26 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * Created by Christo on 2014/08/13.
- */
 @Entity
 public class Rulecondition implements Serializable {
     private int ruleConditionId;
     private boolean isNot;
     private String operation;
-    private String operand;
-    private int compareValue;
     private int neighboursId;
+    private String operand;
+    private double compareValueOne;
+    private Double compareValueTwo;
 
-    public Rulecondition()
-    {
-
+    public Rulecondition() {
     }
 
-    public Rulecondition(boolean isNot, String operation, String operand, int compareValue, int neighboursId) {
+    public Rulecondition(boolean isNot, String operation, int neighboursId, String operand, double compareValueOne, Double compareValueTwo) {
         this.isNot = isNot;
         this.operation = operation;
-        this.operand = operand;
-        this.compareValue = compareValue;
         this.neighboursId = neighboursId;
+        this.operand = operand;
+        this.compareValueOne = compareValueOne;
+        this.compareValueTwo = compareValueTwo;
     }
 
     @Id
@@ -62,26 +59,6 @@ public class Rulecondition implements Serializable {
     }
 
     @Basic
-    @Column(name = "Operand", nullable = false, insertable = true, updatable = true, length = 2)
-    public String getOperand() {
-        return operand;
-    }
-
-    public void setOperand(String operand) {
-        this.operand = operand;
-    }
-
-    @Basic
-    @Column(name = "CompareValue", nullable = false, insertable = true, updatable = true)
-    public int getCompareValue() {
-        return compareValue;
-    }
-
-    public void setCompareValue(int compareValue) {
-        this.compareValue = compareValue;
-    }
-
-    @Basic
     @Column(name = "NeighboursID", nullable = false, insertable = true, updatable = true)
     public int getNeighboursId() {
         return neighboursId;
@@ -91,6 +68,36 @@ public class Rulecondition implements Serializable {
         this.neighboursId = neighboursId;
     }
 
+    @Basic
+    @Column(name = "Operand", nullable = false, insertable = true, updatable = true, length = 7)
+    public String getOperand() {
+        return operand;
+    }
+
+    public void setOperand(String operand) {
+        this.operand = operand;
+    }
+
+    @Basic
+    @Column(name = "CompareValueOne", nullable = false, insertable = true, updatable = true, precision = 0)
+    public double getCompareValueOne() {
+        return compareValueOne;
+    }
+
+    public void setCompareValueOne(double compareValueOne) {
+        this.compareValueOne = compareValueOne;
+    }
+
+    @Basic
+    @Column(name = "CompareValueTwo", nullable = true, insertable = true, updatable = true, precision = 0)
+    public Double getCompareValueTwo() {
+        return compareValueTwo;
+    }
+
+    public void setCompareValueTwo(Double compareValueTwo) {
+        this.compareValueTwo = compareValueTwo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,10 +105,12 @@ public class Rulecondition implements Serializable {
 
         Rulecondition that = (Rulecondition) o;
 
-        if (compareValue != that.compareValue) return false;
+        if (Double.compare(that.compareValueOne, compareValueOne) != 0) return false;
         if (isNot != that.isNot) return false;
         if (neighboursId != that.neighboursId) return false;
         if (ruleConditionId != that.ruleConditionId) return false;
+        if (compareValueTwo != null ? !compareValueTwo.equals(that.compareValueTwo) : that.compareValueTwo != null)
+            return false;
         if (operand != null ? !operand.equals(that.operand) : that.operand != null) return false;
         if (operation != null ? !operation.equals(that.operation) : that.operation != null) return false;
 
@@ -110,12 +119,16 @@ public class Rulecondition implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = ruleConditionId;
+        int result;
+        long temp;
+        result = ruleConditionId;
         result = 31 * result + (isNot ? 1 : 0);
         result = 31 * result + (operation != null ? operation.hashCode() : 0);
-        result = 31 * result + (operand != null ? operand.hashCode() : 0);
-        result = 31 * result + compareValue;
         result = 31 * result + neighboursId;
+        result = 31 * result + (operand != null ? operand.hashCode() : 0);
+        temp = Double.doubleToLongBits(compareValueOne);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (compareValueTwo != null ? compareValueTwo.hashCode() : 0);
         return result;
     }
 }

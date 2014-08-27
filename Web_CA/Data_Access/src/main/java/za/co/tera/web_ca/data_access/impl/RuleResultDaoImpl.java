@@ -17,9 +17,9 @@ public class RuleResultDaoImpl extends AbstractDaoImpl<Ruleresult> implements Ru
     public int getRuleResultId(Ruleresult ruleRes)
     {
         Session session= getSession();
-        Query query = session.createQuery("From Ruleresult ruleRes where ruleRes.operation = :Operation and ruleRes.operand = :Operand and ruleRes.resultValue = :ResultValue");
+        Query query = session.createQuery("From Ruleresult ruleRes where ruleRes.operation = :Operation and ruleRes.neighboursId = :NeighboursID and ruleRes.resultValue = :ResultValue");
         query.setParameter("Operation", ruleRes.getOperation());
-        query.setParameter("Operand", ruleRes.getOperand());
+        query.setParameter("NeighboursID", ruleRes.getNeighboursId());
         query.setParameter("ResultValue", ruleRes.getResultValue());
         List<Ruleresult> ruleConList = query.list();
 

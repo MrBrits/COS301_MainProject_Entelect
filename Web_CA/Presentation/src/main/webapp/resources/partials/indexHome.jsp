@@ -114,7 +114,7 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Value</label>
                         <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="newState.stateValue" placeholder="Value">
+                            <input type="number" step="0.1" class="form-control"  ng-model="newState.stateValue" placeholder="Value">
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -279,13 +279,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">Priority</label>
-                        <div class="col-xs-4">
-                            <input type="number" class="form-control"  ng-model="newRule.priority" placeholder="1 - Highest, 100 - Lowest">
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label>Condition of Rule</label>
                         <div class="form-group">
                             <label class="col-xs-2 control-label" >Is Not</label>
@@ -306,7 +299,6 @@
                                     <option value="MIN">MIN</option>
                                     <option value="MAX">MAX</option>
                                     <option value="COUNT">COUNT</option>
-                                    <option value="EXACT">EXACT</option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>
@@ -315,7 +307,7 @@
                             <label class="col-xs-2 control-label">Condition Neighbours</label>
                             <div class="col-xs-4">
                                 <select class="form-control" ng-model="newRuleConNeigh.neighbours">
-                                    <option value="00000000000000000000000000"> 00000000000000000000000000 </option>
+                                    <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>
@@ -329,29 +321,29 @@
                                     <option value=">="> >= </option>
                                     <option value="<="> <= </option>
                                     <option value="=="> == </option>
+                                    <option value="BETWEEN1"> BETWEEN (excludes) </option>
+                                    <option value="BETWEEN2"> BETWEEN (includes) </option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">Compare Value</label>
+                            <label class="col-xs-2 control-label">Compare Value One</label>
                             <div class="col-xs-4">
-                                <input type="number" class="form-control"  ng-model="newRuleCon.compareValue" placeholder="Choose State Value">
+                                <input type="number" step="0.1" class="form-control"  ng-model="newRuleCon.compareValueOne" placeholder="Choose State Value">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">Compare Value Two</label>
+                            <div class="col-xs-4">
+                                <input type="number" step="0.1" class="form-control"  ng-model="newRuleCon.compareValueTwo" placeholder="Choose State Value">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Result of Rule</label>
-                        <div class="form-group">
-                            <label class="col-xs-2 control-label">Operand</label>
-                            <div class="col-xs-4">
-                                <select class="form-control" ng-model="newRuleRes.operand">
-                                    <option value="=="> == </option>
-                                </select>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Operator</label>
                             <div class="col-xs-4">
@@ -361,7 +353,6 @@
                                     <option value="MIN">MIN</option>
                                     <option value="MAX">MAX</option>
                                     <option value="COUNT">COUNT</option>
-                                    <option value="EXACT">EXACT</option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>
@@ -370,7 +361,7 @@
                             <label class="col-xs-2 control-label">Result Neighbours</label>
                             <div class="col-xs-4">
                                 <select class="form-control" ng-model="newRuleResNeigh.neighbours">
-                                    <option value="00000000000000000000000000"> 00000000000000000000000000 </option>
+                                    <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>
@@ -379,7 +370,7 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">Result Value</label>
                             <div class="col-xs-4">
-                                <input type="number" class="form-control"  ng-model="newRuleRes.resultValue" placeholder="Choose State">
+                                <input type="number" step="0.1" class="form-control"  ng-model="newRuleRes.resultValue" placeholder="Choose State">
                                 <span class="help-block"></span>
                             </div>
                         </div>

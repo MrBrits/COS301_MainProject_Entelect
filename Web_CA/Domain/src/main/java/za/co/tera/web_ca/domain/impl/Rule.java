@@ -6,29 +6,27 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * Created by Christo on 2014/07/14.
- */
 @Entity
-public class Rule  implements Serializable {
+public class Rule implements Serializable {
     private int ruleId;
     private String ruleName;
     private String ruleDesc;
-    private int priority;
     private int ruleConId;
-    private int ruleResId;
+    private Integer ruleConAndid;
+    private Integer ruleConOrid;
+    private Integer ruleResId;
     private int ownerId;
 
-    public Rule()
-    {}
+    public Rule() {
+    }
 
-    public Rule(String ruleName, String ruleDesc, int priority, int ruleConditionId, int ruleResultId, int ownerId)
-    {
+    public Rule(String ruleName, String ruleDesc, int ruleConId, Integer ruleConAndid, Integer ruleConOrid, Integer ruleResId, int ownerId) {
         this.ruleName = ruleName;
         this.ruleDesc = ruleDesc;
-        this.priority = priority;
-        this.ruleConId = ruleConditionId;
-        this.ruleResId = ruleResultId;
+        this.ruleConId = ruleConId;
+        this.ruleConAndid = ruleConAndid;
+        this.ruleConOrid = ruleConOrid;
+        this.ruleResId = ruleResId;
         this.ownerId = ownerId;
     }
 
@@ -63,33 +61,43 @@ public class Rule  implements Serializable {
     }
 
     @Basic
-    @Column(name = "Priority", nullable = false, insertable = true, updatable = true)
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-
-    @Basic
     @Column(name = "RuleConID", nullable = false, insertable = true, updatable = true)
-    public int getRuleConditionId() {
+    public int getRuleConId() {
         return ruleConId;
     }
 
-    public void setRuleConditionId(int ruleConditionId) {
-        this.ruleConId = ruleConditionId;
+    public void setRuleConId(int ruleConId) {
+        this.ruleConId = ruleConId;
     }
 
     @Basic
-    @Column(name = "RuleResID", nullable = false, insertable = true, updatable = true)
-    public int getRuleResultId() {
+    @Column(name = "RuleConANDID", nullable = true, insertable = true, updatable = true)
+    public Integer getRuleConAndid() {
+        return ruleConAndid;
+    }
+
+    public void setRuleConAndid(Integer ruleConAndid) {
+        this.ruleConAndid = ruleConAndid;
+    }
+
+    @Basic
+    @Column(name = "RuleConORID", nullable = true, insertable = true, updatable = true)
+    public Integer getRuleConOrid() {
+        return ruleConOrid;
+    }
+
+    public void setRuleConOrid(Integer ruleConOrid) {
+        this.ruleConOrid = ruleConOrid;
+    }
+
+    @Basic
+    @Column(name = "RuleResID", nullable = true, insertable = true, updatable = true)
+    public Integer getRuleResId() {
         return ruleResId;
     }
 
-    public void setRuleResultId(int ruleResultId) {
-        this.ruleResId = ruleResultId;
+    public void setRuleResId(Integer ruleResId) {
+        this.ruleResId = ruleResId;
     }
 
     @Basic
@@ -110,12 +118,13 @@ public class Rule  implements Serializable {
         Rule rule = (Rule) o;
 
         if (ownerId != rule.ownerId) return false;
-        if (priority != rule.priority) return false;
         if (ruleConId != rule.ruleConId) return false;
         if (ruleId != rule.ruleId) return false;
-        if (ruleResId != rule.ruleResId) return false;
+        if (ruleConAndid != null ? !ruleConAndid.equals(rule.ruleConAndid) : rule.ruleConAndid != null) return false;
+        if (ruleConOrid != null ? !ruleConOrid.equals(rule.ruleConOrid) : rule.ruleConOrid != null) return false;
         if (ruleDesc != null ? !ruleDesc.equals(rule.ruleDesc) : rule.ruleDesc != null) return false;
         if (ruleName != null ? !ruleName.equals(rule.ruleName) : rule.ruleName != null) return false;
+        if (ruleResId != null ? !ruleResId.equals(rule.ruleResId) : rule.ruleResId != null) return false;
 
         return true;
     }
@@ -125,9 +134,10 @@ public class Rule  implements Serializable {
         int result = ruleId;
         result = 31 * result + (ruleName != null ? ruleName.hashCode() : 0);
         result = 31 * result + (ruleDesc != null ? ruleDesc.hashCode() : 0);
-        result = 31 * result + priority;
         result = 31 * result + ruleConId;
-        result = 31 * result + ruleResId;
+        result = 31 * result + (ruleConAndid != null ? ruleConAndid.hashCode() : 0);
+        result = 31 * result + (ruleConOrid != null ? ruleConOrid.hashCode() : 0);
+        result = 31 * result + (ruleResId != null ? ruleResId.hashCode() : 0);
         result = 31 * result + ownerId;
         return result;
     }

@@ -32,7 +32,7 @@ web_ca.controller("RuleManager", function($scope, $http) {
                 else
                 {
                     //Add RuleCondition
-                    $http.post("http://" + site + "/AddRuleCons",con)
+                    $http.post("http://" + site + "/AddRuleCon",con)
                         .success(function(data) {
                             rule.ruleConditionId = data;
                             if (data == 0)

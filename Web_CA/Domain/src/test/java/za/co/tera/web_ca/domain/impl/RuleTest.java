@@ -12,9 +12,12 @@ public class RuleTest extends TestCase {
         ruleTest.setRuleId(1);
         ruleTest.setRuleName("Rule Name");
         ruleTest.setRuleDesc("Rule Description");
-        ruleTest.setPriority(1);
-        ruleTest.setRuleConditionId(1);
-        ruleTest.setRuleResultId(1);
+        ruleTest.setRuleConId(1);
+
+        Integer one = new Integer(1);
+        ruleTest.setRuleConAndid(one);
+        ruleTest.setRuleConOrid(one);
+        ruleTest.setRuleResId(one);
         ruleTest.setOwnerId(1);
     }
 
@@ -23,9 +26,12 @@ public class RuleTest extends TestCase {
         assertEquals(1, ruleTest.getRuleId());
         assertEquals("Rule Name", ruleTest.getRuleName());
         assertEquals("Rule Description", ruleTest.getRuleDesc());
-        assertEquals(1, ruleTest.getPriority());
-        assertEquals(1, ruleTest.getRuleConditionId());
-        assertEquals(1, ruleTest.getRuleResultId());
+
+        Integer one = new Integer(1);
+        assertEquals(1, ruleTest.getRuleConId());
+        assertEquals(one, ruleTest.getRuleConAndid());
+        assertEquals(one, ruleTest.getRuleConOrid());
+        assertEquals(one, ruleTest.getRuleResId());
         assertEquals(1, ruleTest.getOwnerId());
         assertEquals(-194436982, ruleTest.hashCode());
     }

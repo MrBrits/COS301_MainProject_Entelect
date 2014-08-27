@@ -8,10 +8,9 @@
         <class>za.co.tera.web_ca.domain.impl.User</class>
         <class>za.co.tera.web_ca.domain.impl.World</class>
         <class>za.co.tera.web_ca.domain.impl.Rulecondition</class>
-        <class>za.co.tera.web_ca.domain.impl.Ruleconditionneighbours</class>
         <class>za.co.tera.web_ca.domain.impl.Ruleresult</class>
-        <class>za.co.tera.web_ca.domain.impl.Ruleresultneighbours</class>
         <class>za.co.tera.web_ca.domain.impl.Worldrules</class>
+        <class>za.co.tera.web_ca.domain.impl.Ruleneighbours</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/web_ca"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

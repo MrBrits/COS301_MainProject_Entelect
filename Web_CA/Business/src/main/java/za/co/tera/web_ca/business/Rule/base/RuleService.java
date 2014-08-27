@@ -8,9 +8,8 @@ import java.util.List;
 public interface RuleService {
     public boolean createRule(Rule newRule);
     public int createRuleCon(Rulecondition newRuleCon);
-    public int createRuleConNeigh(Ruleconditionneighbours newRuleConNeigh);
+    public int createRuleNeigh(Ruleneighbours newRuleConNeigh);
     public int createRuleRes(Ruleresult newRuleRes);
-    public int createRuleResNeigh(Ruleresultneighbours newRuleResNeigh);
     public void deleteRule(Rule delRule);
     public void updateRule(Rule updateRule);
     public Rule findRule(int ID);

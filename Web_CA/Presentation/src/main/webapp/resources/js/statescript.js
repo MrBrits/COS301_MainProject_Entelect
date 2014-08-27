@@ -9,8 +9,6 @@ web_ca.controller("StateManager", function ($scope, $http) {
 
     $scope.getStates = function(){
 
-        alert("GET");
-
         $http.get("http://" + site + "/getStateByUserId/"+userId)
             .success(function (data) {
                 $scope.states = data;

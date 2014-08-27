@@ -12,10 +12,8 @@ public class RuleServiceImpl implements RuleService {
     private RuleDao ruleDao = new RuleDaoImpl();
 
     private RuleConditionDao ruleConditionDao = new RuleConditionDaoImpl();
-    private RuleConditionNeighboursDao ruleConditionNeighboursDao = new RuleConditionNeighboursDaoImpl();
-
     private RuleResultDao ruleResultDao = new RuleResultDaoImpl();
-    private RuleResultneighboursDao ruleResultNeighboursDao = new RuleResultNeighboursDaoImpl();
+    private RuleNeighboursDao ruleNeighboursDao = new RuleNeighboursDaoImpl();
 
     @Override
     public boolean createRule(Rule newRule)
@@ -37,13 +35,13 @@ public class RuleServiceImpl implements RuleService {
     }
 
     @Override
-    public int createRuleConNeigh(Ruleconditionneighbours newRuleConNeigh)
+    public int createRuleNeigh(Ruleneighbours ruleneighbours)
     {
-        int Id = ruleConditionNeighboursDao.getRuleConNeighId(newRuleConNeigh);
+        int Id = ruleNeighboursDao.getRuleNeighboursId(ruleneighbours);
 
         if (Id == 0) {
-            ruleConditionNeighboursDao.save(newRuleConNeigh);
-            Id = ruleConditionNeighboursDao.getRuleConNeighId(newRuleConNeigh);
+            ruleNeighboursDao.save(ruleneighbours);
+            Id = ruleNeighboursDao.getRuleNeighboursId(ruleneighbours);
         }
         return Id;
     }
@@ -57,17 +55,6 @@ public class RuleServiceImpl implements RuleService {
         if (Id == 0) {
             ruleResultDao.save(newRuleRes);
             Id = ruleResultDao.getRuleResultId(newRuleRes);
-        }
-        return Id;
-    }
-    @Override
-    public int createRuleResNeigh(Ruleresultneighbours newRuleResNeigh)
-    {
-        int Id = ruleResultNeighboursDao.getRuleResNeighId(newRuleResNeigh);
-
-        if (Id == 0) {
-            ruleResultNeighboursDao.save(newRuleResNeigh);
-            Id = ruleResultNeighboursDao.getRuleResNeighId(newRuleResNeigh);
         }
         return Id;
     }

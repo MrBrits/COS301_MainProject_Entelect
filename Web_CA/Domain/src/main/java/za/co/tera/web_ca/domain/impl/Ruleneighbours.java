@@ -6,34 +6,30 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * Created by Christo on 2014/08/13.
- */
 @Entity
-public class Ruleresultneighbours implements Serializable {
-    private int ruleResultNeighId;
+public class Ruleneighbours implements Serializable {
+    private int ruleNeighboursId;
     private String neighbours;
 
-    public Ruleresultneighbours() {
+    public Ruleneighbours() {
     }
 
-    public Ruleresultneighbours(int ruleResultNeighId, String neighbours) {
-        this.ruleResultNeighId = ruleResultNeighId;
+    public Ruleneighbours(String neighbours) {
         this.neighbours = neighbours;
     }
 
     @Id
-    @Column(name = "RuleResultNeighID", nullable = false, insertable = true, updatable = true)
-    public int getRuleResultNeighId() {
-        return ruleResultNeighId;
+    @Column(name = "RuleNeighboursID", nullable = false, insertable = true, updatable = true)
+    public int getRuleNeighboursId() {
+        return ruleNeighboursId;
     }
 
-    public void setRuleResultNeighId(int ruleResultNeighId) {
-        this.ruleResultNeighId = ruleResultNeighId;
+    public void setRuleNeighboursId(int ruleNeighboursId) {
+        this.ruleNeighboursId = ruleNeighboursId;
     }
 
     @Basic
-    @Column(name = "Neighbours", nullable = false, insertable = true, updatable = true, length = 26)
+    @Column(name = "Neighbours", nullable = false, insertable = true, updatable = true, length = 27)
     public String getNeighbours() {
         return neighbours;
     }
@@ -47,9 +43,9 @@ public class Ruleresultneighbours implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Ruleresultneighbours that = (Ruleresultneighbours) o;
+        Ruleneighbours that = (Ruleneighbours) o;
 
-        if (ruleResultNeighId != that.ruleResultNeighId) return false;
+        if (ruleNeighboursId != that.ruleNeighboursId) return false;
         if (neighbours != null ? !neighbours.equals(that.neighbours) : that.neighbours != null) return false;
 
         return true;
@@ -57,7 +53,7 @@ public class Ruleresultneighbours implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = ruleResultNeighId;
+        int result = ruleNeighboursId;
         result = 31 * result + (neighbours != null ? neighbours.hashCode() : 0);
         return result;
     }

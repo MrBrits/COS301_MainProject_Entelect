@@ -6,22 +6,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * Created by Christo on 2014/07/14.
- */
 @Entity
 public class State  implements Serializable {
     private int stateId;
     private String stateName;
     private String stateDesc;
-    private int stateValue;
+    private double stateValue;
     private String stateHex;
     private int ownerId;
 
     public State()
     {}
 
-    public State(String stateName, String stateDesc, int stateValue, String stateHex, int ownerId)
+    public State(String stateName, String stateDesc, double stateValue, String stateHex, int ownerId)
     {
         this.stateName = stateName;
         this.stateDesc = stateDesc;
@@ -62,11 +59,11 @@ public class State  implements Serializable {
 
     @Basic
     @Column(name = "StateValue", nullable = false, insertable = true, updatable = true)
-    public int getStateValue() {
+    public double getStateValue() {
         return stateValue;
     }
 
-    public void setStateValue(int stateValue) {
+    public void setStateValue(double stateValue) {
         this.stateValue = stateValue;
     }
 
@@ -110,9 +107,11 @@ public class State  implements Serializable {
     @Override
     public int hashCode() {
         int result = stateId;
+        long temp;
         result = 31 * result + (stateName != null ? stateName.hashCode() : 0);
         result = 31 * result + (stateDesc != null ? stateDesc.hashCode() : 0);
-        result = 31 * result + stateValue;
+        temp = Double.doubleToLongBits(stateValue);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (stateHex != null ? stateHex.hashCode() : 0);
         result = 31 * result + ownerId;
         return result;
