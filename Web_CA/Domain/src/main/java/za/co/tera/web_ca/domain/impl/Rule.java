@@ -12,20 +12,20 @@ public class Rule implements Serializable {
     private String ruleName;
     private String ruleDesc;
     private int ruleConId;
-    private Integer ruleConAndid;
-    private Integer ruleConOrid;
-    private Integer ruleResId;
+    private Integer ruleConAndId;
+    private Integer ruleConOrId;
+    private int ruleResId;
     private int ownerId;
 
     public Rule() {
     }
 
-    public Rule(String ruleName, String ruleDesc, int ruleConId, Integer ruleConAndid, Integer ruleConOrid, Integer ruleResId, int ownerId) {
+    public Rule(String ruleName, String ruleDesc, int ruleConId, Integer ruleConAndId, Integer ruleConOrId, int ruleResId, int ownerId) {
         this.ruleName = ruleName;
         this.ruleDesc = ruleDesc;
         this.ruleConId = ruleConId;
-        this.ruleConAndid = ruleConAndid;
-        this.ruleConOrid = ruleConOrid;
+        this.ruleConAndId = ruleConAndId;
+        this.ruleConOrId = ruleConOrId;
         this.ruleResId = ruleResId;
         this.ownerId = ownerId;
     }
@@ -73,30 +73,30 @@ public class Rule implements Serializable {
     @Basic
     @Column(name = "RuleConANDID", nullable = true, insertable = true, updatable = true)
     public Integer getRuleConAndid() {
-        return ruleConAndid;
+        return ruleConAndId;
     }
 
     public void setRuleConAndid(Integer ruleConAndid) {
-        this.ruleConAndid = ruleConAndid;
+        this.ruleConAndId = ruleConAndid;
     }
 
     @Basic
     @Column(name = "RuleConORID", nullable = true, insertable = true, updatable = true)
     public Integer getRuleConOrid() {
-        return ruleConOrid;
+        return ruleConOrId;
     }
 
     public void setRuleConOrid(Integer ruleConOrid) {
-        this.ruleConOrid = ruleConOrid;
+        this.ruleConOrId = ruleConOrid;
     }
 
     @Basic
     @Column(name = "RuleResID", nullable = true, insertable = true, updatable = true)
-    public Integer getRuleResId() {
+    public int getRuleResId() {
         return ruleResId;
     }
 
-    public void setRuleResId(Integer ruleResId) {
+    public void setRuleResId(int ruleResId) {
         this.ruleResId = ruleResId;
     }
 
@@ -120,11 +120,11 @@ public class Rule implements Serializable {
         if (ownerId != rule.ownerId) return false;
         if (ruleConId != rule.ruleConId) return false;
         if (ruleId != rule.ruleId) return false;
-        if (ruleConAndid != null ? !ruleConAndid.equals(rule.ruleConAndid) : rule.ruleConAndid != null) return false;
-        if (ruleConOrid != null ? !ruleConOrid.equals(rule.ruleConOrid) : rule.ruleConOrid != null) return false;
+        if (ruleConAndId != null ? !ruleConAndId.equals(rule.ruleConAndId) : rule.ruleConAndId != null) return false;
+        if (ruleConOrId != null ? !ruleConOrId.equals(rule.ruleConOrId) : rule.ruleConOrId != null) return false;
         if (ruleDesc != null ? !ruleDesc.equals(rule.ruleDesc) : rule.ruleDesc != null) return false;
         if (ruleName != null ? !ruleName.equals(rule.ruleName) : rule.ruleName != null) return false;
-        if (ruleResId != null ? !ruleResId.equals(rule.ruleResId) : rule.ruleResId != null) return false;
+        if (ruleResId != rule.ruleResId) return false;
 
         return true;
     }
@@ -135,9 +135,9 @@ public class Rule implements Serializable {
         result = 31 * result + (ruleName != null ? ruleName.hashCode() : 0);
         result = 31 * result + (ruleDesc != null ? ruleDesc.hashCode() : 0);
         result = 31 * result + ruleConId;
-        result = 31 * result + (ruleConAndid != null ? ruleConAndid.hashCode() : 0);
-        result = 31 * result + (ruleConOrid != null ? ruleConOrid.hashCode() : 0);
-        result = 31 * result + (ruleResId != null ? ruleResId.hashCode() : 0);
+        result = 31 * result + (ruleConAndId != null ? ruleConAndId.hashCode() : 0);
+        result = 31 * result + (ruleConOrId != null ? ruleConOrId.hashCode() : 0);
+        result = 31 * result + ruleResId;
         result = 31 * result + ownerId;
         return result;
     }

@@ -17,7 +17,7 @@ public class RuleTest extends TestCase {
         Integer one = new Integer(1);
         ruleTest.setRuleConAndid(one);
         ruleTest.setRuleConOrid(one);
-        ruleTest.setRuleResId(one);
+        ruleTest.setRuleResId(1);
         ruleTest.setOwnerId(1);
     }
 
@@ -31,7 +31,7 @@ public class RuleTest extends TestCase {
         assertEquals(1, ruleTest.getRuleConId());
         assertEquals(one, ruleTest.getRuleConAndid());
         assertEquals(one, ruleTest.getRuleConOrid());
-        assertEquals(one, ruleTest.getRuleResId());
+        assertEquals(1, ruleTest.getRuleResId());
         assertEquals(1, ruleTest.getOwnerId());
         assertEquals(-194436982, ruleTest.hashCode());
     }

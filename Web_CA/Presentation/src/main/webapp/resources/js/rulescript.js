@@ -18,58 +18,62 @@ web_ca.controller("RuleManager", function($scope, $http) {
     }
 
     $scope.addRule = function(rule, con, res, conNeigh, resNeigh) {
-        rule.ownerId=userId;
         //Add RuleConditionNeighbour
         $http.post("http://" + site + "/AddRuleConNeigh", conNeigh)
             .success(function(data) {
                 con.neighboursId = data;
-                if (data == 0)
-                {
+                if (con.compareValueTwo == null) {
+                    con.compareValueTwo = -9999;
+                }
+                if (data == 0) {
                     //This alert should never happen
                     //If it does, then it doesn't find the right object or creates it.
                     alert("Rule Condition Neighbours could not be found");
                 }
-                else
-                {
+                else {
                     //Add RuleCondition
-                    $http.post("http://" + site + "/AddRuleCon",con)
-                        .success(function(data) {
-                            rule.ruleConditionId = data;
-                            if (data == 0)
-                            {
+                    alert(JSON.stringify(con));
+                    $http.post("http://" + site + "/AddRuleCon", con)
+                        .success(function (data) {
+                            rule.ruleConId = data;
+                            if (rule.ruleConAndId == null) {
+                                rule.ruleConAndId = -9999;
+                            }
+                            if (rule.ruleConOrId == null) {
+                                rule.ruleConOrId = -9999;
+                            }
+                            if (data == 0) {
                                 //This alert should never happen
                                 //If it does, then it doesn't find the right object or creates it.
                                 alert("Rule Condition could not be found");
                             }
-                            else
-                            {
+                            else {
                                 //Add RuleResultNeighbour
                                 $http.post("http://" + site + "/AddRuleResNeigh", resNeigh, false)
-                                    .success(function(data) {
+                                    .success(function (data) {
                                         res.neighboursId = data;
-                                        if (data == 0)
-                                        {
+                                        if (data == 0) {
                                             //This alert should never happen
                                             //If it does, then it doesn't find the right object or creates it.
                                             alert("Rule Result Neighbours could not be found");
                                         }
-                                        else
-                                        {
+                                        else {
                                             //Add RuleResult
                                             $http.post("http://" + site + "/AddRuleRes", res, false)
-                                                .success(function(data) {
-                                                    rule.ruleResultId = data;
-                                                    if (data == 0)
-                                                    {
+                                                .success(function (data) {
+                                                    rule.ruleResId = data;
+                                                    if (data == 0) {
                                                         //This alert should never happen
                                                         //If it does, then it doesn't find the right object or creates it.
                                                         alert("Rule Result could not be found");
                                                     }
-                                                    else
-                                                    {
+                                                    else {
                                                         //Add Rule
-                                                        $http.post("http://" + site + "/AddRule",rule, false)
-                                                            .success(function(data) {
+                                                        rule.ownerId = userId;
+                                                        alert(JSON.stringify(rule));
+                                                        $http.post("http://" + site + "/AddRule", rule, false)
+                                                            .success(function (data) {
+                                                                alert("SUCCESS ADD RULE");
                                                                 alert(data);
                                                             }).error(function () {
                                                                 alert("RULE: SERVER ERROR");

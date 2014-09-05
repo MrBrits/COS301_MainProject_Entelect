@@ -66,6 +66,7 @@ public class RuleController {
     public @ResponseBody
     int createRuleCon(@RequestBody JSONObject ruleCon) {
         boolean isNot = false;
+        Double compareValueTwo = null;
         if (ruleCon.get("isNot").toString().equals("true"))
         {
             isNot = true;
@@ -74,8 +75,19 @@ public class RuleController {
         {
             isNot = false;
         }
-        Rulecondition rulecondition = new Rulecondition(isNot, ruleCon.get("operation").toString(),Integer.parseInt(ruleCon.get("neighboursId").toString()),ruleCon.get("operand").toString(),Double.parseDouble(ruleCon.get("compareValueOne").toString()), Double.parseDouble(ruleCon.get("compareValueTwo").toString()));
-        return ruleService.createRuleCon(rulecondition);
+
+        if (ruleCon.get("compareValueTwo").equals(-9999))
+        {
+            compareValueTwo = null;
+        }
+        else
+        {
+            compareValueTwo = Double.parseDouble(ruleCon.get("compareValueTwo").toString());
+        }
+        Rulecondition newRuleCon = new Rulecondition(isNot, ruleCon.get("operation").toString(),Integer.parseInt(ruleCon.get("neighboursId").toString()),ruleCon.get("operand").toString(),Double.parseDouble(ruleCon.get("compareValueOne").toString()), compareValueTwo);
+
+
+        return ruleService.createRuleCon(newRuleCon);
     }
 
     /**
@@ -107,8 +119,32 @@ public class RuleController {
      */
     @RequestMapping(value = "/AddRule", method = RequestMethod.POST)
     public @ResponseBody
-    String createRule(@RequestBody Rule rule) {
-        if (ruleService.createRule(rule))
+    String createRule(@RequestBody JSONObject rule) {
+        System.out.println("CONTROLLER ADD RULE");
+        Integer ruleConAndId = null;
+        Integer ruleConOrId = null;
+
+        if (rule.get("ruleConAndId").equals(-9999))
+        {
+            ruleConAndId = null;
+        }
+        else
+        {
+            ruleConAndId = Integer.parseInt(rule.get("ruleConAndId").toString());
+        }
+
+        if (rule.get("ruleConOrId").equals(-9999))
+        {
+            ruleConOrId = null;
+        }
+        else
+        {
+            ruleConOrId = Integer.parseInt(rule.get("ruleConOrId").toString());
+        }
+
+        Rule newRule = new Rule(rule.get("ruleName").toString(),rule.get("ruleDesc").toString(),Integer.parseInt(rule.get("ruleConId").toString()),ruleConAndId,ruleConOrId,Integer.parseInt(rule.get("ruleResId").toString()),Integer.parseInt(rule.get("ownerId").toString()));
+
+        if (ruleService.createRule(newRule))
             return "Rule added";
 
         return "No new Rule has been added";

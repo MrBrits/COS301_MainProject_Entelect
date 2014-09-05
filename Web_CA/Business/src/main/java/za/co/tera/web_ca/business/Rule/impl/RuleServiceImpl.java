@@ -18,6 +18,7 @@ public class RuleServiceImpl implements RuleService {
     @Override
     public boolean createRule(Rule newRule)
     {
+        System.out.println("SERVICE CREATE RULE");
         ruleDao.save(newRule);
         return true;
     }
