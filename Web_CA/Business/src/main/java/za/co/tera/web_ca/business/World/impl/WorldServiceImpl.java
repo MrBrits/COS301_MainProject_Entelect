@@ -1,9 +1,9 @@
 package za.co.tera.web_ca.business.World.impl;
 
-import jdk.internal.org.xml.sax.SAXParseException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
 import za.co.tera.web_ca.business.World.base.WorldService;
 import za.co.tera.web_ca.data_access.CoordinateDao;
 import za.co.tera.web_ca.data_access.WorldDao;
@@ -12,23 +12,8 @@ import za.co.tera.web_ca.data_access.impl.WorldDaoImpl;
 import za.co.tera.web_ca.domain.impl.Coordinate;
 import za.co.tera.web_ca.domain.impl.World;
 
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import javax.servlet.ServletContext;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import java.io.File;
-
-import org.w3c.dom.Element;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,40 +24,41 @@ public class WorldServiceImpl implements WorldService{
 
     public int createWorld(World newWorld)
     {
-        World world;
-
-        world = worldDAO.save(newWorld);
+        int ID = newWorld.getOwnerId();
+        ID = (ID + 321)/369;
+        newWorld.setOwnerId(ID);
         Writer writer = null;
 
+        World world = worldDAO.save(newWorld);
         try {
-
-
-            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(newWorld.getWorldId()+".xml"), "utf-8"));
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(world.getWorldId()+".xml"), "utf-8"));
             writer.write("<coordinateList>\n");
-            for (int i = 0; i < world.getWorldHeight(); i++) {
-
-                for (int j = 0; j < world.getWorldHeight(); j++) {
-                    System.out.println("dsfdf");
-                    for (int k = 0; k < world.getWorldDepth(); k++) {
+            for (int x = 0; x < world.getWorldWidth(); x++) {
+                for (int y = 0; y < world.getWorldHeight(); y++) {
+                    for (int z = 0; z < world.getWorldDepth(); z++) {
                         writer.write("<coordinate>\n");
-                        writer.write("<x>"+i+"</x>\n");
-                        writer.write("<y>"+j+"</y>\n");
-                        writer.write("<z>"+k+"</z>\n");
-                        writer.write("<value>"+k+"</value>\n");
+                        writer.write("<x>"+x+"</x>\n");
+                        writer.write("<y>"+y+"</y>\n");
+                        writer.write("<z>"+z+"</z>\n");
+                        writer.write("<value>"+0+"</value>\n");
                         writer.write("</coordinate>\n");
                     }
                 }
-
             }
             writer.write("</coordinateList>\n");
+
+
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         } finally {
-
-            try {writer.close();} catch (Exception ex) { System.out.println(ex.getMessage());}
+            try {
+                writer.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         }
-        return world.getOwnerId();
+        return world.getWorldId();
     }
 
 
@@ -83,6 +69,9 @@ public class WorldServiceImpl implements WorldService{
 
     public void updateWorld(World updateWorld)
     {
+        int ID = updateWorld.getOwnerId();
+        ID = (ID + 321)/369;
+        updateWorld.setOwnerId(ID);
         worldDAO.save(updateWorld);
     }
 
@@ -98,6 +87,7 @@ public class WorldServiceImpl implements WorldService{
 
     @Override
     public List<World> findWorldByUserId(int ID) {
+        ID = (ID + 321)/369;
         List<World> worldList = worldDAO.findWorldByUserId(ID);
         return  worldList;
     }

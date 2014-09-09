@@ -12,7 +12,7 @@ web_ca.controller("UserRegisterController", function($http) {
             .success(function(data) {
                 alert(data);
             }).error(function () {
-                alert("SERVER ERROR");
+                alert("USER REGISTER: SERVER ERROR");
             });
     };
 });
@@ -32,7 +32,7 @@ web_ca.controller("UserLoginController", function($http) {
                 }
 
             }).error(function () {
-                alert("SERVER ERROR");
+                alert("USER LOGIN: SERVER ERROR");
             });
     };
 });
@@ -49,10 +49,11 @@ web_ca.controller("UserGetCtr", function ($scope, $http) {
 
         });
 });
+
 web_ca.controller("UserByIdGet", function ($scope, $http) {
     var app = this;
 
-    $http.get("http://localhost:8080/getUserById/"+23)
+    $http.get("http://localhost:8080/getUserById/")
         .success(function (data) {
            // $scope.User = data;
             // alert(JSON.stringify(data));

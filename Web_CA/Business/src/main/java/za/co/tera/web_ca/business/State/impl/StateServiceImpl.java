@@ -13,6 +13,9 @@ public class StateServiceImpl implements StateService{
     @Override
     public boolean createState(State newState)
     {
+        int ID = newState.getOwnerId();
+        ID = (ID + 321)/369;
+        newState.setOwnerId(ID);
         stateDAO.save(newState);
         return true;
     }
@@ -24,6 +27,9 @@ public class StateServiceImpl implements StateService{
     @Override
     public void updateState(State updateState)
     {
+        int ID = updateState.getOwnerId();
+        ID = (ID + 321)/369;
+        updateState.setOwnerId(ID);
         stateDAO.save(updateState);
     }
     @Override
@@ -39,6 +45,7 @@ public class StateServiceImpl implements StateService{
 
     @Override
     public List<State> findStateByUserId(int ID) {
+        ID = (ID + 321)/369;
         List<State> stateList = stateDAO.findStateByUserId(ID);
         return  stateList;
     }

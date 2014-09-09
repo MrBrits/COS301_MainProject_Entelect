@@ -16,11 +16,11 @@ this.counter=0;
 //controller to add the coordinates
 var web_ca = angular.module('coordinate_app', []);
 web_ca.controller("CoordinateManager", function ($scope, $http) {
-    $http.get("http://" + site + "/getCoordinatesByWorldId/" + 18)
+    $http.post("http://" + site + "/getCoordinatesByWorldId/",9)
         .success(function (data) {
             this.coordinate = data;
         }).error(function () {
-            alert("error");
+            alert("GET COORDINATES: SERVER ERROR");
         });
 
 

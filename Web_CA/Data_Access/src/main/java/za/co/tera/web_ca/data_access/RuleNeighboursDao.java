@@ -5,6 +5,7 @@ import za.co.tera.web_ca.domain.impl.Ruleneighbours;
 
 public interface RuleNeighboursDao extends AbstractDao<Ruleneighbours> {
     public int getRuleNeighboursId(Ruleneighbours ruleneighbours);
+    public Ruleneighbours save(Ruleneighbours object);
 }
 
 

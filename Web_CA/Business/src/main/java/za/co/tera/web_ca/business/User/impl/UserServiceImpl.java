@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService{
 
     public User findUserById(int ID)
     {
+        ID = (ID + 321)/369;
         return userDAO.findById(ID);
     }
 

@@ -67,12 +67,17 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao {
         query.setParameter("userPassword", userPassword);
         List<User> userList = query.list();
 
-        if (userList.isEmpty()) {
-            return null;
+        if (!userList.isEmpty()) {
+            int ID = userList.get(0).getUserId();
 
-        }
-        else
+            ID = (ID * 369) - 321;
+
+            userList.get(0).setUserId(ID);
             return userList.get(0);
+        }
+        else {
+            return null;
+        }
     }
 
 

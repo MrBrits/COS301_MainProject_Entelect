@@ -1,9 +1,18 @@
 package za.co.tera.web_ca.business.Rule.impl;
 
 import za.co.tera.web_ca.business.Rule.base.RuleService;
-import za.co.tera.web_ca.data_access.*;
-import za.co.tera.web_ca.data_access.impl.*;
-import za.co.tera.web_ca.domain.impl.*;
+import za.co.tera.web_ca.data_access.RuleConditionDao;
+import za.co.tera.web_ca.data_access.RuleDao;
+import za.co.tera.web_ca.data_access.RuleNeighboursDao;
+import za.co.tera.web_ca.data_access.RuleResultDao;
+import za.co.tera.web_ca.data_access.impl.RuleConditionDaoImpl;
+import za.co.tera.web_ca.data_access.impl.RuleDaoImpl;
+import za.co.tera.web_ca.data_access.impl.RuleNeighboursDaoImpl;
+import za.co.tera.web_ca.data_access.impl.RuleResultDaoImpl;
+import za.co.tera.web_ca.domain.impl.Rule;
+import za.co.tera.web_ca.domain.impl.Rulecondition;
+import za.co.tera.web_ca.domain.impl.Ruleneighbours;
+import za.co.tera.web_ca.domain.impl.Ruleresult;
 
 import java.util.List;
 
@@ -18,7 +27,10 @@ public class RuleServiceImpl implements RuleService {
     @Override
     public boolean createRule(Rule newRule)
     {
-        System.out.println("SERVICE CREATE RULE");
+        int ID = newRule.getOwnerId();
+        ID = (ID + 321)/369;
+        newRule.setOwnerId(ID);
+
         ruleDao.save(newRule);
         return true;
     }
@@ -68,12 +80,15 @@ public class RuleServiceImpl implements RuleService {
     @Override
     public void updateRule(Rule updateRule)
     {
+        int userId = updateRule.getOwnerId();
+        userId = (userId + 321)/369;
+        updateRule.setOwnerId(userId);
         ruleDao.save(updateRule);
     }
     @Override
-    public Rule findRule(int ID)
+    public Rule findRule(int ruleId)
     {
-        return ruleDao.findById(ID);
+        return ruleDao.findById(ruleId);
     }
     @Override
     public List<Rule> findAllRules()    {
@@ -81,8 +96,27 @@ public class RuleServiceImpl implements RuleService {
         return  ruleList;
     }
     @Override
-    public List<Rule> findRuleByUserId(int ID) {
-        List<Rule> ruleList = ruleDao.findRuleByUserId(ID);
+    public List<Rule> findRuleByUserId(int userId) {
+        userId = (userId + 321)/369;
+        List<Rule> ruleList = ruleDao.findRuleByUserId(userId);
         return  ruleList;
     }
+    @Override
+     public Rulecondition findRuleCon(int conId)
+    {
+        return ruleConditionDao.findById(conId);
+    }
+
+    @Override
+    public Ruleresult findRuleRes(int resId)
+    {
+        return ruleResultDao.findById(resId);
+    }
+
+    @Override
+    public Ruleneighbours findRuleNeigh(int neighId)
+    {
+        return ruleNeighboursDao.findById(neighId);
+    }
+
 }

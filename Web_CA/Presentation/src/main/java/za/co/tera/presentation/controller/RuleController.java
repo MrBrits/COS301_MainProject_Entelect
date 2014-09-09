@@ -20,7 +20,7 @@ public class RuleController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/getAllRules", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAllRules", method = RequestMethod.POST)
     public @ResponseBody List<Rule> getAllRules( ModelMap model ) {
         return ruleService.findAllRules();
     }
@@ -39,9 +39,9 @@ public class RuleController {
      * @param userId
      * @return
      */
-    @RequestMapping(value = "/getRuleByUserId/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getRuleByUserId", method = RequestMethod.POST)
     public @ResponseBody
-    List<Rule> getUserById( @PathVariable(value = "userId") int userId) {
+    List<Rule> getUserById(@RequestBody int userId) {
 
         return ruleService.findRuleByUserId(userId);
     }
@@ -120,7 +120,6 @@ public class RuleController {
     @RequestMapping(value = "/AddRule", method = RequestMethod.POST)
     public @ResponseBody
     String createRule(@RequestBody JSONObject rule) {
-        System.out.println("CONTROLLER ADD RULE");
         Integer ruleConAndId = null;
         Integer ruleConOrId = null;
 
@@ -155,11 +154,35 @@ public class RuleController {
      * @param ruleId
      * @return
      */
-    @RequestMapping(value = "/deleteRule/{ruleId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteRule", method = RequestMethod.POST)
     public @ResponseBody
-    String deleteRule( @PathVariable(value = "ruleId") int ruleId) {
+    String deleteRule( @RequestBody int ruleId) {
         ruleService.deleteRule(ruleService.findRule(ruleId));
         return "Rule deleted";
+    }
+
+    @RequestMapping(value = "/getRuleById", method = RequestMethod.POST)
+    public @ResponseBody
+    Rule getRuleById( @RequestBody int ruleId) {
+        return ruleService.findRule(ruleId);
+    }
+
+    @RequestMapping(value = "/getRuleConById", method = RequestMethod.POST)
+    public @ResponseBody
+    Rulecondition getRuleConById( @RequestBody int ruleConId) {
+        return ruleService.findRuleCon(ruleConId);
+    }
+
+    @RequestMapping(value = "/getRuleResById", method = RequestMethod.POST)
+    public @ResponseBody
+    Ruleresult getRuleResById( @RequestBody int ruleResId) {
+        return ruleService.findRuleRes(ruleResId);
+    }
+
+    @RequestMapping(value = "/getRuleNeighById", method = RequestMethod.POST)
+    public @ResponseBody
+    Ruleneighbours getRuleNeighById( @RequestBody int ruleNeighId) {
+        return ruleService.findRuleNeigh(ruleNeighId);
     }
 }
 

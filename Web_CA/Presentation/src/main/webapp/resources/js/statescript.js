@@ -9,7 +9,7 @@ web_ca.controller("StateManager", function ($scope, $http) {
 
     $scope.getStates = function(){
 
-        $http.get("http://" + site + "/getStateByUserId/"+userId)
+        $http.post("http://" + site + "/getStateByUserId",userId)
             .success(function (data) {
                 $scope.states = data;
             }).error(function () {
@@ -30,7 +30,7 @@ web_ca.controller("StateManager", function ($scope, $http) {
 
     $scope.getEditState = function(stateId)
     {
-        $http.get("http://" + site + "/getStateById/"+stateId)
+        $http.post("http://" + site + "/getStateById",stateId)
             .success(function (data) {
 
                 document.getElementById("editStateTitle").innerHTML = "<h3>Edit State</h3>";
@@ -69,7 +69,7 @@ web_ca.controller("StateManager", function ($scope, $http) {
     $scope.deleteStateFinalize = function() {
 
         var stateId=document.getElementById("deleteStateIdHidden").value;
-        $http.get("http://" + site + "/deleteState/"+stateId)
+        $http.post("http://" + site + "/deleteState",stateId)
             .success(function (data) {
                 alert(data);
             }).error(function () {
@@ -92,7 +92,4 @@ function deleteState(toBeDeleted)
     document.getElementById("deleteStateIdHidden").value=stateId;
 }
 
-web_ca.controller("UpdateStateManager", function ($scope, $http) {
-
-});
 

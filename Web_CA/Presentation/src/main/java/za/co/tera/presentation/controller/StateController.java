@@ -19,9 +19,9 @@ public class StateController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/getAllStates", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAllStates", method = RequestMethod.POST)
     public @ResponseBody
-    List<State> getAllStates( ModelMap model ) {
+    List<State> getAllStates(@RequestBody ModelMap model ) {
         return stateService.findAllStates();
     }
 
@@ -39,9 +39,9 @@ public class StateController {
      * @param userId
      * @return
      */
-    @RequestMapping(value = "/getStateByUserId/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getStateByUserId", method = RequestMethod.POST)
     public @ResponseBody
-    List<State> getUserById( @PathVariable(value = "userId") int userId) {
+    List<State> getUserById(@RequestBody int userId) {
         return stateService.findStateByUserId(userId);
     }
 
@@ -62,9 +62,9 @@ public class StateController {
      * @param stateId
      * @return
      */
-    @RequestMapping(value = "/deleteState/{stateId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteState", method = RequestMethod.POST)
     public @ResponseBody
-    String deleteState( @PathVariable(value = "stateId") int stateId) {
+    String deleteState(@RequestBody int stateId) {
         stateService.deleteState(stateService.findState(stateId));
         return "State has been deleted";
     }
@@ -74,9 +74,9 @@ public class StateController {
      * @param stateId
      * @return
      */
-    @RequestMapping(value = "/getStateById/{stateId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getStateById", method = RequestMethod.POST)
     public @ResponseBody
-    State getStateById( @PathVariable(value = "stateId") int stateId) {
+    State getStateById(@RequestBody int stateId) {
         return stateService.findState(stateId);
     }
 

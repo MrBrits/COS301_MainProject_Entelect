@@ -12,6 +12,22 @@ public class RuleNeighboursDaoImpl extends AbstractDaoImpl<Ruleneighbours> imple
     public RuleNeighboursDaoImpl(){super(Ruleneighbours.class);}
 
     @Override
+    public Ruleneighbours save(Ruleneighbours ruleneighbours){
+
+        if(ruleneighbours!=null) {
+            Session session = getSession();
+            session.beginTransaction();
+            session.save(ruleneighbours);
+            session.getTransaction().commit();
+            Query query = session.createQuery("from Ruleneighbours");
+            List<Ruleneighbours> objects = query.list();
+            return objects.get(objects.size()-1);
+
+        }
+        return null;
+    }
+
+    @Override
     public int getRuleNeighboursId(Ruleneighbours ruleneighbours){
         int Id = 0;
 

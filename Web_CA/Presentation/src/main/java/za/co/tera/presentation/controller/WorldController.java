@@ -1,9 +1,5 @@
 package za.co.tera.presentation.controller;
 
-/**
- * Created by Laptop on 7/4/2014.
- */
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -17,16 +13,16 @@ import java.util.List;
 @Controller
 public class WorldController {
 
-    WorldService worldService =new WorldServiceImpl();
+    WorldService worldService = new WorldServiceImpl();
 
     /**
      *
      * @param model
      * @return
      */
-    @RequestMapping(value = "/getAllWorlds", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAllWorlds", method = RequestMethod.POST)
     public @ResponseBody
-    List<World> getAllWorlds( ModelMap model ) {
+    List<World> getAllWorlds(@RequestBody ModelMap model ) {
         return worldService.findAllWorlds();
     }
 
@@ -44,21 +40,21 @@ public class WorldController {
      * @param userId
      * @return
      */
-    @RequestMapping(value = "/getWorldByUserId/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getWorldByUserId", method = RequestMethod.POST)
     public @ResponseBody
-    List<World> getUserById( @PathVariable(value = "userId") int userId) {
+    List<World> getUserById(@RequestBody int userId) {
         return worldService.findWorldByUserId(userId);
     }
 
     /**
      *
-     * @param worlId
+     * @param worldId
      * @return
      */
-    @RequestMapping(value = "/deleteWorld/{worlId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteWorld", method = RequestMethod.POST)
     public @ResponseBody
-    String deleteWorld( @PathVariable(value = "worlId") int worlId) {
-        worldService.deleteWorld(worldService.findWorld(worlId));
+    String deleteWorld(@RequestBody int worldId) {
+        worldService.deleteWorld(worldService.findWorld(worldId));
         return "World deleted";
     }
 
@@ -70,6 +66,7 @@ public class WorldController {
     @RequestMapping(value = "/AddWorld", method = RequestMethod.POST)
     public @ResponseBody
     String createState(@RequestBody World world) {
+        System.out.println("WORLD CONTROLLER");
         int id = worldService.createWorld(world);
         if (id != 0)
             return "World Added";
@@ -82,10 +79,23 @@ public class WorldController {
      * @param worldId
      * @return
      */
-    @RequestMapping(value = "/getCoordinatesByWorldId/{worldId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getCoordinatesByWorldId", method = RequestMethod.POST)
     public @ResponseBody
-    List<Coordinate> getCoordinatesByWorldId( @PathVariable(value = "worldId") int worldId) {
+    List<Coordinate> getCoordinatesByWorldId(@RequestBody int worldId) {
         return worldService.findCoordinateByWorldId(worldId);
+    }
+
+    @RequestMapping(value = "/getWorldById", method = RequestMethod.POST)
+    public @ResponseBody
+    World getWorldById( @RequestBody int worldId) {
+        return worldService.findWorld(worldId);
+    }
+
+    @RequestMapping(value = "/editWorld", method = RequestMethod.POST)
+    public @ResponseBody
+    String editWorld(@RequestBody World world) {
+        worldService.updateWorld(world);
+        return "World has been edited";
     }
 
 }

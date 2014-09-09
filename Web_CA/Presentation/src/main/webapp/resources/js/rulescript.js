@@ -8,7 +8,7 @@ web_ca.controller("RuleManager", function($scope, $http) {
     var userId=document.getElementById("userId").value;
 
     $scope.getRules = function(){
-        $http.get("http://" + site + "/getRuleByUserId/"+userId)
+        $http.post("http://" + site + "/getRuleByUserId",userId)
             .success(function (data) {
                 $scope.rules = data;
 
@@ -32,7 +32,6 @@ web_ca.controller("RuleManager", function($scope, $http) {
                 }
                 else {
                     //Add RuleCondition
-                    alert(JSON.stringify(con));
                     $http.post("http://" + site + "/AddRuleCon", con)
                         .success(function (data) {
                             rule.ruleConId = data;
@@ -73,7 +72,6 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                                         alert(JSON.stringify(rule));
                                                         $http.post("http://" + site + "/AddRule", rule, false)
                                                             .success(function (data) {
-                                                                alert("SUCCESS ADD RULE");
                                                                 alert(data);
                                                             }).error(function () {
                                                                 alert("RULE: SERVER ERROR");
@@ -96,9 +94,132 @@ web_ca.controller("RuleManager", function($scope, $http) {
             });
     };
 
+    $scope.getEditRule = function(ruleId){
+
+        var successBool = false;
+
+        $http.post("http://" + site + "/getRuleById",ruleId)
+            .success(function (rule) {
+                conId = rule.ruleConId;
+                conAndId = rule.ruleConAndId;
+                conOrId = rule.ruleConOrId;
+                resId = rule.ruleResId;
+                $http.post("http://" + site + "/getRuleConById",conId)
+                    .success(function (con) {
+                        conNeighId = con.neighboursId;
+
+                        $http.post("http://" + site + "/getRuleNeighById",conNeighId)
+                            .success(function(conNeigh){
+                                document.getElementById("editRuleConNeighIdHidden").value = conNeigh.ruleNeighboursId;
+                                document.getElementById("editRuleConNeigh").value = conNeigh.neighbours;
+
+                            }).error(function(){
+                                alert("GET EDIT RULE CONDITION NEIGHBOURS: SERVER ERROR");
+                            });
+                        document.getElementById("editRuleConIdHidden").value = con.ruleConditionId;
+                        document.getElementById("editRuleConIsNot").value = con.not;
+                        document.getElementById("editRuleConOperation").value = con.operation;
+                        document.getElementById("editRuleConOperand").value = con.operand;
+                        document.getElementById("editRuleConCompareValueOne").value = con.compareValueOne;
+                        document.getElementById("editRuleConCompareValueTwo").value = con.compareValueTwo;
+
+                    }).error(function (){
+                        alert("GET EDIT RULE CONDITION: SERVER ERROR");
+                    });
+
+
+                if (conAndId != null)
+                {
+                    $http.post("http://" + site + "/getRuleConById",conAndId)
+                        .success(function (con) {
+                            conNeighId = con.neighboursId;
+
+                            $http.post("http://" + site + "/getRuleNeighById",conNeighId)
+                                .success(function(conNeigh){
+                                    document.getElementById("editRuleConNeighIdHidden").value = conNeigh.ruleNeighboursId;
+                                    document.getElementById("editRuleConNeigh").value = conNeigh.neighbours;
+
+                                }).error(function(){
+                                    alert("GET EDIT RULE CONDITION AND NEIGHBOURS: SERVER ERROR");
+                                });
+                            document.getElementById("editRuleConIdHidden").value = con.ruleConditionId;
+                            document.getElementById("editRuleConIsNot").value = con.isNot;
+                            document.getElementById("editRuleConOperation").value = con.operation;
+                            document.getElementById("editRuleConOperand").value = con.operand;
+                            document.getElementById("editRuleConCompareValueOne").value = con.compareValueOne;
+                            document.getElementById("editRuleConCompareValueTwo").value = con.compareValueTwo;
+
+                        }).error(function (){
+                            alert("GET EDIT RULE CONDITION AND: SERVER ERROR");
+                        });
+                }
+
+                if (conOrId != null)
+                {
+                    $http.post("http://" + site + "/getRuleConById",conOrId)
+                        .success(function (con) {
+                            conNeighId = con.neighboursId;
+
+                            $http.post("http://" + site + "/getRuleNeighById",conNeighId)
+                                .success(function(conNeigh){
+                                    document.getElementById("editRuleConNeighIdHidden").value = conNeigh.ruleNeighboursId;
+                                    document.getElementById("editRuleConNeigh").value = conNeigh.neighbours;
+
+                                }).error(function(){
+                                    alert("GET EDIT RULE CONDITION OR NEIGHBOURS: SERVER ERROR");
+                                });
+                            document.getElementById("editRuleConIdHidden").value = con.ruleConditionId;
+                            document.getElementById("editRuleConIsNot").value = con.isNot;
+                            document.getElementById("editRuleConOperation").value = con.operation;
+                            document.getElementById("editRuleConOperand").value = con.operand;
+                            document.getElementById("editRuleConCompareValueOne").value = con.compareValueOne;
+                            document.getElementById("editRuleConCompareValueTwo").value = con.compareValueTwo;
+
+                        }).error(function (){
+                            alert("GET EDIT RULE CONDITION OR: SERVER ERROR");
+                        });
+                }
+
+                $http.post("http://" + site + "/getRuleResById",resId)
+                    .success(function(res){
+                        resNeighId = res.neighboursId;
+
+                        alert("OP " + JSON.stringify(res.operation));
+                        alert("VAL " + JSON.stringify(res.resultValue));
+
+                        $http.post("http://" + site + "/getRuleNeighById",resNeighId)
+                            .success(function(resNeigh){
+                                document.getElementById("editRuleResNeighIdHidden").value = resNeigh.ruleNeighboursId;
+                                document.getElementById("editRuleResNeigh").value = resNeigh.neighbours;
+
+                            }).error(function(){
+                                alert("GET EDIT RULE CONDITION OR NEIGHBOURS: SERVER ERROR");
+                            });
+                        document.getElementById("editRuleRedIdHidden").value = res.ruleConditionId;
+                        document.getElementById("editRuleResOperation").value = res.operation;
+                        document.getElementById("editRuleResValue").value = res.resultValue;
+
+                    }).error(function(){
+                        alert("GET EDIT RULE RESULT: SERVER ERROR");
+                    });
+                document.getElementById("editRuleIdHidden").value = rule.ruleId;
+                document.getElementById("editRuleName").value = rule.ruleName;
+                document.getElementById("editRuleDesc").value = rule.ruleDesc;
+
+            }).error(function () {
+                alert("GET EDIT RULE: SERVER ERROR");
+            });
+
+    };
+
+    /*
+    $scope.editRule = function(){
+
+    };*/
+
     $scope.deleteRuleFinalize = function() {
         var ruleId=document.getElementById("ruleIdhidden").value;
-        $http.get("http://" + site + "/deleteRule/"+ruleId)
+        $http.post("http://" + site + "/deleteRule",ruleId)
             .success(function (data) {
                 alert(data);
             }).error(function () {

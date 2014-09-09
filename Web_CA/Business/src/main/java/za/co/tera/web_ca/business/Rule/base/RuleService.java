@@ -12,7 +12,10 @@ public interface RuleService {
     public int createRuleRes(Ruleresult newRuleRes);
     public void deleteRule(Rule delRule);
     public void updateRule(Rule updateRule);
-    public Rule findRule(int ID);
+    public Rule findRule(int ruleId);
+    public Rulecondition findRuleCon(int ruleConId);
+    public Ruleresult findRuleRes(int ruleResId);
+    public Ruleneighbours findRuleNeigh(int ruleNeighId);
     public List<Rule> findAllRules();
-    public List<Rule> findRuleByUserId(int ID);
+    public List<Rule> findRuleByUserId(int userId);
 }
