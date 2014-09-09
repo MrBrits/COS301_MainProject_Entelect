@@ -84,3 +84,10 @@ function deleteWorld(toBeDeleted)
     document.getElementById("DeleteNameWorld").innerHTML="<h3>Delete World: " + worldName + "</h3>";
     document.getElementById("worldIdhidden").value=worldId;
 }
+function setWorldID(id)
+{
+    alert("Hello");
+    document.getElementById("worldId").value=id;
+    alert( document.getElementById("worldId").value);
+
+}

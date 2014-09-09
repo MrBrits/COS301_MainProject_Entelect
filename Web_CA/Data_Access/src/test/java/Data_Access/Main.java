@@ -9,6 +9,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+import za.co.tera.web_ca.data_access.WorldDao;
+import za.co.tera.web_ca.data_access.impl.WorldDaoImpl;
 import za.co.tera.web_ca.domain.impl.Coordinate;
 import za.co.tera.web_ca.domain.impl.World;
 
@@ -28,7 +30,7 @@ public class Main {
 
     public static void main(final String[] args) throws Exception {
 
-        Writer writer = null;
+       /* Writer writer = null;
         World world= new World("Name","Desc",2,30,30,30,31);
 
         try {
@@ -58,12 +60,12 @@ public class Main {
             try {writer.close();} catch (Exception ex) {}
         }
 
-
-     /*   WorldDao worldDao = new WorldDaoImpl();
+*/
+       WorldDao worldDao = new WorldDaoImpl();
 
         World world = new World("Earth","Used to test how gravity affects certain states with other states.",3,10,10,10,31);
 
-       System.out.println(worldDao.save(world).getWorldId() );*/
+       System.out.println(worldDao.save(world).getWorldId() );
        /* WorldDao worldDao = new WorldDaoImpl();
         World world=worldDao.save(new World("name", "desc",3,5,5,5,31 ));
 

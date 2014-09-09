@@ -65,6 +65,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#profile">${userFullName}</a></li>
                 <li><input id ="userId" value="${userId}" type="hidden"></li>
+                <li><input id ="worldId" value="${userId}" type="hidden"></li>
                 <li><a href="#">Logout</a></li>
             </ul>
         </div>

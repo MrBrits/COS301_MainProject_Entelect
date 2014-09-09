@@ -5,15 +5,6 @@ web_ca.config(['$routeProvider', function($routeProvider) {
      when('/', {
             templateUrl: 'resources/partials/indexHome.jsp'
      })
-     .when('/world', {
-            templateUrl: 'resources/partials/indexHome.jsp/#world'
-     })
-     .when('/state', {
-            templateUrl: 'resources/partials/indexHome.jsp/#state'
-     })
-     .when('/rule', {
-            templateUrl: 'resources/partials/indexHome.jsp/#rule'
-     })
      .when('/profile', {
             templateUrl: 'resources/partials/userProfile.jsp/#rule'
      })
@@ -22,6 +13,15 @@ web_ca.config(['$routeProvider', function($routeProvider) {
      })
      .when('/simulator', {
             templateUrl: 'resources/partials/indexSimulator.jsp'
+     })
+     .when('/simulatorWorld', {
+            templateUrl: 'resources/partials/indexSimulator.jsp/#simulatorWorld'
+     })
+     .when('/simulatorRule', {
+            templateUrl: 'resources/partials/indexSimulator.jsp/#simulatorWorld'
+     })
+     .when('/simulatorState', {
+            templateUrl: 'resources/partials/indexSimulator.jsp/#simulatorWorld'
      })
      .otherwise({
      redirectTo : '/' });

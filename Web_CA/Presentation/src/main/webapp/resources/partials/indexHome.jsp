@@ -5,7 +5,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title" style="height: 30px">
                         <label>&emsp;States</label>
-                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" href="#state" ng-click="getStates()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
+                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#state" ng-click="getStates()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
                     </h4>
                 </div>
                 <div id="state" class="panel-collapse collapse" >
@@ -31,7 +31,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title" style="height: 30px">
                         <label>&emsp;Rules</label>
-                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" href="#rule" ng-click="getRules()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
+                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#rule" ng-click="getRules()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
                     </h4>
                 </div>
                 <div id="rule" class="panel-collapse collapse">
@@ -58,7 +58,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title" style="height: 30px">
                         <label>&emsp;Worlds</label>
-                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" href="#world" ng-click="getWorlds()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
+                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#world" ng-click="getWorlds()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
                     </h4>
                 </div>
                 <div id="world" class="panel-collapse collapse">
@@ -69,7 +69,7 @@
                             <tr ng-repeat="world in worlds | filter:search">
                                 <td>
                                     <button type="button" class="btn btn-default btn-lg"></button>
-                                    <a href="#simulator">{{world.worldName}}</a>
+                                    <a href="#simulator"  ><label id={{world.worldId}} onclick="setWorldID(id)"> {{world.worldName}}</label></a>
                                     <button type="button" onclick="deleteWorld(id)" id=w{{world.worldId}};{{world.worldName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#deleteWorldModal"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
                                     <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target="#editWorldModal" ng-click="getEditWorld(world.worldId)" id={{world.worldId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
                                     <br>
