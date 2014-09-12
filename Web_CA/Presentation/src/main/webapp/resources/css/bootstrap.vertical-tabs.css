@@ -10,10 +10,10 @@
   padding-top: 2px;
 }
 .tabs-left {
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #000000;
 }
 .tabs-right {
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #000000;
 }
 .tabs-left>li, .tabs-right>li {
   float: none;
@@ -28,14 +28,14 @@
 .tabs-left>li.active>a,
 .tabs-left>li.active>a:hover,
 .tabs-left>li.active>a:focus {
-  border-bottom-color: #ddd;
+  border-bottom-color: #000000;
   border-right-color: transparent;
 }
 
 .tabs-right>li.active>a,
 .tabs-right>li.active>a:hover,
 .tabs-right>li.active>a:focus {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #000000;
   border-left-color: transparent;
 }
 .tabs-left>li>a {
@@ -58,7 +58,7 @@
   margin-bottom: 100px;
 }
 .vertical-text>li>a {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid ;
   border-right-color: transparent;
   text-align: center;
   border-radius: 4px 4px 0px 0px;
@@ -67,8 +67,8 @@
 .vertical-text>li.active>a:hover,
 .vertical-text>li.active>a:focus {
   border-bottom-color: transparent;
-  border-right-color: #ddd;
-  border-left-color: #ddd;
+  border-right-color: #000000;
+  border-left-color: #000000;
 }
 .vertical-text.tabs-left {
   left: -50px;

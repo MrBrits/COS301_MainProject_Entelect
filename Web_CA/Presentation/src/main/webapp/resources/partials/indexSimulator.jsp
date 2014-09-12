@@ -12,10 +12,12 @@
 
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><input id="colorValue" value="0"type="text"></li>
-                <li>About</li>
-                <li>Contact</li>
+            <ul class="nav navbar-nav pull-right row">
+                <li><h4><span class="label inline label-success">Create new State</span></h4></li>
+                <li><input class="form-control" id="colorValue" value="0"  type="text"></li>
+                <li>  </li>
+                <li><button type="button" class="btn btn-default ">Save World</button></li>
+
             </ul>
         </div>
     </div>
@@ -57,31 +59,25 @@
     </div>
 </div>
 <!--Bottom navigation bar-->
-<div id = "canvas" style="position:absolute;" class = "cover"></div>
+<div id = "canvas" style="position:fixed;left:0px;" class = "cover"></div>
     <link rel="stylesheet" href="resources/css/bootstrap.vertical-tabs.css">
 
 
-    <div  class="col-sm-6 pull-left" style="position:absolute;left:30px">
-
-
-
+    <div  class="col-sm-6 pull-left" style="position:fixed;left:30px;width:150px" >
             <!-- Nav tabs -->
-            <ul class="nav nav-stacked tabs-left vertical-text " role="tablist">
+            <ul class="nav nav-stacked tabs-left vertical-text " style="color: #000000" role="tablist">
 
                 <ul class="nav nav-stacked tabs-left vertical-text " role="tablist">
-
-                    <li><a data-target="#simulatorWorld" data-toggle="tab">World</a></li>
+                    <li ><a data-target="#simulatorWorld" data-toggle="tab">World</a></li>
                     <li><a data-target="#simulatorState" data-toggle="tab">States</a></li>
                     <li><a href data-target="#simulatorRule" data-toggle="tab">Rule</a></li>
                 </ul>
             </ul>
-
-
-        <div class="col-xs-9" style="position:absolute;left:60; top:100px;width:200px">
+    </div>
+    <div class="col-xs-9" style="position:absolute;left:20px; top:150px;width:250px">
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane fade " id="simulatorRule" ng-controller="RuleManager">
-                    <button class="btn btn-default btn-sm pull-right btn-info" ng-click="getRules()">Display</button>
+                <div class="tab-pane fade " id="simulatorRule" ng-controller="RuleSimulator">
 
                     <table class="table">
                         <tr ng-repeat="rule in rules | filter:search">
@@ -94,14 +90,13 @@
                     </table>
                 </div>
 
+                <div class="tab-pane fade " id="simulatorWorld" ng-controller="WorldSimulator">
 
-                <div class="tab-pane fade " id="simulatorWorld" ng-controller="WorldManager">
-                    <button class="btn btn-default btn-sm pull-right btn-info" ng-click="getWorlds()">Display</button>
                     <table class="table">
                         <tr ng-repeat="world in worlds | filter:search">
                             <td>
-                                <button type="button" class="btn btn-default btn-lg"></button>
-                                <a href="#simulator"  id={{world.worldId}} onclick="setWorldID(id)" > {{world.worldName}}</a><br>
+                                <button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg"  ></button>
+                                <a href="#simulator/"  id={{world.worldId}} onclick="setWorldID(id)" > {{world.worldName}}</a><br>
                                 <p>{{world.worldDesc}}</p>
                             </td>
                         </tr>
@@ -109,8 +104,8 @@
                 </div>
 
 
-                <div class="tab-pane fade " id="simulatorState" ng-controller="StateManager">
-                    <button class="btn btn-default btn-sm pull-right btn-info" ng-click="getStates()">Display</button>
+                <div class="tab-pane fade " id="simulatorState" ng-controller="StateSimulator">
+
                     <table class="table" >
                         <tr ng-repeat="state in states | filter:search">
                             <td>
@@ -122,22 +117,49 @@
                     </table>
                 </div>
             </div>
-        </div>
+     </div>
 
-        <div class="clearfix"></div>
 
+    <div  class="col-sm-6 pull-right" style="position:fixed;left:100%;;width:150px">
+            <!-- Nav tabs -->
+            <ul class="nav nav-stacked tabs-left black vertical-text " role="tablist">
+
+                <ul class="nav nav-stacked tabs-left vertical-text " role="tablist">
+                    <li><a data-target="#worldState" onclick="worldStates()" data-toggle="tab">World States</a></li>
+                    <li><a href data-target="#worldRule" data-toggle="tab">World Rules</a></li>
+                </ul>
+            </ul>
     </div>
+    <div class="col-xs-9" style="position:fixed;left:83%; top:150px;width:250px">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade " id="worldRule" ng-controller="RuleManager">
+                    <button class="btn btn-default btn-sm pull-right btn-info" ng-click="getRules()">Display</button>
+
+                    <table class="table">
+                        <tr ng-repeat="rule in rules | filter:search">
+                            <td>
+                                <button type="button" class="btn btn-default btn-lg" ></button>
+                                <label>{{rule.ruleName}}</label><br>
+                                <p>{{rule.ruleDesc}}</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane fade " id="worldState" ng-controller="WorldManager">
+
+                </div>
+            </div>
+     </div>
+
+
 
 </div>
 <link href="resources/css/stylesheet.css" rel="stylesheet" type="text/css">
 <link href="resources/css/flash.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="resources/js/dat.gui.js">
-    document.onload=function(){
-        document.getElementById("profile-v").style.display = "hidden";
-    }
-</script>
-<script type="text/javascript" src="resources/js/lib/pace.min.js"></script>
+<script type="text/javascript" src="resources/js/dat.gui.js"></script>
 <script type="text/javascript" src="resources/js/OrbitControls.js"></script>
+<script type="text/javascript" src="resources/js/lib/pace.min.js"></script>
 <script type="text/javascript" src="resources/js/cellclass.js"></script>
 <script type="text/javascript" src="resources/js/ruleclass.js"></script>
 <script type="text/javascript" src="resources/js/visualizer.js"></script>

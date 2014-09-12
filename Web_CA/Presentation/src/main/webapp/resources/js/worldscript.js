@@ -2,7 +2,17 @@ var web_ca = angular.module('world_app', []);
 
 var site = "localhost:8080";
 this.Worldidtobedeleted=0;
+web_ca.controller("WorldSimulator", function($scope, $http) {
+    var app = this;
+    var userId = document.getElementById("userId").value;
+        $http.post("http://" + site + "/getWorldByUserId", userId)
+            .success(function (data) {
+                $scope.worlds = data;
+            }).error(function () {
+                alert("GET WORLD BY USER ID: SERVER ERROR");
+            });
 
+});
 web_ca.controller("WorldManager", function($scope, $http) {
     var app = this;
     var userId = document.getElementById("userId").value;
@@ -86,8 +96,6 @@ function deleteWorld(toBeDeleted)
 }
 function setWorldID(id)
 {
-    alert("Hello");
-    document.getElementById("worldId").value=id;
-    alert( document.getElementById("worldId").value);
 
+    document.getElementById("worldId").value=id;
 }

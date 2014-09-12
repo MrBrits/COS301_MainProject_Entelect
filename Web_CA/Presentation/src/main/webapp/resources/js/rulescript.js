@@ -2,7 +2,17 @@ var User ="";
 var site = "localhost:8080";
 var web_ca = angular.module('rule_app', []);
 this.Ruleidtobedeleted=0;
+web_ca.controller("RuleSimulator", function($scope, $http) {
+    var userId=document.getElementById("userId").value;
+        $http.post("http://" + site + "/getRuleByUserId", userId)
+            .success(function (data) {
+                $scope.rules = data;
 
+            }).error(function () {
+                alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
+            });
+
+});
 web_ca.controller("RuleManager", function($scope, $http) {
     var app = this;
     var userId=document.getElementById("userId").value;

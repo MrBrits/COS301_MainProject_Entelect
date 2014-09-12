@@ -1,3 +1,4 @@
+<div>
 <div class="container marketing">
     <div class="row">
         <div class="panel-group navbar-left col-md-4" id="accordion">

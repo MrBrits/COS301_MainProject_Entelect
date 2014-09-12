@@ -1,7 +1,18 @@
 var web_ca = angular.module('state_app', []);
 
 var site = "localhost:8080";
+web_ca.controller("StateSimulator", function ($scope, $http) {
+    var app = this;
 
+    var userId = document.getElementById("userId").value;
+        $http.post("http://" + site + "/getStateByUserId", userId)
+            .success(function (data) {
+                $scope.states = data;
+            }).error(function () {
+                alert("RETRIEVE STATES BY USER ID: SERVER ERROR");
+            });
+
+} );
 web_ca.controller("StateManager", function ($scope, $http) {
     var app = this;
 
