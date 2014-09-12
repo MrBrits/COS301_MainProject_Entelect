@@ -144,7 +144,7 @@ window.addEventListener( 'resize', onWindowResize, false );
  });*/
 var bool=true;
 Pace.on("done", function(){
-    console.log(bool);
+
 
     if(bool==true) {
         bool=false;

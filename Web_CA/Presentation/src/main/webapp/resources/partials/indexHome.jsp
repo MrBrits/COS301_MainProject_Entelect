@@ -4,7 +4,7 @@
     }
 
     body {
-        background-color: #000000;
+        background-color: #666666;
         margin: 0;
         font-family: Arial;
         overflow: hidden;
