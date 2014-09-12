@@ -109,7 +109,7 @@
                     <table class="table" >
                         <tr ng-repeat="state in states | filter:search">
                             <td>
-                                <button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg"  ></button>
+                                <button onclick="setColor(id)" id={{state.stateValue}} type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg"  ></button>
                                 <label>{{state.stateName}}</label><br>
                                 <p>{{state.stateDesc}}</p>
                             </td>
