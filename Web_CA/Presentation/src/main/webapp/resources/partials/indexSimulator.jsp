@@ -133,20 +133,10 @@
     <div class="col-xs-9" style="position:fixed;left:83%; top:150px;width:250px">
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane fade " id="worldRule" ng-controller="RuleManager">
-                    <button class="btn btn-default btn-sm pull-right btn-info" ng-click="getRules()">Display</button>
+                <div class="tab-pane fade "id ="worldRule">
 
-                    <table class="table">
-                        <tr ng-repeat="rule in rules | filter:search">
-                            <td>
-                                <button type="button" class="btn btn-default btn-lg" ></button>
-                                <label>{{rule.ruleName}}</label><br>
-                                <p>{{rule.ruleDesc}}</p>
-                            </td>
-                        </tr>
-                    </table>
                 </div>
-                <div class="tab-pane fade " id="worldState" ng-controller="WorldManager">
+                <div class="tab-pane fade " id="worldState">
 
                 </div>
             </div>
