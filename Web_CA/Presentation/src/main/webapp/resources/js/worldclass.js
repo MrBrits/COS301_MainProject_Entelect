@@ -470,7 +470,7 @@ function changeState() {
             }
             else
             {
-                alert(colorsUsed[tempcolor]);
+
                 colorsUsed[tempcolor]=arryColour[counter];
                 colorsUsedName[counter]=tempcolor;
 
@@ -543,7 +543,8 @@ function changeState() {
                     worldStates();
                     this.cellArray[tz][ty][tx].cube.material.opacity = 1;
                     this.cellArray[tz][ty][tx].colour = tempcolor;
-                    this.cellArray[tz][ty][tx].value = 1;
+                    this.cellArray[tz][ty][tx].value = parseInt(tempcolor) ;
+
                     break;
                 }
             }

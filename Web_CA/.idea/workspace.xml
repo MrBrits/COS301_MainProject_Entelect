@@ -8,9 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" />
     </list>
     <ignored path="Web_CA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,13 +50,13 @@
       <file leaf-file-name="workspace.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="846" max-vertical-offset="38913">
-              <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="829" max-vertical-offset="38998">
+              <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
               <folding>
-                <marker date="1410513151163" expanded="true" signature="120883:120971" placeholder="..." />
-                <marker date="1410513151163" expanded="true" signature="120883:120956" placeholder="..." />
-                <marker date="1410513151163" expanded="true" signature="120883:120943" placeholder="..." />
-                <marker date="1410513151163" expanded="true" signature="120883:120925" placeholder="..." />
+                <marker date="1410517663631" expanded="true" signature="120936:121024" placeholder="..." />
+                <marker date="1410517663631" expanded="true" signature="120936:121009" placeholder="..." />
+                <marker date="1410517663631" expanded="true" signature="120936:120996" placeholder="..." />
+                <marker date="1410517663631" expanded="true" signature="120936:120978" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -83,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="worldclass.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="worldclass.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="14399">
-              <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.84813386" vertical-offset="10884" max-vertical-offset="14416">
+              <caret line="679" column="40" selection-start-line="679" selection-start-column="40" selection-end-line="679" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -103,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="indexHome.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="indexHome.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13581891" vertical-offset="0" max-vertical-offset="11798">
-              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            <state vertical-scroll-proportion="-6.5384617" vertical-offset="408" max-vertical-offset="11798">
+              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -133,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="you.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/you.js">
+      <file leaf-file-name="worldscript.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="5117">
-              <caret line="8" column="90" selection-start-line="8" selection-start-column="90" selection-end-line="8" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1819">
+              <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -206,9 +205,9 @@
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/you.js" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" />
       </list>
     </option>
   </component>
@@ -1411,7 +1410,7 @@
       <workItem from="1410294594792" duration="3540000" />
       <workItem from="1410300435722" duration="5321000" />
       <workItem from="1410466966119" duration="25919000" />
-      <workItem from="1410507421207" duration="5707000" />
+      <workItem from="1410507421207" duration="7490000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1673,11 +1672,15 @@
       <created>1410511921228</created>
       <updated>1410511921228</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="World Rule on Simulator With multiple worlds">
+      <created>1410513198171</created>
+      <updated>1410513198172</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="512884000" />
+    <option name="totallyTimeSpent" value="514667000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1979,6 +1982,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1904">
           <caret line="3" column="33" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1986,6 +1990,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2072,14 +2077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1819">
-          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/tween.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="743">
@@ -2122,13 +2119,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="846" max-vertical-offset="38913">
-          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="829" max-vertical-offset="38981">
+          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
           <folding>
-            <marker date="1410513151163" expanded="true" signature="120883:120971" placeholder="..." />
-            <marker date="1410513151163" expanded="true" signature="120883:120956" placeholder="..." />
-            <marker date="1410513151163" expanded="true" signature="120883:120943" placeholder="..." />
-            <marker date="1410513151163" expanded="true" signature="120883:120925" placeholder="..." />
+            <marker date="1410517663631" expanded="true" signature="120936:121024" placeholder="..." />
+            <marker date="1410517663631" expanded="true" signature="120936:121009" placeholder="..." />
+            <marker date="1410517663631" expanded="true" signature="120936:120996" placeholder="..." />
+            <marker date="1410517663631" expanded="true" signature="120936:120978" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -2137,14 +2134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.15384616" vertical-offset="370" max-vertical-offset="1360">
           <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="14399">
-          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -2175,8 +2164,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13581891" vertical-offset="0" max-vertical-offset="11798">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="408" max-vertical-offset="11798">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1819">
+          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84813386" vertical-offset="10884" max-vertical-offset="14416">
+          <caret line="679" column="40" selection-start-line="679" selection-start-column="40" selection-end-line="679" selection-end-column="40" />
           <folding />
         </state>
       </provider>
