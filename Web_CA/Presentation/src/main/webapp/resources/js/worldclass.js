@@ -21,8 +21,8 @@ var web_ca = angular.module('coordinate_app', []);
 web_ca.controller("CoordinateManager", function ($scope, $http) {
 
     var userId = document.getElementById("userId").value;
-
-    $http.post("http://" + site + "/getCoordinatesByWorldId/", 12)
+    var worldId=document.getElementById("worldId").value;
+    $http.post("http://" + site + "/getCoordinatesByWorldId/", worldId)
         .success(function (data) {
             this.coordinate = data;
         }).error(function () {
