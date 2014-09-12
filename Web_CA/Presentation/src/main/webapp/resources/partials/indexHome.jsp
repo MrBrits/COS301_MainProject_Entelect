@@ -1,4 +1,53 @@
-<div>
+<style>
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        background-color: #000000;
+        margin: 0;
+        font-family: Arial;
+        overflow: hidden;
+    }
+
+    #search {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #search input {
+        color: #ffffff;
+        background-color: transparent;
+        border: 1px solid #0080ff;
+        padding: 10px;
+        font-size: 20px;
+        text-transform: uppercase;
+        -webkit-border-radius: 0px; /* workaround for ios safari */
+    }
+
+    #search button {
+        color: #0080ff;
+        background-color: transparent;
+        border: 1px solid #0080ff;
+        padding: 10px;
+        font-size: 20px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+</style>
+
+<!--
+<script src="resources/js/tween.min.js"></script>
+<script src="resources/js/CSS3DRenderer.js"></script>
+
+<div id="container"></div>
+<div id="search"><input id="query" type="text" value="Tutorials"><button id="button">search</button></div>
+<link href="resources/css/flash.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="resources/js/lib/pace.min.js"></script>
+<script src="resources/js/you.js"></script>
+-->
 <div class="container marketing">
     <div class="row">
         <div class="panel-group navbar-left col-md-4" id="accordion">
