@@ -47,7 +47,7 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
         });
 
 
-        $http.post("http://" + site + "/getRuleByUserId", userId)
+    $http.post("http://" + site + "/getRuleByUserId", userId)
         .success(function (data) {
             ruleArray.push(new rule());
             for(var i=0;i<data.length;i++)
@@ -64,112 +64,106 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
 function world(scene,cameras) {
 
 
+    ruleArray = new Array();
     ruleArray.push(new rule());
-    ruleArray[1].name = "GameOfLifeRule1";
-    ruleArray[1].ruleDesc = "Under Population";
-    ruleArray[1].priority = 1;
+    ruleArray[0].name = "GameOfLifeRule1";
+    ruleArray[0].ruleDesc = "Under Population";
+    ruleArray[0].enabled = true;
 
-    ruleArray[1].conditionArray.push(new condition());
-    ruleArray[1].conditionArray[0].isNot = false;
-    ruleArray[1].conditionArray[0].conditionOperation = "EXACT";
-    ruleArray[1].conditionArray[0].conditionNeighbours = "000000000000010000000000000";
-    ruleArray[1].conditionArray[0].conditionOperand = "==";
-    ruleArray[1].conditionArray[0].compareValue = 1;
-    ruleArray[1].numConditions++;
+    ruleArray[0].ruleCond = new condition();
+    ruleArray[0].ruleCond.isNot = false;
+    ruleArray[0].ruleCond.conditionOperation = "SUM";
+    ruleArray[0].ruleCond.conditionNeighbours = "000000000000010000000000000";
+    ruleArray[0].ruleCond.conditionOperand = "==";
+    ruleArray[0].ruleCond.compareValueOne = 1;
+    ruleArray[0].ruleCond.compareValueTwo = null;
 
-    ruleArray[1].conditionArray.push(new condition());
-    ruleArray[1].conditionArray[1].isNot = false;
-    ruleArray[1].conditionArray[1].conditionOperation = "SUM";
-    ruleArray[1].conditionArray[1].conditionNeighbours = "111111111111101111111111111";
-    ruleArray[1].conditionArray[1].conditionOperand = "<";
-    ruleArray[1].conditionArray[1].compareValue = 2;
-    ruleArray[1].conditionArray[1].logicalOperationPrevious = "AND";
-    ruleArray[1].numConditions++;
+    ruleArray[0].RuleCondAND = new condition();
+    ruleArray[0].RuleCondAND.isNot = false;
+    ruleArray[0].RuleCondAND.conditionOperation = "SUM";
+    ruleArray[0].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
+    ruleArray[0].RuleCondAND.conditionOperand = "<";
+    ruleArray[0].RuleCondAND.compareValueOne = 2;
+    ruleArray[0].RuleCondAND.compareValueTwo = null;
+
+    ruleArray[0].resultOperand = "";
+    ruleArray[0].resultOperator = "";
+    ruleArray[0].resultValue = 0;
+
+    ruleArray.push(new rule());
+    ruleArray[1].name = "GameOfLifeRule2";
+    ruleArray[1].ruleDesc = "Next Generation";
+    ruleArray[1].enabled = true;
+
+    ruleArray[1].ruleCond = new condition();
+    ruleArray[1].ruleCond.isNot = false;
+    ruleArray[1].ruleCond.conditionOperation = "SUM";
+    ruleArray[1].ruleCond.conditionNeighbours = "000000000000010000000000000";
+    ruleArray[1].ruleCond.conditionOperand = "==";
+    ruleArray[1].ruleCond.compareValueOne = 1;
+
+    ruleArray[1].RuleCondAND = new condition();
+    ruleArray[1].RuleCondAND.isNot = false;
+    ruleArray[1].RuleCondAND.conditionOperation = "SUM";
+    ruleArray[1].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
+    ruleArray[1].RuleCondAND.conditionOperand = "BETWEEN";
+    ruleArray[1].RuleCondAND.compareValueOne = 2;
+    ruleArray[1].RuleCondAND.compareValueTwo = 3;
 
     ruleArray[1].resultOperand = "";
     ruleArray[1].resultOperator = "";
-    ruleArray[1].resultValue = 0;
+    ruleArray[1].resultValue = 1;
 
     ruleArray.push(new rule());
-    ruleArray[2].name = "GameOfLifeRule2";
-    ruleArray[2].ruleDesc = "Next Generation";
-    ruleArray[2].priority = 1;
+    ruleArray[2].name = "GameOfLifeRule3";
+    ruleArray[2].ruleDesc = "Over Crowding";
+    ruleArray[2].enabled = true;
 
-    ruleArray[2].conditionArray.push(new condition());
-    ruleArray[2].conditionArray[0].isNot = false;
-    ruleArray[2].conditionArray[0].conditionOperation = "EXACT";
-    ruleArray[2].conditionArray[0].conditionNeighbours = "000000000000010000000000000";
-    ruleArray[2].conditionArray[0].conditionOperand = "==";
-    ruleArray[2].conditionArray[0].compareValue = 1;
+    ruleArray[2].ruleCond = new condition();
+    ruleArray[2].ruleCond.isNot = false;
+    ruleArray[2].ruleCond.conditionOperation = "SUM";
+    ruleArray[2].ruleCond.conditionNeighbours = "000000000000010000000000000";
+    ruleArray[2].ruleCond.conditionOperand = "==";
+    ruleArray[2].ruleCond.compareValueOne = 1;
+    ruleArray[2].ruleCond.compareValueTwo = null;
 
-    ruleArray[2].numConditions++;
-
-    ruleArray[2].conditionArray.push(new condition());
-    ruleArray[2].conditionArray[1].isNot = false;
-    ruleArray[2].conditionArray[1].conditionOperation = "BETWEEN";
-    ruleArray[2].conditionArray[1].conditionNeighbours = "111111111111101111111111111";
-    ruleArray[2].conditionArray[1].compareValue = 2;
-    ruleArray[2].conditionArray[1].conditionOperand = ">=";
-    ruleArray[2].conditionArray[1].compareValueHigh = 3;
-    ruleArray[2].conditionArray[1].conditionOperandSecondary = "<=";
-    ruleArray[2].conditionArray[1].logicalOperationPrevious = "AND";
-    ruleArray[2].numConditions++;
+    ruleArray[2].RuleCondAND = new condition();
+    ruleArray[2].RuleCondAND.isNot = false;
+    ruleArray[2].RuleCondAND.conditionOperation = "SUM";
+    ruleArray[2].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
+    ruleArray[2].RuleCondAND.conditionOperand = ">";
+    ruleArray[2].RuleCondAND.compareValueOne = 3;
+    ruleArray[2].RuleCondAND.compareValueTwo = null;
 
     ruleArray[2].resultOperand = "";
     ruleArray[2].resultOperator = "";
-    ruleArray[2].resultValue = 1;
+    ruleArray[2].resultValue = 0;
 
     ruleArray.push(new rule());
-    ruleArray[3].name = "GameOfLifeRule3";
-    ruleArray[3].ruleDesc = "Over Crowding";
-    ruleArray[3].priority = 1;
+    ruleArray[3].name = "GameOfLifeRule4";
+    ruleArray[3].ruleDesc = "Reproduction";
+    ruleArray[3].enabled = true;
 
-    ruleArray[3].conditionArray.push(new condition());
-    ruleArray[3].conditionArray[0].isNot = false;
-    ruleArray[3].conditionArray[0].conditionOperation = "EXACT";
-    ruleArray[3].conditionArray[0].conditionNeighbours = "000000000000010000000000000";
-    ruleArray[3].conditionArray[0].conditionOperand = "==";
-    ruleArray[3].conditionArray[0].compareValue = 1;
-    ruleArray[3].numConditions++;
+    ruleArray[3].ruleCond = new condition();
+    ruleArray[3].ruleCond.isNot = false;
+    ruleArray[3].ruleCond.conditionOperation = "SUM";
+    ruleArray[3].ruleCond.conditionNeighbours = "000000000000010000000000000";
+    ruleArray[3].ruleCond.conditionOperand = "==";
+    ruleArray[3].ruleCond.compareValueOne = 0;
+    ruleArray[3].ruleCond.compareValueTwo = null;
 
-    ruleArray[3].conditionArray.push(new condition());
-    ruleArray[3].conditionArray[1].isNot = false;
-    ruleArray[3].conditionArray[1].conditionOperation = "SUM";
-    ruleArray[3].conditionArray[1].conditionNeighbours = "111111111111101111111111111";
-    ruleArray[3].conditionArray[1].conditionOperand = ">";
-    ruleArray[3].conditionArray[1].compareValue = 3;
-    ruleArray[3].conditionArray[1].logicalOperationPrevious = "AND";
-    ruleArray[3].numConditions++;
+    ruleArray[3].RuleCondAND = new condition();
+    ruleArray[3].RuleCondAND.isNot = false;
+    ruleArray[3].RuleCondAND.conditionOperation = "SUM";
+    ruleArray[3].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
+    ruleArray[3].RuleCondAND.conditionOperand = "==";
+    ruleArray[3].RuleCondAND.compareValueOne = 3;
+    ruleArray[3].RuleCondAND.compareValueTwo = null;
 
     ruleArray[3].resultOperand = "";
     ruleArray[3].resultOperator = "";
-    ruleArray[3].resultValue = 0;
+    ruleArray[3].resultValue = 1;
 
-    ruleArray.push(new rule());
-    ruleArray[4].name = "GameOfLifeRule4";
-    ruleArray[4].ruleDesc = "Reproduction";
-    ruleArray[4].priority = 1;
-
-    ruleArray[4].conditionArray.push(new condition());
-    ruleArray[4].conditionArray[0].isNot = false;
-    ruleArray[4].conditionArray[0].conditionOperation = "EXACT";
-    ruleArray[4].conditionArray[0].conditionNeighbours = "000000000000010000000000000";
-    ruleArray[4].conditionArray[0].conditionOperand = "==";
-    ruleArray[4].conditionArray[0].compareValue = 0;
-    ruleArray[4].numConditions++;
-
-    ruleArray[4].conditionArray.push(new condition());
-    ruleArray[4].conditionArray[1].isNot = false;
-    ruleArray[4].conditionArray[1].conditionOperation = "EXACT";
-    ruleArray[4].conditionArray[1].conditionNeighbours = "111111111111101111111111111";
-    ruleArray[4].conditionArray[1].conditionOperand = "==";
-    ruleArray[4].conditionArray[1].compareValue = 3;
-    ruleArray[4].conditionArray[1].logicalOperationPrevious = "AND";
-    ruleArray[4].numConditions++;
-
-    ruleArray[4].resultOperand = "";
-    ruleArray[4].resultOperator = "";
-    ruleArray[4].resultValue = 1;
     worldRules();
     //variables for the layer system
     xbar = new Array();
@@ -270,7 +264,6 @@ function world(scene,cameras) {
 
     }
 
-
     this.StartAndStop = function () {
         if(this.play == true) {
             var z2 = 0;
@@ -281,68 +274,44 @@ function world(scene,cameras) {
                     for (var x = 0; x < tmx; x++) {
                         for(var rule = 0; rule < ruleArray.length; rule++)	{
                             var satisfied = false;
-                            for(var cond = 0; cond < ruleArray[rule].conditionArray.length; cond++)	{
-                                var neightbours = sumNeighboursAtPositions(x,y,z,ruleArray[rule].conditionArray[cond].conditionNeighbours);
-                                if(ruleArray[rule].conditionArray[cond].conditionOperation == "EXACT")	{
-                                    if(performOperation(neightbours, ruleArray[rule].conditionArray[cond].compareValue, ruleArray[rule].conditionArray[cond].conditionOperand) == true)	{
-                                        if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "")
-                                            satisfied = true;
-                                        else {
-                                            if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "AND")	{
-                                                if(satisfied == true)
-                                                    satisfied = true;
-                                                else satisfied = false;
-                                            }
-
-                                            else if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "OR")	{
-                                                satisfied = true;
-                                            }
-                                        }
+                            if(ruleArray[rule].enabled)	{
+                                if(typeof ruleArray[rule].ruleCond != undefined && ruleArray[rule].ruleCond != null)	{
+                                    if(checkCondition(ruleArray[rule].ruleCond,x,y,z))	{
+                                        satisfied = true;
+                                    }
+                                    else if(!checkCondition(ruleArray[rule].ruleCond,x,y,z) && ruleArray[rule].ruleCond.isNot)	{
+                                        satisfied = true;
                                     }
                                     else satisfied = false;
                                 }
-                                else if(ruleArray[rule].conditionArray[cond].conditionOperation == "SUM")	{
-                                    if(performOperation(neightbours, ruleArray[rule].conditionArray[cond].compareValue, ruleArray[rule].conditionArray[cond].conditionOperand) == true)	{
-                                        if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "")
-                                            satisfied = true;
-                                        else {
-                                            if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "AND")	{
-                                                if(satisfied == true)
-                                                    satisfied = true;
-                                                else satisfied = false;
-                                            }
-                                            else if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "OR")	{
-                                                satisfied = true;
-                                            }
-                                        }
+                                if(typeof ruleArray[rule].RuleCondAND != undefined && ruleArray[rule].RuleCondAND != null && satisfied)	{
+                                    if(checkCondition(ruleArray[rule].RuleCondAND,x,y,z))	{
+                                        satisfied = true
+                                    }
+                                    else if(!checkCondition(ruleArray[rule].RuleCondAND,x,y,z) && ruleArray[rule].RuleCondAND.isNot && satisfied)	{
+                                        satisfied = true;
                                     }
                                     else satisfied = false;
                                 }
-                                else if(ruleArray[rule].conditionArray[cond].conditionOperation == "BETWEEN")	{
-                                    if(performOperationBetween(neightbours, ruleArray[rule].conditionArray[cond].compareValue, ruleArray[rule].conditionArray[cond].compareValueHigh, ruleArray[rule].conditionArray[cond].conditionOperand, ruleArray[rule].conditionArray[cond].conditionOperandSecondary) == true)	{
-                                        if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "")
-                                            satisfied = true;
-                                        else {
-                                            if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "AND")	{
-                                                if(satisfied == true)
-                                                    satisfied = true;
-                                                else satisfied = false;
-                                            }
-                                            else if(ruleArray[rule].conditionArray[cond].logicalOperationPrevious == "OR")	{
-                                                satisfied = true;
-                                            }
-                                        }
+                                else satisfied = false;
+                                if(typeof ruleArray[rule].RuleCondOR != undefined && ruleArray[rule].RuleCondOR != null)	{
+                                    if(checkCondition(ruleArray[rule].RuleCondOR,x,y,z))	{
+                                        satisfied = true;
                                     }
-                                    else satisfied = false;
+                                    else if(!checkCondition(ruleArray[rule].RuleCondOR,x,y,z) && ruleArray[rule].RuleCondOR.isNot)	{
+                                        satisfied = true;
+                                    }
+                                    else if(!satisfied)	{
+                                        satisfied = false;
+                                    }
                                 }
                             }
-                            if(satisfied == true)	{
+                            if(satisfied)	{
                                 cellArray[z][y][x].nextValue = ruleArray[rule].resultValue;
                                 satisfied = false;
                                 break;
                             }
                         }
-
                     }
                     x2+=1;
                 }
@@ -352,7 +321,8 @@ function world(scene,cameras) {
             for(var z = 0; z < tmz; z++)	{
                 for(var y = 0; y < tmy; y++)	{
                     for(var x = 0; x < tmx; x++)	{
-                        cellArray[z][y][x].changeValue();
+                        if(cellArray[z][y][x].value != cellArray[z][y][x].nextValue)
+                            cellArray[z][y][x].changeValue();
                     }
                 }
             }
@@ -526,18 +496,12 @@ function changeState() {
                     break;
                 }
                 else if (this.cellArray[tz][ty][tx].invis == true) {
-                    if(colorsUsed[tempcolor]!=null)
-                    {
+                    if(colorsUsed[tempcolor]!=null) {
                         this.cellArray[tz][ty][tx].cube.material.color.setHex(colorsUsed[tempcolor]);
-
                     }
-                    else
-                    {
-
-
+                    else    {
                         colorsUsed[tempcolor]=arryColour[counter];
                         colorsUsedName[counter]=tempcolor;
-
                         counter++;
                     }
                     worldStates();
@@ -566,63 +530,536 @@ function randomFairColor() {
     return r + g + b;
 }
 
-function countNeighbours(x, y, z) {
+function getSmallestNeighbour(x, y, z, positions, checkValue)	{
+    var val;
+    if(z - 1 >= 0)	{
+        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y - 1][x - 1].value;
+            }
+            else if(cellArray[z - 1][y - 1][x - 1].value < val)
+                val = cellArray[z - 1][y - 1][x - 1].value;
+        }
+        if(y + 1 <= tmy - 1 && positions.charAt(19) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y + 1][x].value;
+            }
+            else if(cellArray[z - 1][y + 1][x].value < val)
+                val = cellArray[z - 1][y + 1][x].value;
+        }
+        if(y - 1 >= 0  && positions.charAt(1) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y - 1][x].value;
+            }
+            else if(cellArray[z - 1][y - 1][x].value < val)
+                val = cellArray[z - 1][y - 1][x].value;
+        }
+        if(x + 1 <= tmx - 1 && positions.charAt(11) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y][x + 1].value;
+            }
+            else if(cellArray[z - 1][y][x + 1].value < val)
+                val = cellArray[z - 1][y][x + 1].value;
+        }
+        if(x - 1 >= 0 && positions.charAt(9) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y][x - 1].value;
+            }
+            else if(cellArray[z - 1][y][x - 1].value < val)
+                val = cellArray[z - 1][y][x - 1].value;
+        }
+        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1  && positions.charAt(20) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y + 1][x + 1].value;
+            }
+            else if(cellArray[z - 1][y + 1][x + 1].value < val)
+                val = cellArray[z - 1][y + 1][x + 1].value;
+        }
+        if(y + 1 <= tmy - 1 && x - 1 >= 0  && positions.charAt(18) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y + 1][x - 1].value;
+            }
+            else if(cellArray[z - 1][y + 1][x - 1].value < val)
+                val = cellArray[z - 1][y + 1][x - 1].value;
+        }
+        if(y - 1 >= 0 && x + 1 <= tmx - 1  && positions.charAt(2) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y - 1][x + 1].value;
+            }
+            else if(cellArray[z - 1][y - 1][x + 1].value < val)
+                val = cellArray[z - 1][y - 1][x + 1].value;
+        }
+        if(positions.charAt(10) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y][x].value;
+            }
+            else if(cellArray[z - 1][y][x].value < val)
+                val = cellArray[z - 1][y][x].value;
+        }
+    }
+
+    if(z + 1 <= tmz - 1)	{
+        if(y + 1 <= tmy - 1 && positions.charAt(25) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y + 1][x].value;
+            }
+            else if(cellArray[z + 1][y + 1][x].value < val)
+                val = cellArray[z + 1][y + 1][x].value;
+        }
+        if(y - 1 >= 0  && positions.charAt(7) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y - 1][x].value;
+            }
+            else if(cellArray[z + 1][y - 1][x].value < val)
+                val = cellArray[z + 1][y - 1][x].value;
+        }
+        if(x + 1 <= tmx - 1 && positions.charAt(17) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y][x + 1].value;
+            }
+            else if(cellArray[z + 1][y][x + 1].value < val)
+                val = cellArray[z + 1][y][x + 1].value;
+        }
+        if(x - 1 >= 0 && positions.charAt(15) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y][x - 1].value;
+            }
+            else if(cellArray[z + 1][y][x - 1].value < val)
+                val = cellArray[z + 1][y][x - 1].value;
+        }
+        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y + 1][x + 1].value;
+            }
+            else if(cellArray[z + 1][y + 1][x + 1].value < val)
+                val = cellArray[z + 1][y + 1][x + 1].value;
+        }
+        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y - 1][x - 1].value;
+            }
+            else if(cellArray[z + 1][y - 1][x - 1].value < val)
+                val = cellArray[z + 1][y - 1][x - 1].value;
+        }
+        if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y + 1][x].value;
+            }
+            else if(cellArray[z + 1][y + 1][x].value < val)
+                val = cellArray[z + 1][y + 1][x].value;
+        }
+        if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y - 1][x + 1].value;
+            }
+            else if(cellArray[z + 1][y - 1][x + 1].value < val)
+                val = cellArray[z + 1][y - 1][x + 1].value;
+        }
+        if(positions.charAt(16) == '1')	{
+            if(cellArray[z + 1][y][x].value == checkValue)
+                count += 1;
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y][x].value;
+            }
+            else if(cellArray[z + 1][y][x].value < val)
+                val = cellArray[z + 1][y][x].value;
+        }
+    }
+
+    if(y + 1 <= tmy - 1 && positions.charAt(22) == '1') 	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y + 1][x].value;
+        }
+        else if(cellArray[z][y + 1][x].value < val)
+            val = cellArray[z][y + 1][x].value;
+    }
+    if(y - 1 >= 0 && positions.charAt(4) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y - 1][x].value;
+        }
+        else if(cellArray[z][y - 1][x].value < val)
+            val = cellArray[z][y - 1][x].value;
+    }
+    if(x + 1 <= tmx - 1 && positions.charAt(14) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y][x + 1].value;
+        }
+        else if(cellArray[z][y][x + 1].value < val)
+            val = cellArray[z][y][x + 1].value;
+    }
+    if(x - 1 >= 0 && positions.charAt(12) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y][x - 1].value;
+        }
+        else if(cellArray[z][y][x - 1].value < val)
+            val = cellArray[z][y][x - 1].value;
+    }
+    if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y + 1][x + 1].value;
+        }
+        else if(cellArray[z][y + 1][x + 1].value < val)
+            val = cellArray[z][y + 1][x + 1].value;
+    }
+    if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y - 1][x - 1].value;
+        }
+        else if(cellArray[z][y - 1][x - 1].value < val)
+            val = cellArray[z][y - 1][x - 1].value;
+    }
+    if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y + 1][x - 1].value;
+        }
+        else if(cellArray[z][y + 1][x - 1].value < val)
+            val = cellArray[z][y + 1][x - 1].value;
+    }
+    if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y - 1][x + 1].value;
+        }
+        else if(cellArray[z][y - 1][x + 1].value < val)
+            val = cellArray[z][y - 1][x + 1].value;
+    }
+    if(positions.charAt(13) == '1')	{
+        if(cellArray[z][y][x].value == checkValue)
+            count += 1;
+        if(typeof val == undefined)	{
+            val = cellArray[z][y][x].value;
+        }
+        else if(cellArray[z][y][x].value < val)
+            val = cellArray[z][y][x].value;
+    }
+    if(typeof val == undefined)	{
+        return null;
+    }
+    else return val;
+}
+
+function getBiggestNeighbour(x, y, z, positions, checkValue)	{
+    var val;
+    if(z - 1 >= 0)	{
+        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y - 1][x - 1].value;
+            }
+            else if(cellArray[z - 1][y - 1][x - 1].value > val)
+                val = cellArray[z - 1][y - 1][x - 1].value;
+        }
+        if(y + 1 <= tmy - 1 && positions.charAt(19) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y + 1][x].value;
+            }
+            else if(cellArray[z - 1][y + 1][x].value > val)
+                val = cellArray[z - 1][y + 1][x].value;
+        }
+        if(y - 1 >= 0  && positions.charAt(1) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y - 1][x].value;
+            }
+            else if(cellArray[z - 1][y - 1][x].value > val)
+                val = cellArray[z - 1][y - 1][x].value;
+        }
+        if(x + 1 <= tmx - 1 && positions.charAt(11) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y][x + 1].value;
+            }
+            else if(cellArray[z - 1][y][x + 1].value > val)
+                val = cellArray[z - 1][y][x + 1].value;
+        }
+        if(x - 1 >= 0 && positions.charAt(9) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y][x - 1].value;
+            }
+            else if(cellArray[z - 1][y][x - 1].value > val)
+                val = cellArray[z - 1][y][x - 1].value;
+        }
+        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1  && positions.charAt(20) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y + 1][x + 1].value;
+            }
+            else if(cellArray[z - 1][y + 1][x + 1].value > val)
+                val = cellArray[z - 1][y + 1][x + 1].value;
+        }
+        if(y + 1 <= tmy - 1 && x - 1 >= 0  && positions.charAt(18) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y + 1][x - 1].value;
+            }
+            else if(cellArray[z - 1][y + 1][x - 1].value > val)
+                val = cellArray[z - 1][y + 1][x - 1].value;
+        }
+        if(y - 1 >= 0 && x + 1 <= tmx - 1  && positions.charAt(2) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y - 1][x + 1].value;
+            }
+            else if(cellArray[z - 1][y - 1][x + 1].value > val)
+                val = cellArray[z - 1][y - 1][x + 1].value;
+        }
+        if(positions.charAt(10) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z - 1][y][x].value;
+            }
+            else if(cellArray[z - 1][y][x].value > val)
+                val = cellArray[z - 1][y][x].value;
+        }
+    }
+
+    if(z + 1 <= tmz - 1)	{
+        if(y + 1 <= tmy - 1 && positions.charAt(25) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y + 1][x].value;
+            }
+            else if(cellArray[z + 1][y + 1][x].value > val)
+                val = cellArray[z + 1][y + 1][x].value;
+        }
+        if(y - 1 >= 0  && positions.charAt(7) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y - 1][x].value;
+            }
+            else if(cellArray[z + 1][y - 1][x].value > val)
+                val = cellArray[z + 1][y - 1][x].value;
+        }
+        if(x + 1 <= tmx - 1 && positions.charAt(17) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y][x + 1].value;
+            }
+            else if(cellArray[z + 1][y][x + 1].value > val)
+                val = cellArray[z + 1][y][x + 1].value;
+        }
+        if(x - 1 >= 0 && positions.charAt(15) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y][x - 1].value;
+            }
+            else if(cellArray[z + 1][y][x - 1].value > val)
+                val = cellArray[z + 1][y][x - 1].value;
+        }
+        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y + 1][x + 1].value;
+            }
+            else if(cellArray[z + 1][y + 1][x + 1].value > val)
+                val = cellArray[z + 1][y + 1][x + 1].value;
+        }
+        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y - 1][x - 1].value;
+            }
+            else if(cellArray[z + 1][y - 1][x - 1].value > val)
+                val = cellArray[z + 1][y - 1][x - 1].value;
+        }
+        if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y + 1][x].value;
+            }
+            else if(cellArray[z + 1][y + 1][x].value > val)
+                val = cellArray[z + 1][y + 1][x].value;
+        }
+        if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1')	{
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y - 1][x + 1].value;
+            }
+            else if(cellArray[z + 1][y - 1][x + 1].value > val)
+                val = cellArray[z + 1][y - 1][x + 1].value;
+        }
+        if(positions.charAt(16) == '1')	{
+            if(cellArray[z + 1][y][x].value == checkValue)
+                count += 1;
+            if(typeof val == undefined)	{
+                val = cellArray[z + 1][y][x].value;
+            }
+            else if(cellArray[z + 1][y][x].value > val)
+                val = cellArray[z + 1][y][x].value;
+        }
+    }
+
+    if(y + 1 <= tmy - 1 && positions.charAt(22) == '1') 	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y + 1][x].value;
+        }
+        else if(cellArray[z][y + 1][x].value > val)
+            val = cellArray[z][y + 1][x].value;
+    }
+    if(y - 1 >= 0 && positions.charAt(4) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y - 1][x].value;
+        }
+        else if(cellArray[z][y - 1][x].value > val)
+            val = cellArray[z][y - 1][x].value;
+    }
+    if(x + 1 <= tmx - 1 && positions.charAt(14) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y][x + 1].value;
+        }
+        else if(cellArray[z][y][x + 1].value > val)
+            val = cellArray[z][y][x + 1].value;
+    }
+    if(x - 1 >= 0 && positions.charAt(12) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y][x - 1].value;
+        }
+        else if(cellArray[z][y][x - 1].value > val)
+            val = cellArray[z][y][x - 1].value;
+    }
+    if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y + 1][x + 1].value;
+        }
+        else if(cellArray[z][y + 1][x + 1].value > val)
+            val = cellArray[z][y + 1][x + 1].value;
+    }
+    if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y - 1][x - 1].value;
+        }
+        else if(cellArray[z][y - 1][x - 1].value > val)
+            val = cellArray[z][y - 1][x - 1].value;
+    }
+    if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y + 1][x - 1].value;
+        }
+        else if(cellArray[z][y + 1][x - 1].value > val)
+            val = cellArray[z][y + 1][x - 1].value;
+    }
+    if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1')	{
+        if(typeof val == undefined)	{
+            val = cellArray[z][y - 1][x + 1].value;
+        }
+        else if(cellArray[z][y - 1][x + 1].value > val)
+            val = cellArray[z][y - 1][x + 1].value;
+    }
+    if(positions.charAt(13) == '1')	{
+        if(cellArray[z][y][x].value == checkValue)
+            count += 1;
+        if(typeof val == undefined)	{
+            val = cellArray[z][y][x].value;
+        }
+        else if(cellArray[z][y][x].value > val)
+            val = cellArray[z][y][x].value;
+    }
+    if(typeof val == undefined)	{
+        return null;
+    }
+    else return val;
+}
+
+function countNeighboursAndCompare(x, y, z, positions, checkValue)	{
     var count = 0;
-    if (z - 1 >= 0) {
-        if (y + 1 <= tmy - 1)
-            count += cellArray[z - 1][y + 1][x].value;
-        if (y - 1 >= 0)
-            count += cellArray[z - 1][y - 1][x].value;
-        if (x + 1 <= tmx - 1)
-            count += cellArray[z - 1][y][x + 1].value;
-        if (x - 1 >= 0)
-            count += cellArray[z - 1][y][x - 1].value;
-        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1)
-            count += cellArray[z - 1][y + 1][x + 1].value;
-        if (y - 1 >= 0 && x - 1 >= 0)
-            count += cellArray[z - 1][y - 1][x - 1].value;
-        if (y + 1 <= tmy - 1 && x - 1 >= 0)
-            count += cellArray[z - 1][y + 1][x - 1].value;
-        if (y - 1 >= 0 && x + 1 <= tmx - 1)
-            count += cellArray[z - 1][y - 1][x + 1].value;
+    if(z - 1 >= 0)	{
+        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1')	{
+            if(cellArray[z - 1][y - 1][x - 1].value == checkValue)
+                count += 1;
+        }
+        if(y + 1 <= tmy - 1 && positions.charAt(19) == '1')	{
+            if(cellArray[z - 1][y + 1][x].value == checkValue)
+                count += 1;
+        }
+        if(y - 1 >= 0  && positions.charAt(1) == '1')	{
+            if(cellArray[z - 1][y - 1][x].value == checkValue)
+                count += 1;
+        }
+        if(x + 1 <= tmx - 1 && positions.charAt(11) == '1')	{
+            if(cellArray[z - 1][y][x + 1].value == checkValue)
+                count += 1;
+        }
+        if(x - 1 >= 0 && positions.charAt(9) == '1')	{
+            if(cellArray[z - 1][y][x - 1].value == checkValue)
+                count += 1;
+        }
+        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1  && positions.charAt(20) == '1')	{
+            if(cellArray[z - 1][y + 1][x + 1].value == checkValue)
+                count += 1;
+        }
+        if(y + 1 <= tmy - 1 && x - 1 >= 0  && positions.charAt(18) == '1')	{
+            if(cellArray[z - 1][y + 1][x - 1].value == checkValue)
+                count += 1;
+        }
+        if(y - 1 >= 0 && x + 1 <= tmx - 1  && positions.charAt(2) == '1')	{
+            if(cellArray[z - 1][y - 1][x + 1].value == checkValue)
+                count += 1;
+        }
+        if(positions.charAt(10) == '1')	{
+            if(cellArray[z - 1][y][x].value == checkValue)
+                count += 1;
+        }
     }
 
-    if (z + 1 <= tmz - 1) {
-        if (y + 1 <= tmy - 1)
-            count += cellArray[z + 1][y + 1][x].value;
-        if (y - 1 >= 0)
-            count += cellArray[z + 1][y - 1][x].value;
-        if (x + 1 <= tmx - 1)
-            count += cellArray[z + 1][y][x + 1].value;
-        if (x - 1 >= 0)
-            count += cellArray[z + 1][y][x - 1].value;
-        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1)
-            count += cellArray[z + 1][y + 1][x + 1].value;
-        if (y - 1 >= 0 && x - 1 >= 0)
-            count += cellArray[z + 1][y - 1][x - 1].value;
-        if (y + 1 <= tmy - 1 && x - 1 >= 0)
-            count += cellArray[z + 1][y + 1][x - 1].value;
-        if (y - 1 >= 0 && x + 1 <= tmx - 1)
-            count += cellArray[z + 1][y - 1][x + 1].value;
+    if(z + 1 <= tmz - 1)	{
+        if(y + 1 <= tmy - 1 && positions.charAt(25) == '1')	{
+            if(cellArray[z + 1][y + 1][x].value == checkValue)
+                count += 1;
+        }
+        if(y - 1 >= 0  && positions.charAt(7) == '1')	{
+            if(cellArray[z + 1][y - 1][x].value == checkValue)
+                count += 1;
+        }
+        if(x + 1 <= tmx - 1 && positions.charAt(17) == '1')	{
+            if(cellArray[z + 1][y][x + 1].value == checkValue)
+                count += 1;
+        }
+        if(x - 1 >= 0 && positions.charAt(15) == '1')	{
+            if(cellArray[z + 1][y][x - 1].value == checkValue)
+                count += 1;
+        }
+        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1')	{
+            if(cellArray[z + 1][y + 1][x + 1].value == checkValue)
+                count += 1;
+        }
+        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1')	{
+            if(cellArray[z + 1][y - 1][x - 1].value == checkValue)
+                count += 1;
+        }
+        if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1')	{
+            if(cellArray[z + 1][y + 1][x].value == checkValue)
+                count += 1;
+        }
+        if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1')	{
+            if(cellArray[z + 1][y - 1][x + 1].value == checkValue)
+                count += 1;
+        }
+        if(positions.charAt(16) == '1')	{
+            if(cellArray[z + 1][y][x].value == checkValue)
+                count += 1;
+        }
     }
 
-    if (y + 1 <= tmy - 1)
-        count += cellArray[z][y + 1][x].value;
-    if (y - 1 >= 0)
-        count += cellArray[z][y - 1][x].value;
-    if (x + 1 <= tmx - 1)
-        count += cellArray[z][y][x + 1].value;
-    if (x - 1 >= 0)
-        count += cellArray[z][y][x - 1].value;
-    if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1)
-        count += cellArray[z][y + 1][x + 1].value;
-    if (y - 1 >= 0 && x - 1 >= 0)
-        count += cellArray[z][y - 1][x - 1].value;
-    if (y + 1 <= tmy - 1 && x - 1 >= 0)
-        count += cellArray[z][y + 1][x - 1].value;
-    if (y - 1 >= 0 && x + 1 <= tmx - 1)
-        count += cellArray[z][y - 1][x + 1].value;
-
+    if(y + 1 <= tmy - 1 && positions.charAt(22) == '1') 	{
+        if(cellArray[z ][y + 1][x].value == checkValue)
+            count += 1;
+    }
+    if(y - 1 >= 0 && positions.charAt(4) == '1')	{
+        if(cellArray[z][y - 1][x].value == checkValue)
+            count += 1;
+    }
+    if(x + 1 <= tmx - 1 && positions.charAt(14) == '1')	{
+        if(cellArray[z][y][x + 1].value == checkValue)
+            count += 1;
+    }
+    if(x - 1 >= 0 && positions.charAt(12) == '1')	{
+        if(cellArray[z][y][x - 1].value == checkValue)
+            count += 1;
+    }
+    if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1')	{
+        if(cellArray[z][y + 1][x + 1].value == checkValue)
+            count += 1;
+    }
+    if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1')	{
+        if(cellArray[z][y - 1][x - 1].value == checkValue)
+            count += 1;
+    }
+    if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1')	{
+        if(cellArray[z][y + 1][x - 1].value == checkValue)
+            count += 1;
+    }
+    if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1')	{
+        if(cellArray[z][y - 1][x + 1].value == checkValue)
+            count += 1;
+    }
+    if(positions.charAt(13) == '1')	{
+        if(cellArray[z][y][x].value == checkValue)
+            count += 1;
+    }
     return count;
 }
 
@@ -738,13 +1175,10 @@ function toggleZLayer(xlayer) {
 
 function hider() {
     for (var i = 0; i < tmz; i++) {
-
         zbar[i].visible = document.getElementById("z").checked;
-
     }
     for (var i = 0; i < tmx; i++) {
         xbar[i].visible = document.getElementById("x").checked;
-
     }
     for (var i = 0; i < tmy; i++) {
         ybar[i].visible = document.getElementById("y").checked;
@@ -777,34 +1211,12 @@ function performOperation(neightbours, expected, conditionOperand)	{
     return result;
 }
 
-function performOperationBetween(neightbours, expectedLow, expectedHigh, conditionOperandLow, conditionOperandHigh)	{
+function performBetween(neightbours, valueOne, valueTwo)	{
     var result = false;
-    if(conditionOperandLow == ">")	{
-        if(neightbours > expectedLow)	{
-            if(conditionOperandHigh == "<")	{
-                if(neightbours < expectedHigh)
-                    result = true;
-            }
-            else if(conditionOperandHigh == "<=")	{
-                if(neightbours <= expectedHigh)
-                    result = true;
-            }
-        }
-    }
-    else if(conditionOperandLow == ">=")	{
-        if(neightbours >= expectedLow)	{
-            if(conditionOperandHigh == "<")	{
-                if(neightbours < expectedHigh)
-                    result = true;
-            }
-            else if(conditionOperandHigh == "<=")	{
-                if(neightbours <= expectedHigh)
-                    result = true;
-            }
-        }
-    }
+    if(neightbours > valueOne && neightbours < valueTwo) result = true;
     return result;
 }
+
 function worldStates()
 {
 
@@ -813,9 +1225,9 @@ function worldStates()
         s+="<tr><td><button  onclick='setColor("+colorsUsedName[i]+")' style="+'"background-color:#'+arryColour[i].substring(2)+'"'+'class="btn btn-default btn-lg" ></button>';
         s+= "<label>   State Value:"+colorsUsedName[i]+"</label></td></tr>";
 
-        }
-        s+="</tr></table>";
-        document.getElementById("worldState").innerHTML=s;
+    }
+    s+="</tr></table>";
+    document.getElementById("worldState").innerHTML=s;
 
 
 }
@@ -839,4 +1251,42 @@ function setColor(value)
 {
 
     var tempcolor = document.getElementById("colorValue").value=value;
+}
+
+function checkCondition(c,x,y,z)	{
+    if(typeof c != null)	{
+        if(c.conditionOperand == "BETWEEN")	{
+            if(c.conditionOperation == "SUM")	{
+                var neightbours = sumNeighboursAtPositions(x,y,z,c.conditionNeighbours);
+                return performBetween(neightbours, c.compareValueOne, c.compareValueTwo);
+            }
+            else if(ruleArray[rule].conditionArray[cond].conditionOperation == "MIN")	{
+                var neightbour = getSmallestNeighbour(x,y,z,c.conditionNeighbours);
+                return performBetween(neightbour,  c.compareValueOne, c.compareValueTwo);
+            }
+            else if(ruleArray[rule].conditionArray[cond].conditionOperation == "MAX")	{
+                var neightbour = getBiggestNeighbour(x,y,z,c.conditionNeighbours);
+                return performBetween(neightbour,  c.compareValueOne, c.compareValueTwo);
+            }
+        }
+        else	{
+            if(c.conditionOperation == "SUM")	{
+                var neightbours = sumNeighboursAtPositions(x,y,z,c.conditionNeighbours);
+                return performOperation(neightbours, c.compareValueOne, c.conditionOperand);
+            }
+            else if(c.conditionOperation == "COUNT")	{
+                var neightbour = countNeighboursAndCompare(x, y, z, c.conditionNeighbours, c.compareValueOne);
+                return performOperation(neightbour, c.compareValueTwo, c.conditionOperand);
+            }
+            else if(c.conditionOperation == "MIN")	{
+                var neightbour = getSmallestNeighbour(x,y,z,c.conditionNeighbours);
+                return performOperation(neightbour, c.compareValueOne, c.conditionOperand);
+            }
+            else if(c.conditionOperation == "MAX")	{
+                var neightbour = getBiggestNeighbour(x,y,z,c.conditionNeighbours);
+                return performOperation(neightbour, c.compareValueOne, c.conditionOperand);
+            }
+        }
+    }
+    return false;
 }

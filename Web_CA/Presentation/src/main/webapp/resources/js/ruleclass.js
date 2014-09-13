@@ -1,15 +1,13 @@
 //Rule Class used to contain all of the information about a rule
 function rule()	{
-    //Variables
-    this.numConditions = 0;
-
     //Rule Metadata
     this.ruleName = "";
     this.ruleDesc = "";
-    this.priority = 0;
-
-    //Condition Array
-    this.conditionArray = new Array();
+    this.enabled = false;
+    //Condition
+    this.ruleCond = null;
+    this.RuleCondAND = null;
+    this.RuleCondOR = null;
 
     //Result of Rule
     this.resultOperand = "";
@@ -24,8 +22,6 @@ function condition()	{
     this.conditionOperation = "";
     this.conditionNeighbours = "000000000000000000000000000";
     this.conditionOperand = "";
-    this.conditionOperandSecondary = "";
-    this.compareValue = 0;
-    this.compareValueHigh = 0;
-    this.logicalOperationPrevious = "";
+    this.compareValueOne = 0;
+    this.compareValueTwo = 0;
 }
