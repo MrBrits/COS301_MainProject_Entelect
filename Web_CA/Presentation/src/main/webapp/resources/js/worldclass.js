@@ -47,7 +47,7 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
         });
 
 
-    $http.post("http://" + site + "/getRuleByUserId", userId)
+    /*$http.post("http://" + site + "/getRuleByUserId", userId)
         .success(function (data) {
             ruleArray.push(new rule());
             for(var i=0;i<data.length;i++)
@@ -56,7 +56,7 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
             ruleArray[0].priority = data[i].priority;
         }).error(function () {
             alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
-        });
+        });*/
 
 
 });
@@ -293,7 +293,6 @@ function world(scene,cameras) {
                                     }
                                     else satisfied = false;
                                 }
-                                else satisfied = false;
                                 if(typeof ruleArray[rule].RuleCondOR != undefined && ruleArray[rule].RuleCondOR != null)	{
                                     if(checkCondition(ruleArray[rule].RuleCondOR,x,y,z))	{
                                         satisfied = true;
@@ -308,6 +307,7 @@ function world(scene,cameras) {
                             }
                             if(satisfied)	{
                                 cellArray[z][y][x].nextValue = ruleArray[rule].resultValue;
+                                cellArray[z][y][x].triggerChange = true;
                                 satisfied = false;
                                 break;
                             }
@@ -321,7 +321,7 @@ function world(scene,cameras) {
             for(var z = 0; z < tmz; z++)	{
                 for(var y = 0; y < tmy; y++)	{
                     for(var x = 0; x < tmx; x++)	{
-                        if(cellArray[z][y][x].value != cellArray[z][y][x].nextValue)
+                        if(cellArray[z][y][x].triggerChange)
                             cellArray[z][y][x].changeValue();
                     }
                 }
@@ -1213,7 +1213,7 @@ function performOperation(neightbours, expected, conditionOperand)	{
 
 function performBetween(neightbours, valueOne, valueTwo)	{
     var result = false;
-    if(neightbours > valueOne && neightbours < valueTwo) result = true;
+    if(neightbours >= valueOne && neightbours <= valueTwo) result = true;
     return result;
 }
 

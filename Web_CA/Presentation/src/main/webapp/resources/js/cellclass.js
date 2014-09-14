@@ -9,6 +9,7 @@ function cell(x,y,z,c)	{
     this.colour = 0;
     this.cube = c;
     this.invis = true;
+    this.triggerChange = false
     this.toggleInvis = function()	{
         if(this.invis == true)	{
             if(this.colour != "")
@@ -21,6 +22,7 @@ function cell(x,y,z,c)	{
     this.changeValue =function()	{
         this.value = this.nextValue;
         this.nextValue = 0;
+        this.triggerChange = false;
         if(this.value == 1)	{
             this.cube.material.color.setHex(0x000000);
             this.colour = "0x000000";
