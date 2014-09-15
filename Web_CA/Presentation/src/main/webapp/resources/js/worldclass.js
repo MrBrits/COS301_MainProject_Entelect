@@ -266,11 +266,8 @@ function world(scene,cameras) {
 
     this.StartAndStop = function () {
         if(this.play == true) {
-            var z2 = 0;
             for (var z = 0; z < tmz; z++) {
-                var y2 = 0;
                 for (var y = 0; y < tmy; y++) {
-                    var x2 = 0;
                     for (var x = 0; x < tmx; x++) {
                         for(var rule = 0; rule < ruleArray.length; rule++)	{
                             var satisfied = false;
@@ -325,11 +322,8 @@ function world(scene,cameras) {
                             }
                         }
                     }
-                    x2+=1;
                 }
-                y2+=1;
             }
-            z2+=1;
             for(var z = 0; z < tmz; z++)	{
                 for(var y = 0; y < tmy; y++)	{
                     for(var x = 0; x < tmx; x++)	{
