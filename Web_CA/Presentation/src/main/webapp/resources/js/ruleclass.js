@@ -10,10 +10,10 @@ function rule()	{
     this.RuleCondOR = null;
 
     //Result of Rule
-    this.resultOperand = "";
-    this.resultOperator = "";
-    this.resultNeighbours = "000000000000000000000000000";
-    this.resultValue = 0;
+    this.resultOperand = null;
+    this.resultOperation = null;
+    this.resultNeighbours = null;
+    this.resultValue = null;
 }
 
 function condition()	{

@@ -306,7 +306,19 @@ function world(scene,cameras) {
                                 }
                             }
                             if(satisfied)	{
-                                cellArray[z][y][x].nextValue = ruleArray[rule].resultValue;
+                                if(typeof ruleArray[rule].resultValue != undefined && ruleArray[rule].resultValue != null) {
+                                    cellArray[z][y][x].nextValue = ruleArray[rule].resultValue;
+                                } else if(typeof ruleArray[rule].resultOperation != undefined && ruleArray[rule].resultOperation != null) {
+                                    if(ruleArray[rule].resultOperation == "SUM")	{
+                                        cellArray[z][y][x].nextValue = sumNeighboursAtPositions(x,y,z,ruleArray[rule].resultNeighbours);
+                                    }
+                                    else if(c.resultOperation == "MIN")	{
+                                        cellArray[z][y][x].nextValue = getSmallestNeighbour(x,y,z,ruleArray[rule].resultNeighbours);
+                                    }
+                                    else if(c.resultOperation == "MAX")	{
+                                        cellArray[z][y][x].nextValue = getBiggestNeighbour(x,y,z,ruleArray[rule].resultNeighbours);
+                                    }
+                                }
                                 cellArray[z][y][x].triggerChange = true;
                                 satisfied = false;
                                 break;
