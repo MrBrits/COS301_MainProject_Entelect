@@ -51,9 +51,9 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
         .success(function (data) {
             ruleArray.push(new rule());
             for(var i=0;i<data.length;i++)
-            ruleArray[0].name = data[i].ruleName;
-            ruleArray[0].ruleDesc = data[i].ruleDesc;
-            ruleArray[0].priority = data[i].priority;
+            ruleArray[i].name = data[i].ruleName;
+            ruleArray[i].ruleDesc = data[i].ruleDesc;
+            ruleArray[i].priority = data[i].priority;
         }).error(function () {
             alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
         });*/
@@ -399,7 +399,8 @@ function changeState() {
     projector.unprojectVector(vector, camera);
 
     var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
-    var tempcolor = document.getElementById("colorValue").value;
+    if( document.getElementById("colorValue")!=null)
+        tempcolor= document.getElementById("colorValue").value;
 
     //Finds all elements that are in the position of the cursor
     var intersects = raycaster.intersectObjects(scene.children, true);
