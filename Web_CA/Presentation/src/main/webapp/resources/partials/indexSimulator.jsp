@@ -12,7 +12,7 @@
 
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav pull-right row">
+            <ul class="nav navbar-nav pull-left row">
                 <li><h4><span class="label inline label-success">Create new State</span></h4></li>
                 <li><input class="form-control" id="colorValue" value="0"  type="text"></li>
                 <li>  </li>
@@ -77,7 +77,7 @@
     <div class="col-xs-9" style="position:absolute;left:20px; top:150px;width:250px">
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane fade " id="simulatorRule" ng-controller="RuleSimulator">
+                <div class="tab-pane fade "style="overflow-y:auto;height: 350px"  id="simulatorRule" ng-controller="RuleSimulator">
 
                     <table class="table">
                         <tr ng-repeat="rule in rules | filter:search">
@@ -90,7 +90,7 @@
                     </table>
                 </div>
 
-                <div class="tab-pane fade " id="simulatorWorld" ng-controller="WorldSimulator">
+                <div class="tab-pane fade "style="overflow-y:auto;height: 350px"  id="simulatorWorld" ng-controller="WorldSimulator">
 
                     <table class="table">
                         <tr ng-repeat="world in worlds | filter:search">
@@ -104,7 +104,7 @@
                 </div>
 
 
-                <div class="tab-pane fade " id="simulatorState" ng-controller="StateSimulator">
+                <div class="tab-pane fade " style="overflow-y:auto;height: 350px"  id="simulatorState" ng-controller="StateSimulator">
 
                     <table class="table" >
                         <tr ng-repeat="state in states | filter:search">
@@ -133,10 +133,10 @@
     <div class="col-xs-9" style="position:fixed;left:83%; top:150px;width:250px">
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane fade "id ="worldRule">
+                <div class="tab-pane fade " style="overflow-y:auto;height: 240px" id ="worldRule">
 
                 </div>
-                <div class="tab-pane fade " id="worldState">
+                <div class="tab-pane fade " style="overflow-y:auto;height: 240px"  id="worldState">
 
                 </div>
             </div>

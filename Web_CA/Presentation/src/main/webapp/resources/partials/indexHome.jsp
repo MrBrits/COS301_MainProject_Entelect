@@ -38,7 +38,7 @@
     }
 </style>
 
-<div style="position:fixed;left:0px" id="container"></div>
+<div style="position:fixed;left:0px" id="myContainer"></div>
 <script src="resources/js/you.js"></script>
 <div class="container marketing">
     <div class="row">

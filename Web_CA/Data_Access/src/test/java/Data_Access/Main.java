@@ -9,9 +9,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+import za.co.tera.web_ca.data_access.CoordinateDao;
+import za.co.tera.web_ca.data_access.RuleConditionDao;
 import za.co.tera.web_ca.data_access.WorldDao;
+import za.co.tera.web_ca.data_access.impl.CoordinateDaoImpl;
+import za.co.tera.web_ca.data_access.impl.RuleConditionDaoImpl;
 import za.co.tera.web_ca.data_access.impl.WorldDaoImpl;
 import za.co.tera.web_ca.domain.impl.Coordinate;
+import za.co.tera.web_ca.domain.impl.Rulecondition;
 import za.co.tera.web_ca.domain.impl.World;
 
 import java.io.File;
@@ -22,6 +27,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Condition;
 
 public class Main {
 
@@ -61,11 +67,11 @@ public class Main {
         }
 
 */
-       WorldDao worldDao = new WorldDaoImpl();
+       /*WorldDao worldDao = new WorldDaoImpl();
 
         World world = new World("Earth","Used to test how gravity affects certain states with other states.",3,10,10,10,31);
 
-       System.out.println(worldDao.save(world).getWorldId() );
+       System.out.println(worldDao.save(world).getWorldId() );*/
        /* WorldDao worldDao = new WorldDaoImpl();
         World world=worldDao.save(new World("name", "desc",3,5,5,5,31 ));
 
@@ -115,7 +121,9 @@ public class Main {
         WorldRulesDao worldRulesDao = new WorldRulesDaoImpl();
         worldRulesDao.save(worldrules);
         */
-
+        RuleConditionDao coordinateDao = new RuleConditionDaoImpl();
+        Rulecondition coordinate =coordinateDao.findById(2);
+        System.out.println(coordinate.getNeighboursId());
 
     }
 }

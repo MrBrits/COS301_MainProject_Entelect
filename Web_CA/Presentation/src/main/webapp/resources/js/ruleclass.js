@@ -1,6 +1,8 @@
 //Rule Class used to contain all of the information about a rule
+
 function rule()	{
     //Rule Metadata
+
     this.ruleName = "";
     this.ruleDesc = "";
     this.enabled = false;
@@ -17,7 +19,7 @@ function rule()	{
 }
 
 function condition()	{
-    //Rule Condition
+
     this.isNot = false;
     this.conditionOperation = "";
     this.conditionNeighbours = "000000000000000000000000000";

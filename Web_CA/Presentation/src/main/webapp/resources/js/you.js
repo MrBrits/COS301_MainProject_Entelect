@@ -1,10 +1,10 @@
-var camera, scene, renderer;
+var cameraTut, sceneTut, rendererTut;
 var player;
-renderer = new THREE.CSS3DRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
-renderer.domElement.style.position = 'absolute';
-renderer.domElement.style.top = 0;
-document.getElementById( 'container' ).appendChild( renderer.domElement );
+rendererTut = new THREE.CSS3DRenderer();
+rendererTut.setSize( window.innerWidth, window.innerHeight );
+rendererTut.domElement.style.position = 'absolute';
+rendererTut.domElement.style.top = 0;
+document.getElementById( 'myContainer' ).appendChild( rendererTut.domElement );
 var auto = true;
 var number= 0;
 var tempArr= ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"];
@@ -90,7 +90,7 @@ var Element = function ( entry ) {
 
         var prev = object.position.z + 400;
 
-        new TWEEN.Tween( camera.position )
+        new TWEEN.Tween( cameraTut.position )
             .to( { x: object.position.x, y: object.position.y - 25 }, 1500 )
             .easing( TWEEN.Easing.Exponential.Out )
             .start();
@@ -118,10 +118,10 @@ animate();
 function init() {
 
 
-    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 5000 );
-    camera.position.y = - 25;
+    cameraTut = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 5000 );
+    cameraTut.position.y = - 25;
 
-    scene = new THREE.Scene();
+    sceneTut = new THREE.Scene();
 
 
     onData();
@@ -139,7 +139,7 @@ function init() {
 
         }
 
-        new TWEEN.Tween( camera.position )
+        new TWEEN.Tween( cameraTut.position )
             .to( { x: 0, y: - 25 }, 1500 )
             .easing( TWEEN.Easing.Exponential.Out )
             .start();
@@ -159,7 +159,7 @@ function onData(  ) {
 
             setTimeout( function () {
 
-                scene.add( new Element(  ) );
+                sceneTut.add( new Element(  ) );
 
             }, time );
 
@@ -171,9 +171,9 @@ function onData(  ) {
 
 function move( delta ) {
 
-    for ( var i = 0; i < scene.children.length; i ++ ) {
+    for ( var i = 0; i < sceneTut.children.length; i ++ ) {
 
-        var object = scene.children[ i ];
+        var object = sceneTut.children[ i ];
 
         object.position.z += delta;
 
@@ -199,10 +199,10 @@ function onMouseWheel( event ) {
 
 function onWindowResize() {
 
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+    cameraTut.aspect = window.innerWidth / window.innerHeight;
+    cameraTut.updateProjectionMatrix();
 
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    rendererTut.setSize( window.innerWidth, window.innerHeight );
 
 }
 
@@ -218,6 +218,6 @@ function animate() {
 
     }
 
-    renderer.render( scene, camera );
+    rendererTut.render( sceneTut, cameraTut );
 
 }

@@ -1,13 +1,12 @@
 //Variables
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(30, $(window).width() / $(window).height(), 1, 1000);
-var renderer = new THREE.WebGLRenderer();
-var cubes = new Array();
-var controls;
+this.scene = new THREE.Scene();
+this.camera = new THREE.PerspectiveCamera(30, $(window).width() / $(window).height(), 1, 1000);
+this.renderer = new THREE.WebGLRenderer();
+this.controls;
 this.worlds;
-var realSpeed = 0;
-var campos=(15*8*7)/100*4;
-var container="";
+realSpeed = 0;
+
+
 
 //FUNCTIONS FOR THE CONTROLS
 var methods= new function()	{
@@ -60,17 +59,6 @@ var methods= new function()	{
     this.Rotation_Speed = 2;
 }
 
-//Creation of control menu
-/*var gui = new dat.GUI();
- gui.add(methods, 'Rotate');
- gui.add(methods, 'Start_Stop');
- gui.add(methods, 'Change_Layer');
- gui.add(methods, 'Rotation_Speed',0,10).onFinishChange(function()	{
- methods.Change_rotation_speed();
- });
- gui.add(methods, 'Speed',0,10).onFinishChange(function()	{
- methods.Change_speed();
- });*/
 
 //Creation of a light source
 var light = new THREE.AmbientLight(0x505050);
@@ -101,9 +89,9 @@ directionalLight.position.set(-1, -1, 0);
 scene.add(directionalLight);
 
 //Starting position of camera
-camera.position.z = campos;
-camera.position.y = campos;
-camera.position.x = campos;
+camera.position.z = 100;
+camera.position.y = 100;
+camera.position.x = 100;
 
 controls = new THREE.OrbitControls(camera,Math.ceil(10/2),Math.ceil(10/2),Math.ceil(10/2));
 controls.addEventListener('change', render);
@@ -139,9 +127,7 @@ function onWindowResize() {
     renderer.setSize( window.innerWidth, window.innerHeight );
 }
 window.addEventListener( 'resize', onWindowResize, false );
-/*$(document).ready(function()	{
- var container = document.getElementById('canvas').appendChild(renderer.domElement);
- });*/
+
 var bool=true;
 Pace.on("done", function(){
 

@@ -66,6 +66,22 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <form class="navbar-form navbar-left" role="form">
+                    <div class="form-group">
+                        <div style="width:75%; float: left;">
+                            <label class="sr-only" >Enter search terms</label>
+                            <input type="search" class="form-control" id="k" name="k" placeholder="Enter search terms">
+                            <input id="cn" name="cn" type="hidden" value="false" />
+                        </div>
+                        <div style="width: 25%; float: left; padding-left: 10px; box-sizing: border-box;">
+                            <button   type="submit" id="s" class="btn btn-default">
+                                <img style="width: 5px;height: 5" src="resources/img/search.png"/>
+                            </button>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
                 <li><a href="#profile">${userFullName}</a></li>
                 <li><input id ="userId" value="${userId}" type="hidden"></li>
                 <li><input id ="worldId" value="${userId}" type="hidden"></li>
@@ -81,6 +97,7 @@
 -->
 
 <br><br>
+
 <div class = "container">
     <div class = "main" ng-view></div>
 
