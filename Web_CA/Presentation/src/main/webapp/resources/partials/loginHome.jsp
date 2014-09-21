@@ -12,19 +12,19 @@
         <div class="item active">
             <img src="resources/img/carousel3.jpg" alt="...">
             <div class="carousel-caption">
-                <h1>Slide 1</h1>
+                <h1 style="color: #000000">Step 1 -Create and Customize Profile</h1>
             </div>
         </div>
         <div class="item">
-            <img src="resources/img/carousel3.jpg" alt="...">
+            <img src="resources/img/carousel1.jpg" alt="...">
             <div class="carousel-caption">
-                <h1>Slide 2</h1>
+                <h1 style="color: #000000">Step 2 -Learn the fundamentals</h1>
             </div>
         </div>
         <div class="item">
-            <img src="resources/img/carousel3.jpg" alt="...">
+            <img src="resources/img/carousel2.jpg" alt="...">
             <div class="carousel-caption">
-                <h1>Slide 3</h1>
+                <h1  style="color: #000000" >Step 3 -Run simulations</h1>
             </div>
         </div>
 

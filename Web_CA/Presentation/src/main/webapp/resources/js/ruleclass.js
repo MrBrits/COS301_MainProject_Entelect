@@ -25,5 +25,5 @@ function condition()	{
     this.conditionNeighbours = "000000000000000000000000000";
     this.conditionOperand = "";
     this.compareValueOne = 0;
-    this.compareValueTwo = 0;
+    this.compareValueTwo = null;
 }

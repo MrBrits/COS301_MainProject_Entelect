@@ -22,12 +22,13 @@ gggg=true;
 //controller to add the coordinates
 var web_ca = angular.module('coordinate_app', []);
 web_ca.controller("CoordinateManager", function ($scope, $http) {
-
+    val1=0; val2=0;val3=0;val4=0;val5=0;
     var userId = document.getElementById("userId").value;
     var worldId=document.getElementById("worldId").value;
     $http.post("http://" + site + "/getCoordinatesByWorldId/", worldId)
         .success(function (data) {
             this.coordinate = data;
+
         }).error(function () {
             alert("GET COORDINATES: SERVER ERROR");
         });
@@ -51,11 +52,11 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
             });
         gggg=false;
     }
-/*
+
     $http.post("http://" + site + "/getRuleByUserId", userId)
         .success(function (data) {
 
-
+            this.ruleArray=new Array();
 
 
             for (var i = 0; i < data.length; i++) {
@@ -67,22 +68,18 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
                     var con1 = parseInt(data[i].ruleConId);
 
                     $http.post("http://" + site + "/getRuleConById", con1)
-                        .success(function (data1) {
-
-                            add2(data1,i-1);
-                        }).error(function () {
-                            alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
+                        .then(function (data1) {
+                           // alert(JSON.stringify(data1));
+                             add2(data,data1,i-1);
                         });
                 }
                if (data[i].ruleConAndid != null) {
 
                     var con1 = parseInt(data[i].ruleConAndid);
                     $http.post("http://" + site + "/getRuleConById", con1)
-                        .success(function (data1) {
-                            add3(data1,i-1);
+                        .then(function (data1) {
+                            add3(data,data1,i-1);
 
-                        }).error(function () {
-                            alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
                         });
                 }
 
@@ -90,196 +87,142 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
 
                     var con1 = parseInt(data[i].ruleConAndid);
                     $http.post("http://" + site + "/getRuleConById", con1)
-                        .success(function (data1) {
-                            add4(data1,i-1);
+                        .then(function (data1) {
+                            add4(data,data1,i-1);
 
-                        }).error(function () {
-                            alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
                         });
                 }
-                if (data[i].ruleConOrid != null) {
+
+               /* if (data[i].ruleConOrid != null) {
 
                     var con1 = parseInt(data[i].ruleConAndid);
-                    $http.post("http://" + site + "/getRuleConById", con1)
-                        .success(function (data1) {
-                            add5(data1,i-1);
 
-                        }).error(function () {
-                            alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
-                        });
-                }
+                }*/
+                var ruleResid = parseInt(data[i].ruleResId);
+                $http.post("http://" + site + "/getRuleResById", ruleResid)
+                    .then(function (data1) {
+
+                       add5(data,data1,i-1);
+
+                    });
+
+
             }
 
         }).error(function () {
             alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
-        });*/
+        });
 
 
 
 });
-/*
+var val1=0;var val2=0;var val3=0;var val4=0;var val5=0;
 function add1(data,i)
 {
+    //alert("1");
 
     this.ruleArray.push(new rule());
-    this.ruleArray[i].name = data.ruleName;
-    this.ruleArray[i].ruleDesc = data.ruleDesc;
-    this.ruleArray[i].priority = data.priority;
-    this.ruleArray[i].enabled = true;
+    this.ruleArray[val1].ruleName = data.ruleName;
+    this.ruleArray[val1].ruleDesc = data.ruleDesc;
+    this.ruleArray[val1].enabled = true;
+    val1++;
+    //alert("t"+JSON.stringify(ruleArray[0]));
+}
+function add2(data,data1,i)
+{
+   // alert("2");
+    data1=data1.data;
+
+    for(var i2=0;i2<ruleArray.length;i2++)
+    {
+        if(data[i2].ruleConId==data1.ruleConditionId)
+        {
+             this.ruleArray[i2].ruleCond = new condition();
+             this.ruleArray[i2].ruleCond.isNot = data1.not;
+             this.ruleArray[i2].ruleCond.conditionOperation = data1.operation;
+             this.ruleArray[i2].ruleCond.conditionNeighbours = "000000000000010000000000000";
+             this.ruleArray[i2].ruleCond.conditionOperand = data1.operand;
+             this.ruleArray[i2].ruleCond.compareValueOne = data1.compareValueOne;
+             if(data1.compareValueTwo!=0)
+             this.ruleArray[i2].ruleCond.compareValueTwo=data1.compareValueTwo;
+
+        }
+    }
+
+
 
 }
-function add2(data1,i)
+function add3(data,data1,i)
 {
 
-    this.ruleArray[i].ruleCond = new condition();
-    this.ruleArray[i].ruleCond.isNot = data1.isNot;
-    this.ruleArray[i].ruleCond.conditionOperation = data1.operation;
-    this.ruleArray[i].ruleCond.conditionNeighbours = "000000000000010000000000000";
-    this.ruleArray[i].ruleCond.conditionOperand = data1.conditionOperand;
-    this.ruleArray[i].ruleCond.compareValueOne = data1.compareValueOne;
-    this.ruleArray[i].ruleCond.compareValueTwo = data1.compareValueTwo;
+    data1=data1.data;
+
+    for(var i2=0;i2<ruleArray.length;i2++)
+    {
+        if(data[i2].ruleConAndid==data1.ruleConditionId)
+        {
+
+            this.ruleArray[i2].RuleCondAND = new condition();
+            this.ruleArray[i2].RuleCondAND.isNot = data1.not;
+            this.ruleArray[i2].RuleCondAND.conditionOperation = data1.operation;
+            this.ruleArray[i2].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
+            this.ruleArray[i2].RuleCondAND.conditionOperand = data1.operand;
+            this.ruleArray[i2].RuleCondAND.compareValueOne = data1.compareValueOne;
+            if(data1.compareValueTwo!=0)
+                this.ruleArray[i2].RuleCondAND.compareValueTwo=data1.compareValueTwo;
+
+        }
+    }
+  //
 }
-function add3(data1,i)
+function add4(data,data1,i)
 {
+    data1=data1.data;
 
-    this.ruleArray[i].RuleCondAND = new condition();
-    this.ruleArray[i].RuleCondAND.isNot = data1.isNot;
-    this.ruleArray[i].RuleCondAND.conditionOperation = data1.operation;
-    this.ruleArray[i].RuleCondAND.conditionNeighbours = "000000000000010000000000000";
-    this.ruleArray[i].RuleCondAND.conditionOperand = data1.conditionOperand;
-    this.ruleArray[i].RuleCondAND.compareValueOne = data1.compareValueOne;
-    if(data1.compareValueTwo==0)
-        this.ruleArray[i].RuleCondOR.compareValueTwo = data1.compareValueTwo;
-    else
-        this.ruleArray[i].RuleCondOR.compareValueTwo = null;
+    for(var i2=0;i2<ruleArray.length;i2++)
+    {
+        if(data[i2].ruleConOrid==data1.ruleConditionId)
+        {
+
+            this.ruleArray[i2].RuleCondOR = new condition();
+            this.ruleArray[i2].RuleCondOR.isNot = data1.not;
+            this.ruleArray[i2].RuleCondOR.conditionOperation = data1.operation;
+            this.ruleArray[i2].RuleCondOR.conditionNeighbours = "111111111111101111111111111";
+            this.ruleArray[i2].RuleCondOR.conditionOperand = data1.operand;
+            this.ruleArray[i2].RuleCondOR.compareValueOne = data1.compareValueOne;
+            if(data1.compareValueTwo!=0)
+                this.ruleArray[i2].RuleCondOR.compareValueTwo=data1.compareValueTwo;
+
+        }
+    }
+
 }
-function add4(data1,i)
+function add5(data,data1,i)
 {
+    data1=data1.data;
+   // alert(JSON.stringify(data1));
+    for(var i2=0;i2<ruleArray.length;i2++)
+    {
+        if(data[i2].ruleResId==data1.ruleResultId)
+        {
+            ruleArray[i2].resultOperand ="";
+            ruleArray[i2].resultOperator = "";
+            ruleArray[i2].resultValue = data1.resultValue;
 
-    this.ruleArray[i].RuleCondOR = new condition();
-    this.ruleArray[i].RuleCondOR.isNot = data1.isNot;
-    this.ruleArray[i].RuleCondOR.conditionOperation = data1.operation;
-    this.ruleArray[i].RuleCondOR.conditionNeighbours = "000000000000010000000000000";
-    this.ruleArray[i].RuleCondOR.conditionOperand = data1.conditionOperand;
-    this.ruleArray[i].RuleCondOR.compareValueOne = data1.compareValueOne;
-    if(data1.compareValueTwo==0)
-        this.ruleArray[i].RuleCondOR.compareValueTwo = data1.compareValueTwo;
-    else
-        this.ruleArray[i].RuleCondOR.compareValueTwo = null;
-}
-function add5(data1,i)
-{
+        }
+    }
 
-    this.ruleArray[i].resultOperand = new condition();
-    this.ruleArray[i].resultOperation = data1.isNot;
 
-    ruleArray[i].resultOperand = "";
+    /*ruleArray[i].resultOperand = "";
     ruleArray[i].resultOperator = "";
-    ruleArray[i].resultValue = 0;
-}*/
+    ruleArray[i].resultValue = 0;*/
+  //  alert(JSON.stringify(ruleArray[0].resultValue+" "+ruleArray[0].resultValue+" "+ruleArray[0].resultOperator));
+
+}
 //function to add world
 function world(scene1,cameras) {
+    this.Y="";this.X="";this.Z="";
 
-    ruleArray = new Array();
-    ruleArray.push(new rule());
-    ruleArray[0].name = "GameOfLifeRule1";
-    ruleArray[0].ruleDesc = "Under Population";
-    ruleArray[0].enabled = true;
-
-    ruleArray[0].ruleCond = new condition();
-    ruleArray[0].ruleCond.isNot = false;
-    ruleArray[0].ruleCond.conditionOperation = "SUM";
-    ruleArray[0].ruleCond.conditionNeighbours = "000000000000010000000000000";
-    ruleArray[0].ruleCond.conditionOperand = "==";
-    ruleArray[0].ruleCond.compareValueOne = 1;
-    ruleArray[0].ruleCond.compareValueTwo = null;
-
-    ruleArray[0].RuleCondAND = new condition();
-    ruleArray[0].RuleCondAND.isNot = false;
-    ruleArray[0].RuleCondAND.conditionOperation = "SUM";
-    ruleArray[0].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
-    ruleArray[0].RuleCondAND.conditionOperand = "<";
-    ruleArray[0].RuleCondAND.compareValueOne = 2;
-    ruleArray[0].RuleCondAND.compareValueTwo = null;
-
-    ruleArray[0].resultOperand = "";
-    ruleArray[0].resultOperator = "";
-    ruleArray[0].resultValue = 0;
-
-    ruleArray.push(new rule());
-    ruleArray[1].name = "GameOfLifeRule2";
-    ruleArray[1].ruleDesc = "Next Generation";
-    ruleArray[1].enabled = true;
-
-    ruleArray[1].ruleCond = new condition();
-    ruleArray[1].ruleCond.isNot = false;
-    ruleArray[1].ruleCond.conditionOperation = "SUM";
-    ruleArray[1].ruleCond.conditionNeighbours = "000000000000010000000000000";
-    ruleArray[1].ruleCond.conditionOperand = "==";
-    ruleArray[1].ruleCond.compareValueOne = 1;
-
-    ruleArray[1].RuleCondAND = new condition();
-    ruleArray[1].RuleCondAND.isNot = false;
-    ruleArray[1].RuleCondAND.conditionOperation = "SUM";
-    ruleArray[1].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
-    ruleArray[1].RuleCondAND.conditionOperand = "BETWEEN";
-    ruleArray[1].RuleCondAND.compareValueOne = 2;
-    ruleArray[1].RuleCondAND.compareValueTwo = 3;
-
-    ruleArray[1].resultOperand = "";
-    ruleArray[1].resultOperator = "";
-    ruleArray[1].resultValue = 1;
-
-    ruleArray.push(new rule());
-    ruleArray[2].name = "GameOfLifeRule3";
-    ruleArray[2].ruleDesc = "Over Crowding";
-    ruleArray[2].enabled = true;
-
-    ruleArray[2].ruleCond = new condition();
-    ruleArray[2].ruleCond.isNot = false;
-    ruleArray[2].ruleCond.conditionOperation = "SUM";
-    ruleArray[2].ruleCond.conditionNeighbours = "000000000000010000000000000";
-    ruleArray[2].ruleCond.conditionOperand = "==";
-    ruleArray[2].ruleCond.compareValueOne = 1;
-    ruleArray[2].ruleCond.compareValueTwo = null;
-
-    ruleArray[2].RuleCondAND = new condition();
-    ruleArray[2].RuleCondAND.isNot = false;
-    ruleArray[2].RuleCondAND.conditionOperation = "SUM";
-    ruleArray[2].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
-    ruleArray[2].RuleCondAND.conditionOperand = ">";
-    ruleArray[2].RuleCondAND.compareValueOne = 3;
-    ruleArray[2].RuleCondAND.compareValueTwo = null;
-
-    ruleArray[2].resultOperand = "";
-    ruleArray[2].resultOperator = "";
-    ruleArray[2].resultValue = 0;
-
-    ruleArray.push(new rule());
-    ruleArray[3
-        ].name = "GameOfLifeRule4";
-    ruleArray[3].ruleDesc = "Reproduction";
-    ruleArray[3].enabled = true;
-
-    ruleArray[3].ruleCond = new condition();
-    ruleArray[3].ruleCond.isNot = false;
-    ruleArray[3].ruleCond.conditionOperation = "SUM";
-    ruleArray[3].ruleCond.conditionNeighbours = "000000000000010000000000000";
-    ruleArray[3].ruleCond.conditionOperand = "==";
-    ruleArray[3].ruleCond.compareValueOne = 0;
-    ruleArray[3].ruleCond.compareValueTwo = null;
-
-    ruleArray[3].RuleCondAND = new condition();
-    ruleArray[3].RuleCondAND.isNot = false;
-    ruleArray[3].RuleCondAND.conditionOperation = "SUM";
-    ruleArray[3].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
-    ruleArray[3].RuleCondAND.conditionOperand = "==";
-    ruleArray[3].RuleCondAND.compareValueOne = 3;
-    ruleArray[3].RuleCondAND.compareValueTwo = null;
-
-    ruleArray[3].resultOperand = "";
-    ruleArray[3].resultOperator = "";
-    ruleArray[3].resultValue = 1;
     worldRules();
     //variables for the layer system
     xbar = new Array();
@@ -316,6 +259,10 @@ function world(scene1,cameras) {
         zSize++;
         xSize++;
         ySize++;
+        this.Y=ySize;
+        this.X=xSize;
+        this.Z=zSize;
+
         tmx = xSize;
         tmz = zSize;
         this.tmx = xSize;
@@ -1368,7 +1315,7 @@ function worldRules()
     var s='<table class="table">';
     for(var i=0;i<ruleArray.length;i++){
         s+="<tr><td><button  class='btn btn-default btn-lg' ></button>";
-        s+= "<label>"+ ruleArray[i].name+"</label></td></tr>";
+        s+= "<label>"+ ruleArray[i].ruleName+"</label></td></tr>";
 
     }
     s+="</tr></table>";

@@ -70,7 +70,7 @@
                     <div class="form-group">
                         <div style="width:75%; float: left;">
                             <label class="sr-only" >Enter search terms</label>
-                            <input type="search" class="form-control" id="k" name="k" placeholder="Enter search terms">
+                            <input type="search" class="form-control" id="k" name="k" placeholder="Search Worlds">
                             <input id="cn" name="cn" type="hidden" value="false" />
                         </div>
                         <div style="width: 25%; float: left; padding-left: 10px; box-sizing: border-box;">

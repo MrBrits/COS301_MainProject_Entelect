@@ -11,6 +11,7 @@
         <class>za.co.tera.web_ca.domain.impl.Ruleresult</class>
         <class>za.co.tera.web_ca.domain.impl.Worldrules</class>
         <class>za.co.tera.web_ca.domain.impl.Ruleneighbours</class>
+        <class>za.co.tera.web_ca.domain.impl.RuleEntity</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/web_ca"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
