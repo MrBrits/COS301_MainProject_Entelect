@@ -2,6 +2,7 @@ var User ="";
 var site = "localhost:8080";
 var web_ca = angular.module('rule_app', []);
 this.Ruleidtobedeleted=0;
+
 web_ca.controller("RuleSimulator", function($scope, $http) {
     var userId=document.getElementById("userId").value;
         $http.post("http://" + site + "/getRuleByUserId", userId)
@@ -27,7 +28,8 @@ web_ca.controller("RuleManager", function($scope, $http) {
             });
     }
 
-    $scope.addRule = function(rule, con, res, conNeigh, resNeigh) {
+    $scope.addRule = function(rule, con, conAndOr, res, conNeigh, conAndOrNeigh, resNeigh) {
+
         //Add RuleConditionNeighbour
         $http.post("http://" + site + "/AddRuleConNeigh", conNeigh)
             .success(function(data) {
@@ -41,7 +43,48 @@ web_ca.controller("RuleManager", function($scope, $http) {
                     alert("Rule Condition Neighbours could not be found");
                 }
                 else {
-                    //Add RuleCondition
+                    //Add RuleConditions
+                    if (conAndOr != undefined)
+                    {
+                        $http.post("http://" + site + "/AddRuleConAndOrNeigh", conAndOrNeigh)
+                            .success(function(data) {
+                                conAndOr.neighboursId = data;
+                                if (conAndOr.compareValueTwo == null) {
+                                    conAndOr.compareValueTwo = -9999;
+                                }
+                                if (data == 0) {
+                                    //This alert should never happen
+                                    //If it does, then it doesn't find the right object or creates it.
+                                    alert("Rule ConditionAndOr Neighbours could not be found");
+                                }
+                                else {
+                                    var key = "AndOr";
+                                    var ANDOR = conAndOr[key];
+                                    delete conAndOr[key];
+
+                                    $http.post("http://" + site + "/AddRuleConAndOr", conAndOr)
+                                        .success(function (data) {
+                                            if (ANDOR == "AND")
+                                            {
+                                                rule.ruleConAndId = data;
+                                            }
+                                            else if (ANDOR == "OR")
+                                            {
+                                                rule.ruleConOrId = data;
+                                            }
+                                            if (data == 0) {
+                                                //This alert should never happen
+                                                //If it does, then it doesn't find the right object or creates it.
+                                                alert("Rule ConditionAndOr could not be found");
+                                            }
+                                        }).error(function () {
+                                            alert("RULE CONDITION AND/OR: SERVER ERROR");
+                                        });
+                                }
+                            }).error(function () {
+                                alert("RULE CONDITION AND/OR NEIGHBOUR: SERVER ERROR");
+                            });
+                    }
                     $http.post("http://" + site + "/AddRuleCon", con)
                         .success(function (data) {
                             rule.ruleConId = data;
@@ -58,41 +101,67 @@ web_ca.controller("RuleManager", function($scope, $http) {
                             }
                             else {
                                 //Add RuleResultNeighbour
-                                $http.post("http://" + site + "/AddRuleResNeigh", resNeigh, false)
-                                    .success(function (data) {
-                                        res.neighboursId = parseInt(data);
-                                        if (data == 0) {
-                                            //This alert should never happen
-                                            //If it does, then it doesn't find the right object or creates it.
-                                            alert("Rule Result Neighbours could not be found");
-                                        }
-                                        else {
-                                            //Add RuleResult
-                                            $http.post("http://" + site + "/AddRuleRes", res, false)
-                                                .success(function (data) {
-                                                    rule.ruleResId = data;
-                                                    if (data == 0) {
-                                                        //This alert should never happen
-                                                        //If it does, then it doesn't find the right object or creates it.
-                                                        alert("Rule Result could not be found");
-                                                    }
-                                                    else {
-                                                        //Add Rule
-                                                        rule.ownerId = userId;
-                                                        $http.post("http://" + site + "/AddRule", rule, false)
-                                                            .success(function (data) {
-                                                                alert(data);
-                                                            }).error(function () {
-                                                                alert("RULE: SERVER ERROR");
-                                                            });
-                                                    }
-                                                }).error(function () {
-                                                    alert("RULE RESULT: SERVER ERROR");
-                                                });
-                                        }
-                                    }).error(function () {
-                                        alert("RULE RESULT NEIGHBOUR: SERVER ERROR");
-                                    });
+                                if (resNeigh != undefined) {
+                                    $http.post("http://" + site + "/AddRuleResNeigh", resNeigh, false)
+                                        .success(function (data) {
+                                            res.neighboursId = parseInt(data);
+                                            if (data == 0) {
+                                                //This alert should never happen
+                                                //If it does, then it doesn't find the right object or creates it.
+                                                alert("Rule Result Neighbours could not be found");
+                                            }
+                                            else {
+                                                //Add RuleResult
+                                                $http.post("http://" + site + "/AddRuleRes", res, false)
+                                                    .success(function (data) {
+                                                        rule.ruleResId = data;
+                                                        if (data == 0) {
+                                                            //This alert should never happen
+                                                            //If it does, then it doesn't find the right object or creates it.
+                                                            alert("Rule Result could not be found");
+                                                        }
+                                                        else {
+                                                            //Add Rule
+                                                            rule.ownerId = userId;
+                                                            $http.post("http://" + site + "/AddRule", rule, false)
+                                                                .success(function (data) {
+                                                                    alert(data);
+                                                                }).error(function () {
+                                                                    alert("RULE: SERVER ERROR");
+                                                                });
+                                                        }
+                                                    }).error(function () {
+                                                        alert("RULE RESULT: SERVER ERROR");
+                                                    });
+                                            }
+                                        }).error(function () {
+                                            alert("RULE RESULT NEIGHBOUR: SERVER ERROR");
+                                        });
+                                }
+                                else{
+                                    //Add RuleResult
+                                    $http.post("http://" + site + "/AddRuleRes", res, false)
+                                        .success(function (data) {
+                                            rule.ruleResId = data;
+                                            if (data == 0) {
+                                                //This alert should never happen
+                                                //If it does, then it doesn't find the right object or creates it.
+                                                alert("Rule Result could not be found");
+                                            }
+                                            else {
+                                                //Add Rule
+                                                rule.ownerId = userId;
+                                                $http.post("http://" + site + "/AddRule", rule, false)
+                                                    .success(function (data) {
+                                                        alert(data);
+                                                    }).error(function () {
+                                                        alert("RULE: SERVER ERROR");
+                                                    });
+                                            }
+                                        }).error(function () {
+                                            alert("RULE RESULT: SERVER ERROR");
+                                        });
+                                }
                             }
                         }).error(function () {
                             alert("RULE CONDITION: SERVER ERROR");

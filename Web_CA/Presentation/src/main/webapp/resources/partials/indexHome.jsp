@@ -79,7 +79,7 @@
                 <div id="rule" class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
-                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModal">Add new Rule</button>
+                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule</button>
 
                         <table class="table">
                             <tr ng-repeat="rule in rules | filter:search">
@@ -87,7 +87,7 @@
                                     <button type="button" class="btn btn-default btn-lg" ></button>
                                     <label>{{rule.ruleName}}</label>
                                     <button type="button" onclick="deleteRule(id)" id=r{{rule.ruleId}};{{rule.ruleName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#deleteRuleModal"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
-                                    <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target="#editRuleModal" ng-click="getEditRule(rule.ruleId)" id={{rule.ruleId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target="#editRuleModalTabs" ng-click="getEditRule(rule.ruleId)" id={{rule.ruleId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
                                     <br>
                                     <p>{{rule.ruleDesc}}</p>
                                 </td>
@@ -258,7 +258,6 @@
                         <label class="col-xs-2 control-label">Dimension</label>
                         <div class="col-xs-4">
                             <select class="form-control" ng-model="newWorld.worldDimension">
-                                <option value="1">1D</option>
                                 <option value="2">2D</option>
                                 <option value="3">3D</option>
                             </select>
@@ -340,155 +339,218 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="modal fade" id="addRuleModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="RuleManager">
+<div class="modal fade" id="addRuleModalTabs" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="RuleManager">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
-                <h4 class="modal-title" id="purchaseLabel3">Add Rule</h4>
+                <h4 class="modal-title">Add Rule</h4>
             </div>
             <div class = "container">
-                <br/>
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label class="col-xs-2 control-label">Name</label>
-                        <div class="col-xs-4">
-                            <input type="text" class="form-control" ng-model="newRule.ruleName" placeholder="Name">
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-xs-2 control-label">Description</label>
-                        <div class="col-xs-4">
-                            <textarea class="form-control" ng-model="newRule.ruleDesc" placeholder="Description"></textarea>
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
 
-                    <table>
-                        <td>
-                            <tr>
+                <div class="col-xs-6">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-target="#detailsAdd" data-toggle="tab">Details</a></li>
+                        <li><a data-target="#conditionAdd" data-toggle="tab">Condition</a></li>
+                        <li><a data-target="#conditionAndOrAdd" data-toggle="tab">AND/OR Condition</a></li>
+                        <li><a data-target="#resultAdd" data-toggle="tab">Result</a></li>
+                    </ul>
+                </div></br></br></br>
+
+                <form class="form-horizontal">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="detailsAdd">
                                 <div class="form-group">
-                                    <label>Condition of Rule</label>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" >Is Not</label>
-                                        <div class="col-xs-4">
-                                            <select class="form-control" ng-model="newRuleCon.isNot">
-                                                <option value="true">TRUE</option>
-                                                <option value="false">FALSE</option>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Operation</label>
-                                        <div class="col-xs-4">
-                                            <select class="form-control" ng-model="newRuleCon.operation">
-                                                <option value="SUM">SUM</option>
-                                                <option value="AVG">AVG</option>
-                                                <option value="MIN">MIN</option>
-                                                <option value="MAX">MAX</option>
-                                                <option value="COUNT">COUNT</option>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Condition Neighbours</label>
-                                        <div class="col-xs-4">
-                                            <select class="form-control" ng-model="newRuleConNeigh.neighbours">
-                                                <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Operand</label>
-                                        <div class="col-xs-4">
-                                            <select class="form-control" ng-model="newRuleCon.operand">
-                                                <option value="<"> < </option>
-                                                <option value=">"> > </option>
-                                                <option value=">="> >= </option>
-                                                <option value="<="> <= </option>
-                                                <option value="=="> == </option>
-                                                <option value="BETWEEN1"> BETWEEN (excludes) </option>
-                                                <option value="BETWEEN2"> BETWEEN (includes) </option>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Compare Value One</label>
-                                        <div class="col-xs-4">
-                                            <input type="number" step="0.1" class="form-control"  ng-model="newRuleCon.compareValueOne" placeholder="Choose State Value">
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Compare Value Two</label>
-                                        <div class="col-xs-4">
-                                            <input type="number" step="0.1" class="form-control"  ng-model="newRuleCon.compareValueTwo" placeholder="Choose State Value">
-                                            <span class="help-block"></span>
-                                        </div>
+                                    <label class="col-xs-2 control-label">Name</label>
+                                    <div class="col-xs-4">
+                                        <input type="text" class="form-control" ng-model="newRule.ruleName" placeholder="Name">
+                                        <span class="help-block"></span>
                                     </div>
                                 </div>
-                            </tr>
-                        </td>
-                    </table>
-
-                    <div class="form-group">
-                        <label>Result of Rule</label>
-                        <div class="form-group">
-                            <label class="col-xs-2 control-label">Operator</label>
-                            <div class="col-xs-4">
-                                <select class="form-control" ng-model="newRuleRes.operation">
-                                    <option value="SUM">SUM</option>
-                                    <option value="AVG">AVG</option>
-                                    <option value="MIN">MIN</option>
-                                    <option value="MAX">MAX</option>
-                                </select>
-                                <span class="help-block"></span>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Description</label>
+                                    <div class="col-xs-4">
+                                        <textarea class="form-control" ng-model="newRule.ruleDesc" placeholder="Description"></textarea>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="tab-pane fade" id="conditionAdd">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label" >Is Not</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleCon.isNot">
+                                            <option value="true">TRUE</option>
+                                            <option value="false">FALSE</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Operation</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleCon.operation">
+                                            <option value="SUM">SUM</option>
+                                            <option value="AVG">AVG</option>
+                                            <option value="MIN">MIN</option>
+                                            <option value="MAX">MAX</option>
+                                            <option value="COUNT">COUNT</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Condition Neighbours</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleConNeigh.neighbours">
+                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Operand</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleCon.operand">
+                                            <option value="<"> < </option>
+                                            <option value=">"> > </option>
+                                            <option value=">="> >= </option>
+                                            <option value="<="> <= </option>
+                                            <option value="=="> == </option>
+                                            <option value="BETWEEN1"> BETWEEN (excludes) </option>
+                                            <option value="BETWEEN2"> BETWEEN (includes) </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Compare Value One</label>
+                                    <div class="col-xs-4">
+                                        <input type="number" step="0.1" class="form-control"  ng-model="newRuleCon.compareValueOne" placeholder="Choose State Value">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Compare Value Two</label>
+                                    <div class="col-xs-4">
+                                        <input type="number" step="0.1" class="form-control"  ng-model="newRuleCon.compareValueTwo" placeholder="Choose State Value">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-xs-2 control-label">Result Neighbours</label>
-                            <div class="col-xs-4">
-                                <select class="form-control" ng-model="newRuleResNeigh.neighbours">
-                                    <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
-                                </select>
-                                <span class="help-block"></span>
+                        <div class="tab-pane fade" id="conditionAndOrAdd">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label" >AND/OR</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleConAndOr.AndOr">
+                                            <option value="AND">AND</option>
+                                            <option value="OR">OR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label" >Is Not</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleConAndOr.isNot">
+                                            <option value="true">TRUE</option>
+                                            <option value="false">FALSE</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Operation</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleConAndOr.operation">
+                                            <option value="SUM">SUM</option>
+                                            <option value="AVG">AVG</option>
+                                            <option value="MIN">MIN</option>
+                                            <option value="MAX">MAX</option>
+                                            <option value="COUNT">COUNT</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Condition Neighbours</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleConNeighAndOr.neighbours">
+                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Operand</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleConAndOr.operand">
+                                            <option value="<"> < </option>
+                                            <option value=">"> > </option>
+                                            <option value=">="> >= </option>
+                                            <option value="<="> <= </option>
+                                            <option value="=="> == </option>
+                                            <option value="BETWEEN1"> BETWEEN (excludes) </option>
+                                            <option value="BETWEEN2"> BETWEEN (includes) </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Compare Value One</label>
+                                    <div class="col-xs-4">
+                                        <input type="number" step="0.1" class="form-control"  ng-model="newRuleConAndOr.compareValueOne" placeholder="Choose State Value">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Compare Value Two</label>
+                                    <div class="col-xs-4">
+                                        <input type="number" step="0.1" class="form-control"  ng-model="newRuleConAndOr.compareValueTwo" placeholder="Choose State Value">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <label align="center">OR</label>
-                        <div class="form-group">
-                            <label class="col-xs-2 control-label">Result Value</label>
-                            <div class="col-xs-4">
-                                <input type="number" step="0.1" class="form-control"  ng-model="newRuleRes.resultValue" placeholder="Choose State">
-                                <span class="help-block"></span>
+                        <div class="tab-pane fade" id="resultAdd">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Operator</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleRes.operation">
+                                            <option value="SUM">SUM</option>
+                                            <option value="AVG">AVG</option>
+                                            <option value="MIN">MIN</option>
+                                            <option value="MAX">MAX</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Result Neighbours</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" ng-model="newRuleResNeigh.neighbours">
+                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <label align="center">OR</label>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Result Value</label>
+                                    <div class="col-xs-4">
+                                        <input type="number" step="0.1" class="form-control"  ng-model="newRuleRes.resultValue" placeholder="Choose State">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addRule(newRule, newRuleCon, newRuleRes, newRuleConNeigh, newRuleResNeigh)">Add</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addRule(newRule, newRuleCon, newRuleConAndOr, newRuleRes, newRuleConNeigh, newRuleConNeighAndOr, newRuleResNeigh)">Add</button>
                         </div>
                     </div>
                 </form>
@@ -497,135 +559,142 @@
     </div>
 </div>
 
-<div class="modal fade" id="editRuleModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="RuleManager">
+<div class="modal fade" id="editRuleModalTabs" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="RuleManager">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header modal-success">
                 <h4 class="modal-title">Edit Rule</h4>
             </div>
             <div class = "container">
-                <br/>
-                <form class="form-horizontal">
-                    <input id="editRuleIdHidden" ng-model="oldRule.ruleId" type="hidden"/>
-                    <div class="form-group">
-                        <label class="col-xs-2 control-label">Name</label>
-                        <div class="col-xs-4">
-                            <input type="text" class="form-control" id="editRuleName" ng-model="oldRule.ruleName">
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-xs-2 control-label">Description</label>
-                        <div class="col-xs-4">
-                            <textarea class="form-control" id="editRuleDesc" ng-model="oldRule.ruleDesc"></textarea>
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
 
-                    <table>
-                        <td>
-                            <tr>
+                <div class="col-xs-6">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-target="#detailsEdit" data-toggle="tab">Details</a></li>
+                        <li><a data-target="#conditionEdit" data-toggle="tab">Condition</a></li>
+                        <li><a data-target="#conditionEditOrAdd" data-toggle="tab">AND/OR Condition</a></li>
+                        <li><a data-target="#resultEdit" data-toggle="tab">Result</a></li>
+                    </ul>
+                </div></br></br></br>
+
+                <form class="form-horizontal">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="detailsEdit">
+                            <input id="editRuleIdHidden" ng-model="oldRule.ruleId" type="hidden"/>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label">Name</label>
+                                <div class="col-xs-4">
+                                    <input type="text" class="form-control" id="editRuleName" ng-model="oldRule.ruleName" placeholder="Name">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label">Description</label>
+                                <div class="col-xs-4">
+                                    <textarea class="form-control" id="editRuleDesc" ng-model="oldRule.ruleDesc" placeholder="Description"></textarea>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="conditionsEdit">
+                            <div class="form-group">
+                                <input id="editRuleConIdHidden" ng-model="oldRule.ruleConId" type="hidden"/>
                                 <div class="form-group">
-                                    <label>Condition of Rule</label>
-                                    <input id="editRuleConIdHidden" ng-model="oldRule.ruleConId" type="hidden"/>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label" >Is Not</label>
-                                        <div class="col-xs-4">
-                                            <select class="form-control" id="editRuleConIsNot" ng-model="oldRuleCon.isNot">
-                                                <option value="true">TRUE</option>
-                                                <option value="false">FALSE</option>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Operation</label>
-                                        <div class="col-xs-4">
-                                            <select class="form-control" id="editRuleConOperation" ng-model="oldRuleCon.operation">
-                                                <option value="SUM">SUM</option>
-                                                <option value="AVG">AVG</option>
-                                                <option value="MIN">MIN</option>
-                                                <option value="MAX">MAX</option>
-                                                <option value="COUNT">COUNT</option>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Condition Neighbours</label>
-                                        <div class="col-xs-4">
-                                            <input id="editRuleConNeighIdHidden" ng-model="oldRule.ruleConNeighId" type="hidden"/>
-                                            <select class="form-control" id="editRuleConNeigh" ng-model="oldRuleConNeigh.neighbours">
-                                                <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Operand</label>
-                                        <div class="col-xs-4">
-                                            <select class="form-control" id="editRuleConOperand" ng-model="oldRuleCon.operand">
-                                                <option value="<"> < </option>
-                                                <option value=">"> > </option>
-                                                <option value=">="> >= </option>
-                                                <option value="<="> <= </option>
-                                                <option value="=="> == </option>
-                                                <option value="BETWEEN1"> BETWEEN (excludes) </option>
-                                                <option value="BETWEEN2"> BETWEEN (includes) </option>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Compare Value One</label>
-                                        <div class="col-xs-4">
-                                            <input type="number" step="0.1" class="form-control" id="editRuleConCompareValueOne"  ng-model="oldRuleCon.compareValueOne">
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-xs-2 control-label">Compare Value Two</label>
-                                        <div class="col-xs-4">
-                                            <input type="number" step="0.1" class="form-control" id="editRuleConCompareValueTwo"  ng-model="oldRuleCon.compareValueTwo">
-                                            <span class="help-block"></span>
-                                        </div>
+                                    <label class="col-xs-2 control-label" >Is Not</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="editRuleConIsNot" ng-model="oldRuleCon.isNot">
+                                            <option value="true">TRUE</option>
+                                            <option value="false">FALSE</option>
+                                        </select>
+                                        <span class="help-block"></span>
                                     </div>
                                 </div>
-                            </tr>
-                        </td>
-                    </table>
-
-                    <div class="form-group">
-                        <label>Result of Rule</label>
-                        <div class="form-group">
-                            <input id="editRuleResIdHidden" ng-model="oldRule.ruleResId" type="hidden"/>
-                            <label class="col-xs-2 control-label">Operator</label>
-                            <div class="col-xs-4">
-                                <select class="form-control" id="editRuleResOperation" ng-model="oldRuleRes.operation">
-                                    <option value="SUM">SUM</option>
-                                    <option value="AVG">AVG</option>
-                                    <option value="MIN">MIN</option>
-                                    <option value="MAX">MAX</option>
-                                </select>
-                                <span class="help-block"></span>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Operation</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="editRuleConOperation" ng-model="oldRuleCon.operation">
+                                            <option value="SUM">SUM</option>
+                                            <option value="AVG">AVG</option>
+                                            <option value="MIN">MIN</option>
+                                            <option value="MAX">MAX</option>
+                                            <option value="COUNT">COUNT</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input id="editRuleConNeighIdHidden" ng-model="oldRule.ruleConNeighId" type="hidden"/>
+                                    <label class="col-xs-2 control-label">Condition Neighbours</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="editRuleConNeigh" ng-model="oldRuleConNeigh.neighbours">
+                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Operand</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="editRuleConOperand" ng-model="oldRuleCon.operand">
+                                            <option value="<"> < </option>
+                                            <option value=">"> > </option>
+                                            <option value=">="> >= </option>
+                                            <option value="<="> <= </option>
+                                            <option value="=="> == </option>
+                                            <option value="BETWEEN1"> BETWEEN (excludes) </option>
+                                            <option value="BETWEEN2"> BETWEEN (includes) </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Compare Value One</label>
+                                    <div class="col-xs-4">
+                                        <input type="number" step="0.1" class="form-control" id="editRuleConCompareValueOne"  ng-model="oldRuleCon.compareValueOne" placeholder="Choose State Value">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Compare Value Two</label>
+                                    <div class="col-xs-4">
+                                        <input type="number" step="0.1" class="form-control" id="editRuleConCompareValueTwo"  ng-model="oldRuleCon.compareValueTwo" placeholder="Choose State Value">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-xs-2 control-label">Result Neighbours</label>
-                            <div class="col-xs-4">
-                                <input id="editRuleResNeighIdHidden" ng-model="oldRule.ruleResNeighId" type="hidden"/>
-                                <select class="form-control" id="editRuleResNeigh" ng-model="oldRuleResNeigh.neighbours">
-                                    <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
-                                </select>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <label align="center">OR</label>
-                        <div class="form-group">
-                            <label class="col-xs-2 control-label">Result Value</label>
-                            <div class="col-xs-4">
-                                <input type="number" step="0.1" class="form-control" id="editRuleResValue" ng-model="oldRuleRes.resultValue">
-                                <span class="help-block"></span>
+                        <div class="tab-pane fade" id="resultEdit">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <input id="editRuleResIdHidden" ng-model="oldRule.ruleResId" type="hidden"/>
+                                    <label class="col-xs-2 control-label">Operator</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="editRuleResOperation" ng-model="oldRuleRes.operation">
+                                            <option value="SUM">SUM</option>
+                                            <option value="AVG">AVG</option>
+                                            <option value="MIN">MIN</option>
+                                            <option value="MAX">MAX</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input id="editRuleResNeighIdHidden" ng-model="oldRule.ruleConNeighId" type="hidden"/>
+                                    <label class="col-xs-2 control-label">Result Neighbours</label>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="editRuleResNeigh" ng-model="oldRuleResNeigh.neighbours">
+                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <label align="center">OR</label>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Result Value</label>
+                                    <div class="col-xs-4">
+                                        <input type="number" step="0.1" class="form-control" id="editRuleResValue" ng-model="oldRuleRes.resultValue" placeholder="Choose State">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

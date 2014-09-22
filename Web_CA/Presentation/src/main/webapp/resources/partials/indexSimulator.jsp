@@ -72,7 +72,7 @@
                 <ul class="nav nav-stacked tabs-left vertical-text " role="tablist">
                     <li ><a data-target="#simulatorWorld" data-toggle="tab">World</a></li>
                     <li><a data-target="#simulatorState" data-toggle="tab">States</a></li>
-                    <li><a href data-target="#simulatorRule" data-toggle="tab">Rule</a></li>
+                    <li><a data-target="#simulatorRule" data-toggle="tab">Rule</a></li>
                 </ul>
             </ul>
     </div>

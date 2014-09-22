@@ -90,6 +90,41 @@ public class RuleController {
         return ruleService.createRuleCon(newRuleCon);
     }
 
+    @RequestMapping(value = "/AddRuleConAndOrNeigh", method = RequestMethod.POST)
+    public @ResponseBody
+    int createRuleConAndOrNeigh(@RequestBody Ruleneighbours ruleConAndOrNeigh) {
+        return ruleService.createRuleNeigh(ruleConAndOrNeigh);
+    }
+
+    @RequestMapping(value = "/AddRuleConAndOr", method = RequestMethod.POST)
+    public @ResponseBody
+    int createRuleConAndOr(@RequestBody JSONObject ruleConAndOr) {
+        boolean isNot = false;
+        Double compareValueTwo = null;
+        if (ruleConAndOr.get("isNot").toString().equals("true"))
+        {
+            isNot = true;
+        }
+        else if (ruleConAndOr.get("isNot").toString().equals("false"))
+        {
+            isNot = false;
+        }
+
+        if (ruleConAndOr.get("compareValueTwo").equals(-9999))
+        {
+            compareValueTwo = null;
+        }
+        else
+        {
+            compareValueTwo = Double.parseDouble(ruleConAndOr.get("compareValueTwo").toString());
+        }
+        Rulecondition newRuleConAndOr = new Rulecondition(isNot, ruleConAndOr.get("operation").toString(),Integer.parseInt(ruleConAndOr.get("neighboursId").toString()),ruleConAndOr.get("operand").toString(),Double.parseDouble(ruleConAndOr.get("compareValueOne").toString()), compareValueTwo);
+
+
+        return ruleService.createRuleCon(newRuleConAndOr);
+    }
+
+
     /**
      *
      * @param ruleResNeigh
