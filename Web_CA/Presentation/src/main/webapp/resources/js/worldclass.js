@@ -18,17 +18,31 @@ this.arryColour;
 this.scene;
 this.counter = 0;
 this.cond1Val;
+var site="localhost:8080";
 gggg = true;
 //controller to add the coordinates
 var web_ca = angular.module('coordinate_app', []);
+
 web_ca.controller("CoordinateManager", function ($scope, $http) {
     val1 = 0;
     val2 = 0;
     val3 = 0;
     val4 = 0;
     val5 = 0;
+
     var userId = document.getElementById("userId").value;
     var worldId = document.getElementById("worldId").value;
+    $scope.SaveCoordinates = function() {
+
+
+        $http.post("http://" + site + "/UserSet",userReg)
+         .success(function(data) {
+
+         }).error(function () {
+         alert("USER REGISTER: SERVER ERROR");
+         });
+    };
+
     $http.post("http://" + site + "/getCoordinatesByWorldId/", 22)
         .success(function (data) {
             this.coordinate = data;
@@ -176,6 +190,28 @@ function add3(data, data1, i) {
     }
     //
 }
+function addCoordinates()
+{
+
+    for (var z = 0; z < coordinate.length; z++) {
+        var nowz = coordinate[z].coordinateZ;
+        var nowx = coordinate[z].coordinateX;
+        var nowy = coordinate[z].coordinateY;
+        cellArray[nowz][nowy][nowx].cube.material.opacity=1;
+        if(coordinate[z].value!=0)
+        {
+            cellArray[nowz][nowy][nowx].cube.material.color.setHex(colorsUsed[coordinate[z].value]);
+            cellArray[nowz][nowy][nowx].colour = colorsUsed[coordinate[z].value];
+            cellArray[nowz][nowy][nowx].cube.material.opacity=1;
+        }
+        else
+        {
+            cellArray[nowz][nowy][nowx].cube.material.color.setHex(0xffffff);
+            cellArray[nowz][nowy][nowx].colour = "";
+            cellArray[nowz][nowy][nowx].cube.material.opacity = 0.03;
+        }
+    }
+}
 function add4(data, data1, i) {
     data1 = data1.data;
 
@@ -279,9 +315,32 @@ function world(scene1, cameras) {
             var nowz = coordinate[z].coordinateZ;
             var nowx = coordinate[z].coordinateX;
             var nowy = coordinate[z].coordinateY;
+
             var cubes = new THREE.Mesh(geometry, material.clone());
             cellArray[nowz][nowy][nowx] = new cell(nowx, nowy, nowz, cubes);
             cellArray[nowz][nowy][nowx].cube.position = new THREE.Vector3(nowx * 1.509, nowy * 1.509, nowz * 1.509);
+            cellArray[nowz][nowy][nowx].value=coordinate[z].stateValue;
+           // alert(JSON.stringify(coordinate[z]));
+            if(coordinate[z].value!=0)
+            {
+                if (colorsUsed[coordinate[z].value] == null){
+
+                    colorsUsed[coordinate[z].value] = arryColour[counter];
+                    colorsUsedName[counter] = coordinate[z].value;
+
+                    counter++;
+
+                }
+                cellArray[nowz][nowy][nowx].cube.material.color.setHex(colorsUsed[coordinate[z].value]);
+                cellArray[nowz][nowy][nowx].colour = colorsUsed[coordinate[z].value];
+                cellArray[nowz][nowy][nowx].cube.material.opacity=1;
+            }
+            else
+            {
+                cellArray[nowz][nowy][nowx].cube.material.color.setHex(0xffffff);
+                cellArray[nowz][nowy][nowx].colour = "";
+                cellArray[nowz][nowy][nowx].cube.material.opacity = 0.03;
+            }
             group.add(cellArray[nowz][nowy][nowx].cube);
         }
 

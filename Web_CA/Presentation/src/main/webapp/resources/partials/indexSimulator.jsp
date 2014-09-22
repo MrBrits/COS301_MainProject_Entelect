@@ -16,7 +16,7 @@
                 <li><h4><span class="label inline label-success">Create new State</span></h4></li>
                 <li><input class="form-control" id="colorValue" value="0"  type="text"></li>
                 <li>  </li>
-                <li><button type="button" class="btn btn-default ">Save World</button></li>
+                <li><button type="button" ng-click="SaveCoordinates()" class="btn btn-default ">Save World</button></li>
 
             </ul>
         </div>
@@ -55,7 +55,7 @@
                 <label class="range inline"><input id="speed" type="range"  class ="help-inline" value=0 min=0 max=10 step=1 /></label>
                 <button onclick="methods.Rotate()" class="btn btn-default"><img src= "resources/img/rotate.png"style="width:15px;height:15px"/> </button>
                 <label class="range inline"><input  id="Rotation_Speed" type="range" value=1 min=1 max=2/></label>
-                <button class="btn btn-default"><img src= "resources/img/startpos.png"style="width:15px;height:15px"/> </button>
+                <button onclick="addCoordinates()" class="btn btn-default"><img src= "resources/img/startpos.png"style="width:15px;height:15px"/> </button>
             </div>
         </div>
     </div>

@@ -17,12 +17,13 @@
     <!-- Custom styles for this template -->
     <script src="resources/js/lib/jquery-1.11.1.min.js"></script>
     <script src="resources/js/lib/bootstrap.min.js"></script>
-
+    <script src="resources/js/config.js"></script>
     <script src="resources/js/lib/angular.min.js"></script>
     <script src="resources/js/lib/angular-route.min.js"></script>
     <script src="resources/js/lib/angular-resource.min.js"></script>
     <script src="resources/js/loginRouter.js"></script>
     <script src="resources/js/userscript.js"></script>
+
 </head>
 
 <body>

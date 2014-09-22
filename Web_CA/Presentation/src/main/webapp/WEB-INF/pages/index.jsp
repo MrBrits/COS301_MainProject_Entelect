@@ -22,7 +22,7 @@
     <script src="resources/js/indexRouter.js"></script>
     <script src="resources/js/lib/angular-route.min.js"></script>
     <script src="resources/js/lib/angular-resource.min.js"></script>
-
+    <script src="resources/js/config.js"></script>
     <script src="resources/js/statescript.js"></script>
     <script src="resources/js/userscript.js"></script>
     <script src="resources/js/worldscript.js"></script>
