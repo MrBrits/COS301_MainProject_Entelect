@@ -179,10 +179,20 @@ public class RuleController {
         return ruleService.findRuleRes(ruleResId);
     }
 
-    @RequestMapping(value = "/getRuleNeighById", method = RequestMethod.POST)
+    @RequestMapping(value = "/getRuleConNeighById", method = RequestMethod.POST)
+     public @ResponseBody
+     Ruleneighbours getRuleConNeighById( @RequestBody Integer ruleConNeighId) {
+        return ruleService.findRuleNeigh(ruleConNeighId);
+    }
+
+    @RequestMapping(value = "/getRuleResNeighById", method = RequestMethod.POST)
     public @ResponseBody
-    Ruleneighbours getRuleNeighById( @RequestBody int ruleNeighId) {
-        return ruleService.findRuleNeigh(ruleNeighId);
+    Ruleneighbours getRuleResNeighById( @RequestBody Integer ruleResNeighId) {
+        if (ruleResNeighId == -9999)
+        {
+            return null;
+        }
+        return ruleService.findRuleNeigh(ruleResNeighId);
     }
 }
 

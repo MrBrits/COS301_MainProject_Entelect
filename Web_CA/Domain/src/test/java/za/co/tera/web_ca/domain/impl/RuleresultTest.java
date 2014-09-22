@@ -14,7 +14,7 @@ public class RuleresultTest extends TestCase {
         ruleresultTest.setResultValue(123.0);
 
         Integer one = new Integer(1);
-        //ruleresultTest.setNeighboursId(one);
+        ruleresultTest.setNeighboursId(one);
     }
 
     @Test

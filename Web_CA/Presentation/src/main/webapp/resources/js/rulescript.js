@@ -60,7 +60,7 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                 //Add RuleResultNeighbour
                                 $http.post("http://" + site + "/AddRuleResNeigh", resNeigh, false)
                                     .success(function (data) {
-                                        res.neighboursId = data;
+                                        res.neighboursId = parseInt(data);
                                         if (data == 0) {
                                             //This alert should never happen
                                             //If it does, then it doesn't find the right object or creates it.
@@ -79,7 +79,6 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                                     else {
                                                         //Add Rule
                                                         rule.ownerId = userId;
-                                                        alert(JSON.stringify(rule));
                                                         $http.post("http://" + site + "/AddRule", rule, false)
                                                             .success(function (data) {
                                                                 alert(data);
@@ -114,11 +113,10 @@ web_ca.controller("RuleManager", function($scope, $http) {
                 conAndId = rule.ruleConAndId;
                 conOrId = rule.ruleConOrId;
                 resId = rule.ruleResId;
-                $http.post("http://" + site + "/getRuleConById",conId)
+                $http.post("http://" + site + "/getRuleConById",conId,false)
                     .success(function (con) {
                         conNeighId = con.neighboursId;
-
-                        $http.post("http://" + site + "/getRuleNeighById",conNeighId)
+                        $http.post("http://" + site + "/getRuleConNeighById",conNeighId,false)
                             .success(function(conNeigh){
                                 document.getElementById("editRuleConNeighIdHidden").value = conNeigh.ruleNeighboursId;
                                 document.getElementById("editRuleConNeigh").value = conNeigh.neighbours;
@@ -131,84 +129,94 @@ web_ca.controller("RuleManager", function($scope, $http) {
                         document.getElementById("editRuleConOperation").value = con.operation;
                         document.getElementById("editRuleConOperand").value = con.operand;
                         document.getElementById("editRuleConCompareValueOne").value = con.compareValueOne;
-                        document.getElementById("editRuleConCompareValueTwo").value = con.compareValueTwo;
+                        if (con.compareValueTwo != null) {
+                            document.getElementById("editRuleConCompareValueTwo").value = con.compareValueTwo;
+                        }
 
                     }).error(function (){
                         alert("GET EDIT RULE CONDITION: SERVER ERROR");
                     });
-
-
                 if (conAndId != null)
                 {
-                    $http.post("http://" + site + "/getRuleConById",conAndId)
+                    $http.post("http://" + site + "/getRuleConById",conAndId,false)
                         .success(function (con) {
                             conNeighId = con.neighboursId;
 
-                            $http.post("http://" + site + "/getRuleNeighById",conNeighId)
+                            $http.post("http://" + site + "/getRuleConNeighById",conNeighId,false)
                                 .success(function(conNeigh){
                                     document.getElementById("editRuleConNeighIdHidden").value = conNeigh.ruleNeighboursId;
                                     document.getElementById("editRuleConNeigh").value = conNeigh.neighbours;
 
                                 }).error(function(){
-                                    alert("GET EDIT RULE CONDITION AND NEIGHBOURS: SERVER ERROR");
+                                    alert("GET EDIT RULE CONDITION-AND NEIGHBOURS: SERVER ERROR");
                                 });
                             document.getElementById("editRuleConIdHidden").value = con.ruleConditionId;
                             document.getElementById("editRuleConIsNot").value = con.isNot;
                             document.getElementById("editRuleConOperation").value = con.operation;
                             document.getElementById("editRuleConOperand").value = con.operand;
                             document.getElementById("editRuleConCompareValueOne").value = con.compareValueOne;
-                            document.getElementById("editRuleConCompareValueTwo").value = con.compareValueTwo;
+                            if (con.compareValueTwo != null) {
+                                document.getElementById("editRuleConCompareValueTwo").value = con.compareValueTwo;
+                            }
 
                         }).error(function (){
-                            alert("GET EDIT RULE CONDITION AND: SERVER ERROR");
+                            alert("GET EDIT RULE CONDITION-AND: SERVER ERROR");
                         });
                 }
 
                 if (conOrId != null)
                 {
-                    $http.post("http://" + site + "/getRuleConById",conOrId)
+                    $http.post("http://" + site + "/getRuleConById",conOrId,false)
                         .success(function (con) {
                             conNeighId = con.neighboursId;
 
-                            $http.post("http://" + site + "/getRuleNeighById",conNeighId)
+                            $http.post("http://" + site + "/getRuleConNeighById",conNeighId,false)
                                 .success(function(conNeigh){
                                     document.getElementById("editRuleConNeighIdHidden").value = conNeigh.ruleNeighboursId;
                                     document.getElementById("editRuleConNeigh").value = conNeigh.neighbours;
 
                                 }).error(function(){
-                                    alert("GET EDIT RULE CONDITION OR NEIGHBOURS: SERVER ERROR");
+                                    alert("GET EDIT RULE CONDITION-OR NEIGHBOURS: SERVER ERROR");
                                 });
                             document.getElementById("editRuleConIdHidden").value = con.ruleConditionId;
                             document.getElementById("editRuleConIsNot").value = con.isNot;
                             document.getElementById("editRuleConOperation").value = con.operation;
                             document.getElementById("editRuleConOperand").value = con.operand;
                             document.getElementById("editRuleConCompareValueOne").value = con.compareValueOne;
-                            document.getElementById("editRuleConCompareValueTwo").value = con.compareValueTwo;
+                            if (con.compareValueTwo != null) {
+                                document.getElementById("editRuleConCompareValueTwo").value = con.compareValueTwo;
+                            }
 
                         }).error(function (){
-                            alert("GET EDIT RULE CONDITION OR: SERVER ERROR");
+                            alert("GET EDIT RULE CONDITION-OR: SERVER ERROR");
                         });
                 }
 
-                $http.post("http://" + site + "/getRuleResById",resId)
+                $http.post("http://" + site + "/getRuleResById",resId,false)
                     .success(function(res){
                         resNeighId = res.neighboursId;
+                        if (resNeighId == null)
+                        {
+                            resNeighId = -9999;
+                        }
+                        document.getElementById("editRuleResIdHidden").value = res.ruleConditionId;
+                        if (JSON.stringify(res.operation) != null) {
+                            document.getElementById("editRuleResOperation").value = res.operation;
+                        }
+                        if (JSON.stringify(res.resultValue) != null) {
+                            document.getElementById("editRuleResValue").value = res.resultValue;
+                        }
 
-                        alert("OP " + JSON.stringify(res.operation));
-                        alert("VAL " + JSON.stringify(res.resultValue));
-
-                        $http.post("http://" + site + "/getRuleNeighById",resNeighId)
-                            .success(function(resNeigh){
-                                document.getElementById("editRuleResNeighIdHidden").value = resNeigh.ruleNeighboursId;
-                                document.getElementById("editRuleResNeigh").value = resNeigh.neighbours;
+                        $http.post("http://" + site + "/getRuleResNeighById",resNeighId,false)
+                            .success(function(resNeigh) {
+                                if (resNeigh != null) {
+                                    document.getElementById("editRuleResNeighIdHidden").value = resNeigh.ruleNeighboursId;
+                                    document.getElementById("editRuleResNeigh").value = resNeigh.neighbours;
+                                }
 
                             }).error(function(){
-                                alert("GET EDIT RULE CONDITION OR NEIGHBOURS: SERVER ERROR");
+                                alert("GET EDIT RULE RESULT NEIGHBOURS: SERVER ERROR");
                             });
-                        document.getElementById("editRuleRedIdHidden").value = res.ruleConditionId;
-                        document.getElementById("editRuleResOperation").value = res.operation;
-                        document.getElementById("editRuleResValue").value = res.resultValue;
-
                     }).error(function(){
                         alert("GET EDIT RULE RESULT: SERVER ERROR");
                     });
@@ -221,11 +229,6 @@ web_ca.controller("RuleManager", function($scope, $http) {
             });
 
     };
-
-    /*
-    $scope.editRule = function(){
-
-    };*/
 
     $scope.deleteRuleFinalize = function() {
         var ruleId=document.getElementById("ruleIdhidden").value;

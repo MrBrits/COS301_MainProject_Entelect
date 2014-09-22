@@ -16,7 +16,6 @@ public class RuleConditionDaoImpl extends AbstractDaoImpl<Rulecondition> impleme
     @Override
     public int getRuleConditionId(Rulecondition ruleCon)
     {
-        System.out.println("DAO");
         int Id = 0;
         Session session= getSession();
         Query query = null;

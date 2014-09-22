@@ -32,7 +32,7 @@
     <script type="text/javascript" src="resources/js/lib/three.min.js"></script>
 
     <script src="resources/js/CSS3DRenderer.js"></script>
-    <script src="resources/js/tween.min.js"></script>
+    <script src="resources/js/lib/tween.min.js"></script>
 
 
 </head>

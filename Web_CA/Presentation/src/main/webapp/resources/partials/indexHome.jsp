@@ -39,7 +39,7 @@
 </style>
 
 <div style="position:fixed;left:0px" id="myContainer"></div>
-<script src="resources/js/you.js"></script>
+<script src="resources/js/videoScene.js"></script>
 <div class="container marketing">
     <div class="row">
         <div class="panel-group navbar-left col-md-4" id="accordion">
@@ -340,6 +340,24 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="modal fade" id="addRuleModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="RuleManager">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -445,7 +463,6 @@
                                     <option value="AVG">AVG</option>
                                     <option value="MIN">MIN</option>
                                     <option value="MAX">MAX</option>
-                                    <option value="COUNT">COUNT</option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>
@@ -589,7 +606,6 @@
                                     <option value="AVG">AVG</option>
                                     <option value="MIN">MIN</option>
                                     <option value="MAX">MAX</option>
-                                    <option value="COUNT">COUNT</option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>

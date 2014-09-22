@@ -62,7 +62,6 @@ public class RuleServiceImpl implements RuleService {
     @Override
     public int createRuleRes(Ruleresult newRuleRes)
     {
-
         int Id = ruleResultDao.getRuleResultId(newRuleRes);
 
         if (Id == 0) {
