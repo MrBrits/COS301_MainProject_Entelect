@@ -1,5 +1,5 @@
 this.cellArray;
-this.ruleArray=new Array();
+this.ruleArray = new Array();
 this.projector;
 this.camera;
 this.tmx = 0;
@@ -11,28 +11,32 @@ this.zbar;
 this.midpoint;
 this.colorsUsed = new Array();
 this.colorsUsedName = new Array();
-this.colourCounter=0;
+this.colourCounter = 0;
 this.coordinate;
-this.states="";
+this.states = "";
 this.arryColour;
 this.scene;
-this.counter=0;
+this.counter = 0;
 this.cond1Val;
-gggg=true;
+gggg = true;
 //controller to add the coordinates
 var web_ca = angular.module('coordinate_app', []);
 web_ca.controller("CoordinateManager", function ($scope, $http) {
-    val1=0; val2=0;val3=0;val4=0;val5=0;
+    val1 = 0;
+    val2 = 0;
+    val3 = 0;
+    val4 = 0;
+    val5 = 0;
     var userId = document.getElementById("userId").value;
-    var worldId=document.getElementById("worldId").value;
-    $http.post("http://" + site + "/getCoordinatesByWorldId/", worldId)
+    var worldId = document.getElementById("worldId").value;
+    $http.post("http://" + site + "/getCoordinatesByWorldId/", 22)
         .success(function (data) {
             this.coordinate = data;
-
+            0
         }).error(function () {
             alert("GET COORDINATES: SERVER ERROR");
         });
-    if(gggg) {
+    if (gggg) {
         $http.post("http://" + site + "/getStateByUserId/", userId)
             .success(function (data) {
                 //this.coordinate = data;
@@ -46,21 +50,23 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
                     colorsUsedName[counter] = data[i].stateValue;
                     counter++;
                 }
-
+                colorsUsed[0] = arryColour[counter];
+                colorsUsedName[counter] = "0";
+                counter++;
             }).error(function () {
                 alert("GET States: SERVER ERROR");
             });
-        gggg=false;
+        gggg = false;
     }
 
     $http.post("http://" + site + "/getRuleByUserId", userId)
         .success(function (data) {
 
-            this.ruleArray=new Array();
+            this.ruleArray = new Array();
 
 
             for (var i = 0; i < data.length; i++) {
-                add1(data[i],i);
+                add1(data[i], i);
 
 
                 if (data[i].ruleConId != null) {
@@ -69,16 +75,16 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
 
                     $http.post("http://" + site + "/getRuleConById", con1)
                         .then(function (data1) {
-                           // alert(JSON.stringify(data1));
-                             add2(data,data1,i-1);
+                            // alert(JSON.stringify(data1));
+                            add2(data, data1, i - 1);
                         });
                 }
-               if (data[i].ruleConAndid != null) {
+                if (data[i].ruleConAndid != null) {
 
                     var con1 = parseInt(data[i].ruleConAndid);
                     $http.post("http://" + site + "/getRuleConById", con1)
                         .then(function (data1) {
-                            add3(data,data1,i-1);
+                            add3(data, data1, i - 1);
 
                         });
                 }
@@ -88,21 +94,21 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
                     var con1 = parseInt(data[i].ruleConAndid);
                     $http.post("http://" + site + "/getRuleConById", con1)
                         .then(function (data1) {
-                            add4(data,data1,i-1);
+                            add4(data, data1, i - 1);
 
                         });
                 }
 
-               /* if (data[i].ruleConOrid != null) {
+                /* if (data[i].ruleConOrid != null) {
 
-                    var con1 = parseInt(data[i].ruleConAndid);
+                 var con1 = parseInt(data[i].ruleConAndid);
 
-                }*/
+                 }*/
                 var ruleResid = parseInt(data[i].ruleResId);
                 $http.post("http://" + site + "/getRuleResById", ruleResid)
                     .then(function (data1) {
 
-                       add5(data,data1,i-1);
+                        add5(data, data1, i - 1);
 
                     });
 
@@ -114,11 +120,13 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
         });
 
 
-
 });
-var val1=0;var val2=0;var val3=0;var val4=0;var val5=0;
-function add1(data,i)
-{
+var val1 = 0;
+var val2 = 0;
+var val3 = 0;
+var val4 = 0;
+var val5 = 0;
+function add1(data, i) {
     //alert("1");
 
     this.ruleArray.push(new rule());
@@ -128,39 +136,32 @@ function add1(data,i)
     val1++;
     //alert("t"+JSON.stringify(ruleArray[0]));
 }
-function add2(data,data1,i)
-{
-   // alert("2");
-    data1=data1.data;
+function add2(data, data1, i) {
+    // alert("2");
+    data1 = data1.data;
 
-    for(var i2=0;i2<ruleArray.length;i2++)
-    {
-        if(data[i2].ruleConId==data1.ruleConditionId)
-        {
-             this.ruleArray[i2].ruleCond = new condition();
-             this.ruleArray[i2].ruleCond.isNot = data1.not;
-             this.ruleArray[i2].ruleCond.conditionOperation = data1.operation;
-             this.ruleArray[i2].ruleCond.conditionNeighbours = "000000000000010000000000000";
-             this.ruleArray[i2].ruleCond.conditionOperand = data1.operand;
-             this.ruleArray[i2].ruleCond.compareValueOne = data1.compareValueOne;
-             if(data1.compareValueTwo!=0)
-             this.ruleArray[i2].ruleCond.compareValueTwo=data1.compareValueTwo;
+    for (var i2 = 0; i2 < ruleArray.length; i2++) {
+        if (data[i2].ruleConId == data1.ruleConditionId) {
+            this.ruleArray[i2].ruleCond = new condition();
+            this.ruleArray[i2].ruleCond.isNot = data1.not;
+            this.ruleArray[i2].ruleCond.conditionOperation = data1.operation;
+            this.ruleArray[i2].ruleCond.conditionNeighbours = "000000000000010000000000000";
+            this.ruleArray[i2].ruleCond.conditionOperand = data1.operand;
+            this.ruleArray[i2].ruleCond.compareValueOne = data1.compareValueOne;
+            if (data1.compareValueTwo != 0)
+                this.ruleArray[i2].ruleCond.compareValueTwo = data1.compareValueTwo;
 
         }
     }
 
 
-
 }
-function add3(data,data1,i)
-{
+function add3(data, data1, i) {
 
-    data1=data1.data;
+    data1 = data1.data;
 
-    for(var i2=0;i2<ruleArray.length;i2++)
-    {
-        if(data[i2].ruleConAndid==data1.ruleConditionId)
-        {
+    for (var i2 = 0; i2 < ruleArray.length; i2++) {
+        if (data[i2].ruleConAndid == data1.ruleConditionId) {
 
             this.ruleArray[i2].RuleCondAND = new condition();
             this.ruleArray[i2].RuleCondAND.isNot = data1.not;
@@ -168,21 +169,18 @@ function add3(data,data1,i)
             this.ruleArray[i2].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
             this.ruleArray[i2].RuleCondAND.conditionOperand = data1.operand;
             this.ruleArray[i2].RuleCondAND.compareValueOne = data1.compareValueOne;
-            if(data1.compareValueTwo!=0)
-                this.ruleArray[i2].RuleCondAND.compareValueTwo=data1.compareValueTwo;
+            if (data1.compareValueTwo != 0)
+                this.ruleArray[i2].RuleCondAND.compareValueTwo = data1.compareValueTwo;
 
         }
     }
-  //
+    //
 }
-function add4(data,data1,i)
-{
-    data1=data1.data;
+function add4(data, data1, i) {
+    data1 = data1.data;
 
-    for(var i2=0;i2<ruleArray.length;i2++)
-    {
-        if(data[i2].ruleConOrid==data1.ruleConditionId)
-        {
+    for (var i2 = 0; i2 < ruleArray.length; i2++) {
+        if (data[i2].ruleConOrid == data1.ruleConditionId) {
 
             this.ruleArray[i2].RuleCondOR = new condition();
             this.ruleArray[i2].RuleCondOR.isNot = data1.not;
@@ -190,22 +188,19 @@ function add4(data,data1,i)
             this.ruleArray[i2].RuleCondOR.conditionNeighbours = "111111111111101111111111111";
             this.ruleArray[i2].RuleCondOR.conditionOperand = data1.operand;
             this.ruleArray[i2].RuleCondOR.compareValueOne = data1.compareValueOne;
-            if(data1.compareValueTwo!=0)
-                this.ruleArray[i2].RuleCondOR.compareValueTwo=data1.compareValueTwo;
+            if (data1.compareValueTwo != 0)
+                this.ruleArray[i2].RuleCondOR.compareValueTwo = data1.compareValueTwo;
 
         }
     }
 
 }
-function add5(data,data1,i)
-{
-    data1=data1.data;
-   // alert(JSON.stringify(data1));
-    for(var i2=0;i2<ruleArray.length;i2++)
-    {
-        if(data[i2].ruleResId==data1.ruleResultId)
-        {
-            ruleArray[i2].resultOperand ="";
+function add5(data, data1, i) {
+    data1 = data1.data;
+    // alert(JSON.stringify(data1));
+    for (var i2 = 0; i2 < ruleArray.length; i2++) {
+        if (data[i2].ruleResId == data1.ruleResultId) {
+            ruleArray[i2].resultOperand = "";
             ruleArray[i2].resultOperator = "";
             ruleArray[i2].resultValue = data1.resultValue;
 
@@ -214,14 +209,16 @@ function add5(data,data1,i)
 
 
     /*ruleArray[i].resultOperand = "";
-    ruleArray[i].resultOperator = "";
-    ruleArray[i].resultValue = 0;*/
-  //  alert(JSON.stringify(ruleArray[0].resultValue+" "+ruleArray[0].resultValue+" "+ruleArray[0].resultOperator));
+     ruleArray[i].resultOperator = "";
+     ruleArray[i].resultValue = 0;*/
+    //  alert(JSON.stringify(ruleArray[0].resultValue+" "+ruleArray[0].resultValue+" "+ruleArray[0].resultOperator));
 
 }
 //function to add world
-function world(scene1,cameras) {
-    this.Y="";this.X="";this.Z="";
+function world(scene1, cameras) {
+    this.Y = "";
+    this.X = "";
+    this.Z = "";
 
     worldRules();
     //variables for the layer system
@@ -240,7 +237,7 @@ function world(scene1,cameras) {
         specular: 0xffffff,
         shininess: 20,
         transparent: true,
-        opacity: 0.05});
+        opacity: 0.03});
     this.makeGrid = function () {
         var zSize = 0;
         var xSize = 0;
@@ -259,9 +256,9 @@ function world(scene1,cameras) {
         zSize++;
         xSize++;
         ySize++;
-        this.Y=ySize;
-        this.X=xSize;
-        this.Z=zSize;
+        this.Y = ySize;
+        this.X = xSize;
+        this.Z = zSize;
 
         tmx = xSize;
         tmz = zSize;
@@ -277,7 +274,7 @@ function world(scene1,cameras) {
             }
         }
 
-        //adding coordinates
+        //adding coordinates - RESET
         for (var z = 0; z < coordinate.length; z++) {
             var nowz = coordinate[z].coordinateZ;
             var nowx = coordinate[z].coordinateX;
@@ -293,7 +290,7 @@ function world(scene1,cameras) {
             ambient: 0x808080,
             specular: 0xffffff,
             shininess: 20,
-            opacity: 0.4
+            opacity: 0.03
         });
 
         for (var i = 0; i < xSize; i++) {
@@ -332,56 +329,56 @@ function world(scene1,cameras) {
     }
 
     this.StartAndStop = function () {
-        if(this.play == true) {
+        if (this.play == true) {
 
             for (var z = 0; z < tmz; z++) {
                 for (var y = 0; y < tmy; y++) {
                     for (var x = 0; x < tmx; x++) {
-                        for(var rule = 0; rule < ruleArray.length; rule++)	{
+                        for (var rule = 0; rule < ruleArray.length; rule++) {
                             var satisfied = false;
-                            if(ruleArray[rule].enabled)	{
-                                if(typeof ruleArray[rule].ruleCond != undefined && ruleArray[rule].ruleCond != null)	{
-                                    if(checkCondition(ruleArray[rule].ruleCond,x,y,z))	{
+                            if (ruleArray[rule].enabled) {
+                                if (typeof ruleArray[rule].ruleCond != undefined && ruleArray[rule].ruleCond != null) {
+                                    if (checkCondition(ruleArray[rule].ruleCond, x, y, z)) {
                                         satisfied = true;
                                     }
-                                    else if(!checkCondition(ruleArray[rule].ruleCond,x,y,z) && ruleArray[rule].ruleCond.isNot)	{
+                                    else if (!checkCondition(ruleArray[rule].ruleCond, x, y, z) && ruleArray[rule].ruleCond.isNot) {
                                         satisfied = true;
                                     }
                                     else satisfied = false;
                                 }
-                                if(typeof ruleArray[rule].RuleCondAND != undefined && ruleArray[rule].RuleCondAND != null && satisfied)	{
-                                    if(checkCondition(ruleArray[rule].RuleCondAND,x,y,z))	{
+                                if (typeof ruleArray[rule].RuleCondAND != undefined && ruleArray[rule].RuleCondAND != null && satisfied) {
+                                    if (checkCondition(ruleArray[rule].RuleCondAND, x, y, z)) {
                                         satisfied = true
                                     }
-                                    else if(!checkCondition(ruleArray[rule].RuleCondAND,x,y,z) && ruleArray[rule].RuleCondAND.isNot && satisfied)	{
+                                    else if (!checkCondition(ruleArray[rule].RuleCondAND, x, y, z) && ruleArray[rule].RuleCondAND.isNot && satisfied) {
                                         satisfied = true;
                                     }
                                     else satisfied = false;
                                 }
-                                if(typeof ruleArray[rule].RuleCondOR != undefined && ruleArray[rule].RuleCondOR != null)	{
-                                    if(checkCondition(ruleArray[rule].RuleCondOR,x,y,z))	{
+                                if (typeof ruleArray[rule].RuleCondOR != undefined && ruleArray[rule].RuleCondOR != null) {
+                                    if (checkCondition(ruleArray[rule].RuleCondOR, x, y, z)) {
                                         satisfied = true;
                                     }
-                                    else if(!checkCondition(ruleArray[rule].RuleCondOR,x,y,z) && ruleArray[rule].RuleCondOR.isNot)	{
+                                    else if (!checkCondition(ruleArray[rule].RuleCondOR, x, y, z) && ruleArray[rule].RuleCondOR.isNot) {
                                         satisfied = true;
                                     }
-                                    else if(!satisfied)	{
+                                    else if (!satisfied) {
                                         satisfied = false;
                                     }
                                 }
                             }
-                            if(satisfied)	{
-                                if(typeof ruleArray[rule].resultValue != undefined && ruleArray[rule].resultValue != null) {
+                            if (satisfied) {
+                                if (typeof ruleArray[rule].resultValue != undefined && ruleArray[rule].resultValue != null) {
                                     cellArray[z][y][x].nextValue = ruleArray[rule].resultValue;
-                                } else if(typeof ruleArray[rule].resultOperation != undefined && ruleArray[rule].resultOperation != null) {
-                                    if(ruleArray[rule].resultOperation == "SUM")	{
-                                        cellArray[z][y][x].nextValue = sumNeighboursAtPositions(x,y,z,ruleArray[rule].resultNeighbours);
+                                } else if (typeof ruleArray[rule].resultOperation != undefined && ruleArray[rule].resultOperation != null) {
+                                    if (ruleArray[rule].resultOperation == "SUM") {
+                                        cellArray[z][y][x].nextValue = sumNeighboursAtPositions(x, y, z, ruleArray[rule].resultNeighbours);
                                     }
-                                    else if(c.resultOperation == "MIN")	{
-                                        cellArray[z][y][x].nextValue = getSmallestNeighbour(x,y,z,ruleArray[rule].resultNeighbours);
+                                    else if (c.resultOperation == "MIN") {
+                                        cellArray[z][y][x].nextValue = getSmallestNeighbour(x, y, z, ruleArray[rule].resultNeighbours);
                                     }
-                                    else if(c.resultOperation == "MAX")	{
-                                        cellArray[z][y][x].nextValue = getBiggestNeighbour(x,y,z,ruleArray[rule].resultNeighbours);
+                                    else if (c.resultOperation == "MAX") {
+                                        cellArray[z][y][x].nextValue = getBiggestNeighbour(x, y, z, ruleArray[rule].resultNeighbours);
                                     }
                                 }
                                 cellArray[z][y][x].triggerChange = true;
@@ -392,11 +389,21 @@ function world(scene1,cameras) {
                     }
                 }
             }
-            for(var z = 0; z < tmz; z++)	{
-                for(var y = 0; y < tmy; y++)	{
-                    for(var x = 0; x < tmx; x++)	{
-                        if(cellArray[z][y][x].triggerChange)
-                            cellArray[z][y][x].changeValue();
+            for (var z = 0; z < tmz; z++) {
+                for (var y = 0; y < tmy; y++) {
+                    for (var x = 0; x < tmx; x++) {
+                        if (cellArray[z][y][x].triggerChange) {
+
+                            if (colorsUsed[cellArray[z][y][x].nextValue] == null){
+
+                                colorsUsed[cellArray[z][y][x].nextValue] = arryColour[counter];
+                                colorsUsedName[counter] = cellArray[z][y][x].nextValue;
+
+                                counter++;
+
+                            }
+                            cellArray[z][y][x].changeValue(colorsUsed[cellArray[z][y][x].nextValue]);
+                        }
                     }
                 }
             }
@@ -467,8 +474,8 @@ function changeState() {
     projector.unprojectVector(vector, camera);
 
     var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
-    if( document.getElementById("colorValue")!=null)
-        tempcolor= document.getElementById("colorValue").value;
+    if (document.getElementById("colorValue") != null)
+        tempcolor = document.getElementById("colorValue").value;
 
     //Finds all elements that are in the position of the cursor
     var intersects = raycaster.intersectObjects(scene.children, true);
@@ -508,22 +515,20 @@ function changeState() {
             toggleZLayer(tx);
         else {
 
-            if(colorsUsed[tempcolor]!=null)
-            {
+            if (colorsUsed[tempcolor] != null) {
                 this.cellArray[tz][ty][tx].cube.material.color.setHex(colorsUsed[tempcolor]);
 
 
             }
-            else
-            {
+            else {
 
-                colorsUsed[tempcolor]=arryColour[counter];
-                colorsUsedName[counter]=tempcolor;
+                colorsUsed[tempcolor] = arryColour[counter];
+                colorsUsedName[counter] = tempcolor;
 
                 counter++;
 
-            }worldStates();
-
+            }
+            worldStates();
         }
     }
     else {
@@ -573,18 +578,26 @@ function changeState() {
                     break;
                 }
                 else if (this.cellArray[tz][ty][tx].invis == true) {
-                    if(colorsUsed[tempcolor]!=null) {
+                    if (colorsUsed[tempcolor] != null) {
                         this.cellArray[tz][ty][tx].cube.material.color.setHex(colorsUsed[tempcolor]);
                     }
-                    else    {
-                        colorsUsed[tempcolor]=arryColour[counter];
-                        colorsUsedName[counter]=tempcolor;
+                    else {
+                        colorsUsed[tempcolor] = arryColour[counter];
+                        colorsUsedName[counter] = tempcolor;
                         counter++;
                     }
                     worldStates();
                     this.cellArray[tz][ty][tx].cube.material.opacity = 1;
-                    this.cellArray[tz][ty][tx].colour = tempcolor;
-                    this.cellArray[tz][ty][tx].value = parseInt(tempcolor) ;
+
+                    this.cellArray[tz][ty][tx].value = parseInt(tempcolor);
+                    if(this.cellArray[tz][ty][tx].value == 0)    {
+                        this.cellArray[tz][ty][tx].cube.material.opacity = 0.03;
+                        this.cellArray[tz][ty][tx].colour = "";
+                        this.cellArray[tz][ty][tx].invis = true;
+                    }
+                    else {
+                        this.cellArray[tz][ty][tx].colour = tempcolor;
+                    }
 
                     break;
                 }
@@ -607,605 +620,606 @@ function randomFairColor() {
     return r + g + b;
 }
 
-function getSmallestNeighbour(x, y, z, positions, checkValue)	{
+function getSmallestNeighbour(x, y, z, positions, checkValue) {
     var val;
-    if(z - 1 >= 0)	{
-        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1')	{
-            if(typeof val == undefined)	{
+    if (z - 1 >= 0) {
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y - 1][x - 1].value;
             }
-            else if(cellArray[z - 1][y - 1][x - 1].value < val)
+            else if (cellArray[z - 1][y - 1][x - 1].value < val)
                 val = cellArray[z - 1][y - 1][x - 1].value;
         }
-        if(y + 1 <= tmy - 1 && positions.charAt(19) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && positions.charAt(19) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y + 1][x].value;
             }
-            else if(cellArray[z - 1][y + 1][x].value < val)
+            else if (cellArray[z - 1][y + 1][x].value < val)
                 val = cellArray[z - 1][y + 1][x].value;
         }
-        if(y - 1 >= 0  && positions.charAt(1) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && positions.charAt(1) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y - 1][x].value;
             }
-            else if(cellArray[z - 1][y - 1][x].value < val)
+            else if (cellArray[z - 1][y - 1][x].value < val)
                 val = cellArray[z - 1][y - 1][x].value;
         }
-        if(x + 1 <= tmx - 1 && positions.charAt(11) == '1')	{
-            if(typeof val == undefined)	{
+        if (x + 1 <= tmx - 1 && positions.charAt(11) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y][x + 1].value;
             }
-            else if(cellArray[z - 1][y][x + 1].value < val)
+            else if (cellArray[z - 1][y][x + 1].value < val)
                 val = cellArray[z - 1][y][x + 1].value;
         }
-        if(x - 1 >= 0 && positions.charAt(9) == '1')	{
-            if(typeof val == undefined)	{
+        if (x - 1 >= 0 && positions.charAt(9) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y][x - 1].value;
             }
-            else if(cellArray[z - 1][y][x - 1].value < val)
+            else if (cellArray[z - 1][y][x - 1].value < val)
                 val = cellArray[z - 1][y][x - 1].value;
         }
-        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1  && positions.charAt(20) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(20) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y + 1][x + 1].value;
             }
-            else if(cellArray[z - 1][y + 1][x + 1].value < val)
+            else if (cellArray[z - 1][y + 1][x + 1].value < val)
                 val = cellArray[z - 1][y + 1][x + 1].value;
         }
-        if(y + 1 <= tmy - 1 && x - 1 >= 0  && positions.charAt(18) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(18) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y + 1][x - 1].value;
             }
-            else if(cellArray[z - 1][y + 1][x - 1].value < val)
+            else if (cellArray[z - 1][y + 1][x - 1].value < val)
                 val = cellArray[z - 1][y + 1][x - 1].value;
         }
-        if(y - 1 >= 0 && x + 1 <= tmx - 1  && positions.charAt(2) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(2) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y - 1][x + 1].value;
             }
-            else if(cellArray[z - 1][y - 1][x + 1].value < val)
+            else if (cellArray[z - 1][y - 1][x + 1].value < val)
                 val = cellArray[z - 1][y - 1][x + 1].value;
         }
-        if(positions.charAt(10) == '1')	{
-            if(typeof val == undefined)	{
+        if (positions.charAt(10) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y][x].value;
             }
-            else if(cellArray[z - 1][y][x].value < val)
+            else if (cellArray[z - 1][y][x].value < val)
                 val = cellArray[z - 1][y][x].value;
         }
     }
 
-    if(z + 1 <= tmz - 1)	{
-        if(y + 1 <= tmy - 1 && positions.charAt(25) == '1')	{
-            if(typeof val == undefined)	{
+    if (z + 1 <= tmz - 1) {
+        if (y + 1 <= tmy - 1 && positions.charAt(25) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y + 1][x].value;
             }
-            else if(cellArray[z + 1][y + 1][x].value < val)
+            else if (cellArray[z + 1][y + 1][x].value < val)
                 val = cellArray[z + 1][y + 1][x].value;
         }
-        if(y - 1 >= 0  && positions.charAt(7) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && positions.charAt(7) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y - 1][x].value;
             }
-            else if(cellArray[z + 1][y - 1][x].value < val)
+            else if (cellArray[z + 1][y - 1][x].value < val)
                 val = cellArray[z + 1][y - 1][x].value;
         }
-        if(x + 1 <= tmx - 1 && positions.charAt(17) == '1')	{
-            if(typeof val == undefined)	{
+        if (x + 1 <= tmx - 1 && positions.charAt(17) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y][x + 1].value;
             }
-            else if(cellArray[z + 1][y][x + 1].value < val)
+            else if (cellArray[z + 1][y][x + 1].value < val)
                 val = cellArray[z + 1][y][x + 1].value;
         }
-        if(x - 1 >= 0 && positions.charAt(15) == '1')	{
-            if(typeof val == undefined)	{
+        if (x - 1 >= 0 && positions.charAt(15) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y][x - 1].value;
             }
-            else if(cellArray[z + 1][y][x - 1].value < val)
+            else if (cellArray[z + 1][y][x - 1].value < val)
                 val = cellArray[z + 1][y][x - 1].value;
         }
-        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y + 1][x + 1].value;
             }
-            else if(cellArray[z + 1][y + 1][x + 1].value < val)
+            else if (cellArray[z + 1][y + 1][x + 1].value < val)
                 val = cellArray[z + 1][y + 1][x + 1].value;
         }
-        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y - 1][x - 1].value;
             }
-            else if(cellArray[z + 1][y - 1][x - 1].value < val)
+            else if (cellArray[z + 1][y - 1][x - 1].value < val)
                 val = cellArray[z + 1][y - 1][x - 1].value;
         }
-        if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y + 1][x].value;
             }
-            else if(cellArray[z + 1][y + 1][x].value < val)
+            else if (cellArray[z + 1][y + 1][x].value < val)
                 val = cellArray[z + 1][y + 1][x].value;
         }
-        if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y - 1][x + 1].value;
             }
-            else if(cellArray[z + 1][y - 1][x + 1].value < val)
+            else if (cellArray[z + 1][y - 1][x + 1].value < val)
                 val = cellArray[z + 1][y - 1][x + 1].value;
         }
-        if(positions.charAt(16) == '1')	{
-            if(cellArray[z + 1][y][x].value == checkValue)
+        if (positions.charAt(16) == '1') {
+            if (cellArray[z + 1][y][x].value == checkValue)
                 count += 1;
-            if(typeof val == undefined)	{
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y][x].value;
             }
-            else if(cellArray[z + 1][y][x].value < val)
+            else if (cellArray[z + 1][y][x].value < val)
                 val = cellArray[z + 1][y][x].value;
         }
     }
 
-    if(y + 1 <= tmy - 1 && positions.charAt(22) == '1') 	{
-        if(typeof val == undefined)	{
+    if (y + 1 <= tmy - 1 && positions.charAt(22) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y + 1][x].value;
         }
-        else if(cellArray[z][y + 1][x].value < val)
+        else if (cellArray[z][y + 1][x].value < val)
             val = cellArray[z][y + 1][x].value;
     }
-    if(y - 1 >= 0 && positions.charAt(4) == '1')	{
-        if(typeof val == undefined)	{
+    if (y - 1 >= 0 && positions.charAt(4) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y - 1][x].value;
         }
-        else if(cellArray[z][y - 1][x].value < val)
+        else if (cellArray[z][y - 1][x].value < val)
             val = cellArray[z][y - 1][x].value;
     }
-    if(x + 1 <= tmx - 1 && positions.charAt(14) == '1')	{
-        if(typeof val == undefined)	{
+    if (x + 1 <= tmx - 1 && positions.charAt(14) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y][x + 1].value;
         }
-        else if(cellArray[z][y][x + 1].value < val)
+        else if (cellArray[z][y][x + 1].value < val)
             val = cellArray[z][y][x + 1].value;
     }
-    if(x - 1 >= 0 && positions.charAt(12) == '1')	{
-        if(typeof val == undefined)	{
+    if (x - 1 >= 0 && positions.charAt(12) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y][x - 1].value;
         }
-        else if(cellArray[z][y][x - 1].value < val)
+        else if (cellArray[z][y][x - 1].value < val)
             val = cellArray[z][y][x - 1].value;
     }
-    if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1')	{
-        if(typeof val == undefined)	{
+    if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y + 1][x + 1].value;
         }
-        else if(cellArray[z][y + 1][x + 1].value < val)
+        else if (cellArray[z][y + 1][x + 1].value < val)
             val = cellArray[z][y + 1][x + 1].value;
     }
-    if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1')	{
-        if(typeof val == undefined)	{
+    if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y - 1][x - 1].value;
         }
-        else if(cellArray[z][y - 1][x - 1].value < val)
+        else if (cellArray[z][y - 1][x - 1].value < val)
             val = cellArray[z][y - 1][x - 1].value;
     }
-    if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1')	{
-        if(typeof val == undefined)	{
+    if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y + 1][x - 1].value;
         }
-        else if(cellArray[z][y + 1][x - 1].value < val)
+        else if (cellArray[z][y + 1][x - 1].value < val)
             val = cellArray[z][y + 1][x - 1].value;
     }
-    if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1')	{
-        if(typeof val == undefined)	{
+    if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y - 1][x + 1].value;
         }
-        else if(cellArray[z][y - 1][x + 1].value < val)
+        else if (cellArray[z][y - 1][x + 1].value < val)
             val = cellArray[z][y - 1][x + 1].value;
     }
-    if(positions.charAt(13) == '1')	{
-        if(cellArray[z][y][x].value == checkValue)
+    if (positions.charAt(13) == '1') {
+        if (cellArray[z][y][x].value == checkValue)
             count += 1;
-        if(typeof val == undefined)	{
+        if (typeof val == undefined) {
             val = cellArray[z][y][x].value;
         }
-        else if(cellArray[z][y][x].value < val)
+        else if (cellArray[z][y][x].value < val)
             val = cellArray[z][y][x].value;
     }
-    if(typeof val == undefined)	{
+    if (typeof val == undefined) {
         return null;
     }
     else return val;
 }
 
-function getBiggestNeighbour(x, y, z, positions, checkValue)	{
+function getBiggestNeighbour(x, y, z, positions, checkValue) {
     var val;
-    if(z - 1 >= 0)	{
-        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1')	{
-            if(typeof val == undefined)	{
+    if (z - 1 >= 0) {
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y - 1][x - 1].value;
             }
-            else if(cellArray[z - 1][y - 1][x - 1].value > val)
+            else if (cellArray[z - 1][y - 1][x - 1].value > val)
                 val = cellArray[z - 1][y - 1][x - 1].value;
         }
-        if(y + 1 <= tmy - 1 && positions.charAt(19) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && positions.charAt(19) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y + 1][x].value;
             }
-            else if(cellArray[z - 1][y + 1][x].value > val)
+            else if (cellArray[z - 1][y + 1][x].value > val)
                 val = cellArray[z - 1][y + 1][x].value;
         }
-        if(y - 1 >= 0  && positions.charAt(1) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && positions.charAt(1) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y - 1][x].value;
             }
-            else if(cellArray[z - 1][y - 1][x].value > val)
+            else if (cellArray[z - 1][y - 1][x].value > val)
                 val = cellArray[z - 1][y - 1][x].value;
         }
-        if(x + 1 <= tmx - 1 && positions.charAt(11) == '1')	{
-            if(typeof val == undefined)	{
+        if (x + 1 <= tmx - 1 && positions.charAt(11) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y][x + 1].value;
             }
-            else if(cellArray[z - 1][y][x + 1].value > val)
+            else if (cellArray[z - 1][y][x + 1].value > val)
                 val = cellArray[z - 1][y][x + 1].value;
         }
-        if(x - 1 >= 0 && positions.charAt(9) == '1')	{
-            if(typeof val == undefined)	{
+        if (x - 1 >= 0 && positions.charAt(9) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y][x - 1].value;
             }
-            else if(cellArray[z - 1][y][x - 1].value > val)
+            else if (cellArray[z - 1][y][x - 1].value > val)
                 val = cellArray[z - 1][y][x - 1].value;
         }
-        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1  && positions.charAt(20) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(20) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y + 1][x + 1].value;
             }
-            else if(cellArray[z - 1][y + 1][x + 1].value > val)
+            else if (cellArray[z - 1][y + 1][x + 1].value > val)
                 val = cellArray[z - 1][y + 1][x + 1].value;
         }
-        if(y + 1 <= tmy - 1 && x - 1 >= 0  && positions.charAt(18) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(18) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y + 1][x - 1].value;
             }
-            else if(cellArray[z - 1][y + 1][x - 1].value > val)
+            else if (cellArray[z - 1][y + 1][x - 1].value > val)
                 val = cellArray[z - 1][y + 1][x - 1].value;
         }
-        if(y - 1 >= 0 && x + 1 <= tmx - 1  && positions.charAt(2) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(2) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y - 1][x + 1].value;
             }
-            else if(cellArray[z - 1][y - 1][x + 1].value > val)
+            else if (cellArray[z - 1][y - 1][x + 1].value > val)
                 val = cellArray[z - 1][y - 1][x + 1].value;
         }
-        if(positions.charAt(10) == '1')	{
-            if(typeof val == undefined)	{
+        if (positions.charAt(10) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z - 1][y][x].value;
             }
-            else if(cellArray[z - 1][y][x].value > val)
+            else if (cellArray[z - 1][y][x].value > val)
                 val = cellArray[z - 1][y][x].value;
         }
     }
 
-    if(z + 1 <= tmz - 1)	{
-        if(y + 1 <= tmy - 1 && positions.charAt(25) == '1')	{
-            if(typeof val == undefined)	{
+    if (z + 1 <= tmz - 1) {
+        if (y + 1 <= tmy - 1 && positions.charAt(25) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y + 1][x].value;
             }
-            else if(cellArray[z + 1][y + 1][x].value > val)
+            else if (cellArray[z + 1][y + 1][x].value > val)
                 val = cellArray[z + 1][y + 1][x].value;
         }
-        if(y - 1 >= 0  && positions.charAt(7) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && positions.charAt(7) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y - 1][x].value;
             }
-            else if(cellArray[z + 1][y - 1][x].value > val)
+            else if (cellArray[z + 1][y - 1][x].value > val)
                 val = cellArray[z + 1][y - 1][x].value;
         }
-        if(x + 1 <= tmx - 1 && positions.charAt(17) == '1')	{
-            if(typeof val == undefined)	{
+        if (x + 1 <= tmx - 1 && positions.charAt(17) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y][x + 1].value;
             }
-            else if(cellArray[z + 1][y][x + 1].value > val)
+            else if (cellArray[z + 1][y][x + 1].value > val)
                 val = cellArray[z + 1][y][x + 1].value;
         }
-        if(x - 1 >= 0 && positions.charAt(15) == '1')	{
-            if(typeof val == undefined)	{
+        if (x - 1 >= 0 && positions.charAt(15) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y][x - 1].value;
             }
-            else if(cellArray[z + 1][y][x - 1].value > val)
+            else if (cellArray[z + 1][y][x - 1].value > val)
                 val = cellArray[z + 1][y][x - 1].value;
         }
-        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y + 1][x + 1].value;
             }
-            else if(cellArray[z + 1][y + 1][x + 1].value > val)
+            else if (cellArray[z + 1][y + 1][x + 1].value > val)
                 val = cellArray[z + 1][y + 1][x + 1].value;
         }
-        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y - 1][x - 1].value;
             }
-            else if(cellArray[z + 1][y - 1][x - 1].value > val)
+            else if (cellArray[z + 1][y - 1][x - 1].value > val)
                 val = cellArray[z + 1][y - 1][x - 1].value;
         }
-        if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1')	{
-            if(typeof val == undefined)	{
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y + 1][x].value;
             }
-            else if(cellArray[z + 1][y + 1][x].value > val)
+            else if (cellArray[z + 1][y + 1][x].value > val)
                 val = cellArray[z + 1][y + 1][x].value;
         }
-        if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1')	{
-            if(typeof val == undefined)	{
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1') {
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y - 1][x + 1].value;
             }
-            else if(cellArray[z + 1][y - 1][x + 1].value > val)
+            else if (cellArray[z + 1][y - 1][x + 1].value > val)
                 val = cellArray[z + 1][y - 1][x + 1].value;
         }
-        if(positions.charAt(16) == '1')	{
-            if(cellArray[z + 1][y][x].value == checkValue)
+        if (positions.charAt(16) == '1') {
+            if (cellArray[z + 1][y][x].value == checkValue)
                 count += 1;
-            if(typeof val == undefined)	{
+            if (typeof val == undefined) {
                 val = cellArray[z + 1][y][x].value;
             }
-            else if(cellArray[z + 1][y][x].value > val)
+            else if (cellArray[z + 1][y][x].value > val)
                 val = cellArray[z + 1][y][x].value;
         }
     }
 
-    if(y + 1 <= tmy - 1 && positions.charAt(22) == '1') 	{
-        if(typeof val == undefined)	{
+    if (y + 1 <= tmy - 1 && positions.charAt(22) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y + 1][x].value;
         }
-        else if(cellArray[z][y + 1][x].value > val)
+        else if (cellArray[z][y + 1][x].value > val)
             val = cellArray[z][y + 1][x].value;
     }
-    if(y - 1 >= 0 && positions.charAt(4) == '1')	{
-        if(typeof val == undefined)	{
+    if (y - 1 >= 0 && positions.charAt(4) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y - 1][x].value;
         }
-        else if(cellArray[z][y - 1][x].value > val)
+        else if (cellArray[z][y - 1][x].value > val)
             val = cellArray[z][y - 1][x].value;
     }
-    if(x + 1 <= tmx - 1 && positions.charAt(14) == '1')	{
-        if(typeof val == undefined)	{
+    if (x + 1 <= tmx - 1 && positions.charAt(14) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y][x + 1].value;
         }
-        else if(cellArray[z][y][x + 1].value > val)
+        else if (cellArray[z][y][x + 1].value > val)
             val = cellArray[z][y][x + 1].value;
     }
-    if(x - 1 >= 0 && positions.charAt(12) == '1')	{
-        if(typeof val == undefined)	{
+    if (x - 1 >= 0 && positions.charAt(12) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y][x - 1].value;
         }
-        else if(cellArray[z][y][x - 1].value > val)
+        else if (cellArray[z][y][x - 1].value > val)
             val = cellArray[z][y][x - 1].value;
     }
-    if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1')	{
-        if(typeof val == undefined)	{
+    if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y + 1][x + 1].value;
         }
-        else if(cellArray[z][y + 1][x + 1].value > val)
+        else if (cellArray[z][y + 1][x + 1].value > val)
             val = cellArray[z][y + 1][x + 1].value;
     }
-    if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1')	{
-        if(typeof val == undefined)	{
+    if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y - 1][x - 1].value;
         }
-        else if(cellArray[z][y - 1][x - 1].value > val)
+        else if (cellArray[z][y - 1][x - 1].value > val)
             val = cellArray[z][y - 1][x - 1].value;
     }
-    if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1')	{
-        if(typeof val == undefined)	{
+    if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y + 1][x - 1].value;
         }
-        else if(cellArray[z][y + 1][x - 1].value > val)
+        else if (cellArray[z][y + 1][x - 1].value > val)
             val = cellArray[z][y + 1][x - 1].value;
     }
-    if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1')	{
-        if(typeof val == undefined)	{
+    if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1') {
+        if (typeof val == undefined) {
             val = cellArray[z][y - 1][x + 1].value;
         }
-        else if(cellArray[z][y - 1][x + 1].value > val)
+        else if (cellArray[z][y - 1][x + 1].value > val)
             val = cellArray[z][y - 1][x + 1].value;
     }
-    if(positions.charAt(13) == '1')	{
-        if(cellArray[z][y][x].value == checkValue)
+    if (positions.charAt(13) == '1') {
+        if (cellArray[z][y][x].value == checkValue)
             count += 1;
-        if(typeof val == undefined)	{
+        if (typeof val == undefined) {
             val = cellArray[z][y][x].value;
         }
-        else if(cellArray[z][y][x].value > val)
+        else if (cellArray[z][y][x].value > val)
             val = cellArray[z][y][x].value;
     }
-    if(typeof val == undefined)	{
+    if (typeof val == undefined) {
         return null;
     }
     else return val;
 }
 
-function countNeighboursAndCompare(x, y, z, positions, checkValue)	{
+function countNeighboursAndCompare(x, y, z, positions, checkValue) {
     var count = 0;
-    if(z - 1 >= 0)	{
-        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1')	{
-            if(cellArray[z - 1][y - 1][x - 1].value == checkValue)
+    if (z - 1 >= 0) {
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1') {
+            if (cellArray[z - 1][y - 1][x - 1].value == checkValue)
                 count += 1;
         }
-        if(y + 1 <= tmy - 1 && positions.charAt(19) == '1')	{
-            if(cellArray[z - 1][y + 1][x].value == checkValue)
+        if (y + 1 <= tmy - 1 && positions.charAt(19) == '1') {
+            if (cellArray[z - 1][y + 1][x].value == checkValue)
                 count += 1;
         }
-        if(y - 1 >= 0  && positions.charAt(1) == '1')	{
-            if(cellArray[z - 1][y - 1][x].value == checkValue)
+        if (y - 1 >= 0 && positions.charAt(1) == '1') {
+            if (cellArray[z - 1][y - 1][x].value == checkValue)
                 count += 1;
         }
-        if(x + 1 <= tmx - 1 && positions.charAt(11) == '1')	{
-            if(cellArray[z - 1][y][x + 1].value == checkValue)
+        if (x + 1 <= tmx - 1 && positions.charAt(11) == '1') {
+            if (cellArray[z - 1][y][x + 1].value == checkValue)
                 count += 1;
         }
-        if(x - 1 >= 0 && positions.charAt(9) == '1')	{
-            if(cellArray[z - 1][y][x - 1].value == checkValue)
+        if (x - 1 >= 0 && positions.charAt(9) == '1') {
+            if (cellArray[z - 1][y][x - 1].value == checkValue)
                 count += 1;
         }
-        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1  && positions.charAt(20) == '1')	{
-            if(cellArray[z - 1][y + 1][x + 1].value == checkValue)
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(20) == '1') {
+            if (cellArray[z - 1][y + 1][x + 1].value == checkValue)
                 count += 1;
         }
-        if(y + 1 <= tmy - 1 && x - 1 >= 0  && positions.charAt(18) == '1')	{
-            if(cellArray[z - 1][y + 1][x - 1].value == checkValue)
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(18) == '1') {
+            if (cellArray[z - 1][y + 1][x - 1].value == checkValue)
                 count += 1;
         }
-        if(y - 1 >= 0 && x + 1 <= tmx - 1  && positions.charAt(2) == '1')	{
-            if(cellArray[z - 1][y - 1][x + 1].value == checkValue)
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(2) == '1') {
+            if (cellArray[z - 1][y - 1][x + 1].value == checkValue)
                 count += 1;
         }
-        if(positions.charAt(10) == '1')	{
-            if(cellArray[z - 1][y][x].value == checkValue)
-                count += 1;
-        }
-    }
-
-    if(z + 1 <= tmz - 1)	{
-        if(y + 1 <= tmy - 1 && positions.charAt(25) == '1')	{
-            if(cellArray[z + 1][y + 1][x].value == checkValue)
-                count += 1;
-        }
-        if(y - 1 >= 0  && positions.charAt(7) == '1')	{
-            if(cellArray[z + 1][y - 1][x].value == checkValue)
-                count += 1;
-        }
-        if(x + 1 <= tmx - 1 && positions.charAt(17) == '1')	{
-            if(cellArray[z + 1][y][x + 1].value == checkValue)
-                count += 1;
-        }
-        if(x - 1 >= 0 && positions.charAt(15) == '1')	{
-            if(cellArray[z + 1][y][x - 1].value == checkValue)
-                count += 1;
-        }
-        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1')	{
-            if(cellArray[z + 1][y + 1][x + 1].value == checkValue)
-                count += 1;
-        }
-        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1')	{
-            if(cellArray[z + 1][y - 1][x - 1].value == checkValue)
-                count += 1;
-        }
-        if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1')	{
-            if(cellArray[z + 1][y + 1][x].value == checkValue)
-                count += 1;
-        }
-        if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1')	{
-            if(cellArray[z + 1][y - 1][x + 1].value == checkValue)
-                count += 1;
-        }
-        if(positions.charAt(16) == '1')	{
-            if(cellArray[z + 1][y][x].value == checkValue)
+        if (positions.charAt(10) == '1') {
+            if (cellArray[z - 1][y][x].value == checkValue)
                 count += 1;
         }
     }
 
-    if(y + 1 <= tmy - 1 && positions.charAt(22) == '1') 	{
-        if(cellArray[z ][y + 1][x].value == checkValue)
+    if (z + 1 <= tmz - 1) {
+        if (y + 1 <= tmy - 1 && positions.charAt(25) == '1') {
+            if (cellArray[z + 1][y + 1][x].value == checkValue)
+                count += 1;
+        }
+        if (y - 1 >= 0 && positions.charAt(7) == '1') {
+            if (cellArray[z + 1][y - 1][x].value == checkValue)
+                count += 1;
+        }
+        if (x + 1 <= tmx - 1 && positions.charAt(17) == '1') {
+            if (cellArray[z + 1][y][x + 1].value == checkValue)
+                count += 1;
+        }
+        if (x - 1 >= 0 && positions.charAt(15) == '1') {
+            if (cellArray[z + 1][y][x - 1].value == checkValue)
+                count += 1;
+        }
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1') {
+            if (cellArray[z + 1][y + 1][x + 1].value == checkValue)
+                count += 1;
+        }
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1') {
+            if (cellArray[z + 1][y - 1][x - 1].value == checkValue)
+                count += 1;
+        }
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1') {
+            if (cellArray[z + 1][y + 1][x].value == checkValue)
+                count += 1;
+        }
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1') {
+            if (cellArray[z + 1][y - 1][x + 1].value == checkValue)
+                count += 1;
+        }
+        if (positions.charAt(16) == '1') {
+            if (cellArray[z + 1][y][x].value == checkValue)
+                count += 1;
+        }
+    }
+
+    if (y + 1 <= tmy - 1 && positions.charAt(22) == '1') {
+        if (cellArray[z ][y + 1][x].value == checkValue)
             count += 1;
     }
-    if(y - 1 >= 0 && positions.charAt(4) == '1')	{
-        if(cellArray[z][y - 1][x].value == checkValue)
+    if (y - 1 >= 0 && positions.charAt(4) == '1') {
+        if (cellArray[z][y - 1][x].value == checkValue)
             count += 1;
     }
-    if(x + 1 <= tmx - 1 && positions.charAt(14) == '1')	{
-        if(cellArray[z][y][x + 1].value == checkValue)
+    if (x + 1 <= tmx - 1 && positions.charAt(14) == '1') {
+        if (cellArray[z][y][x + 1].value == checkValue)
             count += 1;
     }
-    if(x - 1 >= 0 && positions.charAt(12) == '1')	{
-        if(cellArray[z][y][x - 1].value == checkValue)
+    if (x - 1 >= 0 && positions.charAt(12) == '1') {
+        if (cellArray[z][y][x - 1].value == checkValue)
             count += 1;
     }
-    if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1')	{
-        if(cellArray[z][y + 1][x + 1].value == checkValue)
+    if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1') {
+        if (cellArray[z][y + 1][x + 1].value == checkValue)
             count += 1;
     }
-    if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1')	{
-        if(cellArray[z][y - 1][x - 1].value == checkValue)
+    if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1') {
+        if (cellArray[z][y - 1][x - 1].value == checkValue)
             count += 1;
     }
-    if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1')	{
-        if(cellArray[z][y + 1][x - 1].value == checkValue)
+    if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1') {
+        if (cellArray[z][y + 1][x - 1].value == checkValue)
             count += 1;
     }
-    if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1')	{
-        if(cellArray[z][y - 1][x + 1].value == checkValue)
+    if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1') {
+        if (cellArray[z][y - 1][x + 1].value == checkValue)
             count += 1;
     }
-    if(positions.charAt(13) == '1')	{
-        if(cellArray[z][y][x].value == checkValue)
+    if (positions.charAt(13) == '1') {
+        if (cellArray[z][y][x].value == checkValue)
             count += 1;
     }
     return count;
 }
 
-function sumNeighboursAtPositions(x, y, z, positions)	{
+function sumNeighboursAtPositions(x, y, z, positions) {
     var count = 0;
-    if(z - 1 >= 0)	{
-        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1')
+    if (z - 1 >= 0) {
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1')
             count += cellArray[z - 1][y - 1][x - 1].value;
-        if(y + 1 <= tmy - 1 && positions.charAt(19) == '1')
+        if (y + 1 <= tmy - 1 && positions.charAt(19) == '1')
             count += cellArray[z - 1][y + 1][x].value;
-        if(y - 1 >= 0  && positions.charAt(1) == '1')
+        if (y - 1 >= 0 && positions.charAt(1) == '1')
             count += cellArray[z - 1][y - 1][x].value;
-        if(x + 1 <= tmx - 1 && positions.charAt(11) == '1')
+        if (x + 1 <= tmx - 1 && positions.charAt(11) == '1')
             count += cellArray[z - 1][y][x + 1].value;
-        if(x - 1 >= 0 && positions.charAt(9) == '1')
+        if (x - 1 >= 0 && positions.charAt(9) == '1')
             count += cellArray[z - 1][y][x - 1].value;
-        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1  && positions.charAt(20) == '1')
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(20) == '1')
             count += cellArray[z - 1][y + 1][x + 1].value;
-        if(y + 1 <= tmy - 1 && x - 1 >= 0  && positions.charAt(18) == '1')
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(18) == '1')
             count += cellArray[z - 1][y + 1][x - 1].value;
-        if(y - 1 >= 0 && x + 1 <= tmx - 1  && positions.charAt(2) == '1')
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(2) == '1')
             count += cellArray[z - 1][y - 1][x + 1].value;
-        if(positions.charAt(10) == '1')
+        if (positions.charAt(10) == '1')
             count += cellArray[z - 1][y][x].value;
     }
 
-    if(z + 1 <= tmz - 1)	{
-        if(y + 1 <= tmy - 1 && positions.charAt(25) == '1')
+    if (z + 1 <= tmz - 1) {
+        if (y + 1 <= tmy - 1 && positions.charAt(25) == '1')
             count += cellArray[z + 1][y + 1][x].value;
-        if(y - 1 >= 0  && positions.charAt(7) == '1')
+        if (y - 1 >= 0 && positions.charAt(7) == '1')
             count += cellArray[z + 1][y - 1][x].value;
-        if(x + 1 <= tmx - 1 && positions.charAt(17) == '1')
+        if (x + 1 <= tmx - 1 && positions.charAt(17) == '1')
             count += cellArray[z + 1][y][x + 1].value;
-        if(x - 1 >= 0 && positions.charAt(15) == '1')
+        if (x - 1 >= 0 && positions.charAt(15) == '1')
             count += cellArray[z + 1][y][x - 1].value;
-        if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1')
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1')
             count += cellArray[z + 1][y + 1][x + 1].value;
-        if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1')
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1')
             count += cellArray[z + 1][y - 1][x - 1].value;
-        if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1')
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1')
             count += cellArray[z + 1][y + 1][x - 1].value;
-        if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1')
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1')
             count += cellArray[z + 1][y - 1][x + 1].value;
-        if(positions.charAt(16) == '1')
+        if (positions.charAt(16) == '1')
             count += cellArray[z + 1][y][x].value;
     }
 
-    if(y + 1 <= tmy - 1 && positions.charAt(22) == '1')
+    if (y + 1 <= tmy - 1 && positions.charAt(22) == '1')
         count += cellArray[z][y + 1][x].value;
-    if(y - 1 >= 0 && positions.charAt(4) == '1')
+    if (y - 1 >= 0 && positions.charAt(4) == '1')
         count += cellArray[z][y - 1][x].value;
-    if(x + 1 <= tmx - 1 && positions.charAt(14) == '1')
+    if (x + 1 <= tmx - 1 && positions.charAt(14) == '1')
         count += cellArray[z][y][x + 1].value;
-    if(x - 1 >= 0 && positions.charAt(12) == '1')
+    if (x - 1 >= 0 && positions.charAt(12) == '1')
         count += cellArray[z][y][x - 1].value;
-    if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1')
+    if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1')
         count += cellArray[z][y + 1][x + 1].value;
-    if(y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1')
+    if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1')
         count += cellArray[z][y - 1][x - 1].value;
-    if(y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1')
+    if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1')
         count += cellArray[z][y + 1][x - 1].value;
-    if(y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1')
+    if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1')
         count += cellArray[z][y - 1][x + 1].value;
-    if(positions.charAt(13) == '1')
+    if (positions.charAt(13) == '1')
         count += cellArray[z][y][x].value;
     return count;
 }
 
-function toggleXLayer(zlayer) {  console.log("1"+zlayer);
+function toggleXLayer(zlayer) {
+    console.log("1" + zlayer);
     for (var y = 0; y < tmz; y++) {
         for (var x = 0; x < tmx; x++) {
             if (cellArray[zlayer][y][x].invis == true) {
@@ -1263,104 +1277,101 @@ function hider() {
     midpoint.visible = document.getElementById("mid").checked;
 }
 
-function performOperation(neightbours, expected, conditionOperand)	{
+function performOperation(neightbours, expected, conditionOperand) {
     var result = false;
-    if(conditionOperand == "==")	{
-        if(neightbours == expected)
+    if (conditionOperand == "==") {
+        if (neightbours == expected)
             result = true;
     }
-    else if(conditionOperand == ">")	{
-        if(neightbours > expected)
+    else if (conditionOperand == ">") {
+        if (neightbours > expected)
             result = true;
     }
-    else if(conditionOperand == "<")	{
-        if(neightbours < expected)
+    else if (conditionOperand == "<") {
+        if (neightbours < expected)
             result = true;
     }
-    else if(conditionOperand == "<=")	{
-        if(neightbours <= expected)
+    else if (conditionOperand == "<=") {
+        if (neightbours <= expected)
             result = true;
     }
-    else if(conditionOperand == ">=")	{
-        if(neightbours >= expected)
+    else if (conditionOperand == ">=") {
+        if (neightbours >= expected)
             result = true;
     }
     return result;
 }
 
-function performBetween(neightbours, valueOne, valueTwo)	{
+function performBetween(neightbours, valueOne, valueTwo) {
     var result = false;
-    if(neightbours >= valueOne && neightbours <= valueTwo) result = true;
+    if (neightbours >= valueOne && neightbours <= valueTwo) result = true;
     return result;
 }
 
-function worldStates()
-{
-        var s = '<table class="table">';
-        for (var i = 0; i < counter; i++) {
+function worldStates() {
+    var s = '<table class="table">';
+    for (var i = 0; i < counter; i++) {
+        if( colorsUsedName[i]!="0") {
             s += "<tr><td><button  onclick='setColor(" + colorsUsedName[i] + ")' style=" + '"background-color:#' + arryColour[i].substring(2) + '"' + 'class="btn btn-default btn-lg" ></button>';
             s += "<label>   State Value:" + colorsUsedName[i] + "</label></td></tr>";
-
         }
-        s += "</tr></table>";
-        document.getElementById("worldState").innerHTML = s;
-
-
-
-}
-function worldRules()
-{
-
-
-    var s='<table class="table">';
-    for(var i=0;i<ruleArray.length;i++){
-        s+="<tr><td><button  class='btn btn-default btn-lg' ></button>";
-        s+= "<label>"+ ruleArray[i].ruleName+"</label></td></tr>";
 
     }
-    s+="</tr></table>";
-    document.getElementById("worldRule").innerHTML=s;
-
+    s += "</tr></table>";
+    document.getElementById("worldState").innerHTML = s;
 
 
 }
-function setColor(value)
-{
+function worldRules() {
 
-    var tempcolor = document.getElementById("colorValue").value=value;
+
+    var s = '<table class="table">';
+    for (var i = 0; i < ruleArray.length; i++) {
+        s += "<tr><td><button  class='btn btn-default btn-lg' ></button>";
+        s += "<label>" + ruleArray[i].ruleName + "</label></td></tr>";
+
+    }
+    s += "</tr></table>";
+    document.getElementById("worldRule").innerHTML = s;
+
+
+}
+function setColor(value) {
+
+    var tempcolor = document.getElementById("colorValue").value = value;
 }
 
-function checkCondition(c,x,y,z)	{
-    if(typeof c != null)	{
-        if(c.conditionOperand == "BETWEEN")	{
-            if(c.conditionOperation == "SUM")	{
-                var neightbours = sumNeighboursAtPositions(x,y,z,c.conditionNeighbours);
+function checkCondition(c, x, y, z) {
+    if (typeof c != null) {
+        if (c.conditionOperand == "BETWEEN") {
+            if (c.conditionOperation == "SUM") {
+                var neightbours = sumNeighboursAtPositions(x, y, z, c.conditionNeighbours);
                 return performBetween(neightbours, c.compareValueOne, c.compareValueTwo);
             }
-            else if(ruleArray[rule].conditionArray[cond].conditionOperation == "MIN")	{
-                var neightbour = getSmallestNeighbour(x,y,z,c.conditionNeighbours);
-                return performBetween(neightbour,  c.compareValueOne, c.compareValueTwo);
+            else if (ruleArray[rule].conditionArray[cond].conditionOperation == "MIN") {
+                var neightbour = getSmallestNeighbour(x, y, z, c.conditionNeighbours);
+                return performBetween(neightbour, c.compareValueOne, c.compareValueTwo);
             }
-            else if(ruleArray[rule].conditionArray[cond].conditionOperation == "MAX")	{
-                var neightbour = getBiggestNeighbour(x,y,z,c.conditionNeighbours);
-                return performBetween(neightbour,  c.compareValueOne, c.compareValueTwo);
+            else if (ruleArray[rule].conditionArray[cond].conditionOperation == "MAX") {
+                var neightbour = getBiggestNeighbour(x, y, z, c.conditionNeighbours);
+                return performBetween(neightbour, c.compareValueOne, c.compareValueTwo);
             }
         }
-        else	{
-            if(c.conditionOperation == "SUM")	{
-                var neightbours = sumNeighboursAtPositions(x,y,z,c.conditionNeighbours);
+        else {
+            if (c.conditionOperation == "SUM") {
+                var neightbours = sumNeighboursAtPositions(x, y, z, c.conditionNeighbours);
                 return performOperation(neightbours, c.compareValueOne, c.conditionOperand);
             }
-            else if(c.conditionOperation == "COUNT")	{
+            else if (c.conditionOperation == "COUNT") {
                 var neightbour = countNeighboursAndCompare(x, y, z, c.conditionNeighbours, c.compareValueOne);
                 return performOperation(neightbour, c.compareValueTwo, c.conditionOperand);
             }
-            else if(c.conditionOperation == "MIN")	{
-                var neightbour = getSmallestNeighbour(x,y,z,c.conditionNeighbours);
+            else if (c.conditionOperation == "MIN") {
+                var neightbour = getSmallestNeighbour(x, y, z, c.conditionNeighbours);
                 return performOperation(neightbour, c.compareValueOne, c.conditionOperand);
             }
-            else if(c.conditionOperation == "MAX")	{
-                var neightbour = getBiggestNeighbour(x,y,z,c.conditionNeighbours);
+            else if (c.conditionOperation == "MAX") {
+                var neightbour = getBiggestNeighbour(x, y, z, c.conditionNeighbours);
                 return performOperation(neightbour, c.compareValueOne, c.conditionOperand);
             }
         }

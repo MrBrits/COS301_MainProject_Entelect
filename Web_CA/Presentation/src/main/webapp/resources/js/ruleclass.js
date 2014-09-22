@@ -1,11 +1,12 @@
 //Rule Class used to contain all of the information about a rule
 
 function rule()	{
-    //Rule Metadata
 
+    //Rule Metadata
     this.ruleName = "";
     this.ruleDesc = "";
     this.enabled = false;
+
     //Condition
     this.ruleCond = null;
     this.RuleCondAND = null;

@@ -16,16 +16,17 @@ function cell(x,y,z,c)	{
                 this.cube.material.opacity = 1;
         }
         else{
-            this.cube.material.opacity = 0.003;
+            this.cube.material.opacity = 0.03;
         }
     }
-    this.changeValue =function()	{
+
+    this.changeValue =function(colour)	{
         this.value = this.nextValue;
         this.nextValue = 0;
         this.triggerChange = false;
-        if(this.value == 1)	{
-            this.cube.material.color.setHex(0x000000);
-            this.colour = "0x000000";
+        if(this.value != 0)	{
+            this.cube.material.color.setHex(colour);
+            this.colour = colour;
             this.toggleInvis();
         }
         else	{

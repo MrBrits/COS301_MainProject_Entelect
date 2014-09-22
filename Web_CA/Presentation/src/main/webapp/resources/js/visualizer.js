@@ -41,9 +41,13 @@ var methods= new function()	{
         worlds.changeWorldLayer();
     }
 
+    this.Delete_State=function()    {
+        document.getElementById("colorValue").value = 0;
+    }
+
     this.Change_speed=function()	{
         if(this.Speed != 0)	{
-            realSpeed = (10 - this.Speed) * 100;
+            realSpeed = (15 - this.Speed) * 100;
             if (worlds.play)	{
                 clearInterval(runSimulation);
                 runSimulation = setInterval(function(){worlds.StartAndStop()}, realSpeed);
@@ -63,7 +67,7 @@ var methods= new function()	{
 var bool=true;
 Pace.on("done", function(){
 
-
+    console.log("dddd");
     if(bool==true) {
 
 //Creation of a light source
