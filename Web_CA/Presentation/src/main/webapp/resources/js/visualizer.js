@@ -67,7 +67,6 @@ var methods= new function()	{
 var bool=true;
 Pace.on("done", function(){
 
-    console.log("dddd");
     if(bool==true) {
 
 //Creation of a light source
@@ -137,13 +136,12 @@ Pace.on("done", function(){
 
         function onWindowResize() {
             camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
             renderer.setSize( window.innerWidth, window.innerHeight );
         }
         window.addEventListener( 'resize', onWindowResize, false );
 
         bool=false;
-
-
     }
 
 });

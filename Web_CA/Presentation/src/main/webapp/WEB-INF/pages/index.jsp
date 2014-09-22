@@ -23,13 +23,13 @@
     <script src="resources/js/lib/angular-route.min.js"></script>
     <script src="resources/js/lib/angular-resource.min.js"></script>
 
+    <script src="resources/js/THREEx.WindowResize.js"></script>
     <script src="resources/js/statescript.js"></script>
     <script src="resources/js/userscript.js"></script>
     <script src="resources/js/worldscript.js"></script>
     <script src="resources/js/worldclass.js"></script>
     <script src="resources/js/rulescript.js"></script>
     <script type="text/javascript" src="resources/js/lib/three.min.js"></script>
-
 
     <script src="resources/js/CSS3DRenderer.js"></script>
     <script src="resources/js/tween.min.js"></script>
