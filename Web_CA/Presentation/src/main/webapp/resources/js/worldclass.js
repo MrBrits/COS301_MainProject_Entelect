@@ -35,12 +35,20 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
     $scope.SaveCoordinates = function() {
 
 
-        $http.post("http://" + site + "/UserSet",userReg)
+        for (var z = 0; z < coordinate.length; z++) {
+            var nowz = parseInt(coordinate[z].coordinateZ);
+            var nowx = parseInt(coordinate[z].coordinateX);
+            var nowy = parseInt(coordinate[z].coordinateY);
+            coordinate[z].value=cellArray[nowz][nowy][nowx].value;
+
+        }
+
+        /* $http.post("http://" + site + "/UserSet",userReg)
          .success(function(data) {
 
          }).error(function () {
          alert("USER REGISTER: SERVER ERROR");
-         });
+         });*/
     };
 
     $http.post("http://" + site + "/getCoordinatesByWorldId/", 22)
@@ -198,6 +206,7 @@ function addCoordinates()
         var nowx = coordinate[z].coordinateX;
         var nowy = coordinate[z].coordinateY;
         cellArray[nowz][nowy][nowx].cube.material.opacity=1;
+        cellArray[nowz][nowy][nowx].value=coordinate[z].value;
         if(coordinate[z].value!=0)
         {
             cellArray[nowz][nowy][nowx].cube.material.color.setHex(colorsUsed[coordinate[z].value]);
@@ -319,7 +328,7 @@ function world(scene1, cameras) {
             var cubes = new THREE.Mesh(geometry, material.clone());
             cellArray[nowz][nowy][nowx] = new cell(nowx, nowy, nowz, cubes);
             cellArray[nowz][nowy][nowx].cube.position = new THREE.Vector3(nowx * 1.509, nowy * 1.509, nowz * 1.509);
-            cellArray[nowz][nowy][nowx].value=coordinate[z].stateValue;
+            cellArray[nowz][nowy][nowx].value=coordinate[z].value;
            // alert(JSON.stringify(coordinate[z]));
             if(coordinate[z].value!=0)
             {
@@ -1403,12 +1412,29 @@ function worldStates() {
 
 
 }
+function toggleRule(i)
+{
+
+
+    if (ruleArray[i].enabled==true) {
+        document.getElementById("rule"+i).style.backgroundColor = "#FF3300";
+        ruleArray[i].enabled=false;
+
+        //alert("t");
+    } else {
+        document.getElementById("rule"+i).style.backgroundColor = "#006600";
+        ruleArray[i].enabled=true;
+        //alert("f");
+    }
+
+}
 function worldRules() {
 
 
     var s = '<table class="table">';
     for (var i = 0; i < ruleArray.length; i++) {
-        s += "<tr><td><button  class='btn btn-default btn-lg' ></button>";
+        s += "<tr><td><button id="+'"'+"rule"+i+'"'+" onclick='toggleRule("+i+")' class='btn btn-default btn-lg' ></button>";
+        //  alert( "<tr><td><button id="+'"'+'rule"'+" onclick='toggleRule("+i+")' class='btn btn-default btn-lg' ></button>");
         s += "<label>" + ruleArray[i].ruleName + "</label></td></tr>";
 
     }
