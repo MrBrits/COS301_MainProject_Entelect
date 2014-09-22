@@ -8,20 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\js\tween.min.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/lib/tween.min.js" />
-      <change type="MOVED" beforePath="C:\Users\Christo\Documents\GitHub\COS301_MainProject_Entelect\Web_CA\Presentation\src\main\webapp\resources\js\you.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/videoScene.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionDaoImpl.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleConditionDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/RuleController.java" afterPath="$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/RuleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultDaoImpl.java" afterPath="$PROJECT_DIR$/Data_Access/src/main/java/za/co/tera/web_ca/data_access/impl/RuleResultDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/RuleServiceImpl.java" afterPath="$PROJECT_DIR$/Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/RuleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresult.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/za/co/tera/web_ca/domain/impl/Ruleresult.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultTest.java" afterPath="$PROJECT_DIR$/Domain/src/test/java/za/co/tera/web_ca/domain/impl/RuleresultTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/WEB-INF/pages/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/visualizer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" />
     </list>
     <ignored path="Web_CA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +53,8 @@
       <file leaf-file-name="indexHome.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.834375" vertical-offset="5734" max-vertical-offset="11934">
-              <caret line="353" column="0" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
+            <state vertical-scroll-proportion="16.32416" vertical-offset="0" max-vertical-offset="11934">
+              <caret line="314" column="117" selection-start-line="314" selection-start-column="117" selection-end-line="314" selection-end-column="117" />
               <folding />
             </state>
           </provider>
@@ -191,7 +182,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -255,7 +246,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -276,7 +267,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -867,8 +858,8 @@
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
       <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.Web" />
-      <item index="3" class="java.lang.String" itemvalue="Maven.Presentation [tomcat7:run]" />
-      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.Runner" />
+      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.Runner" />
+      <item index="4" class="java.lang.String" itemvalue="Maven.Presentation [tomcat7:run]" />
       <item index="5" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp" />
       <item index="6" class="java.lang.String" itemvalue="Tomcat Server.index2.jsp (1)" />
     </list>
@@ -1042,6 +1033,8 @@
       <workItem from="1411377342908" duration="1314000" />
       <workItem from="1411378756238" duration="6005000" />
       <workItem from="1411385240901" duration="906000" />
+      <workItem from="1411391869112" duration="149000" />
+      <workItem from="1411392573657" duration="262000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1323,7 +1316,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="585981000" />
+    <option name="totallyTimeSpent" value="586392000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1346,7 +1339,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1359,20 +1352,20 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26487523" sideWeight="0.2078125" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16211878" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16211878" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20058565" sideWeight="0.6633663" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39150944" sideWeight="0.7921875" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39009288" sideWeight="0.7921875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5778491" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37311178" sideWeight="0.54653937" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.88645834" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32817337" sideWeight="0.88645834" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25696594" sideWeight="0.10981309" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49839228" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17296073" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1650,7 +1643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3951049" vertical-offset="3735" max-vertical-offset="23358">
           <caret line="233" column="22" selection-start-line="233" selection-start-column="22" selection-end-line="233" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1658,7 +1650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51428574" vertical-offset="68" max-vertical-offset="1938">
           <caret line="26" column="25" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1793,8 +1784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.834375" vertical-offset="5734" max-vertical-offset="11934">
-          <caret line="353" column="0" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
+        <state vertical-scroll-proportion="16.32416" vertical-offset="0" max-vertical-offset="11934">
+          <caret line="314" column="117" selection-start-line="314" selection-start-column="117" selection-end-line="314" selection-end-column="117" />
           <folding />
         </state>
       </provider>

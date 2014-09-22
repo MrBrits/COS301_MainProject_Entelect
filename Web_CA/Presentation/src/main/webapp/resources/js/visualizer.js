@@ -6,34 +6,69 @@ this.controls;
 this.worlds;
 realSpeed = 0;
 
+$("#Cube_Scale").on("input", function(){
+    for(var z = 0; z < tmz; z++)    {
+        for(var y = 0; y < tmy; y++)    {
+            for(var x = 0; x < tmx; x++)    {
+                cellArray[z][y][x].cube.scale.z = this.value;
+                cellArray[z][y][x].cube.scale.y = this.value;
+                cellArray[z][y][x].cube.scale.x = this.value;
+            }
+        }
+    }
+});
 
+$("#speed").on("change", function(){
+    methods.Speed = this.value;
+    var realSpeed = (10 - methods.Speed) * 100;
+    if(methods.Speed != 0)	{
+        if (worlds.play)	{
+            clearInterval(methods.runSimulation);
+            methods.runSimulation = setInterval(function(){worlds.StartAndStop()}, realSpeed);
+            document.getElementById("play_stop").src="resources/img/pause.png";
+        }
+    }
+    else	{
+        worlds.play = false;
+        document.getElementById("play_stop").src="resources/img/play.png";
+        clearInterval(methods.runSimulation);
+    }
+});
+
+$("#Rotation_Speed").on("change", function(){
+    controls.autoRotateSpeed = this.value * 2;
+});
 
 //FUNCTIONS FOR THE CONTROLS
 var methods= new function()	{
     var runSimulation = null;
 
     this.Rotate = function()	{
-        this.Rotation_Speed= document.getElementById("Rotation_Speed").value;
         controls.autoRotateSpeed = this.Rotation_Speed * 2;
         controls.autoRotater();
     }
 
     this.Start_Stop = function()	{
-        this.Speed= document.getElementById("speed").value;
-        realSpeed = (10 - this.Speed) * 100;
-        clearInterval(runSimulation);
-        if (worlds.play)	{
-            clearInterval(runSimulation);
+        clearInterval(this.runSimulation);
+        if (worlds.play) {
+            clearInterval(this.runSimulation);
             worlds.play = false;
-
-            //alert(	document.getElementById("play_stop").src);
-            document.getElementById("play_stop").src="resources/img/play.png";
+            document.getElementById("play_stop").src = "resources/img/play.png";
         }
         else	{
-            runSimulation = setInterval(function(){worlds.StartAndStop()}, realSpeed);
-            worlds.play = true;
-            document.getElementById("play_stop").src="resources/img/pause.png";
-            //alert(	document.getElementById("play_stop").src);
+            if(this.Speed != 0) {
+                realSpeed = (10 - this.Speed) * 100;
+                this.runSimulation = setInterval(function () {
+                    worlds.StartAndStop()
+                }, realSpeed);
+                worlds.play = true;
+                document.getElementById("play_stop").src = "resources/img/pause.png";
+            }
+            else    {
+                clearInterval(this.runSimulation);
+                worlds.play = false;
+                document.getElementById("play_stop").src = "resources/img/play.png";
+            }
         }
     }
 
@@ -45,22 +80,8 @@ var methods= new function()	{
         document.getElementById("colorValue").value = 0;
     }
 
-    this.Change_speed=function()	{
-        if(this.Speed != 0)	{
-            realSpeed = (15 - this.Speed) * 100;
-            if (worlds.play)	{
-                clearInterval(runSimulation);
-                runSimulation = setInterval(function(){worlds.StartAndStop()}, realSpeed);
-            }
-        }
-        else	{
-            clearInterval(runSimulation);
-        }
-    }
-
-
-    this.Speed = 1;
-    this.Rotation_Speed = 2;
+    this.Speed = 0;
+    this.Rotation_Speed = 0;
 }
 
 

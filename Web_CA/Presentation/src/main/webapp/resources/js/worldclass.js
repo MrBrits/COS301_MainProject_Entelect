@@ -283,7 +283,6 @@ function world(scene1, cameras) {
             cellArray[nowz][nowy][nowx] = new cell(nowx, nowy, nowz, cubes);
             cellArray[nowz][nowy][nowx].cube.position = new THREE.Vector3(nowx * 1.509, nowy * 1.509, nowz * 1.509);
             group.add(cellArray[nowz][nowy][nowx].cube);
-
         }
 
         material = new THREE.MeshBasicMaterial({ color: 0x000000,
