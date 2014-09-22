@@ -28,6 +28,7 @@
     <script src="resources/js/worldscript.js"></script>
     <script src="resources/js/worldclass.js"></script>
     <script src="resources/js/rulescript.js"></script>
+    <script src="resources/js/barscript.js"></script>
     <script type="text/javascript" src="resources/js/lib/three.min.js"></script>
 
     <script src="resources/js/CSS3DRenderer.js"></script>

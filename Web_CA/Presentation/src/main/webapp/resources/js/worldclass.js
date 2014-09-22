@@ -289,35 +289,46 @@ function world(scene1, cameras) {
             ambient: 0x808080,
             specular: 0xffffff,
             shininess: 20,
-            opacity: 0.03
+            opacity: 1
         });
 
+        //Green Bar Creation
         for (var i = 0; i < xSize; i++) {
             material.color.setHex(0x81bf48);
             var cubes = new THREE.Mesh(geometry, material.clone());
+            var bar = new barClass(cubes);
             cubes.position = new THREE.Vector3((xSize) * 1.509, i * 1.509, (zSize) * 1.509);
-            xbar[i] = cubes;
-            group.add(cubes);
+            cubes.scale.x = 0.5;
+            cubes.scale.z = 0.5;
+            xbar[i] = bar;
+            group.add(bar.cube);
         }
 
+        //Blue Bar Creation
         for (var i = 0; i < ySize; i++) {
-            material.color.setHex(0x81bf48);
+            material.color.setHex(0x418df2);
             var cubes = new THREE.Mesh(geometry, material.clone());
+            var bar = new barClass(cubes);
             cubes.position = new THREE.Vector3(i * 1.509, -1.509, (zSize) * 1.509);
-            group.add(cubes);
-            ybar[i] = cubes;
+            cubes.scale.y = 0.5;
+            cubes.scale.z = 0.5;
+            group.add(bar.cube);
+            ybar[i] = bar;
         }
 
-
+        //Red Bar Creation
         for (var i = 0; i < zSize; i++) {
-            material.color.setHex(0x81bf48);
+            material.color.setHex(0xf24623);
             var cubes = new THREE.Mesh(geometry, material.clone());
+            var bar = new barClass(cubes);
             cubes.position = new THREE.Vector3((xSize) * 1.509, -1.509, i * 1.509);
-            group.add(cubes);
-            zbar[i] = cubes;
+            cubes.scale.x = 0.5;
+            cubes.scale.y = 0.5;
+            group.add(bar.cube);
+            zbar[i] = bar;
         }
 
-        material.color.setHex(0x81bf48);
+        material.color.setHex(0xe6f222);
         var cubes = new THREE.Mesh(geometry, material.clone());
         cubes.position = new THREE.Vector3((xSize) * 1.509, -1.509, (zSize) * 1.509);
         group.add(cubes);
@@ -504,14 +515,23 @@ function changeState() {
             }
         }
         //Red Bar   - X
-        else if (tx == tmx && ty < 0)
+        else if (tx == tmx && ty < 0) {
             toggleXLayer(tz);
+            alert(tz);
+            xbar[tz].toggleVisible();
+        }
         //Green Bar - Y
-        else if (tx == tmx && tz == tmz)
+        else if (tx == tmx && tz == tmz) {
             toggleYLayer(ty);
+            alert(ty);
+            ybar[ty].toggleVisible();
+        }
         //Blue Bar  - Z
-        else if (ty < 0 && tz == tmz)
+        else if (ty < 0 && tz == tmz) {
             toggleZLayer(tx);
+            alert(tx);
+            zbar[tx].toggleVisible();
+        }
         else {
 
             if (colorsUsed[tempcolor] != null) {
@@ -564,16 +584,19 @@ function changeState() {
                 //Red Bar   - X
                 else if (tx == tmx && ty < 0) {
                     toggleXLayer(tz);
+                    zbar[tz].toggleVisible();
                     break;
                 }
                 //Green Bar - Y
                 else if (tx == tmx && tz == tmz) {
                     toggleYLayer(ty);
+                    xbar[ty].toggleVisible();
                     break;
                 }
                 //Blue Bar  - Z
                 else if (ty < 0 && tz == tmz) {
                     toggleZLayer(tx);
+                    ybar[tx].toggleVisible();
                     break;
                 }
                 else if (this.cellArray[tz][ty][tx].invis == true) {
