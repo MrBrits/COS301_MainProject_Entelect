@@ -52,9 +52,9 @@
                 <label class="range inline"><input  id="Cube_Scale" type="range" min=0 max=1 step=0.1 value=1 /></label>
                 <button onclick="methods.Delete_State()" class="btn btn-default"><img src= "resources/img/glyphicons_016_bin.png"style="width:15px;height:15px"/> </button>
                 <button onclick="methods.Start_Stop()" class="btn btn-default"><img id="play_stop" src= "resources/img/play.png"style="width:15px;height:15px"/> </button>
-                <label class="range inline"><input id="speed" type="range"  class ="help-inline" value=0 min=0 max=10 step=1 /></label>
+                <label class="range inline"><input id="speed" type="range"  class ="help-inline" value=1 min=1 max=10 step=1 /></label>
                 <button onclick="methods.Rotate()" class="btn btn-default"><img src= "resources/img/rotate.png"style="width:15px;height:15px"/> </button>
-                <label class="range inline"><input  id="Rotation_Speed" type="range" value=1 min=1 max=2/></label>
+                <label class="range inline"><input  id="Rotation_Speed" type="range" value=1 min=1 max=4 step="0.5"/></label>
                 <button onclick="addCoordinates()" class="btn btn-default"><img src= "resources/img/startpos.png"style="width:15px;height:15px"/> </button>
             </div>
         </div>

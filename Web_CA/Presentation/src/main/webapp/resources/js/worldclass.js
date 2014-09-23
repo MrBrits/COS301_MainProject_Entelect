@@ -328,11 +328,10 @@ function world(scene1, cameras) {
             var cubes = new THREE.Mesh(geometry, material.clone());
             cellArray[nowz][nowy][nowx] = new cell(nowx, nowy, nowz, cubes);
             cellArray[nowz][nowy][nowx].cube.position = new THREE.Vector3(nowx * 1.509, nowy * 1.509, nowz * 1.509);
-            cellArray[nowz][nowy][nowx].value=coordinate[z].value;
-           // alert(JSON.stringify(coordinate[z]));
-            if(coordinate[z].value!=0)
-            {
-                if (colorsUsed[coordinate[z].value] == null){
+            cellArray[nowz][nowy][nowx].value = coordinate[z].value;
+            // alert(JSON.stringify(coordinate[z]));
+            if (coordinate[z].value != 0) {
+                if (colorsUsed[coordinate[z].value] == null) {
 
                     colorsUsed[coordinate[z].value] = arryColour[counter];
                     colorsUsedName[counter] = coordinate[z].value;
@@ -342,10 +341,9 @@ function world(scene1, cameras) {
                 }
                 cellArray[nowz][nowy][nowx].cube.material.color.setHex(colorsUsed[coordinate[z].value]);
                 cellArray[nowz][nowy][nowx].colour = colorsUsed[coordinate[z].value];
-                cellArray[nowz][nowy][nowx].cube.material.opacity=1;
+                cellArray[nowz][nowy][nowx].cube.material.opacity = 1;
             }
-            else
-            {
+            else {
                 cellArray[nowz][nowy][nowx].cube.material.color.setHex(0xffffff);
                 cellArray[nowz][nowy][nowx].colour = "";
                 cellArray[nowz][nowy][nowx].cube.material.opacity = 0.03;
@@ -361,49 +359,54 @@ function world(scene1, cameras) {
         });
 
         //Green Bar Creation
-        for (var i = 0; i < xSize; i++) {
-            material.color.setHex(0x81bf48);
-            var cubes = new THREE.Mesh(geometry, material.clone());
-            var bar = new barClass(cubes);
-            cubes.position = new THREE.Vector3((xSize) * 1.509, i * 1.509, (zSize) * 1.509);
-            cubes.scale.x = 0.5;
-            cubes.scale.z = 0.5;
-            xbar[i] = bar;
-            group.add(bar.cube);
+        if (ySize > 1) {
+            for (var i = 0; i < ySize; i++) {
+                material.color.setHex(0x81bf48);
+                var cubes = new THREE.Mesh(geometry, material.clone());
+                var bar = new barClass(cubes);
+                cubes.position = new THREE.Vector3((xSize) * 1.509, i * 1.509, (zSize) * 1.509);
+                cubes.scale.x = 0.5;
+                cubes.scale.z = 0.5;
+                ybar[i] = bar;
+                group.add(bar.cube);
+            }
         }
 
         //Blue Bar Creation
-        for (var i = 0; i < ySize; i++) {
-            material.color.setHex(0x418df2);
-            var cubes = new THREE.Mesh(geometry, material.clone());
-            var bar = new barClass(cubes);
-            cubes.position = new THREE.Vector3(i * 1.509, -1.509, (zSize) * 1.509);
-            cubes.scale.y = 0.5;
-            cubes.scale.z = 0.5;
-            group.add(bar.cube);
-            ybar[i] = bar;
+        if (xSize > 1) {
+            for (var i = 0; i < xSize; i++) {
+                material.color.setHex(0x418df2);
+                var cubes = new THREE.Mesh(geometry, material.clone());
+                var bar = new barClass(cubes);
+                cubes.position = new THREE.Vector3(i * 1.509, -1.509, (zSize) * 1.509);
+                cubes.scale.y = 0.5;
+                cubes.scale.z = 0.5;
+                group.add(bar.cube);
+                xbar[i] = bar;
+            }
         }
 
         //Red Bar Creation
-        for (var i = 0; i < zSize; i++) {
-            material.color.setHex(0xf24623);
-            var cubes = new THREE.Mesh(geometry, material.clone());
-            var bar = new barClass(cubes);
-            cubes.position = new THREE.Vector3((xSize) * 1.509, -1.509, i * 1.509);
-            cubes.scale.x = 0.5;
-            cubes.scale.y = 0.5;
-            group.add(bar.cube);
-            zbar[i] = bar;
+        if(zSize > 1) {
+            for (var i = 0; i < zSize; i++) {
+                material.color.setHex(0xf24623);
+                var cubes = new THREE.Mesh(geometry, material.clone());
+                var bar = new barClass(cubes);
+                cubes.position = new THREE.Vector3((xSize) * 1.509, -1.509, i * 1.509);
+                cubes.scale.x = 0.5;
+                cubes.scale.y = 0.5;
+                group.add(bar.cube);
+                zbar[i] = bar;
+            }
         }
 
         material.color.setHex(0xe6f222);
         var cubes = new THREE.Mesh(geometry, material.clone());
+        var bar = new barClass(cubes);
         cubes.position = new THREE.Vector3((xSize) * 1.509, -1.509, (zSize) * 1.509);
-        group.add(cubes);
-        midpoint = cubes;
-
+        midpoint = bar;
+        group.add(bar.cube);
         scene.add(group);
-
     }
 
     this.StartAndStop = function () {
@@ -567,9 +570,16 @@ function changeState() {
         //Yellow Box - All
 
         if (tx == tmx && ty < 0 && tz == tmz) {
+            midpoint.toggleVisible();
             for (var z = 0; z < tmz; z++) {
+                if(zbar[z].active)
+                    continue;
                 for (var y = 0; y < tmy; y++) {
+                    if(ybar[y].active)
+                        continue;
                     for (var x = 0; x < tmx; x++) {
+                        if(xbar[x].active)
+                            continue;
                         if (cellArray[z][y][x].invis == true) {
                             cellArray[z][y][x].invis = false;
                             cellArray[z][y][x].toggleInvis();
@@ -582,23 +592,20 @@ function changeState() {
                 }
             }
         }
-        //Red Bar   - X
+        //Red Bar   - Z
         else if (tx == tmx && ty < 0) {
-            toggleXLayer(tz);
-            alert(tz);
-            xbar[tz].toggleVisible();
+            toggleZLayer(tz);
+            zbar[tz].toggleVisible();
         }
         //Green Bar - Y
         else if (tx == tmx && tz == tmz) {
             toggleYLayer(ty);
-            alert(ty);
             ybar[ty].toggleVisible();
         }
         //Blue Bar  - Z
         else if (ty < 0 && tz == tmz) {
-            toggleZLayer(tx);
-            alert(tx);
-            zbar[tx].toggleVisible();
+            toggleXLayer(tx);
+            xbar[tx].toggleVisible();
         }
         else {
 
@@ -628,15 +635,21 @@ function changeState() {
                 //Yellow Box - All
 
                 if (tx == tmx && ty < 0 && tz == tmz) {
-
+                    midpoint.toggleVisible();
                     for (var z = 0; z < tmz; z++) {
+                        if(zbar[z].active)
+                            continue;
                         for (var y = 0; y < tmy; y++) {
+                            if(ybar[y].active)
+                                continue;
                             for (var x = 0; x < tmx; x++) {
-                                if (this.isTrue == true) {
+                                if(xbar[x].active)
+                                    continue;
+                                if (cellArray[z][y][x].invis == true) {
                                     cellArray[z][y][x].invis = false;
                                     cellArray[z][y][x].toggleInvis();
                                 }
-                                else {
+                                else if (cellArray[z][y][x].invis == false) {
                                     cellArray[z][y][x].invis = true;
                                     cellArray[z][y][x].toggleInvis();
                                 }
@@ -649,22 +662,22 @@ function changeState() {
                         this.isTrue = true;
                     break;
                 }
-                //Red Bar   - X
+                //Red Bar   - Z
                 else if (tx == tmx && ty < 0) {
-                    toggleXLayer(tz);
+                    toggleZLayer(tz);
                     zbar[tz].toggleVisible();
                     break;
                 }
                 //Green Bar - Y
                 else if (tx == tmx && tz == tmz) {
                     toggleYLayer(ty);
-                    xbar[ty].toggleVisible();
+                    ybar[ty].toggleVisible();
                     break;
                 }
                 //Blue Bar  - Z
                 else if (ty < 0 && tz == tmz) {
-                    toggleZLayer(tx);
-                    ybar[tx].toggleVisible();
+                    toggleXLayer(tx);
+                    xbar[tx].toggleVisible();
                     break;
                 }
                 else if (this.cellArray[tz][ty][tx].invis == true) {
@@ -1308,10 +1321,16 @@ function sumNeighboursAtPositions(x, y, z, positions) {
     return count;
 }
 
-function toggleXLayer(zlayer) {
+function toggleZLayer(zlayer) {
     console.log("1" + zlayer);
     for (var y = 0; y < tmz; y++) {
         for (var x = 0; x < tmx; x++) {
+            if(midpoint.active)
+                continue;
+            if(xbar[x].active)
+                continue;
+            if(ybar[y].active)
+                continue;
             if (cellArray[zlayer][y][x].invis == true) {
                 cellArray[zlayer][y][x].invis = false;
                 cellArray[zlayer][y][x].toggleInvis();
@@ -1327,6 +1346,12 @@ function toggleXLayer(zlayer) {
 function toggleYLayer(ylayer) {
     for (var z = 0; z < tmz; z++) {
         for (var x = 0; x < tmx; x++) {
+            if(midpoint.active)
+                continue;
+            if(zbar[z].active)
+                continue;
+            if(xbar[x].active)
+                continue;
             if (cellArray[z][ylayer][x].invis == true) {
                 cellArray[z][ylayer][x].invis = false;
                 cellArray[z][ylayer][x].toggleInvis();
@@ -1339,9 +1364,15 @@ function toggleYLayer(ylayer) {
     }
 }
 
-function toggleZLayer(xlayer) {
+function toggleXLayer(xlayer) {
     for (var z = 0; z < tmz; z++) {
         for (var y = 0; y < tmy; y++) {
+            if(midpoint.active)
+                continue;
+            if(zbar[z].active)
+                continue;
+            if(ybar[y].active)
+                continue;
             if (cellArray[z][y][xlayer].invis == true) {
                 cellArray[z][y][xlayer].invis = false;
                 cellArray[z][y][xlayer].toggleInvis();
@@ -1354,7 +1385,7 @@ function toggleZLayer(xlayer) {
     }
 }
 
-function hider() {
+/*function hider() {
     for (var i = 0; i < tmz; i++) {
         zbar[i].visible = document.getElementById("z").checked;
     }
@@ -1365,7 +1396,7 @@ function hider() {
         ybar[i].visible = document.getElementById("y").checked;
     }
     midpoint.visible = document.getElementById("mid").checked;
-}
+}*/
 
 function performOperation(neightbours, expected, conditionOperand) {
     var result = false;

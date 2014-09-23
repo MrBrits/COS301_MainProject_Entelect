@@ -6,6 +6,7 @@ this.controls;
 this.worlds;
 realSpeed = 0;
 
+
 $("#Cube_Scale").on("input", function(){
     for(var z = 0; z < tmz; z++)    {
         for(var y = 0; y < tmy; y++)    {
@@ -21,21 +22,14 @@ $("#Cube_Scale").on("input", function(){
 $("#speed").on("change", function(){
     methods.Speed = this.value;
     var realSpeed = (10 - methods.Speed) * 100;
-    if(methods.Speed != 0)	{
-        if (worlds.play)	{
-            clearInterval(methods.runSimulation);
-            methods.runSimulation = setInterval(function(){worlds.StartAndStop()}, realSpeed);
-            document.getElementById("play_stop").src="resources/img/pause.png";
-        }
-    }
-    else	{
-        worlds.play = false;
-        document.getElementById("play_stop").src="resources/img/play.png";
+    if (worlds.play)	{
         clearInterval(methods.runSimulation);
+        methods.runSimulation = setInterval(function(){worlds.StartAndStop()}, realSpeed);
+        document.getElementById("play_stop").src="resources/img/pause.png";
     }
 });
 
-$("#Rotation_Speed").on("change", function(){
+$("#Rotation_Speed").on("input", function() {
     controls.autoRotateSpeed = this.value * 2;
 });
 
@@ -44,8 +38,8 @@ var methods= new function()	{
     var runSimulation = null;
 
     this.Rotate = function()	{
-        controls.autoRotateSpeed = this.Rotation_Speed * 2;
-        controls.autoRotater();
+        controls.autoRotateSpeed = $("#Rotation_Speed").val() * 2;
+        controls.autoRotate = !controls.autoRotate;
     }
 
     this.Start_Stop = function()	{
@@ -80,8 +74,8 @@ var methods= new function()	{
         document.getElementById("colorValue").value = 0;
     }
 
-    this.Speed = 0;
-    this.Rotation_Speed = 0;
+    this.Speed = 1;
+    this.Rotation_Speed = 1;
 }
 
 
