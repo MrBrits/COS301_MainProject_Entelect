@@ -7,12 +7,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="Scrollable bars refresh">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/statescript.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/statescript.js" />
+    <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js" />
     </list>
     <ignored path="Web_CA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1267,7 +1263,7 @@
       <workItem from="1411385240901" duration="14769000" />
       <workItem from="1411400285182" duration="4000" />
       <workItem from="1411419562508" duration="907000" />
-      <workItem from="1411458294970" duration="4050000" />
+      <workItem from="1411458294970" duration="4700000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1553,11 +1549,15 @@
       <created>1411420040516</created>
       <updated>1411420040517</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Scrollable bars refresh">
+      <created>1411465176977</created>
+      <updated>1411465176977</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="604805000" />
+    <option name="totallyTimeSpent" value="605455000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1635,7 +1635,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Simple login and navigation and profile" />
     <MESSAGE value="Basic Three js for simulator" />
     <MESSAGE value="Few fixes" />
     <MESSAGE value="Add state" />
@@ -1660,7 +1659,8 @@
     <MESSAGE value="Tutorials work with Simulator" />
     <MESSAGE value="Rule Result fixed" />
     <MESSAGE value="Enable disable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enable disable" />
+    <MESSAGE value="Scrollable bars refresh" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scrollable bars refresh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
