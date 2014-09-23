@@ -160,12 +160,13 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                             }
                                         }).error(function () {
                                             alert("RULE RESULT: SERVER ERROR");
-                                        });
+                                        });location.reload();
                                 }
                             }
                         }).error(function () {
                             alert("RULE CONDITION: SERVER ERROR");
                         });
+
                 }
             }).error(function () {
                 alert("RULE CONDITION NEIGHBOUR: SERVER ERROR");
@@ -303,7 +304,7 @@ web_ca.controller("RuleManager", function($scope, $http) {
         var ruleId=document.getElementById("ruleIdhidden").value;
         $http.post("http://" + site + "/deleteRule",ruleId)
             .success(function (data) {
-                alert(data);
+                alert(data);location.reload();
             }).error(function () {
                 alert("DELETE RULE: SERVER ERROR");
             });

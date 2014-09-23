@@ -30,7 +30,8 @@ web_ca.controller("WorldManager", function($scope, $http) {
         world.ownerId=document.getElementById("userId").value;
         $http.post("http://" + site + "/AddWorld",world)
             .success(function(data) {
-                alert(data);
+
+                location.reload();
             }).error(function () {
                 alert("CREATE WORLD: SERVER ERROR");
             });
@@ -67,6 +68,7 @@ web_ca.controller("WorldManager", function($scope, $http) {
         $http.post("http://" + site + "/editWorld",world)
             .success(function (data) {
                 alert(data);
+                location.reload();
                 $scope.getStates();
             }).error(function () {
                 alert("EDIT WORLD: SERVER ERROR");
@@ -79,6 +81,7 @@ web_ca.controller("WorldManager", function($scope, $http) {
         $http.post("http://" + site + "/deleteWorld",worldId)
             .success(function (data) {
                 alert(data);
+                location.reload();
             }).error(function () {
                 alert("DELETE WORLD: SERVER ERROR");
             });

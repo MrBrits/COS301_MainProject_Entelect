@@ -50,7 +50,7 @@
                         <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#state" ng-click="getStates()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
                     </h4>
                 </div>
-                <div id="state" class="panel-collapse collapse" >
+                <div id="state" style="height: auto;max-height: 200px;overflow-y: auto;"class="panel-collapse collapse" >
                     <div>
                         <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
                         <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addStateModal">Add new State</button>
@@ -76,7 +76,7 @@
                         <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#rule" ng-click="getRules()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
                     </h4>
                 </div>
-                <div id="rule" class="panel-collapse collapse">
+                <div id="rule" style="height: auto;max-height: 200px;overflow-y: auto;" class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
                         <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule</button>
@@ -103,7 +103,7 @@
                         <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#world" ng-click="getWorlds()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
                     </h4>
                 </div>
-                <div id="world" class="panel-collapse collapse">
+                <div id="world" style="height: auto;max-height: 200px;overflow-y: auto;"class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
                         <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addWorldModal">Add new World</button>
@@ -403,7 +403,8 @@
                                     <label class="col-xs-2 control-label">Condition Neighbours</label>
                                     <div class="col-xs-4">
                                         <select class="form-control" ng-model="newRuleConNeigh.neighbours">
-                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
+                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
                                         </select>
                                         <span class="help-block"></span>
                                     </div>
@@ -477,7 +478,8 @@
                                     <label class="col-xs-2 control-label">Condition Neighbours</label>
                                     <div class="col-xs-4">
                                         <select class="form-control" ng-model="newRuleConNeighAndOr.neighbours">
-                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
+                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
                                         </select>
                                         <span class="help-block"></span>
                                     </div>
@@ -531,7 +533,8 @@
                                     <label class="col-xs-2 control-label">Result Neighbours</label>
                                     <div class="col-xs-4">
                                         <select class="form-control" ng-model="newRuleResNeigh.neighbours">
-                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
+                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
                                         </select>
                                         <span class="help-block"></span>
                                     </div>
@@ -626,7 +629,8 @@
                                     <label class="col-xs-2 control-label">Condition Neighbours</label>
                                     <div class="col-xs-4">
                                         <select class="form-control" id="editRuleConNeigh" ng-model="oldRuleConNeigh.neighbours">
-                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
+                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
                                         </select>
                                         <span class="help-block"></span>
                                     </div>
@@ -682,7 +686,8 @@
                                     <label class="col-xs-2 control-label">Result Neighbours</label>
                                     <div class="col-xs-4">
                                         <select class="form-control" id="editRuleResNeigh" ng-model="oldRuleResNeigh.neighbours">
-                                            <option value="000000000000000000000000000"> 000000000000000000000000000 </option>
+                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
+                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
                                         </select>
                                         <span class="help-block"></span>
                                     </div>

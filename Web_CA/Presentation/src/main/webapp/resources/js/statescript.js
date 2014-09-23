@@ -70,7 +70,7 @@ web_ca.controller("StateManager", function ($scope, $http) {
 
         $http.post("http://" + site + "/editState",state)
             .success(function (data) {
-                alert(data);
+                alert(data); location.reload();
                 $scope.getStates();
             }).error(function () {
                 alert("EDIT STATE: SERVER ERROR");
@@ -82,7 +82,7 @@ web_ca.controller("StateManager", function ($scope, $http) {
         var stateId=document.getElementById("deleteStateIdHidden").value;
         $http.post("http://" + site + "/deleteState",stateId)
             .success(function (data) {
-                alert(data);
+                alert(data); location.reload();
             }).error(function () {
                 alert("DELETE STATE: SERVER ERROR");
             });
