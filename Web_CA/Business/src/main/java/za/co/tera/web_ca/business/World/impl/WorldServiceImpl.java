@@ -110,7 +110,7 @@ public class WorldServiceImpl implements WorldService{
                     int x =Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent());
                     int y =Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent());
                     int z =Integer.parseInt(eElement.getElementsByTagName("z").item(0).getTextContent());
-                    int v =Integer.parseInt(eElement.getElementsByTagName("value").item(0).getTextContent());
+                    double v = Double.parseDouble(eElement.getElementsByTagName("value").item(0).getTextContent());
 
                     Coordinate newCoordinate= new Coordinate(x,y,z,v,worldId);
                     coordinateList.add(newCoordinate);

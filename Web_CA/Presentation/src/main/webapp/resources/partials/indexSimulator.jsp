@@ -13,9 +13,6 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav pull-left row">
-                <li><h4><span class="label inline label-success">Create new State</span></h4></li>
-                <li><input class="form-control" id="colorValue" value="0"  type="text"></li>
-                <li>  </li>
                 <li><button type="button" ng-click="SaveCoordinates()" class="btn btn-default ">Save World</button></li>
 
             </ul>

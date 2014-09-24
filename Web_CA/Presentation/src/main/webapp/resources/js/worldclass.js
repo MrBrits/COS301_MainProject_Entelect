@@ -207,6 +207,7 @@ function addCoordinates()
         var nowy = coordinate[z].coordinateY;
         cellArray[nowz][nowy][nowx].cube.material.opacity=1;
         cellArray[nowz][nowy][nowx].value=coordinate[z].value;
+
         if(coordinate[z].value!=0)
         {
             cellArray[nowz][nowy][nowx].cube.material.color.setHex(colorsUsed[coordinate[z].value]);
@@ -620,9 +621,9 @@ function changeState() {
                 colorsUsedName[counter] = tempcolor;
 
                 counter++;
-
+                worldStates();
             }
-            worldStates();
+
         }
     }
     else {
@@ -687,12 +688,12 @@ function changeState() {
                     else {
                         colorsUsed[tempcolor] = arryColour[counter];
                         colorsUsedName[counter] = tempcolor;
-                        counter++;
+                        counter++;worldStates();
                     }
-                    worldStates();
+
                     this.cellArray[tz][ty][tx].cube.material.opacity = 1;
 
-                    this.cellArray[tz][ty][tx].value = parseInt(tempcolor);
+                    this.cellArray[tz][ty][tx].value = tempcolor;
                     if(this.cellArray[tz][ty][tx].value == 0)    {
                         this.cellArray[tz][ty][tx].cube.material.opacity = 0.03;
                         this.cellArray[tz][ty][tx].colour = "";
@@ -1430,7 +1431,7 @@ function performBetween(neightbours, valueOne, valueTwo) {
 }
 
 function worldStates() {
-    var s = '<table class="table">';
+    var s = '<table class="table"><input class="form-control" id="colorValue" value="0" type="text">';
     for (var i = 0; i < counter; i++) {
         if( colorsUsedName[i]!="0") {
             s += "<tr><td><button  onclick='setColor(" + colorsUsedName[i] + ")' style=" + '"background-color:#' + arryColour[i].substring(2) + '"' + 'class="btn btn-default btn-lg" ></button>';
