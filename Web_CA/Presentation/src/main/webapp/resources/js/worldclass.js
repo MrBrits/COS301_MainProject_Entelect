@@ -475,7 +475,6 @@ function world(scene1, cameras) {
                 for (var y = 0; y < tmy; y++) {
                     for (var x = 0; x < tmx; x++) {
                         if (cellArray[z][y][x].triggerChange) {
-
                             if (colorsUsed[cellArray[z][y][x].nextValue] == null){
 
                                 colorsUsed[cellArray[z][y][x].nextValue] = arryColour[counter];
@@ -693,7 +692,7 @@ function changeState() {
 
                     this.cellArray[tz][ty][tx].cube.material.opacity = 1;
 
-                    this.cellArray[tz][ty][tx].value = tempcolor;
+                    this.cellArray[tz][ty][tx].value = parseFloat(tempcolor);
                     if(this.cellArray[tz][ty][tx].value == 0)    {
                         this.cellArray[tz][ty][tx].cube.material.opacity = 0.03;
                         this.cellArray[tz][ty][tx].colour = "";
@@ -1386,18 +1385,18 @@ function toggleXLayer(xlayer) {
     }
 }
 
-/*function hider() {
+function hider() {
     for (var i = 0; i < tmz; i++) {
-        zbar[i].visible = document.getElementById("z").checked;
+        zbar[i].cube.visible = document.getElementById("z").checked;
     }
     for (var i = 0; i < tmx; i++) {
-        xbar[i].visible = document.getElementById("x").checked;
+        xbar[i].cube.visible = document.getElementById("x").checked;
     }
     for (var i = 0; i < tmy; i++) {
-        ybar[i].visible = document.getElementById("y").checked;
+        ybar[i].cube.visible = document.getElementById("y").checked;
     }
-    midpoint.visible = document.getElementById("mid").checked;
-}*/
+    midpoint.cube.visible = document.getElementById("mid").checked;
+}
 
 function performOperation(neightbours, expected, conditionOperand) {
     var result = false;
@@ -1451,12 +1450,9 @@ function toggleRule(i)
     if (ruleArray[i].enabled==true) {
         document.getElementById("rule"+i).style.backgroundColor = "#FF3300";
         ruleArray[i].enabled=false;
-
-        //alert("t");
     } else {
         document.getElementById("rule"+i).style.backgroundColor = "#006600";
         ruleArray[i].enabled=true;
-        //alert("f");
     }
 
 }
@@ -1465,9 +1461,9 @@ function worldRules() {
 
     var s = '<table class="table">';
     for (var i = 0; i < ruleArray.length; i++) {
-        s += "<tr><td><button id="+'"'+"rule"+i+'"'+" onclick='toggleRule("+i+")' class='btn btn-default btn-lg' ></button>";
-        //  alert( "<tr><td><button id="+'"'+'rule"'+" onclick='toggleRule("+i+")' class='btn btn-default btn-lg' ></button>");
-        s += "<label>" + ruleArray[i].ruleName + "</label></td></tr>";
+        s += "<tr><td><button style = \"background-color:#006600;\" id="+'"'+"rule"+i+'"'+" onclick='toggleRule("+i+")' class='btn btn-default btn-lg' ></button>";
+        s += "<label>" + ruleArray[i].ruleName + "</label>";
+        s += "<br/><label style=\"font-size:11px;\">" + ruleArray[i].ruleDesc + "</label></td></tr>";
 
     }
     s += "</tr></table>";

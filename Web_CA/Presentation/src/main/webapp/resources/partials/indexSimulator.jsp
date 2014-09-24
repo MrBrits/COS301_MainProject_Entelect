@@ -119,7 +119,7 @@
      </div>
 
 
-    <div  class="col-sm-6 pull-right" style="position:fixed;left:100%;;width:150px">
+    <div  class="col-sm-6 pull-right" style="position:fixed;left:100%;width:150px;">
             <!-- Nav tabs -->
             <ul class="nav nav-stacked tabs-left black vertical-text " role="tablist">
 
@@ -129,14 +129,13 @@
                 </ul>
             </ul>
     </div>
-    <div class="col-xs-9" style="position:fixed;left:83%; top:150px;width:250px">
+    <div class="col-xs-9" style="position:fixed;left:78%; top:150px; width:250px;">
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane fade " style="overflow-y:auto;height: 240px" id ="worldRule">
+                <div class="tab-pane fade " style="height: 400px;overflow-y:auto;" id ="worldRule">
 
                 </div>
-                <div class="tab-pane fade " style="overflow-y:auto;height: 240px"  id="worldState">
-
+                <div class="tab-pane fade " style="height: 400px;overflow-y:auto;"  id="worldState">
                 </div>
             </div>
      </div>
