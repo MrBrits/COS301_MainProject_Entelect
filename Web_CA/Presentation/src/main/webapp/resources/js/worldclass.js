@@ -18,7 +18,7 @@ this.arryColour;
 this.scene;
 this.counter = 0;
 this.cond1Val;
-var site="localhost:8080";
+var site= new config().getSite();
 gggg = true;
 //controller to add the coordinates
 var web_ca = angular.module('coordinate_app', []);
@@ -43,15 +43,15 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
 
         }
 
-        /* $http.post("http://" + site + "/UserSet",userReg)
+         $http.post("http://" + site + "/saveCoordinates",coordinate)
          .success(function(data) {
-
+            alert(data);
          }).error(function () {
          alert("USER REGISTER: SERVER ERROR");
-         });*/
+         });
     };
 
-    $http.post("http://" + site + "/getCoordinatesByWorldId/", 22)
+    $http.post("http://" + site + "/getCoordinatesByWorldId/", worldId)
         .success(function (data) {
             this.coordinate = data;
             0

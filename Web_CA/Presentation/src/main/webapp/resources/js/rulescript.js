@@ -27,6 +27,15 @@ web_ca.controller("RuleManager", function($scope, $http) {
                 alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
             });
     }
+    $scope.addRuleEditor = function(s) {
+        $http.post("http://" + site + "/createRuleByString",s)
+            .success(function (data) {
+
+
+            }).error(function () {
+                //alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
+            });
+    }
 
     $scope.addRule = function(rule, con, conAndOr, res, conNeigh, conAndOrNeigh, resNeigh) {
 

@@ -79,8 +79,8 @@
                 <div id="rule" style="height: auto;max-height: 200px;overflow-y: auto;" class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
-                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule</button>
-
+                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule(GUI)</button>
+                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabsEdit">Add new Rule(EDITOR)</button>
                         <table class="table">
                             <tr ng-repeat="rule in rules | filter:search">
                                 <td>
@@ -107,6 +107,7 @@
                     <div >
                         <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
                         <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addWorldModal">Add new World</button>
+
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
                                 <td>
@@ -334,6 +335,34 @@
                     <input id="editWorldHeight" ng-model="oldWorld.worldId" type="hidden"/>
                     <input id="editWorldDepth" ng-model="oldWorld.worldId" type="hidden"/>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addRuleModalTabsEdit" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="RuleManager">
+
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header modal-success">
+                <h4 class="modal-title">Rule editor</h4>
+            </div>
+            <div class = "container">
+                <br/>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <textarea class="form-control" style="height:600px;"ng-model="ruleeditor.val"></textarea>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-4">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="addRuleEditor(ruleeditor.val)">Add</button>
+                    </div>
+                </div>
+                </form>
+
             </div>
         </div>
     </div>

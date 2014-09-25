@@ -84,6 +84,17 @@ public class WorldController {
     List<Coordinate> getCoordinatesByWorldId(@RequestBody int worldId) {
         return worldService.findCoordinateByWorldId(worldId);
     }
+
+    @RequestMapping(value = "/saveCoordinates", method = RequestMethod.POST)
+    public @ResponseBody
+    String saveCoordinates(@RequestBody List<Coordinate> coordinates) {
+
+       // System.out.println(coordinates.get(0).getWorldId());
+       //
+        worldService.updateCoordinates(coordinates);
+        return String.valueOf("Success");
+    }
+
     @RequestMapping(value = "/getByWorldId/{worldId}", method = RequestMethod.GET)
     public @ResponseBody
     World getByWorldId( @PathVariable(value = "worldId") int worldId) {

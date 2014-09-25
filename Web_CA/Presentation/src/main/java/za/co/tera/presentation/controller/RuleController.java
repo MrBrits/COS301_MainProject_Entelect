@@ -96,6 +96,21 @@ public class RuleController {
         return ruleService.createRuleNeigh(ruleConAndOrNeigh);
     }
 
+    @RequestMapping(value = "/createRuleByString", method = RequestMethod.POST)
+    public @ResponseBody
+    void createRuleByString(@RequestBody String ruleString) {
+       RuleEncapsulate ruleEncapsulate = new RuleEncapsulate(ruleString);
+      /* Rule rule =ruleEncapsulate.getRule();
+       rule.setOwnerId(31);
+       rule.setRuleConId(2);
+       rule.setRuleConAndid(3);
+       rule.setRuleResId(2);
+       ruleService.createRule(rule);*/
+        System.out.println("Done");
+       /*Rulecondition rulecondition = ruleEncapsulate.getCond();
+        rulecondition.setR*/
+    }
+
     @RequestMapping(value = "/AddRuleConAndOr", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleConAndOr(@RequestBody JSONObject ruleConAndOr) {

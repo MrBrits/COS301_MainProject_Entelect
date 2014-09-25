@@ -13,4 +13,5 @@ public interface WorldService {
     public List<World> findAllWorlds();
     public List<World> findWorldByUserId(int ID);
     public List<Coordinate> findCoordinateByWorldId(int worldId);
+    public void updateCoordinates(List<Coordinate> coordinateList);
 }

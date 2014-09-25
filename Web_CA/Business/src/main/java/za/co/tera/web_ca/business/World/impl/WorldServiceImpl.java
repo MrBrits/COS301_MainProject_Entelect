@@ -93,6 +93,36 @@ public class WorldServiceImpl implements WorldService{
     }
 
     @Override
+    public void updateCoordinates(List<Coordinate> coordinateList) {
+        Writer writer = null;
+        try {
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(coordinateList.get(0).getWorldId()+".xml"), "utf-8"));
+            writer.write("<coordinateList>\n");
+            for (int x = 0; x < coordinateList.size(); x++) {
+
+                        writer.write("<coordinate>\n");
+                        writer.write("<x>"+coordinateList.get(x).getCoordinateX()+"</x>\n");
+                        writer.write("<y>"+coordinateList.get(x).getCoordinateY()+"</y>\n");
+                        writer.write("<z>"+coordinateList.get(x).getCoordinateZ()+"</z>\n");
+                        writer.write("<value>"+coordinateList.get(x).getValue()+"</value>\n");
+                        writer.write("</coordinate>\n");
+            }
+            writer.write("</coordinateList>\n");
+
+
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+
+    @Override
     public List<Coordinate> findCoordinateByWorldId(int worldId) {
         List<Coordinate> coordinateList = new ArrayList<Coordinate>();
         try {
