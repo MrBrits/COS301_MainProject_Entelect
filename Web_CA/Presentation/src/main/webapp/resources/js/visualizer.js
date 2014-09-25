@@ -6,7 +6,6 @@ this.controls;
 this.worlds;
 realSpeed = 0;
 
-
 $("#Cube_Scale").on("input", function(){
     for(var z = 0; z < tmz; z++)    {
         for(var y = 0; y < tmy; y++)    {

@@ -607,22 +607,8 @@ function changeState() {
             toggleXLayer(tx);
             xbar[tx].toggleVisible();
         }
-        else {
-
-            if (colorsUsed[tempcolor] != null) {
-                this.cellArray[tz][ty][tx].cube.material.color.setHex(colorsUsed[tempcolor]);
-
-
-            }
-            else {
-
-                colorsUsed[tempcolor] = arryColour[counter];
-                colorsUsedName[counter] = tempcolor;
-
-                counter++;
-                worldStates();
-            }
-
+        else if (this.cellArray[tz][ty][tx].invis == true) {
+            colour($("#Brush_Size").val(),tx,ty,tz);
         }
     }
     else {
@@ -681,27 +667,7 @@ function changeState() {
                     break;
                 }
                 else if (this.cellArray[tz][ty][tx].invis == true) {
-                    if (colorsUsed[tempcolor] != null) {
-                        this.cellArray[tz][ty][tx].cube.material.color.setHex(colorsUsed[tempcolor]);
-                    }
-                    else {
-                        colorsUsed[tempcolor] = arryColour[counter];
-                        colorsUsedName[counter] = tempcolor;
-                        counter++;worldStates();
-                    }
-
-                    this.cellArray[tz][ty][tx].cube.material.opacity = 1;
-
-                    this.cellArray[tz][ty][tx].value = parseFloat(tempcolor);
-                    if(this.cellArray[tz][ty][tx].value == 0)    {
-                        this.cellArray[tz][ty][tx].cube.material.opacity = 0.03;
-                        this.cellArray[tz][ty][tx].colour = "";
-                        this.cellArray[tz][ty][tx].invis = true;
-                    }
-                    else {
-                        this.cellArray[tz][ty][tx].colour = tempcolor;
-                    }
-
+                    colour($("#Brush_Size").val(),tx,ty,tz);
                     break;
                 }
             }
@@ -1513,3 +1479,237 @@ function checkCondition(c, x, y, z) {
     }
     return false;
 }
+
+function colour(size,x,y,z)	{
+    if(size <= 0)	{
+        changeThisState(x, y, z, size);
+    }
+    else	{
+        changeThisState(x, y, z, size);
+        if(tmz > 1)	{
+            var x1 = false, x2 = false, y1 = false, y2 = false, z1 = false, z2 = false;
+            var count  = 0;
+            if(x + 1 < tmx)
+                if(cellArray[z][y][x + 1].invis)	{
+                    x1 = true;
+                    count++;
+                }
+            if(x - 1 >= 0)
+                if(cellArray[z][y][x - 1].invis)	{
+                    x2 = true;
+                    count++;
+                }
+            if(y + 1 < tmy)
+                if(cellArray[z][y + 1][x].invis)	{
+                    y1 = true;
+                    count++;
+                }
+            if(y - 1 >= 0)
+                if(cellArray[z][y - 1][x].invis)	{
+                    y2 = true;
+                    count++;
+                }
+            if(z + 1 < tmz)
+                if(cellArray[z + 1][y][x].invis)	{
+                    z1 = true;
+                    count++;
+                }
+            if(z - 1 >= 0)
+                if(cellArray[z - 1][y][x].invis)	{
+                    z2 = true;
+                    count++;
+                }
+
+            if(count == 3)	{
+                if(x1)
+                    changeThisState(x + 1, y, z, size);
+                if(x2)
+                    changeThisState(x - 1, y, z, size);
+                if(y1)
+                    changeThisState(x, y + 1, z, size);
+                if(y2)
+                    changeThisState(x, y - 1, z, size);
+                if(z1)
+                    changeThisState(x, y, z + 1, size);
+                if(z2)
+                    changeThisState(x, y, z - 1, size);
+
+                if(x1 && y1 && x + 1 <= tmx && y + 1 <= tmy)
+                    changeThisState(x + 1, y + 1, z, size);
+                if(x2 && y1 && x - 1 >= 0 && y + 1 <= tmy)
+                    changeThisState(x - 1, y + 1, z, size);
+                if(x1 && y2 && x + 1 <= tmx && y - 1 >= 0)
+                    changeThisState(x + 1, y - 1, z, size);
+                if(x2 && y2 && x - 1 >= 0 && y - 1 >= 0)
+                    changeThisState(x - 1, y - 1, z, size);
+
+                if(y1 && z1 && z + 1 <= tmz && y + 1 <= tmy)
+                    changeThisState(x, y + 1, z + 1, size);
+                if(y2 && z1 && z + 1 <= tmz && y - 1 >= 0)
+                    changeThisState(x, y - 1, z + 1, size);
+                if(y1 && z2 && z - 1 >= 0 && y + 1 <= tmy)
+                    changeThisState(x, y + 1, z - 1, size);
+                if(y2 && z2 && z - 1 >= 0 && y - 1 >= 0)
+                    changeThisState(x, y - 1, z - 1, size);
+
+                if(z1 && x1 && z + 1 <= tmz && x + 1 <= tmx)
+                    changeThisState(x + 1, y, z + 1, size);
+                if(z2 && x1 && z - 1 >= 0 && x + 1 <= tmx)
+                    changeThisState(x + 1, y, z - 1, size);
+                if(z1 && x2 && z + 1 <= tmz && x - 1 >= 0)
+                    changeThisState(x - 1, y, z + 1, size);
+                if(z2 && x2 && z - 1 >= 0 && x - 1 >= 0)
+                    changeThisState(x - 1, y, z - 1, size);
+            }
+            if(count == 4)	{
+                if(x1)
+                    changeThisState(x + 1, y, z, size);
+                if(x2)
+                    changeThisState(x - 1, y, z, size);
+                if(y1)
+                    changeThisState(x, y + 1, z, size);
+                if(y2)
+                    changeThisState(x, y - 1, z, size);
+                if(z1)
+                    changeThisState(x, y, z + 1, size);
+                if(z2)
+                    changeThisState(x, y, z - 1, size);
+                if(x1 == x2)	{
+                    if(x1 && y1 && x + 1 <= tmx && y + 1 <= tmy)
+                        changeThisState(x + 1, y + 1, z, size);
+                    if(x2 && y1 && x - 1 >= 0 && y + 1 <= tmy)
+                        changeThisState(x - 1, y + 1, z, size);
+                    if(x1 && y2 && x + 1 <= tmx && y - 1 >= 0)
+                        changeThisState(x + 1, y - 1, z, size);
+                    if(x2 && y2 && x - 1 >= 0 && y - 1 >= 0)
+                        changeThisState(x - 1, y - 1, z, size);
+
+                    if(z1 && x1 && z + 1 <= tmz && x + 1 <= tmx)
+                        changeThisState(x + 1, y, z + 1, size);
+                    if(z2 && x1 && z - 1 >= 0 && x + 1 <= tmx)
+                        changeThisState(x + 1, y, z - 1, size);
+                    if(z1 && x2 && z + 1 <= tmz && x - 1 >= 0)
+                        changeThisState(x - 1, y, z + 1, size);
+                    if(z2 && x2 && z - 1 >= 0 && x - 1 >= 0)
+                        changeThisState(x - 1, y, z - 1, size);
+                }
+                if(y1 == y2)	{
+                    if(x1 && y1 && x + 1 <= tmx && y + 1 <= tmy)
+                        changeThisState(x + 1, y + 1, z, size);
+                    if(x2 && y1 && x - 1 >= 0 && y + 1 <= tmy)
+                        changeThisState(x - 1, y + 1, z, size);
+                    if(x1 && y2 && x + 1 <= tmx && y - 1 >= 0)
+                        changeThisState(x + 1, y - 1, z, size);
+                    if(x2 && y2 && x - 1 >= 0 && y - 1 >= 0)
+                        changeThisState(x - 1, y - 1, z, size);
+
+                    if(y1 && z1 && z + 1 <= tmz && y + 1 <= tmy)
+                        changeThisState(x, y + 1, z + 1, size);
+                    if(y2 && z1 && z + 1 <= tmz && y - 1 >= 0)
+                        changeThisState(x, y - 1, z + 1, size);
+                    if(y1 && z2 && z - 1 >= 0 && y + 1 <= tmy)
+                        changeThisState(x, y + 1, z - 1, size);
+                    if(y2 && z2 && z - 1 >= 0 && y - 1 >= 0)
+                        changeThisState(x, y - 1, z - 1, size);
+                }
+                if(z1 == z2)	{
+                    if(y1 && z1 && z + 1 <= tmz && y + 1 <= tmy)
+                        changeThisState(x, y + 1, z + 1, size);
+                    if(y2 && z1 && z + 1 <= tmz && y - 1 >= 0)
+                        changeThisState(x, y - 1, z + 1, size);
+                    if(y1 && z2 && z - 1 >= 0 && y + 1 <= tmy)
+                        changeThisState(x, y + 1, z - 1, size);
+                    if(y2 && z2 && z - 1 >= 0 && y - 1 >= 0)
+                        changeThisState(x, y - 1, z - 1, size);
+
+                    if(z1 && x1 && z + 1 <= tmz && x + 1 <= tmx)
+                        changeThisState(x + 1, y, z + 1, size);
+                    if(z2 && x1 && z - 1 >= 0 && x + 1 <= tmx)
+                        changeThisState(x + 1, y, z - 1, size);
+                    if(z1 && x2 && z + 1 <= tmz && x - 1 >= 0)
+                        changeThisState(x - 1, y, z + 1, size);
+                    if(z2 && x2 && z - 1 >= 0 && x - 1 >= 0)
+                        changeThisState(x - 1, y, z - 1, size);
+                }
+            }
+            if(count == 5)	{
+                if(x1 == x2)	{
+                    changeThisState(x + 1, y, z, size);
+                    changeThisState(x - 1, y, z, size);
+                }
+                if(y1 == y2)	{
+                    changeThisState(x, y + 1, z, size);
+                    changeThisState(x, y - 1, z, size);
+                }
+                if(z1 == z2)	{
+                    changeThisState(x, y, z + 1, size);
+                    changeThisState(x, y, z - 1, size);
+                }
+                if((x1 && x2) && (y1 && y2))	{
+                    changeThisState(x + 1, y + 1, z, size);
+                    changeThisState(x + 1, y - 1, z, size);
+                    changeThisState(x - 1, y - 1, z, size);
+                    changeThisState(x - 1, y + 1, z, size);
+                }
+                if((x1 && x2) && (z1 && z2))	{
+                    changeThisState(x + 1, y, z + 1, size);
+                    changeThisState(x - 1, y, z + 1, size);
+                    changeThisState(x + 1, y, z - 1, size);
+                    changeThisState(x - 1, y, z - 1, size);
+                }
+                if((z1 && z2) && (y1 && y2))	{
+                    changeThisState(x, y + 1, z + 1, size);
+                    changeThisState(x, y - 1, z - 1, size);
+                    changeThisState(x, y - 1, z + 1, size);
+                    changeThisState(x, y + 1, z - 1, size);
+                }
+            }
+        }
+        else	{
+            if(y + 1 <= tmy - 1)
+                changeThisState(x, y + 1, z, size);
+            if(y - 1 >= 0)
+                changeThisState(x, y - 1, z, size);
+            if(x + 1 <= tmx - 1)
+                changeThisState(x + 1, y, z, size);
+            if(x - 1 >= 0)
+                changeThisState(x - 1, y, z, size);
+            if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1)
+                changeThisState(x + 1, y + 1, z, size);
+            if(y - 1 >= 0 && x - 1 >= 0)
+                changeThisState(x - 1, y - 1, z, size);
+            if(y + 1 <= tmy - 1 && x - 1 >= 0)
+                changeThisState(x - 1, y + 1, z, size);
+            if(y - 1 >= 0 && x + 1 <= tmx - 1)
+                changeThisState(x + 1, y - 1, z, size);
+        }
+    }
+}
+
+
+function changeThisState(x, y, z, size)	{
+    if (colorsUsed[tempcolor] != null) {
+        cellArray[z][y][x].cube.material.color.setHex(colorsUsed[tempcolor]);
+    }
+    else {
+        colorsUsed[tempcolor] = arryColour[counter];
+        colorsUsedName[counter] = tempcolor;
+        counter++;
+        worldStates();
+    }
+
+    cellArray[z][y][x].cube.material.opacity = 1;
+
+    cellArray[z][y][x].value = parseFloat(tempcolor);
+    if(cellArray[z][y][x].value == 0)    {
+        cellArray[z][y][x].cube.material.opacity = 0.03;
+        cellArray[z][y][x].colour = "";
+        cellArray[z][y][x].invis = true;
+    }
+    else {
+        cellArray[z][y][x].colour = tempcolor;
+    }
+    if(size > 1)
+        colour(size - 1,x,y,z);
+}
+
