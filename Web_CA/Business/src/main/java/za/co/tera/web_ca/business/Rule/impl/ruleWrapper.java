@@ -192,7 +192,7 @@ public class ruleWrapper {
                         temp = st.nextToken();
                         if (isNumeric(temp)) {
                             arr.add(temp);
-                            arr.add("");
+                            arr.add("0");
                         } else {
                             System.out.println("Incorrect Syntax");
                             return;
