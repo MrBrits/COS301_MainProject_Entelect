@@ -79,8 +79,8 @@
                 <div id="rule" style="height: auto;max-height: 200px;overflow-y: auto;" class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
-                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule(GUI)</button>
-                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabsEdit">Add new Rule(EDITOR)</button>
+                        <button type="button"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule(GUI)</button>
+                        <button type="button" onclick="setDefualt()" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabsEdit">Add new Rule(EDITOR)</button>
                         <table class="table">
                             <tr ng-repeat="rule in rules | filter:search">
                                 <td>
@@ -351,7 +351,11 @@
                 <form class="form-horizontal">
                     <div class="form-group">
                         <div class="col-xs-6">
-                            <textarea class="form-control" style="height:600px;"ng-model="ruleeditor.val"></textarea>
+                            <textarea id="textArea" class="form-control" style="height:600px;"ng-model="ruleeditor.val">
+                                when true sum of 1;4:8 between 1 3
+                                then sum of 1;4:8 = 1
+                                identifiedBy Rule_1 Description
+                            </textarea>
                             <span class="help-block"></span>
                         </div>
                     </div>

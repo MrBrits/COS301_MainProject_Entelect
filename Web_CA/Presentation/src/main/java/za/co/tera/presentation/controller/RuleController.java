@@ -3,10 +3,17 @@ package za.co.tera.presentation.controller;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import za.co.tera.web_ca.business.Rule.base.RuleService;
 import za.co.tera.web_ca.business.Rule.impl.RuleServiceImpl;
-import za.co.tera.web_ca.domain.impl.*;
+import za.co.tera.web_ca.business.Rule.impl.ruleWrapper;
+import za.co.tera.web_ca.domain.impl.Rule;
+import za.co.tera.web_ca.domain.impl.Rulecondition;
+import za.co.tera.web_ca.domain.impl.Ruleneighbours;
+import za.co.tera.web_ca.domain.impl.Ruleresult;
 
 import java.util.List;
 
@@ -14,7 +21,7 @@ import java.util.List;
 public class RuleController {
 
     RuleService ruleService = new RuleServiceImpl();
-
+    ruleWrapper ruleWrapper = new ruleWrapper();
     /**
      *
      * @param model
@@ -98,17 +105,15 @@ public class RuleController {
 
     @RequestMapping(value = "/createRuleByString", method = RequestMethod.POST)
     public @ResponseBody
-    void createRuleByString(@RequestBody String ruleString) {
-       RuleEncapsulate ruleEncapsulate = new RuleEncapsulate(ruleString);
-      /* Rule rule =ruleEncapsulate.getRule();
-       rule.setOwnerId(31);
-       rule.setRuleConId(2);
-       rule.setRuleConAndid(3);
-       rule.setRuleResId(2);
-       ruleService.createRule(rule);*/
-        System.out.println("Done");
-       /*Rulecondition rulecondition = ruleEncapsulate.getCond();
-        rulecondition.setR*/
+    String createRuleByString(@RequestBody String ruleString) throws Exception {
+
+
+        String lines[] = ruleString.split("\\r?\\n");
+        for (int i = 0; i < lines.length; i++) {
+            ruleWrapper.condition(lines[i]);
+        }
+        return "Done";
+
     }
 
     @RequestMapping(value = "/AddRuleConAndOr", method = RequestMethod.POST)

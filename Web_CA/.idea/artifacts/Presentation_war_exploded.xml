@@ -64,6 +64,18 @@
           <element id="archive" name="Business-1.0-SNAPSHOT.jar">
             <element id="module-output" name="Business" />
           </element>
+          <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-console:2.0.1" />
+          <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-swing:2.0.1" />
+          <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy:2.0.1" />
+          <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-tree:4.0" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:4.0" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-commons:4.0" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-util:4.0" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-analysis:4.0" />
+          <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-templates:2.0.1" />
+          <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy-xml:2.0.1" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.3" />
           <element id="archive" name="Domain-1.0-SNAPSHOT.jar">
             <element id="module-output" name="Domain" />
           </element>
@@ -76,7 +88,6 @@
           <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.4.Final" />
           <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.18.1-GA" />
-          <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
           <element id="library" level="project" name="Maven: org.jboss:jandex:1.1.0.Final" />
           <element id="archive" name="Data_Access-1.0-SNAPSHOT.jar">
             <element id="module-output" name="Data_Access" />

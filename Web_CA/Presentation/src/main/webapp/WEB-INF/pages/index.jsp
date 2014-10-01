@@ -63,7 +63,9 @@
                 <li>
                     <a href="#simulator">Simulator</a>
                 </li>
-
+                <li>
+                    <a href="#settings">Settings</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left" role="form">
@@ -82,6 +84,7 @@
                         <div class="clearfix"></div>
                     </div>
                 </form>
+                <li><img style="position:relative;top:10px;width: 30px;height: 30px" src="resources/img/user.png"/></li>
                 <li><a href="#profile">${userFullName}</a></li>
                 <li><input id ="userId" value="${userId}" type="hidden"></li>
                 <li><input id ="worldId" value="${userId}" type="hidden"></li>
