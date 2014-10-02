@@ -1444,7 +1444,7 @@ function worldRules() {
 
     }
     s += "</tr></table>";
-    document.getElementById("worldRule").innerHTML = s;
+    //document.getElementById("worldRule").innerHTML = s;
 
 
 }
