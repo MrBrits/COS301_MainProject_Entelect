@@ -84,16 +84,16 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
 
     $http.post("http://" + site + "/getConditions")
         .success(function (data1) {
-            alert(JSON.stringify(data1));
+
             var conditionsList;
             conditionsList=data1;
             $http.post("http://" + site + "/getRuleByUserId", userId)
                 .success(function (data) {
 
                     this.ruleArray = new Array();
-                    alert(JSON.stringify(data));
 
-                    for (var i = 0; i < 3; i++) {
+
+                    for (var i = 0; i < data.length; i++) {
                         add1(data[i], i);
                         if (data[i].ruleConId != null) {
 
@@ -1445,7 +1445,7 @@ function worldRules() {
     }
     s += "</tr></table>";
     document.getElementById("worldRule").innerHTML = s;
-    alert(JSON.stringify(ruleArray));
+
 
 
 }

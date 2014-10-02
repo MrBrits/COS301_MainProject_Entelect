@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <div class="submenu" ng-controller = "CoordinateManager as web_ca">
+    <div class="submenu" >
         <button style="margin-left:5px; margin-top:5px;" type="button" id="slide-submenu" class="btn btn-default pull-left" data-toggle="tooltip" data-placement="bottom" title="Close">
             <span id = "menu-button" class="glyphicon glyphicon-remove" ></span>
         </button>
