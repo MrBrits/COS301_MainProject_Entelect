@@ -34,7 +34,7 @@ public class ruleWrapper {
 
      void runWithGroovyShell(String[] ars, String type,String _subtype) throws Exception {
 
-        Object tempObject = new GroovyShell().parse(new File("Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/ruleDsl.groovy")).invokeMethod(type, ars);
+        Object tempObject = new GroovyShell().parse(new File("ruleDsl.groovy")).invokeMethod(type, ars);
         Gson gson = new Gson();
         String jsonString = gson.toJson(tempObject);
         System.out.println(_subtype);
@@ -129,23 +129,23 @@ public class ruleWrapper {
             NeighbourString = "000000000000000000000000000";
             String temp = st.nextToken();
             subType=temp;
-            if (temp.equals("when") || temp.equals("and") || temp.equals("or")) {
+            if (temp.equalsIgnoreCase("WHEN") || temp.equalsIgnoreCase("AND") || temp.equalsIgnoreCase("OR")) {
                 temp = st.nextToken();
-                if (temp.contains("true") || temp.contains("false")) {
+                if (temp.contains("TRUE") || temp.contains("FALSE")) {
                     arr.add(temp);
                 } else {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
                 temp = st.nextToken();
-                if (temp.contains("sum") || temp.contains("avg") || temp.contains("min") || temp.contains("max") || temp.contains("count")) {
+                if (temp.equalsIgnoreCase("SUM") || temp.equalsIgnoreCase("AVG") || temp.equalsIgnoreCase("MIN") || temp.equalsIgnoreCase("MAX") || temp.equalsIgnoreCase("COUNT")) {
                     arr.add(temp);
                 } else {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
                 temp = st.nextToken();
-                if (!temp.contains("of")) {
+                if (!temp.equalsIgnoreCase("OF")) {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
@@ -170,9 +170,9 @@ public class ruleWrapper {
                 runWithGroovyShell(ars, "neighours",subType);
 
                 temp = st.nextToken();
-                if (temp.contains("<") || temp.contains(">") || temp.contains(">=") || temp.contains("<=") || temp.contains("==") || temp.contains("between")) {
+                if (temp.contains("<") || temp.contains(">") || temp.contains(">=") || temp.contains("<=") || temp.contains("==") || temp.equalsIgnoreCase("BETWEEN")) {
                     arr.add(temp);
-                    if (temp.contains("between")) {
+                    if (temp.equalsIgnoreCase("BETWEEN")) {
                         temp = st.nextToken();
                         if (isNumeric(temp))
                             arr.add(temp);
@@ -208,17 +208,17 @@ public class ruleWrapper {
                 }
                 arr.clear();
                 runWithGroovyShell(ars, "when",subType);
-            } else if (temp.equals("then")) {
+            } else if (temp.equalsIgnoreCase("THEN")) {
 
                 temp = st.nextToken();
-                if (temp.contains("sum") || temp.contains("avg") || temp.contains("min") || temp.contains("max") || temp.contains("count") || temp.contains("exact")) {
+                if (temp.equalsIgnoreCase("SUM") || temp.equalsIgnoreCase("AVG") || temp.equalsIgnoreCase("MIN") || temp.equalsIgnoreCase("MAX") || temp.equalsIgnoreCase("COUNT")) {
                     arr.add(temp);
                 } else {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
                 temp = st.nextToken();
-                if (!temp.contains("of")) {
+                if (!temp.equalsIgnoreCase("OF")) {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
@@ -261,7 +261,7 @@ public class ruleWrapper {
 
                 }
                 runWithGroovyShell(ars, "then",subType);
-            } else if (temp.equals("identifiedBy")) {
+            } else if (temp.equalsIgnoreCase("identifiedBy")) {
                 String ars[] = new String[2];
                 temp = st.nextToken();
                 ars[0] = temp;
@@ -270,9 +270,7 @@ public class ruleWrapper {
 
                 runWithGroovyShell(ars, "identifiedBy",subType);
             }
-
         }
-
     }
 
     public String returnNeighbour(int begin, int end) {
