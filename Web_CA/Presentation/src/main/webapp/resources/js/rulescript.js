@@ -1,5 +1,5 @@
 var User ="";
-var site = "localhost:8080";
+var site = new config().getSite();
 var web_ca = angular.module('rule_app', []);
 this.Ruleidtobedeleted=0;
 

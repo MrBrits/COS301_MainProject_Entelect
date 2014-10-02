@@ -234,6 +234,14 @@ public class RuleController {
         return ruleService.findRuleRes(ruleResId);
     }
 
+
+    @RequestMapping(value = "/getConditions", method = RequestMethod.POST)
+    public @ResponseBody
+    List<Rulecondition> getConditions( ) {
+
+        return ruleService.findAllConditions();
+    }
+
     @RequestMapping(value = "/getRuleConNeighById", method = RequestMethod.POST)
      public @ResponseBody
      Ruleneighbours getRuleConNeighById( @RequestBody Integer ruleConNeighId) {

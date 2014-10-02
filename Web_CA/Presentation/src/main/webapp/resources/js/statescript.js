@@ -1,6 +1,6 @@
 var web_ca = angular.module('state_app', []);
 
-var site = "localhost:8080";
+var site = new config().getSite();
 web_ca.controller("StateSimulator", function ($scope, $http) {
     var app = this;
 

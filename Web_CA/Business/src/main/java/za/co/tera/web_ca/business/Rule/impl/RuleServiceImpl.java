@@ -36,6 +36,11 @@ public class RuleServiceImpl implements RuleService {
     }
 
     @Override
+    public List<Rulecondition> findAllConditions() {
+        return ruleConditionDao.findAll();
+    }
+
+    @Override
     public int createRuleCon(Rulecondition newRuleCon)
     {
         int Id = ruleConditionDao.getRuleConditionId(newRuleCon);

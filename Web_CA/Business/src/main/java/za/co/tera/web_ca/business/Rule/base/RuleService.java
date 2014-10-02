@@ -17,5 +17,6 @@ public interface RuleService {
     public Ruleresult findRuleRes(int ruleResId);
     public Ruleneighbours findRuleNeigh(int ruleNeighId);
     public List<Rule> findAllRules();
+    public List<Rulecondition> findAllConditions();
     public List<Rule> findRuleByUserId(int userId);
 }

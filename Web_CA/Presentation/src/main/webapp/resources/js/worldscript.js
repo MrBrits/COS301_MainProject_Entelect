@@ -1,6 +1,6 @@
 var web_ca = angular.module('world_app', []);
 
-var site="localhost:8080";
+var site=new config().getSite();
 this.Worldidtobedeleted=0;
 web_ca.controller("WorldSimulator", function($scope, $http) {
     var app = this;

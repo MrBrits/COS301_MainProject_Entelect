@@ -32,7 +32,7 @@ public class ruleWrapper {
 
     }
 
-     void runWithGroovyShell(String[] ars, String type,String _subtype) throws Exception {
+    void runWithGroovyShell(String[] ars, String type,String _subtype) throws Exception {
 
         Object tempObject = new GroovyShell().parse(new File("ruleDsl.groovy")).invokeMethod(type, ars);
         Gson gson = new Gson();
@@ -128,28 +128,28 @@ public class ruleWrapper {
         while (st.hasMoreTokens()) {
             NeighbourString = "000000000000000000000000000";
             String temp = st.nextToken();
-            subType=temp;
-            if (temp.equalsIgnoreCase("WHEN") || temp.equalsIgnoreCase("AND") || temp.equalsIgnoreCase("OR")) {
-                temp = st.nextToken();
-                if (temp.contains("TRUE") || temp.contains("FALSE")) {
+            subType = temp;
+            if (temp.equals("WHEN") || temp.equals("AND") || temp.equals("OR")) {
+                temp = st.nextToken().toUpperCase();
+                if (temp.equals("TRUE") || temp.equals("FALSE")) {
                     arr.add(temp);
                 } else {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
-                temp = st.nextToken();
-                if (temp.equalsIgnoreCase("SUM") || temp.equalsIgnoreCase("AVG") || temp.equalsIgnoreCase("MIN") || temp.equalsIgnoreCase("MAX") || temp.equalsIgnoreCase("COUNT")) {
+                temp = st.nextToken().toUpperCase();
+                if (temp.equals("sum") || temp.equals("AVG") || temp.equals("MIN") || temp.equals("MAX") || temp.equals("COUNT")) {
                     arr.add(temp);
                 } else {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
-                temp = st.nextToken();
-                if (!temp.equalsIgnoreCase("OF")) {
+                temp = st.nextToken().toUpperCase();
+                if (!temp.equals("OF")) {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
-                temp = st.nextToken();
+                temp = st.nextToken().toUpperCase();
                 String[] h = temp.split(";");
                 for (int i = 0; i < h.length; i++) {
 
@@ -167,20 +167,20 @@ public class ruleWrapper {
 
                 }
                 String[] ars = {NeighbourString};
-                runWithGroovyShell(ars, "neighours",subType);
+                runWithGroovyShell(ars, "neighours", subType);
 
-                temp = st.nextToken();
-                if (temp.contains("<") || temp.contains(">") || temp.contains(">=") || temp.contains("<=") || temp.contains("==") || temp.equalsIgnoreCase("BETWEEN")) {
+                temp = st.nextToken().toUpperCase();
+                if (temp.equals("<") || temp.equals(">") || temp.equals(">=") || temp.equals("<=") || temp.equals("==") || temp.equals("BETWEEN")) {
                     arr.add(temp);
-                    if (temp.equalsIgnoreCase("BETWEEN")) {
-                        temp = st.nextToken();
+                    if (temp.equals("BETWEEN")) {
+                        temp = st.nextToken().toUpperCase();
                         if (isNumeric(temp))
                             arr.add(temp);
                         else {
                             System.out.println("Incorrect Syntax");
                             return;
                         }
-                        temp = st.nextToken();
+                        temp = st.nextToken().toUpperCase();
                         if (isNumeric(temp))
                             arr.add(temp);
                         else {
@@ -189,10 +189,10 @@ public class ruleWrapper {
                         }
                     } else {
 
-                        temp = st.nextToken();
+                        temp = st.nextToken().toUpperCase();
                         if (isNumeric(temp)) {
                             arr.add(temp);
-                            arr.add("0");
+                            arr.add("");
                         } else {
                             System.out.println("Incorrect Syntax");
                             return;
@@ -207,22 +207,22 @@ public class ruleWrapper {
                     ars[i] = arr.get(i);
                 }
                 arr.clear();
-                runWithGroovyShell(ars, "when",subType);
-            } else if (temp.equalsIgnoreCase("THEN")) {
+                runWithGroovyShell(ars, "when", subType);
+            } else if (temp.equals("THEN")) {
 
-                temp = st.nextToken();
-                if (temp.equalsIgnoreCase("SUM") || temp.equalsIgnoreCase("AVG") || temp.equalsIgnoreCase("MIN") || temp.equalsIgnoreCase("MAX") || temp.equalsIgnoreCase("COUNT")) {
+                temp = st.nextToken().toUpperCase();
+                if (temp.equals("SUM") || temp.equals("AVG") || temp.equals("MIN") || temp.equals("MAX") || temp.equals("COUNT")) {
                     arr.add(temp);
                 } else {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
-                temp = st.nextToken();
-                if (!temp.equalsIgnoreCase("OF")) {
+                temp = st.nextToken().toUpperCase();
+                if (!temp.equals("OF")) {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
-                temp = st.nextToken();
+                temp = st.nextToken().toUpperCase();
                 String[] h = temp.split(";");
                 for (int i = 0; i < h.length; i++) {
 
@@ -241,13 +241,13 @@ public class ruleWrapper {
                 }
 
                 String[] ars = {NeighbourString};
-                runWithGroovyShell(ars, "neighours",subType);
-                temp = st.nextToken();
-                if (!temp.contains("=")) {
+                runWithGroovyShell(ars, "neighours", subType);
+                temp = st.nextToken().toUpperCase();
+                if (!temp.equals("=")) {
                     System.out.println("Incorrect Syntax");
                     return;
                 }
-                temp = st.nextToken();
+                temp = st.nextToken().toUpperCase();
                 if (isNumeric(temp)) {
                     arr.add(temp);
 
@@ -260,18 +260,18 @@ public class ruleWrapper {
                     ars[i] = arr.get(i);
 
                 }
-                runWithGroovyShell(ars, "then",subType);
-            } else if (temp.equalsIgnoreCase("identifiedBy")) {
+                runWithGroovyShell(ars, "then", subType);
+            } else if (temp.equals("IDENTIFIEDBY")) {
                 String ars[] = new String[2];
-                temp = st.nextToken();
+                temp = st.nextToken().toUpperCase();
                 ars[0] = temp;
-                temp = st.nextToken();
+                temp = st.nextToken().toUpperCase();
                 ars[1] = temp;
 
-                runWithGroovyShell(ars, "identifiedBy",subType);
+                runWithGroovyShell(ars, "identifiedBy", subType);
             }
-        }
-    }
+
+        }}
 
     public String returnNeighbour(int begin, int end) {
         for (int i = begin; i < end; i++) {

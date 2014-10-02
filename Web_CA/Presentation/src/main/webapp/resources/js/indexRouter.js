@@ -14,9 +14,6 @@ web_ca.config(['$routeProvider', function($routeProvider) {
      .when('/simulator', {
             templateUrl: 'resources/partials/indexSimulator.jsp'
      })
-     .when('/settings', {
-            templateUrl: 'resources/partials/indexSettings.jsp'
-     })
      .when('/simulatorWorld', {
             templateUrl: 'resources/partials/indexSimulator.jsp/#simulatorWorld'
      })
