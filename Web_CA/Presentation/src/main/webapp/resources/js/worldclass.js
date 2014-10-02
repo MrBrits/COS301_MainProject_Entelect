@@ -20,6 +20,8 @@ this.counter = 0;
 this.cond1Val;
 var site= new config().getSite();
 gggg = true;
+canvasFocus = true;
+
 //controller to add the coordinates
 var web_ca = angular.module('coordinate_app', []);
 
@@ -539,7 +541,7 @@ function mouseDowner(event) {
     //Left - 0
     //Middle - 1
     //Right - 2
-    if (event.button == 0) {
+    if (event.button == 0 && canvasFocus) {
         leftMouseClick = true;
         changeState();
     }
@@ -552,7 +554,7 @@ function mouseUpper(event) {
 //Calls change state if mouse is moving whilst left mouse button is being held down
 //Mouse move event not explicitly being used. This function is triggered when mouse is moved
 function mouseDrag() {
-    if (leftMouseClick) {
+    if (leftMouseClick && canvasFocus) {
         changeState();
     }
 }
@@ -686,6 +688,9 @@ function changeState() {
     }
 }
 this.isTrue = true;
+
+
+
 document.addEventListener('mousedown', mouseDowner, false);
 document.addEventListener('mouseup', mouseUpper, false);
 document.addEventListener('mousemove', mouseDrag, false);
