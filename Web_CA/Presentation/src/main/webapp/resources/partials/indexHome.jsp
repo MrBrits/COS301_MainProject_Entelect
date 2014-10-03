@@ -367,27 +367,38 @@
 <div class="modal fade" id="addRuleModalTabsEdit" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="RuleManager">
 
     <div class="modal-dialog ">
-        <div class="modal-content">
+        <div class="modal-content col-md-13">
             <div class="modal-header modal-success">
-                <h4 class="modal-title">Rule editor</h4>
+                <h4 class="modal-title">Rule Editor</h4>
             </div>
-            <div class = "container">
+            <div class = "container ">
                 <br/>
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <div class="col-xs-6">
-                            <textarea id="textArea" class="form-control" style="height:600px;"ng-model="ruleeditor.val">
-                                when true sum of 1;4:8 between 1 3
-                                then sum of 1;4:8 = 1
-                                identifiedBy Rule_1 Description
-                            </textarea>
+                        <label class="col-xs-1 control-label">when</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" placeholder="when condition and/or condition " data-toggle="tooltip-arrow" data-placement="top" title="condition: isNot operation of neighbours operand values" ng-model="ruleeditor.line1">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                    <div class="col-xs-offset-2 col-xs-4">
+                        <label class="col-xs-1 control-label">then</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" placeholder="then operation of neighbours= value" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"ng-model="ruleeditor.line2">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-1 control-label" >identifiedBy</label>
+                        <div class="col-md-5">
+                            <input type="text"  class="form-control" placeholder="identifiedBy RuleName RuleDesc" ng-model="ruleeditor.line3">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-4">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="addRuleEditor(ruleeditor.val)">Add</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="addRuleEditor(ruleeditor)">Add</button>
                     </div>
                 </div>
                 </form>
