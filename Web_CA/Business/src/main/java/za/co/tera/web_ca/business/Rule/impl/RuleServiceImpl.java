@@ -1,18 +1,9 @@
 package za.co.tera.web_ca.business.Rule.impl;
 
 import za.co.tera.web_ca.business.Rule.base.RuleService;
-import za.co.tera.web_ca.data_access.RuleConditionDao;
-import za.co.tera.web_ca.data_access.RuleDao;
-import za.co.tera.web_ca.data_access.RuleNeighboursDao;
-import za.co.tera.web_ca.data_access.RuleResultDao;
-import za.co.tera.web_ca.data_access.impl.RuleConditionDaoImpl;
-import za.co.tera.web_ca.data_access.impl.RuleDaoImpl;
-import za.co.tera.web_ca.data_access.impl.RuleNeighboursDaoImpl;
-import za.co.tera.web_ca.data_access.impl.RuleResultDaoImpl;
-import za.co.tera.web_ca.domain.impl.Rule;
-import za.co.tera.web_ca.domain.impl.Rulecondition;
-import za.co.tera.web_ca.domain.impl.Ruleneighbours;
-import za.co.tera.web_ca.domain.impl.Ruleresult;
+import za.co.tera.web_ca.data_access.*;
+import za.co.tera.web_ca.data_access.impl.*;
+import za.co.tera.web_ca.domain.impl.*;
 
 import java.util.List;
 
@@ -23,6 +14,7 @@ public class RuleServiceImpl implements RuleService {
     private RuleConditionDao ruleConditionDao = new RuleConditionDaoImpl();
     private RuleResultDao ruleResultDao = new RuleResultDaoImpl();
     private RuleNeighboursDao ruleNeighboursDao = new RuleNeighboursDaoImpl();
+    private WorldRulesDao worldRulesDao = new WorldRulesDaoImpl();
 
     @Override
     public boolean createRule(Rule newRule)
@@ -62,6 +54,11 @@ public class RuleServiceImpl implements RuleService {
             Id = ruleNeighboursDao.getRuleNeighboursId(ruleneighbours);
         }
         return Id;
+    }
+
+    @Override
+    public List<Worldrules> findRuleByWorldId(int worldID) {
+        return worldRulesDao.findRuleByWorldId(worldID);
     }
 
     @Override

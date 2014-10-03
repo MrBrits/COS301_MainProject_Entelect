@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface WorldDao extends AbstractDao<World> {
     public List<World> findWorldByUserId(int ownerId);
+    public List<World> findWorldNotByUserId(int ownerId);
 }

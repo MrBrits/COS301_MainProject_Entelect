@@ -22,7 +22,7 @@
             <button type="button" id = "states-tab-button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="States">
                 <span class="glyphicon glyphicon-record"></span>
             </button>
-            <button type="button" id = "rules-tab-button" onclick="worldRules()" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Rules">
+            <button type="button" id = "rules-tab-button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Rules">
                 <span class="glyphicon glyphicon-registration-mark"></span>
             </button>
             <button type="button" id = "settings-tab-button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Settings">

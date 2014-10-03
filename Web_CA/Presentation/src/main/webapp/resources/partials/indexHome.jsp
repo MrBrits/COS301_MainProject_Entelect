@@ -40,7 +40,7 @@
 
 <div style="position:fixed;left:0px" id="myContainer"></div>
 <script src="resources/js/videoScene.js"></script>
-<div class="container marketing">
+<div class="container marketing" style="position:relative;top:100px ">
     <div class="row">
         <div class="panel-group navbar-left col-md-4" id="accordion">
             <div class="panel panel-default" ng-controller="StateManager">
@@ -115,6 +115,31 @@
                                     <a href="#simulator"  ><label id={{world.worldId}} onclick="setWorldID(id)"> {{world.worldName}}</label></a>
                                     <button type="button" onclick="deleteWorld(id)" id=w{{world.worldId}};{{world.worldName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#deleteWorldModal"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
                                     <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target="#editWorldModal" ng-click="getEditWorld(world.worldId)" id={{world.worldId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <br>
+                                    <p>{{world.worldDesc}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default"ng-controller="WorldManager">
+                <div class="panel-heading">
+                    <h4 class="panel-title" style="height: 30px">
+                        <label>&emsp;Import Worlds</label>
+                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#worldImport" ng-click="getNotWorlds()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
+                    </h4>
+                </div>
+                <div id="worldImport" style="height: auto;max-height: 200px;overflow-y: auto;"class="panel-collapse collapse">
+                    <div >
+                        <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
+                        <table class="table">
+                            <tr ng-repeat="world in worlds | filter:search">
+                                <td>
+                                    <button type="button" class="btn btn-default btn-lg"></button>
+                                    <a href="#simulator"  ><label  onclick="setWorldID(id)"> {{world.worldName}}</label></a>
+                                    <button type="button" ng-click="ImportWorlds(world.worldId)"  class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" ><span class="glyphicon glyphicon-download"></span></button>
                                     <br>
                                     <p>{{world.worldDesc}}</p>
                                 </td>

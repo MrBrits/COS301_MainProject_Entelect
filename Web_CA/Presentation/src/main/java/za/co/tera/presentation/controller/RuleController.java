@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import za.co.tera.web_ca.business.Rule.base.RuleService;
 import za.co.tera.web_ca.business.Rule.impl.RuleServiceImpl;
 import za.co.tera.web_ca.business.Rule.impl.ruleWrapper;
-import za.co.tera.web_ca.domain.impl.Rule;
-import za.co.tera.web_ca.domain.impl.Rulecondition;
-import za.co.tera.web_ca.domain.impl.Ruleneighbours;
-import za.co.tera.web_ca.domain.impl.Ruleresult;
+import za.co.tera.web_ca.domain.impl.*;
 
 import java.util.List;
 
@@ -215,6 +212,16 @@ public class RuleController {
         ruleService.deleteRule(ruleService.findRule(ruleId));
         return "Rule deleted";
     }
+
+
+
+    @RequestMapping(value = "/findRuleByWorldId", method = RequestMethod.POST)
+    public @ResponseBody
+    List<Worldrules> findRuleByWorldId( @RequestBody int worldId) {
+       System.out.println("hjh");
+        return ruleService.findRuleByWorldId(worldId);
+    }
+
 
     @RequestMapping(value = "/getRuleById", method = RequestMethod.POST)
     public @ResponseBody
