@@ -6,13 +6,17 @@
     border-top-width: 0px;
     border-bottom-width: 0px;
     position: fixed;
+    right: -200px;
     bottom: 0;
-    right: -5px;
+    tabindex:-1;
     top:50px;
     clear:both;
-    width:300px;
+    width:250px;
+    max-width:250px;
+    min-width:250px;
     height:100%;
     overflow-y:hidden;
+    overflow-x:hidden;
 }
 
 

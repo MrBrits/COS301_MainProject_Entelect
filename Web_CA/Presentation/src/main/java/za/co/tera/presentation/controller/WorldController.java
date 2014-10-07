@@ -8,6 +8,7 @@ import za.co.tera.web_ca.business.World.impl.WorldServiceImpl;
 import za.co.tera.web_ca.domain.impl.Coordinate;
 import za.co.tera.web_ca.domain.impl.World;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -46,6 +47,12 @@ public class WorldController {
         return worldService.findWorldByUserId(userId);
     }
 
+    @RequestMapping(value = "/getWorldNotByUserId", method = RequestMethod.POST)
+    public @ResponseBody
+    List<World> getWorldNotByUserId(@RequestBody int userId) {
+        return worldService.findWorldNotByUserId(userId);
+    }
+
     /**
      *
      * @param worldId
@@ -72,7 +79,13 @@ public class WorldController {
         else
             return "No new World has been added";
     }
+    @RequestMapping(value = "/importWorld", method = RequestMethod.POST)
+    public @ResponseBody
+    void importWorld(@RequestBody String Ownerworld) throws IOException {
+        String [] objects = Ownerworld.split(";");
 
+        worldService.ImportWorld(Integer.parseInt(objects[0]),Integer.parseInt(objects[1]));
+    }
     /**
      *
      * @param worldId
@@ -92,12 +105,6 @@ public class WorldController {
        //
         worldService.updateCoordinates(coordinates);
         return String.valueOf("Success");
-    }
-
-    @RequestMapping(value = "/getByWorldId/{worldId}", method = RequestMethod.GET)
-    public @ResponseBody
-    World getByWorldId( @PathVariable(value = "worldId") int worldId) {
-        return worldService.findWorld(worldId);
     }
 
     @RequestMapping(value = "/getWorldById", method = RequestMethod.POST)

@@ -3,6 +3,7 @@
 function rule()	{
 
     //Rule Metadata
+    this.ruleId = "";
     this.ruleName = "";
     this.ruleDesc = "";
     this.enabled = false;

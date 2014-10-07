@@ -19,4 +19,5 @@ public interface RuleService {
     public List<Rule> findAllRules();
     public List<Rulecondition> findAllConditions();
     public List<Rule> findRuleByUserId(int userId);
+    public List<Worldrules> findRuleByWorldId(int worldID);
 }

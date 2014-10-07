@@ -52,8 +52,28 @@ web_ca.controller("WorldManager", function($scope, $http) {
             }).error(function () {
                 alert("GET WORLD BY USER ID: SERVER ERROR");
             });
-    }
+    };
 
+    $scope.ImportWorlds = function (id) {
+        var UserWorld = userId+";"+id;
+
+        $http.post("http://" + site + "/importWorld",UserWorld)
+            .success(function (data) {
+                //$scope.worlds = data;
+                alert("sdsdsdsds");
+            }).error(function () {
+                alert("GET WORLD BY USER ID: SERVER ERROR");
+            });
+
+    };
+    $scope.getNotWorlds = function () {
+        $http.post("http://" + site + "/getWorldNotByUserId",userId)
+            .success(function (data) {
+                $scope.worlds = data;
+            }).error(function () {
+                alert("GET WORLD BY USER ID: SERVER ERROR");
+            });
+    };
     $scope.addWorld = function(world) {
         if (twoDimensional) {
             if ((typeof world.worldHeight === "number") && (typeof world.worldWidth === "number")) {

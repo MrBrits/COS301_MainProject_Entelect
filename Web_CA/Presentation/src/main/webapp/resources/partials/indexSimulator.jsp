@@ -22,7 +22,7 @@
             <button type="button" id = "states-tab-button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="States">
                 <span class="glyphicon glyphicon-record"></span>
             </button>
-            <button type="button" id = "rules-tab-button" onclick="worldRules()" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Rules">
+            <button type="button" id = "rules-tab-button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Rules">
                 <span class="glyphicon glyphicon-registration-mark"></span>
             </button>
             <button type="button" id = "settings-tab-button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Settings">
@@ -31,9 +31,9 @@
         </div>
     </div>
 
-    <div class="submenu" >
-        <button style="margin-left:5px; margin-top:5px;" type="button" id="slide-submenu" class="btn btn-default pull-left" data-toggle="tooltip" data-placement="bottom" title="Close">
-            <span id = "menu-button" class="glyphicon glyphicon-remove" ></span>
+    <div class="submenu">
+        <button style="margin-left:5px; margin-top:5px;" type="button" id="slide-submenu" class="btn btn-default pull-left" data-toggle="tooltip" data-placement="right" title="Close">
+            <span id = "menu-button" class="glyphicon glyphicon-arrow-left" ></span>
         </button>
 
         <div id = "world-menu-tab" style="padding-left:50px;">
@@ -103,6 +103,20 @@
 <script type="text/javascript" src="resources/js/ruleclass.js"></script>
 <script type="text/javascript" src="resources/js/visualizer.js"></script>
 <script>
+
+    $( document ).ready(function() {
+        $('#edit-menu-tab').show();
+        $('.submenu').on("mouseenter", function(event){
+            canvasFocus = false;
+            controls.enabled = false;
+        });
+
+        $('.submenu').on("mouseleave", function(event){
+            canvasFocus = true;
+            controls.enabled = true;
+        });
+    });
+
     $("#world-tab-button").on("click", function(){
         $('#edit-menu-tab').hide();
         $('#world-menu-tab').show();
@@ -113,7 +127,6 @@
     });
 
     $("#edit-tab-button").on("click", function(){
-
         $('#edit-menu-tab').show();
         $('#world-menu-tab').hide();
         $('#simulate-menu-tab').hide();
@@ -166,8 +179,9 @@
     $('#settings-menu-tab').hide();
 
     $('.btn-group-vertical .btn').tooltip({container: 'body'});
-    $('#slide-submenu').tooltip();
-    var enabled = true;
+    $('.submenu .btn').tooltip();
+
+    var enabled = false;
     $("#slide-submenu").click(function(e) {
         e.preventDefault();
         if(enabled) {
@@ -175,8 +189,8 @@
                 right: "-=240"
             }, 600, function() {
             });
-            $("#menu-button").removeClass("glyphicon glyphicon-remove");
-            $("#menu-button").addClass("glyphicon glyphicon-th-list");
+            $("#menu-button").removeClass("glyphicon glyphicon-arrow-right");
+            $("#menu-button").addClass("glyphicon glyphicon-arrow-left");
             enabled = !enabled;
         }
         else    {
@@ -184,8 +198,8 @@
                 right: "+=240"
             }, 600, function() {
             });
-            $("#menu-button").removeClass("glyphicon glyphicon-th-list");
-            $("#menu-button").addClass("glyphicon glyphicon-remove");
+            $("#menu-button").removeClass("glyphicon glyphicon-arrow-left");
+            $("#menu-button").addClass("glyphicon glyphicon-arrow-right");
 
             enabled = !enabled;
         }

@@ -349,13 +349,16 @@ web_ca.controller("RuleManager", function($scope, $http) {
     }
 
     $scope.addRuleEditor = function(s) {
-        $http.post("http://" + site + "/createRuleByString",s)
+
+        alert(JSON.stringify(s));
+       /* $http.post("http://" + site + "/createRuleByString",s)
             .success(function (data) {
                 alert(s);
 
             }).error(function () {
                 //alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
             });
+            */
     }
 
     $scope.addRule = function(rule, con, conAndOr, res, conNeigh, conAndOrNeigh, resNeigh) {

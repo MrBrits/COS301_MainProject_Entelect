@@ -23,4 +23,13 @@ public class WorldDaoImpl extends AbstractDaoImpl<World> implements WorldDao {
         return worldList;
 
     }
+
+    @Override
+    public List<World> findWorldNotByUserId(int ownerId) {
+        Session session= getSession();
+        Query query = session.createQuery("From World world where world.ownerId != :ownerId");
+        query.setParameter("ownerId", ownerId);
+        List<World> worldList = query.list();
+        return worldList;
+    }
 }
