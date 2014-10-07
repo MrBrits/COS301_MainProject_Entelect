@@ -74,16 +74,14 @@ web_ca.controller("StateManager", function ($scope, $http) {
         value = document.getElementById("editStateValue").value;
         hex = document.getElementById("editStateHex").value;
 
-        var ValueIsNum = /^\d+$/.test(value);
-
-        if (ValueIsNum) {
+        if (typeof value === "number") {
             state = "{\"stateId\":" + id + ",\"stateName\":\"" + name + "\",\"stateDesc\":\"" + desc + "\",\"stateValue\":" + value + ",\"stateHex\":\"" + hex + "\", \"ownerId\":" + userId + "}";
 
             $http.post("http://" + site + "/editState", state)
                 .success(function (data) {
                     alert(data);
-                    location.reload();
                     $scope.getStates();
+                    location.reload();
                 }).error(function () {
                     alert("EDIT STATE: SERVER ERROR");
                 });
