@@ -66,7 +66,6 @@ public class WorldController {
     @RequestMapping(value = "/AddWorld", method = RequestMethod.POST)
     public @ResponseBody
     String createState(@RequestBody World world) {
-        System.out.println("WORLD CONTROLLER");
         int id = worldService.createWorld(world);
         if (id != 0)
             return "World Added";

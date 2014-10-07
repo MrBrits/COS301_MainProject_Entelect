@@ -61,6 +61,8 @@ public class RuleServiceImpl implements RuleService {
             ruleNeighboursDao.save(ruleneighbours);
             Id = ruleNeighboursDao.getRuleNeighboursId(ruleneighbours);
         }
+
+
         return Id;
     }
 
@@ -73,6 +75,7 @@ public class RuleServiceImpl implements RuleService {
             ruleResultDao.save(newRuleRes);
             Id = ruleResultDao.getRuleResultId(newRuleRes);
         }
+
         return Id;
     }
 

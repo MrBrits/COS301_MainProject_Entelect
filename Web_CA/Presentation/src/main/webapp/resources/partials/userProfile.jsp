@@ -45,19 +45,17 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <button type="button" class="btn btn-default btn-sm pull-left" data-toggle="modal" data-target="#editPassword">Change Password</button>
+                </div>
 
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Password:</label>
+                    <label class="col-md-3 control-label"></label>
                     <div class="col-md-8">
-                        <input class="form-control" value="sv" type="password">
+                        Keep Tutorials Active<input type="checkbox" name="tutorial"><br>
                     </div>
                 </div>
-                <div class="form-group target">
-                    <label class="col-md-3 control-label">Confirm password:</label>
-                    <div class="col-md-8">
-                        <input class="form-control" value="sv" type="password">
-                    </div>
-                </div>
+
                 <div class="form-group">
                     <label class="col-md-3 control-label"></label>
                     <div class="col-md-8">
@@ -72,4 +70,37 @@
         <div class="row"></div>
     </div>
 
+</div>
+
+
+<div class="modal fade" id="editPassword" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="UserManager">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="container"></br>
+                <div class="modal-header modal-success">
+                    <h4>Change password</h4>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Password:</label>
+                        <div class="col-xs-offset-2 col-xs-4" ng-model="newPass.newOne">
+                            <input class="form-control" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Confirm password:</label>
+                        <div class="col-xs-offset-2 col-xs-4" ng-model="newPass.newTwo">
+                            <input class="form-control" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-2 col-xs-4">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="changePassword(newPass)">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

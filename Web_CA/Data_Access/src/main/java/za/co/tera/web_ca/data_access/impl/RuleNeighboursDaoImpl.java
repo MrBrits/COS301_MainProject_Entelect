@@ -40,6 +40,7 @@ public class RuleNeighboursDaoImpl extends AbstractDaoImpl<Ruleneighbours> imple
             Id = ruleConNeighList.get(0).getRuleNeighboursId();
         }
 
+
         return Id;
     }
 }

@@ -18,7 +18,7 @@ public class RuleConditionDaoImpl extends AbstractDaoImpl<Rulecondition> impleme
     {
         int Id = 0;
         Session session= getSession();
-        Query query = null;
+        Query query;
 
         if (ruleCon.getCompareValueTwo() == null)
         {

@@ -29,14 +29,23 @@ web_ca.controller("StateManager", function ($scope, $http) {
     }
 
     $scope.addState = function(state) {
-        state.stateHex=document.getElementById("colour").value;
-        state.ownerId=userId;
-        $http.post("http://" + site + "/AddState",state)
-            .success(function(data) {
-                alert(data);
-            }).error(function () {
-                alert("ADD STATE: SERVER ERROR");
-            });
+
+        var ValueIsNum = /^\d+$/.test(state.stateValue);
+
+        if (ValueIsNum) {
+
+            state.stateHex = document.getElementById("colour").value;
+            state.ownerId = userId;
+            $http.post("http://" + site + "/AddState", state)
+                .success(function (data) {
+                    alert(data);
+                }).error(function () {
+                    alert("ADD STATE: SERVER ERROR");
+                });
+        }
+        else {
+            alert("Incorrect values have been entered!");
+        }
     };
 
     $scope.getEditState = function(stateId)
@@ -65,16 +74,23 @@ web_ca.controller("StateManager", function ($scope, $http) {
         value = document.getElementById("editStateValue").value;
         hex = document.getElementById("editStateHex").value;
 
+        var ValueIsNum = /^\d+$/.test(value);
 
-        state = "{\"stateId\":"+id+",\"stateName\":\"" + name + "\",\"stateDesc\":\"" + desc + "\",\"stateValue\":" + value + ",\"stateHex\":\"" + hex + "\", \"ownerId\":" + userId + "}";
+        if (ValueIsNum) {
+            state = "{\"stateId\":" + id + ",\"stateName\":\"" + name + "\",\"stateDesc\":\"" + desc + "\",\"stateValue\":" + value + ",\"stateHex\":\"" + hex + "\", \"ownerId\":" + userId + "}";
 
-        $http.post("http://" + site + "/editState",state)
-            .success(function (data) {
-                alert(data); location.reload();
-                $scope.getStates();
-            }).error(function () {
-                alert("EDIT STATE: SERVER ERROR");
-            });
+            $http.post("http://" + site + "/editState", state)
+                .success(function (data) {
+                    alert(data);
+                    location.reload();
+                    $scope.getStates();
+                }).error(function () {
+                    alert("EDIT STATE: SERVER ERROR");
+                });
+        }
+        else {
+            alert("Incorrect values have been entered!");
+        }
     };
 
     $scope.deleteStateFinalize = function() {

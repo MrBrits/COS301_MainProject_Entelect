@@ -14,17 +14,19 @@ public class User  implements Serializable {
     private String userEmail;
     private String userPassword;
     private String userRole;
+    private boolean tutorials;
 
     public User()
     {}
 
-    public User(String userFirstName, String userLastName, String userEmail, String userPassword, String userRole)
+    public User(String userFirstName, String userLastName, String userEmail, String userPassword, String userRole, boolean tutorials)
     {
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userRole = userRole;
+        this.tutorials = tutorials;
     }
 
     @Id
@@ -87,6 +89,16 @@ public class User  implements Serializable {
         this.userRole = userRole;
     }
 
+    @Basic
+    @Column(name = "Tutorials", nullable = false, insertable = true, updatable = true)
+    public boolean getTutorials() {
+        return tutorials;
+    }
+
+    public void setTutorials(boolean tutorials) {
+        this.tutorials = tutorials;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -101,6 +113,7 @@ public class User  implements Serializable {
         if (userLastName != null ? !userLastName.equals(user.userLastName) : user.userLastName != null) return false;
         if (userPassword != null ? !userPassword.equals(user.userPassword) : user.userPassword != null) return false;
         if (userRole != null ? !userRole.equals(user.userRole) : user.userRole != null) return false;
+        if (tutorials != user.tutorials) return false;
 
         return true;
     }
@@ -113,6 +126,7 @@ public class User  implements Serializable {
         result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
         result = 31 * result + (userPassword != null ? userPassword.hashCode() : 0);
         result = 31 * result + (userRole != null ? userRole.hashCode() : 0);
+        result = 31 * result + (tutorials ? 1 : 0);
         return result;
     }
 

@@ -16,16 +16,24 @@ public class RuleResultDaoImpl extends AbstractDaoImpl<Ruleresult> implements Ru
     @Override
     public int getRuleResultId(Ruleresult ruleRes)
     {
+        int Id = 0;
         Session session= getSession();
-        Query query = session.createQuery("From Ruleresult ruleRes where ruleRes.operation = :Operation and ruleRes.neighboursId = :NeighboursID and ruleRes.resultValue = :ResultValue");
-        query.setParameter("Operation", ruleRes.getOperation());
-        query.setParameter("NeighboursID", ruleRes.getNeighboursId());
-        query.setParameter("ResultValue", ruleRes.getResultValue());
+        Query query;
+
+        if (ruleRes.getResultValue() == null) {
+            query = session.createQuery("From Ruleresult ruleRes where ruleRes.operation = :Operation and ruleRes.neighboursId = :NeighboursID");
+            query.setParameter("Operation", ruleRes.getOperation());
+            query.setParameter("NeighboursID", ruleRes.getNeighboursId());
+        }
+        else {
+            query = session.createQuery("From Ruleresult ruleRes where ruleRes.resultValue = :ResultValue");
+            query.setParameter("ResultValue", ruleRes.getResultValue());
+        }
         List<Ruleresult> ruleConList = query.list();
 
         if (!ruleConList.isEmpty()) {
-            return ruleConList.get(0).getRuleResultId();
+            Id = ruleConList.get(0).getRuleResultId();
         }
-        return 0;
+        return Id;
     }
 }

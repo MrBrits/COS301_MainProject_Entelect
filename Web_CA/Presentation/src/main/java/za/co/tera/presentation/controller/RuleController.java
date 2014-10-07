@@ -153,6 +153,7 @@ public class RuleController {
     @RequestMapping(value = "/AddRuleResNeigh", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleResNeigh(@RequestBody Ruleneighbours ruleResNeigh) {
+
         return ruleService.createRuleNeigh(ruleResNeigh);
     }
 
@@ -164,6 +165,22 @@ public class RuleController {
     @RequestMapping(value = "/AddRuleRes", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleRes(@RequestBody Ruleresult ruleRes) {
+        if (ruleRes.getNeighboursId() == -9999){
+            ruleRes.setNeighboursId(null);
+        }
+        if (ruleRes.getResultValue() == -9999){
+            ruleRes.setResultValue(null);
+        }
+        if (ruleRes.getOperation().equals("NULL")){
+            ruleRes.setOperation(null);
+        }
+
+        /*
+        System.out.println("NEIGH: " + ruleRes.getNeighboursId());
+        System.out.println("VALUE: " + ruleRes.getResultValue());
+        System.out.println("OPERATION: " + ruleRes.getOperation());
+        */
+
         return ruleService.createRuleRes(ruleRes);
     }
 

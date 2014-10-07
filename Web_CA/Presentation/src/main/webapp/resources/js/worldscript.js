@@ -2,6 +2,34 @@ var web_ca = angular.module('world_app', []);
 
 var site=new config().getSite();
 this.Worldidtobedeleted=0;
+
+var twoDimensional = false;
+
+/*
+(function() {
+    var proxied = window.alert;
+    window.alert = function(message) {
+        $("#alertMessage .modal-body").text(message);
+        $("#alertMessage").modal('show');
+    };
+})();
+*/
+
+
+function evaluateDim(){
+    var dim = document.getElementById("addWorldDim").value;
+    if (dim == 2){
+        document.getElementById("addWorldDepth").value = parseFloat(1);
+        document.getElementById("addWorldDepth").disabled = true;
+        twoDimensional = true;
+    }
+    if (dim == 3){
+        document.getElementById("addWorldDepth").disabled = false;
+        document.getElementById("addWorldDepth").value = null;
+        twoDimensional = false;
+    }
+}
+
 web_ca.controller("WorldSimulator", function($scope, $http) {
     var app = this;
     var userId = document.getElementById("userId").value;
@@ -27,14 +55,37 @@ web_ca.controller("WorldManager", function($scope, $http) {
     }
 
     $scope.addWorld = function(world) {
-        world.ownerId=document.getElementById("userId").value;
-        $http.post("http://" + site + "/AddWorld",world)
-            .success(function(data) {
+        if (twoDimensional) {
+            if ((typeof world.worldHeight === "number") && (typeof world.worldWidth === "number")) {
+                world.ownerId = document.getElementById("userId").value;
+                $http.post("http://" + site + "/AddWorld", world)
+                    .success(function (data) {
+                        alert(data);
+                        location.reload();
+                    }).error(function () {
+                        alert("CREATE WORLD: SERVER ERROR");
+                    });
+            }
+            else {
+                alert("Incorrect values have been entered!");
+            }
+        }
+        else{
+            if ((typeof world.worldHeight === "number") && (typeof world.worldWidth === "number") && (typeof world.worldDepth === "number")) {
+                world.ownerId = document.getElementById("userId").value;
+                $http.post("http://" + site + "/AddWorld", world)
+                    .success(function (data) {
+                        alert(data);
+                        location.reload();
+                    }).error(function () {
+                        alert("CREATE WORLD: SERVER ERROR");
+                    });
+            }
+            else {
+                alert("Incorrect values have been entered!");
+            }
+        }
 
-                location.reload();
-            }).error(function () {
-                alert("CREATE WORLD: SERVER ERROR");
-            });
     };
 
     $scope.getEditWorld = function(worldId) {
@@ -61,18 +112,15 @@ web_ca.controller("WorldManager", function($scope, $http) {
         height = document.getElementById("editWorldHeight").value;
         depth = document.getElementById("editWorldDepth").value;
 
-        world = "{\"worldId\":"+id+",\"worldName\":\"" + name + "\",\"worldDesc\":\"" + desc + "\",\"worldDimension\":" + dim + ",\"worldWidth\":" + width + ",\"worldHeight\":" + height + ",\"worldDepth\":" + depth + ", \"ownerId\":" + userId + "}";
-
-
-
-        $http.post("http://" + site + "/editWorld",world)
-            .success(function (data) {
-                alert(data);
-                location.reload();
-                $scope.getStates();
-            }).error(function () {
-                alert("EDIT WORLD: SERVER ERROR");
-            });
+            world = "{\"worldId\":" + id + ",\"worldName\":\"" + name + "\",\"worldDesc\":\"" + desc + "\",\"worldDimension\":" + dim + ",\"worldWidth\":" + width + ",\"worldHeight\":" + height + ",\"worldDepth\":" + depth + ", \"ownerId\":" + userId + "}";
+            $http.post("http://" + site + "/editWorld", world)
+                .success(function (data) {
+                    alert(data);
+                    location.reload();
+                    $scope.getStates();
+                }).error(function () {
+                    alert("EDIT WORLD: SERVER ERROR");
+                });
     };
 
 
@@ -80,7 +128,6 @@ web_ca.controller("WorldManager", function($scope, $http) {
         var worldId = document.getElementById("worldIdhidden").value;
         $http.post("http://" + site + "/deleteWorld",worldId)
             .success(function (data) {
-                alert(data);
                 location.reload();
             }).error(function () {
                 alert("DELETE WORLD: SERVER ERROR");
@@ -99,6 +146,5 @@ function deleteWorld(toBeDeleted)
 }
 function setWorldID(id)
 {
-
     document.getElementById("worldId").value=id;
 }

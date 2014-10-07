@@ -6,7 +6,8 @@ var mainUser;
 web_ca.controller("UserRegisterController", function($http) {
     var app = this;
     app.addUser = function(userReg) {
-        userReg.userRole="User";
+        userReg.userRole = "User";
+        userReg.tutorials = 1;
         alert(JSON.stringify(userReg));
         $http.post("http://" + site + "/UserSet",userReg)
             .success(function(data) {
@@ -19,8 +20,6 @@ web_ca.controller("UserRegisterController", function($http) {
 
 web_ca.controller("UserLoginController", function($http) {
     var app = this;
-
-
     app.loginUser = function(userLogin,$location) {
         $http.post("http://" + site + "/UserLogin",userLogin)
             .success(function(data) {
@@ -40,7 +39,7 @@ web_ca.controller("UserLoginController", function($http) {
 web_ca.controller("UserGetCtr", function ($scope, $http) {
     var app = this;
 
-    $http.get("http://localhost:8080/getAllUsers")
+    $http.get("http://" + site + "/getAllUsers")
         .success(function (data) {
             $scope.profiles = data;
 
@@ -53,7 +52,7 @@ web_ca.controller("UserGetCtr", function ($scope, $http) {
 web_ca.controller("UserByIdGet", function ($scope, $http) {
     var app = this;
 
-    $http.get("http://localhost:8080/getUserById/")
+    $http.get("http://" + site + "/getUserById/")
         .success(function (data) {
            // $scope.User = data;
             // alert(JSON.stringify(data));

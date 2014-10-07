@@ -87,6 +87,7 @@
       <column name="UserEmail" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <column name="UserPassword" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <column name="UserRole" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Tutorials" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <primary-key name="PRIMARY" columns="UserID"/>
       <exported-key name="rule_ibfk_1" table="rule" schema="" catalog="web_ca" columns="OwnerID"/>
       <exported-key name="state_ibfk_1" table="state" schema="" catalog="web_ca" columns="OwnerID"/>
