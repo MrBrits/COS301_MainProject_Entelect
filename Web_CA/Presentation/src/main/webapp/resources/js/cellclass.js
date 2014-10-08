@@ -9,7 +9,9 @@ function cell(x,y,z,c)	{
     this.colour = 0;
     this.cube = c;
     this.invis = true;
-    this.triggerChange = false
+    this.triggerChange = false;
+    this.hovered = false;
+
     this.toggleInvis = function()	{
         if(this.invis == true)	{
             if(this.colour != "")
@@ -33,6 +35,29 @@ function cell(x,y,z,c)	{
             this.cube.material.color.setHex(0xffffff);
             this.colour = "";
             this.cube.material.opacity = 0.03;
+        }
+    }
+
+    this.hoverCell = function(colour) {
+        this.hovered = true;
+        this.cube.material.opacity = 0.3;
+        if(colour != 0) {
+            this.toggleInvis();
+        }
+    }
+
+    this.resetHover = function() {
+        if(this.hovered)    {
+            this.hovered = false;
+            if(this.value != 0)	{
+                this.cube.material.color.setHex(this.colour);
+                this.toggleInvis();
+            }
+            else	{
+                this.cube.material.color.setHex(0xffffff);
+                this.colour = "";
+                this.cube.material.opacity = 0.03;
+            }
         }
     }
 }

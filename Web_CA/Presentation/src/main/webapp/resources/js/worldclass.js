@@ -22,6 +22,7 @@ this.cond1Val;
 var site= new config().getSite();
 gggg = true;
 canvasFocus = true;
+tempcolor = 0;
 
 //controller to add the coordinates
 var web_ca = angular.module('coordinate_app', []);
@@ -569,6 +570,21 @@ function mouseDrag() {
     if (leftMouseClick && canvasFocus) {
         changeState();
     }
+    else if(!leftMouseClick && canvasFocus)    {
+        clearHover();
+        mouseOverChange();
+    }
+}
+
+function clearHover()   {
+    if(tmx > 1 || tmy > 1)
+        for (var z = 0; z < tmz; z++) {
+            for (var y = 0; y < tmz; y++) {
+                for (var x = 0; x < tmx; x++) {
+                    cellArray[z][y][x].resetHover();
+                }
+            }
+        }
 }
 
 /*Finding which cubes intersects with mouse cursor when left mouse button is clicked
@@ -635,7 +651,7 @@ function changeState() {
             xbar[tx].toggleVisible();
         }
         else if (this.cellArray[tz][ty][tx].invis == true) {
-            colour($("#Brush_Size").val(),tx,ty,tz);
+            colour($("#Brush_Size").val(),tx,ty,tz,false);
         }
     }
     else {
@@ -694,7 +710,7 @@ function changeState() {
                     break;
                 }
                 else if (this.cellArray[tz][ty][tx].invis == true) {
-                    colour($("#Brush_Size").val(),tx,ty,tz);
+                    colour($("#Brush_Size").val(),tx,ty,tz,false);
                     break;
                 }
             }
@@ -703,7 +719,61 @@ function changeState() {
 }
 this.isTrue = true;
 
+function mouseOverChange() {
+    if(camera)
+    {
+        var vector = new THREE.Vector3(( event.layerX / window.innerWidth ) * 2 - 1, -( event.layerY / window.innerHeight ) * 2 + 1, 0.5);
+        projector = new THREE.Projector();
+        projector.unprojectVector(vector, camera);
 
+        var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+        if (document.getElementById("colorValue") != null)
+            tempcolor = document.getElementById("colorValue").value;
+
+        //Finds all elements that are in the position of the cursor
+        var intersects = raycaster.intersectObjects(scene.children, true);
+
+        if (this.layer == -1) {
+            if (typeof intersects[0] !== 'undefined')
+                var tx = Math.floor(intersects[0].object.position.x / 1.5);
+            var ty = Math.floor(intersects[0].object.position.y / 1.5);
+            var tz = Math.floor(intersects[0].object.position.z / 1.5);
+
+            if (this.cellArray[tz][ty][tx].invis == true) {
+                colour($("#Brush_Size").val(),tx,ty,tz,true);
+            }
+        }
+        else {
+            for (var i = 0; i < intersects.length; i++) {
+                if (typeof intersects[i] !== 'undefined') {
+                    var tx = Math.floor(intersects[i].object.position.x / 1.5);
+                    var ty = Math.floor(intersects[i].object.position.y / 1.5);
+                    var tz = Math.floor(intersects[i].object.position.z / 1.5);
+
+                    //Yellow Box - All
+                    if (tx == tmx && ty < 0 && tz == tmz) {
+                        continue;
+                    }
+                    //Red Bar   - Z
+                    else if (tx == tmx && ty < 0) {
+                        continue;
+                    }
+                    //Green Bar - Y
+                    else if (tx == tmx && tz == tmz) {
+                        continue;
+                    }
+                    //Blue Bar  - Z
+                    else if (ty < 0 && tz == tmz) {
+                        continue;
+                    }
+                    else if (this.cellArray[tz][ty][tx].invis == true) {
+                        colour($("#Brush_Size").val(),tx,ty,tz,true);
+                        break;
+                    }
+                }
+            }
+        }}
+}
 
 document.addEventListener('mousedown', mouseDowner, false);
 document.addEventListener('mouseup', mouseUpper, false);
@@ -1533,12 +1603,12 @@ function checkCondition(c, x, y, z) {
     return false;
 }
 
-function colour(size,x,y,z)	{
+function colour(size,x,y,z,hover)	{
     if(size <= 0)	{
-        changeThisState(x, y, z, size);
+        changeThisState(x, y, z, size, hover);
     }
     else	{
-        changeThisState(x, y, z, size);
+        changeThisState(x, y, z, size, hover);
         if(tmz > 1)	{
             var x1 = false, x2 = false, y1 = false, y2 = false, z1 = false, z2 = false;
             var count  = 0;
@@ -1575,172 +1645,174 @@ function colour(size,x,y,z)	{
 
             if(count == 3)	{
                 if(x1)
-                    changeThisState(x + 1, y, z, size);
+                    changeThisState(x + 1, y, z, size, hover);
                 if(x2)
-                    changeThisState(x - 1, y, z, size);
+                    changeThisState(x - 1, y, z, size, hover);
                 if(y1)
-                    changeThisState(x, y + 1, z, size);
+                    changeThisState(x, y + 1, z, size, hover);
                 if(y2)
-                    changeThisState(x, y - 1, z, size);
+                    changeThisState(x, y - 1, z, size, hover);
                 if(z1)
-                    changeThisState(x, y, z + 1, size);
+                    changeThisState(x, y, z + 1, size, hover);
                 if(z2)
-                    changeThisState(x, y, z - 1, size);
+                    changeThisState(x, y, z - 1, size, hover);
 
                 if(x1 && y1 && x + 1 <= tmx && y + 1 <= tmy)
-                    changeThisState(x + 1, y + 1, z, size);
+                    changeThisState(x + 1, y + 1, z, size, hover);
                 if(x2 && y1 && x - 1 >= 0 && y + 1 <= tmy)
-                    changeThisState(x - 1, y + 1, z, size);
+                    changeThisState(x - 1, y + 1, z, size, hover);
                 if(x1 && y2 && x + 1 <= tmx && y - 1 >= 0)
-                    changeThisState(x + 1, y - 1, z, size);
+                    changeThisState(x + 1, y - 1, z, size, hover);
                 if(x2 && y2 && x - 1 >= 0 && y - 1 >= 0)
-                    changeThisState(x - 1, y - 1, z, size);
+                    changeThisState(x - 1, y - 1, z, size, hover);
 
                 if(y1 && z1 && z + 1 <= tmz && y + 1 <= tmy)
-                    changeThisState(x, y + 1, z + 1, size);
+                    changeThisState(x, y + 1, z + 1, size, hover);
                 if(y2 && z1 && z + 1 <= tmz && y - 1 >= 0)
-                    changeThisState(x, y - 1, z + 1, size);
+                    changeThisState(x, y - 1, z + 1, size, hover);
                 if(y1 && z2 && z - 1 >= 0 && y + 1 <= tmy)
-                    changeThisState(x, y + 1, z - 1, size);
+                    changeThisState(x, y + 1, z - 1, size, hover);
                 if(y2 && z2 && z - 1 >= 0 && y - 1 >= 0)
-                    changeThisState(x, y - 1, z - 1, size);
+                    changeThisState(x, y - 1, z - 1, size, hover);
 
                 if(z1 && x1 && z + 1 <= tmz && x + 1 <= tmx)
-                    changeThisState(x + 1, y, z + 1, size);
+                    changeThisState(x + 1, y, z + 1, size, hover);
                 if(z2 && x1 && z - 1 >= 0 && x + 1 <= tmx)
-                    changeThisState(x + 1, y, z - 1, size);
+                    changeThisState(x + 1, y, z - 1, size, hover);
                 if(z1 && x2 && z + 1 <= tmz && x - 1 >= 0)
-                    changeThisState(x - 1, y, z + 1, size);
+                    changeThisState(x - 1, y, z + 1, size, hover);
                 if(z2 && x2 && z - 1 >= 0 && x - 1 >= 0)
-                    changeThisState(x - 1, y, z - 1, size);
+                    changeThisState(x - 1, y, z - 1, size, hover);
             }
             if(count == 4)	{
                 if(x1)
-                    changeThisState(x + 1, y, z, size);
+                    changeThisState(x + 1, y, z, size, hover);
                 if(x2)
-                    changeThisState(x - 1, y, z, size);
+                    changeThisState(x - 1, y, z, size, hover);
                 if(y1)
-                    changeThisState(x, y + 1, z, size);
+                    changeThisState(x, y + 1, z, size, hover);
                 if(y2)
-                    changeThisState(x, y - 1, z, size);
+                    changeThisState(x, y - 1, z, size, hover);
                 if(z1)
-                    changeThisState(x, y, z + 1, size);
+                    changeThisState(x, y, z + 1, size, hover);
                 if(z2)
-                    changeThisState(x, y, z - 1, size);
+                    changeThisState(x, y, z - 1, size, hover);
                 if(x1 == x2)	{
                     if(x1 && y1 && x + 1 <= tmx && y + 1 <= tmy)
-                        changeThisState(x + 1, y + 1, z, size);
+                        changeThisState(x + 1, y + 1, z, size, hover);
                     if(x2 && y1 && x - 1 >= 0 && y + 1 <= tmy)
-                        changeThisState(x - 1, y + 1, z, size);
+                        changeThisState(x - 1, y + 1, z, size, hover);
                     if(x1 && y2 && x + 1 <= tmx && y - 1 >= 0)
-                        changeThisState(x + 1, y - 1, z, size);
+                        changeThisState(x + 1, y - 1, z, size, hover);
                     if(x2 && y2 && x - 1 >= 0 && y - 1 >= 0)
-                        changeThisState(x - 1, y - 1, z, size);
+                        changeThisState(x - 1, y - 1, z, size, hover);
 
                     if(z1 && x1 && z + 1 <= tmz && x + 1 <= tmx)
-                        changeThisState(x + 1, y, z + 1, size);
+                        changeThisState(x + 1, y, z + 1, size, hover);
                     if(z2 && x1 && z - 1 >= 0 && x + 1 <= tmx)
-                        changeThisState(x + 1, y, z - 1, size);
+                        changeThisState(x + 1, y, z - 1, size, hover);
                     if(z1 && x2 && z + 1 <= tmz && x - 1 >= 0)
-                        changeThisState(x - 1, y, z + 1, size);
+                        changeThisState(x - 1, y, z + 1, size, hover);
                     if(z2 && x2 && z - 1 >= 0 && x - 1 >= 0)
-                        changeThisState(x - 1, y, z - 1, size);
+                        changeThisState(x - 1, y, z - 1, size, hover);
                 }
                 if(y1 == y2)	{
                     if(x1 && y1 && x + 1 <= tmx && y + 1 <= tmy)
-                        changeThisState(x + 1, y + 1, z, size);
+                        changeThisState(x + 1, y + 1, z, size, hover);
                     if(x2 && y1 && x - 1 >= 0 && y + 1 <= tmy)
-                        changeThisState(x - 1, y + 1, z, size);
+                        changeThisState(x - 1, y + 1, z, size, hover);
                     if(x1 && y2 && x + 1 <= tmx && y - 1 >= 0)
-                        changeThisState(x + 1, y - 1, z, size);
+                        changeThisState(x + 1, y - 1, z, size, hover);
                     if(x2 && y2 && x - 1 >= 0 && y - 1 >= 0)
-                        changeThisState(x - 1, y - 1, z, size);
+                        changeThisState(x - 1, y - 1, z, size, hover);
 
                     if(y1 && z1 && z + 1 <= tmz && y + 1 <= tmy)
-                        changeThisState(x, y + 1, z + 1, size);
+                        changeThisState(x, y + 1, z + 1, size, hover);
                     if(y2 && z1 && z + 1 <= tmz && y - 1 >= 0)
-                        changeThisState(x, y - 1, z + 1, size);
+                        changeThisState(x, y - 1, z + 1, size, hover);
                     if(y1 && z2 && z - 1 >= 0 && y + 1 <= tmy)
-                        changeThisState(x, y + 1, z - 1, size);
+                        changeThisState(x, y + 1, z - 1, size, hover);
                     if(y2 && z2 && z - 1 >= 0 && y - 1 >= 0)
-                        changeThisState(x, y - 1, z - 1, size);
+                        changeThisState(x, y - 1, z - 1, size, hover);
                 }
                 if(z1 == z2)	{
                     if(y1 && z1 && z + 1 <= tmz && y + 1 <= tmy)
-                        changeThisState(x, y + 1, z + 1, size);
+                        changeThisState(x, y + 1, z + 1, size, hover);
                     if(y2 && z1 && z + 1 <= tmz && y - 1 >= 0)
-                        changeThisState(x, y - 1, z + 1, size);
+                        changeThisState(x, y - 1, z + 1, size, hover);
                     if(y1 && z2 && z - 1 >= 0 && y + 1 <= tmy)
-                        changeThisState(x, y + 1, z - 1, size);
+                        changeThisState(x, y + 1, z - 1, size, hover);
                     if(y2 && z2 && z - 1 >= 0 && y - 1 >= 0)
-                        changeThisState(x, y - 1, z - 1, size);
+                        changeThisState(x, y - 1, z - 1, size, hover);
 
                     if(z1 && x1 && z + 1 <= tmz && x + 1 <= tmx)
-                        changeThisState(x + 1, y, z + 1, size);
+                        changeThisState(x + 1, y, z + 1, size, hover);
                     if(z2 && x1 && z - 1 >= 0 && x + 1 <= tmx)
-                        changeThisState(x + 1, y, z - 1, size);
+                        changeThisState(x + 1, y, z - 1, size, hover);
                     if(z1 && x2 && z + 1 <= tmz && x - 1 >= 0)
-                        changeThisState(x - 1, y, z + 1, size);
+                        changeThisState(x - 1, y, z + 1, size, hover);
                     if(z2 && x2 && z - 1 >= 0 && x - 1 >= 0)
-                        changeThisState(x - 1, y, z - 1, size);
+                        changeThisState(x - 1, y, z - 1, size, hover);
                 }
             }
             if(count == 5)	{
                 if(x1 == x2)	{
-                    changeThisState(x + 1, y, z, size);
-                    changeThisState(x - 1, y, z, size);
+                    changeThisState(x + 1, y, z, size, hover);
+                    changeThisState(x - 1, y, z, size, hover);
                 }
                 if(y1 == y2)	{
-                    changeThisState(x, y + 1, z, size);
-                    changeThisState(x, y - 1, z, size);
+                    changeThisState(x, y + 1, z, size, hover);
+                    changeThisState(x, y - 1, z, size, hover);
                 }
                 if(z1 == z2)	{
-                    changeThisState(x, y, z + 1, size);
-                    changeThisState(x, y, z - 1, size);
+                    changeThisState(x, y, z + 1, size, hover);
+                    changeThisState(x, y, z - 1, size, hover);
                 }
                 if((x1 && x2) && (y1 && y2))	{
-                    changeThisState(x + 1, y + 1, z, size);
-                    changeThisState(x + 1, y - 1, z, size);
-                    changeThisState(x - 1, y - 1, z, size);
-                    changeThisState(x - 1, y + 1, z, size);
+                    changeThisState(x + 1, y + 1, z, size, hover);
+                    changeThisState(x + 1, y - 1, z, size, hover);
+                    changeThisState(x - 1, y - 1, z, size, hover);
+                    changeThisState(x - 1, y + 1, z, size, hover);
                 }
                 if((x1 && x2) && (z1 && z2))	{
-                    changeThisState(x + 1, y, z + 1, size);
-                    changeThisState(x - 1, y, z + 1, size);
-                    changeThisState(x + 1, y, z - 1, size);
-                    changeThisState(x - 1, y, z - 1, size);
+                    changeThisState(x + 1, y, z + 1, size, hover);
+                    changeThisState(x - 1, y, z + 1, size, hover);
+                    changeThisState(x + 1, y, z - 1, size, hover);
+                    changeThisState(x - 1, y, z - 1, size, hover);
                 }
                 if((z1 && z2) && (y1 && y2))	{
-                    changeThisState(x, y + 1, z + 1, size);
-                    changeThisState(x, y - 1, z - 1, size);
-                    changeThisState(x, y - 1, z + 1, size);
-                    changeThisState(x, y + 1, z - 1, size);
+                    changeThisState(x, y + 1, z + 1, size, hover);
+                    changeThisState(x, y - 1, z - 1, size, hover);
+                    changeThisState(x, y - 1, z + 1, size, hover);
+                    changeThisState(x, y + 1, z - 1, size, hover);
                 }
             }
         }
         else	{
             if(y + 1 <= tmy - 1)
-                changeThisState(x, y + 1, z, size);
+                changeThisState(x, y + 1, z, size, hover);
             if(y - 1 >= 0)
-                changeThisState(x, y - 1, z, size);
+                changeThisState(x, y - 1, z, size, hover);
             if(x + 1 <= tmx - 1)
-                changeThisState(x + 1, y, z, size);
+                changeThisState(x + 1, y, z, size, hover);
             if(x - 1 >= 0)
-                changeThisState(x - 1, y, z, size);
+                changeThisState(x - 1, y, z, size, hover);
             if(y + 1 <= tmy - 1 && x + 1 <= tmx - 1)
-                changeThisState(x + 1, y + 1, z, size);
+                changeThisState(x + 1, y + 1, z, size, hover);
             if(y - 1 >= 0 && x - 1 >= 0)
-                changeThisState(x - 1, y - 1, z, size);
+                changeThisState(x - 1, y - 1, z, size, hover);
             if(y + 1 <= tmy - 1 && x - 1 >= 0)
-                changeThisState(x - 1, y + 1, z, size);
+                changeThisState(x - 1, y + 1, z, size, hover);
             if(y - 1 >= 0 && x + 1 <= tmx - 1)
-                changeThisState(x + 1, y - 1, z, size);
+                changeThisState(x + 1, y - 1, z, size, hover);
         }
     }
 }
 
 
-function changeThisState(x, y, z, size)	{
+function changeThisState(x, y, z, size, hover)	{
+    var tempcolor = document.getElementById("colorValue").value;
+
     if (colorsUsed[tempcolor] != null) {
         cellArray[z][y][x].cube.material.color.setHex(colorsUsed[tempcolor]);
     }
@@ -1750,19 +1822,25 @@ function changeThisState(x, y, z, size)	{
         counter++;
         worldStates();
     }
-
-    cellArray[z][y][x].cube.material.opacity = 1;
-
-    cellArray[z][y][x].value = parseFloat(tempcolor);
-    if(cellArray[z][y][x].value == 0)    {
-        cellArray[z][y][x].cube.material.opacity = 0.03;
-        cellArray[z][y][x].colour = "";
-        cellArray[z][y][x].invis = true;
-    }
+    if(hover)
+        cellArray[z][y][x].hoverCell(tempcolor);
     else {
-        cellArray[z][y][x].colour = tempcolor;
+        cellArray[z][y][x].cube.material.opacity = 1;
+
+        cellArray[z][y][x].value = parseFloat(tempcolor);
+        if (cellArray[z][y][x].value == 0) {
+            cellArray[z][y][x].cube.material.opacity = 0.03;
+            cellArray[z][y][x].colour = "";
+            cellArray[z][y][x].invis = true;
+        }
+        else {
+            cellArray[z][y][x].colour = colorsUsed[tempcolor];
+            cellArray[z][y][x].cube.material.color.setHex(colorsUsed[tempcolor]);
+
+        }
     }
+
     if(size > 1)
-        colour(size - 1,x,y,z);
+        colour(size - 1,x,y,z,hover);
 }
 
