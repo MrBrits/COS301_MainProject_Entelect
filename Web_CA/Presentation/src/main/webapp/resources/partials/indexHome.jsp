@@ -40,7 +40,7 @@
 
 <div style="position:fixed;left:0px" id="myContainer"></div>
 <script src="resources/js/videoScene.js"></script>
-<div class="container marketing">
+<div class="container marketing" style="position:relative;top:100px ">
     <div class="row">
         <div class="panel-group navbar-left col-md-4" id="accordion">
             <div class="panel panel-default" ng-controller="StateManager">
@@ -123,7 +123,32 @@
                     </div>
                 </div>
             </div>
+            <div class="panel panel-default"ng-controller="WorldManager">
+                <div class="panel-heading">
+                    <h4 class="panel-title" style="height: 30px">
+                        <label>&emsp;Import Worlds</label>
+                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#worldImport" ng-click="getNotWorlds()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
+                    </h4>
+                </div>
+                <div id="worldImport" style="height: auto;max-height: 200px;overflow-y: auto;"class="panel-collapse collapse">
+                    <div >
+                        <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
+                        <table class="table">
+                            <tr ng-repeat="world in worlds | filter:search">
+                                <td>
+                                    <button type="button" class="btn btn-default btn-lg"></button>
+                                    <a href="#simulator"  ><label  onclick="setWorldID(id)"> {{world.worldName}}</label></a>
+                                    <button type="button" ng-click="ImportWorlds(world.worldId)"  class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" ><span class="glyphicon glyphicon-download"></span></button>
+                                    <br>
+                                    <p>{{world.worldDesc}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <!--
         *
         *   Add newsFeed
@@ -351,19 +376,32 @@
                 <br/>
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <div class="col-xs-6">
-                            <textarea id="textArea" class="form-control" style="height:300px;"ng-model="rule.dsl">
-                                when true sum of 1;4:8 between 1 3
-                                then sum of 1;4:8
-                                identifiedBy Rule_1 Description
-                            </textarea>
+
+                            <label class="col-xs-1 control-label">when</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" placeholder="when condition and/or condition " data-toggle="tooltip-arrow" data-placement="top" title="condition: isNot operation of neighbours operand values" ng-model="ruleeditor.line1">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-1 control-label">then</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" placeholder="then operation of neighbours= value" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"ng-model="ruleeditor.line2">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-1 control-label" >identifiedBy</label>
+                            <div class="col-md-5">
+                                <input type="text"  class="form-control" placeholder="identifiedBy RuleName RuleDesc" ng-model="ruleeditor.line3">
+
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-xs-offset-2 col-xs-4">
+                        <div class="col-xs-offset-3 col-xs-4">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addRuleEditor(rule.dsl)">Add</button>
+                            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="addRuleEditor(ruleeditor)">Add</button>
                         </div>
                     </div>
                 </form>
