@@ -8,14 +8,16 @@
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="connection.username">root</property>
     <property name="connection.password"></property>
-      <mapping class="za.co.tera.Domain.impl.Condition"/>
-      <mapping class="za.co.tera.Domain.impl.Conditiontype"/>
-      <mapping class="za.co.tera.Domain.impl.Coordinate"/>
-      <mapping class="za.co.tera.Domain.impl.Direction"/>
-      <mapping class="za.co.tera.Domain.impl.Rule"/>
-      <mapping class="za.co.tera.Domain.impl.State"/>
-      <mapping class="za.co.tera.Domain.impl.User"/>
-      <mapping class="za.co.tera.Domain.impl.World"/>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+      <mapping class="za.co.tera.web_ca.domain.impl.Coordinate"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Rule"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Rulecondition"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Ruleresult"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Ruleneighbours"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.State"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.User"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.World"/>
+      <mapping class="za.co.tera.web_ca.domain.impl.Worldrules"/>
       <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>
