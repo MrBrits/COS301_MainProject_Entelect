@@ -22,6 +22,7 @@ web_ca.controller("UserManager", function($scope,$http) {
     var pass;
     var userRole;
     var userId = document.getElementById("userId").value;
+
     $scope.editUser = function ()
     {
         var tut = document.getElementById("tutorials").value;
@@ -43,16 +44,15 @@ web_ca.controller("UserManager", function($scope,$http) {
 
     $http.post("http://" + site + "/getUserById",userId)
         .success(function(data) {
-
             document.getElementById("firstName").value=data.userFirstName;
             document.getElementById("lastName").value=data.userLastName;
             document.getElementById("email").value=data.userEmail;
             pass = data.userPassword;
             userRole =data.userRole;
-            if(data.tutorials==true)
-                document.getElementById("tutorials").value="Enabled";
+            if(data.tutorials == true)
+                document.getElementById("tutorials").value = "Enabled";
             else
-                document.getElementById("tutorials").value="Disabled";
+                document.getElementById("tutorials").value = "Disabled";
 
         }).error(function () {
             alert("USER LOGIN: SERVER ERROR");

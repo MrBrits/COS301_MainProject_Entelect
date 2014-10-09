@@ -61,6 +61,7 @@ public class RuleController {
     public @ResponseBody
     int createRuleConNeigh(@RequestBody String rawRuleConNeigh) {
 
+        /*
         NeighbourString = "000000000000000000000000000";
         int endOfString = rawRuleConNeigh.lastIndexOf("}");
         String realNeighbours = rawRuleConNeigh.substring(15,(endOfString-1));
@@ -80,9 +81,9 @@ public class RuleController {
         }
 
         //System.out.println(NeighbourString);
-
+        */
         Ruleneighbours ruleNeigh = new Ruleneighbours();
-        ruleNeigh.setNeighbours(NeighbourString);
+        ruleNeigh.setNeighbours(rawRuleConNeigh);
 
         return ruleService.createRuleNeigh(ruleNeigh);
     }
@@ -142,6 +143,7 @@ public class RuleController {
     public @ResponseBody
     int createRuleConAndOrNeigh(@RequestBody String rawRuleConAndOrNeigh) {
 
+        /*
         NeighbourString = "000000000000000000000000000";
         int endOfString = rawRuleConAndOrNeigh.lastIndexOf("}");
         String realNeighbours = rawRuleConAndOrNeigh.substring(15,(endOfString-1));
@@ -161,9 +163,9 @@ public class RuleController {
         }
 
         //System.out.println(NeighbourString);
-
+        */
         Ruleneighbours ruleNeigh = new Ruleneighbours();
-        ruleNeigh.setNeighbours(NeighbourString);
+        ruleNeigh.setNeighbours(rawRuleConAndOrNeigh);
 
         return ruleService.createRuleNeigh(ruleNeigh);
     }
@@ -218,7 +220,7 @@ public class RuleController {
     @RequestMapping(value = "/AddRuleResNeigh", method = RequestMethod.POST)
     public @ResponseBody
     int createRuleResNeigh(@RequestBody String rawRuleResNeigh) {
-
+        /*
         NeighbourString = "000000000000000000000000000";
         int endOfString = rawRuleResNeigh.lastIndexOf("}");
         String realNeighbours = rawRuleResNeigh.substring(15,(endOfString-1));
@@ -238,9 +240,9 @@ public class RuleController {
         }
 
         //System.out.println(NeighbourString);
-
+        */
         Ruleneighbours ruleNeigh = new Ruleneighbours();
-        ruleNeigh.setNeighbours(NeighbourString);
+        ruleNeigh.setNeighbours(rawRuleResNeigh);
 
         return ruleService.createRuleNeigh(ruleNeigh);
     }

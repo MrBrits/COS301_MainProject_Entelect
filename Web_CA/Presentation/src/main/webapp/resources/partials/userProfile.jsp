@@ -48,15 +48,14 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Tutorials Visible</label>
+                        <label class="col-md-3 control-label">Tutorials</label>
                         <div class="col-lg-8">
-                            <input class="form-control"  id="tutorials" type="button">
+                            <input class="form-control" id="tutorials" type="button">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label"></label>
                         <div class="col-md-8">
-
                             <button type="submit" class="btn btn-success"  ng-click="editUser()">Save Changes</button>
                         </div>
                     </div>
