@@ -618,41 +618,41 @@ function changeState() {
 
         //Yellow Box - All
 
-        if (tx == tmx && ty < 0 && tz == tmz) {
-            midpoint.toggleVisible();
-            for (var z = 0; z < tmz; z++) {
-                if(zbar[z].active)
-                    continue;
-                for (var y = 0; y < tmy; y++) {
-                    if(ybar[y].active)
+        if (tx == tmx && ty < 0 && tz == tmz && $("#mid").checked) {
+                midpoint.toggleVisible();
+                for (var z = 0; z < tmz; z++) {
+                    if (zbar[z].active)
                         continue;
-                    for (var x = 0; x < tmx; x++) {
-                        if(xbar[x].active)
+                    for (var y = 0; y < tmy; y++) {
+                        if (ybar[y].active)
                             continue;
-                        if (cellArray[z][y][x].invis == true) {
-                            cellArray[z][y][x].invis = false;
-                            cellArray[z][y][x].toggleInvis();
-                        }
-                        else if (cellArray[z][y][x].invis == false) {
-                            cellArray[z][y][x].invis = true;
-                            cellArray[z][y][x].toggleInvis();
+                        for (var x = 0; x < tmx; x++) {
+                            if (xbar[x].active)
+                                continue;
+                            if (cellArray[z][y][x].invis == true) {
+                                cellArray[z][y][x].invis = false;
+                                cellArray[z][y][x].toggleInvis();
+                            }
+                            else if (cellArray[z][y][x].invis == false) {
+                                cellArray[z][y][x].invis = true;
+                                cellArray[z][y][x].toggleInvis();
+                            }
                         }
                     }
                 }
-            }
         }
         //Red Bar   - Z
-        else if (tx == tmx && ty < 0) {
+        else if (tx == tmx && ty < 0 && $("#z").checked) {
             toggleZLayer(tz);
             zbar[tz].toggleVisible();
         }
         //Green Bar - Y
-        else if (tx == tmx && tz == tmz) {
+        else if (tx == tmx && tz == tmz  && $("#y").checked) {
             toggleYLayer(ty);
             ybar[ty].toggleVisible();
         }
         //Blue Bar  - Z
-        else if (ty < 0 && tz == tmz) {
+        else if (ty < 0 && tz == tmz  && $("#x").checked) {
             toggleXLayer(tx);
             xbar[tx].toggleVisible();
         }
@@ -670,6 +670,8 @@ function changeState() {
                 //Yellow Box - All
 
                 if (tx == tmx && ty < 0 && tz == tmz) {
+                    if(!$("#mid").is(":checked"))
+                        continue;
                     midpoint.toggleVisible();
                     for (var z = 0; z < tmz; z++) {
                         if(zbar[z].active)
@@ -699,18 +701,24 @@ function changeState() {
                 }
                 //Red Bar   - Z
                 else if (tx == tmx && ty < 0) {
+                    if(!$("#z").is(":checked"))
+                        continue;
                     toggleZLayer(tz);
                     zbar[tz].toggleVisible();
                     break;
                 }
                 //Green Bar - Y
                 else if (tx == tmx && tz == tmz) {
+                    if(!$("#y").is(":checked"))
+                        continue;
                     toggleYLayer(ty);
                     ybar[ty].toggleVisible();
                     break;
                 }
                 //Blue Bar  - Z
                 else if (ty < 0 && tz == tmz) {
+                    if(!$("#x").is(":checked"))
+                        continue;
                     toggleXLayer(tx);
                     xbar[tx].toggleVisible();
                     break;

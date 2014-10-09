@@ -79,8 +79,8 @@
             <br/>
             <div class="form-group" style = "width:90%;">
                 <div class="input-group">
-                    <input class="form-control" type="text" id = "colorValue" placeholder="State Value">
-                    <div class="input-group-addon active"><span class="glyphicon glyphicon-plus" ></span></div>
+                    <input class="form-control" type="number" id = "colorValue" value = "0" placeholder="State Value">
+
                 </div>
             </div>
             <div id="worldState" style="padding-right: 20px;"></div>
@@ -89,9 +89,13 @@
         <div id = "simulate-menu-tab" class = "submenu-display">
             <br/>
             <h3 style = "padding-left:0;padding-right:0;text-align: center;">Simulate</h3>
+            <div style = "padding-left:0;padding-right:0;text-align: center;">
+                <button onclick="methods.Start_Stop()" class="btn btn-default"><img id="play_stop" src= "resources/img/play.png"style="width:15px;height:15px"/> </button>
+                <br/>
+                <br/>
+                <label class="range inline">Play Speed<input id="speed" type="range"  class ="help-inline" value=1 min=1 max=10 step=1 /></label>
+            </div>
 
-            <button onclick="methods.Start_Stop()" class="btn btn-default"><img id="play_stop" src= "resources/img/play.png"style="width:15px;height:15px"/> </button>
-            <label class="range inline">Play Speed<input id="speed" type="range"  class ="help-inline" value=1 min=1 max=10 step=1 /></label>
         </div>
 
         <div id = "rules-menu-tab" class = "submenu-display">
@@ -103,7 +107,17 @@
         <div id = "settings-menu-tab" class = "submenu-display">
             <br/>
             <h3 style = "padding-left:0;text-align: center;">Settings</h3>
-
+            <div style = "padding-left:0;padding-right:0;text-align: center;">
+                <label class="range inline">Cube Scale<input  id="Cube_Scale" type="range" min=0 max=1 step=0.1 value=1 /></label>
+                <br/>
+                <h4>Toggle Sidebars</h4>
+                <ul style="list-style-type:none;">
+                    <li role="presentation"> <input id="x" onclick="hider()" checked="true" type="checkbox">x-axis</li>
+                    <li role="presentation"> <input id="y" onclick="hider()" checked="true" type="checkbox">y-axis</li>
+                    <li role="presentation"> <input id="z" onclick="hider()" checked="true"type="checkbox">z-axis</li>
+                    <li role="presentation">  <input id="mid" onclick="hider()" checked="true" type="checkbox">overall</li>
+                </ul>
+            </div>
         </div>
 
     </div>
