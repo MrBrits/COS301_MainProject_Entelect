@@ -583,9 +583,9 @@ function mouseDrag() {
 }
 
 function clearHover()   {
-    if(tmx > 1 || tmy > 1)
+    if(tmx > 1 || tmy > 1 || tmz > 1)
         for (var z = 0; z < tmz; z++) {
-            for (var y = 0; y < tmz; y++) {
+            for (var y = 0; y < tmy; y++) {
                 for (var x = 0; x < tmx; x++) {
                     cellArray[z][y][x].resetHover();
                 }
@@ -1486,7 +1486,6 @@ function sumNeighboursAtPositions(x, y, z, positions) {
 }
 
 function toggleZLayer(zlayer) {
-    console.log("1" + zlayer);
     for (var y = 0; y < tmz; y++) {
         for (var x = 0; x < tmx; x++) {
             if(midpoint.active)
@@ -1938,6 +1937,7 @@ function changeThisState(x, y, z, size, hover)	{
         counter++;
         worldStates();
     }
+
     if(hover)
         cellArray[z][y][x].hoverCell(tempcolor);
     else {
