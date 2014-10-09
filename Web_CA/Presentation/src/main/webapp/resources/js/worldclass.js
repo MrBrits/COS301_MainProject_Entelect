@@ -23,6 +23,8 @@ var site= new config().getSite();
 gggg = true;
 canvasFocus = true;
 tempcolor = 0;
+currentGeneration = 0;
+
 
 //controller to add the coordinates
 var web_ca = angular.module('coordinate_app', []);
@@ -488,6 +490,9 @@ function world(scene1, cameras) {
                                     else if (c.resultOperation == "MAX") {
                                         cellArray[z][y][x].nextValue = getBiggestNeighbour(x, y, z, ruleArray[rule].resultNeighbours);
                                     }
+                                    else if (c.resultOperation == "AVG") {
+                                        cellArray[z][y][x].nextValue = getAverage(x, y, z, ruleArray[rule].resultNeighbours);
+                                    }
                                 }
                                 cellArray[z][y][x].triggerChange = true;
                                 satisfied = false;
@@ -515,6 +520,7 @@ function world(scene1, cameras) {
                 }
             }
         }
+        currentGeneration++;
     }
 
     /*Changing of layers, which layer is being viewed and used
@@ -577,9 +583,9 @@ function mouseDrag() {
 }
 
 function clearHover()   {
-    if(tmx > 1 || tmy > 1)
+    if(tmx > 1 || tmy > 1 || tmz > 1)
         for (var z = 0; z < tmz; z++) {
-            for (var y = 0; y < tmz; y++) {
+            for (var y = 0; y < tmy; y++) {
                 for (var x = 0; x < tmx; x++) {
                     cellArray[z][y][x].resetHover();
                 }
@@ -787,6 +793,98 @@ function randomFairColor() {
     var g = (Math.floor(Math.random() * (max - min + 1)) + min) * 256;
     var b = (Math.floor(Math.random() * (max - min + 1)) + min);
     return r + g + b;
+}
+
+function getAverage(x, y, z, positions) {
+    var count = 0;
+    if (z - 1 >= 0) {
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(0) == '1') {
+                count += 1;
+        }
+        if (y + 1 <= tmy - 1 && positions.charAt(19) == '1') {
+                count += 1;
+        }
+        if (y - 1 >= 0 && positions.charAt(1) == '1') {
+                count += 1;
+        }
+        if (x + 1 <= tmx - 1 && positions.charAt(11) == '1') {
+                count += 1;
+        }
+        if (x - 1 >= 0 && positions.charAt(9) == '1') {
+                count += 1;
+        }
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(20) == '1') {
+                count += 1;
+        }
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(18) == '1') {
+                count += 1;
+        }
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(2) == '1') {
+                count += 1;
+        }
+        if (positions.charAt(10) == '1') {
+                count += 1;
+        }
+    }
+
+    if (z + 1 <= tmz - 1) {
+        if (y + 1 <= tmy - 1 && positions.charAt(25) == '1') {
+                count += 1;
+        }
+        if (y - 1 >= 0 && positions.charAt(7) == '1') {
+                count += 1;
+        }
+        if (x + 1 <= tmx - 1 && positions.charAt(17) == '1') {
+                count += 1;
+        }
+        if (x - 1 >= 0 && positions.charAt(15) == '1') {
+                count += 1;
+        }
+        if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(26) == '1') {
+                count += 1;
+        }
+        if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(6) == '1') {
+                count += 1;
+        }
+        if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(24) == '1') {
+                count += 1;
+        }
+        if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(8) == '1') {
+                count += 1;
+        }
+        if (positions.charAt(16) == '1') {
+                count += 1;
+        }
+    }
+
+    if (y + 1 <= tmy - 1 && positions.charAt(22) == '1') {
+            count += 1;
+    }
+    if (y - 1 >= 0 && positions.charAt(4) == '1') {
+            count += 1;
+    }
+    if (x + 1 <= tmx - 1 && positions.charAt(14) == '1') {
+            count += 1;
+    }
+    if (x - 1 >= 0 && positions.charAt(12) == '1') {
+            count += 1;
+    }
+    if (y + 1 <= tmy - 1 && x + 1 <= tmx - 1 && positions.charAt(23) == '1') {
+            count += 1;
+    }
+    if (y - 1 >= 0 && x - 1 >= 0 && positions.charAt(3) == '1') {
+            count += 1;
+    }
+    if (y + 1 <= tmy - 1 && x - 1 >= 0 && positions.charAt(21) == '1') {
+            count += 1;
+    }
+    if (y - 1 >= 0 && x + 1 <= tmx - 1 && positions.charAt(5) == '1') {
+            count += 1;
+    }
+    if (positions.charAt(13) == '1') {
+            count += 1;
+    }
+    return (sumNeighboursAtPositions(x, y, z, positions) / count);
 }
 
 function getSmallestNeighbour(x, y, z, positions, checkValue) {
@@ -1388,7 +1486,6 @@ function sumNeighboursAtPositions(x, y, z, positions) {
 }
 
 function toggleZLayer(zlayer) {
-    console.log("1" + zlayer);
     for (var y = 0; y < tmz; y++) {
         for (var x = 0; x < tmx; x++) {
             if(midpoint.active)
@@ -1489,14 +1586,19 @@ function performOperation(neightbours, expected, conditionOperand) {
     return result;
 }
 
-function performBetween(neightbours, valueOne, valueTwo) {
+function performBetween(type, neightbours, valueOne, valueTwo) {
     var result = false;
-    if (neightbours >= valueOne && neightbours <= valueTwo) result = true;
+
+    if(type == "BI")
+        if (neightbours >= valueOne && neightbours <= valueTwo) result = true;
+    if(type == "BE")
+        if (neightbours > valueOne && neightbours < valueTwo) result = true;
+
     return result;
 }
 
 function worldStates() {
-    var s = '<table class="table"><input class="form-control" id="colorValue" value="0" type="text">';
+    var s = '<table class="table">';
     for (var i = 0; i < counter; i++) {
         if( colorsUsedName[i]!="0") {
             s += "<tr><td><button  onclick='setColor(" + colorsUsedName[i] + ")' style=" + '"background-color:#' + arryColour[i].substring(2) + '"' + 'class="btn btn-default btn-lg" ></button>';
@@ -1507,7 +1609,11 @@ function worldStates() {
     s += "</tr></table>";
     document.getElementById("worldState").innerHTML = s;
 
+    $("#colorValue").on("change", function(){
+        if(this.value == 0) {
 
+        }
+    });
 }
 function toggleRule(i)
 {
@@ -1567,18 +1673,22 @@ function setColor(value) {
 
 function checkCondition(c, x, y, z) {
     if (typeof c != null) {
-        if (c.conditionOperand == "BETWEEN") {
+        if (c.conditionOperand == "BI" || c.conditionOperand == "BE") {
             if (c.conditionOperation == "SUM") {
                 var neightbours = sumNeighboursAtPositions(x, y, z, c.conditionNeighbours);
-                return performBetween(neightbours, c.compareValueOne, c.compareValueTwo);
+                return performBetween(c.conditionOperand, neightbours, c.compareValueOne, c.compareValueTwo);
             }
             else if (ruleArray[rule].conditionArray[cond].conditionOperation == "MIN") {
                 var neightbour = getSmallestNeighbour(x, y, z, c.conditionNeighbours);
-                return performBetween(neightbour, c.compareValueOne, c.compareValueTwo);
+                return performBetween(c.conditionOperand, neightbour, c.compareValueOne, c.compareValueTwo);
             }
             else if (ruleArray[rule].conditionArray[cond].conditionOperation == "MAX") {
                 var neightbour = getBiggestNeighbour(x, y, z, c.conditionNeighbours);
-                return performBetween(neightbour, c.compareValueOne, c.compareValueTwo);
+                return performBetween(c.conditionOperand, neightbour, c.compareValueOne, c.compareValueTwo);
+            }
+            else if (ruleArray[rule].conditionArray[cond].conditionOperation == "AVG") {
+                var neightbour = getAverage(x, y, z, c.conditionNeighbours);
+                return performBetween(c.conditionOperand, neightbour, c.compareValueOne, c.compareValueTwo);
             }
         }
         else {
@@ -1596,6 +1706,10 @@ function checkCondition(c, x, y, z) {
             }
             else if (c.conditionOperation == "MAX") {
                 var neightbour = getBiggestNeighbour(x, y, z, c.conditionNeighbours);
+                return performOperation(neightbour, c.compareValueOne, c.conditionOperand);
+            }
+            else if (c.conditionOperation == "AVG") {
+                var neightbour = getAverage(x, y, z, c.conditionNeighbours);
                 return performOperation(neightbour, c.compareValueOne, c.conditionOperand);
             }
         }
@@ -1809,9 +1923,10 @@ function colour(size,x,y,z,hover)	{
     }
 }
 
-
 function changeThisState(x, y, z, size, hover)	{
-    var tempcolor = document.getElementById("colorValue").value;
+    if(typeof document.getElementById("colorValue").value != undefined)
+        tempcolor = document.getElementById("colorValue").value;
+    else tempcolor = 0;
 
     if (colorsUsed[tempcolor] != null) {
         cellArray[z][y][x].cube.material.color.setHex(colorsUsed[tempcolor]);
@@ -1822,6 +1937,7 @@ function changeThisState(x, y, z, size, hover)	{
         counter++;
         worldStates();
     }
+
     if(hover)
         cellArray[z][y][x].hoverCell(tempcolor);
     else {

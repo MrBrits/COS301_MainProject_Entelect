@@ -77,8 +77,13 @@
             <label style = "width: 90%; margin-left:auto; margin-right: auto;" class="range inline">Brush Size<input id="Brush_Size" type="range" min=0 max=6 step=1 value=0 /></label>
             <br/>
             <br/>
+            <div class="form-group" style = "width:90%;">
+                <div class="input-group">
+                    <input class="form-control" type="text" id = "colorValue" placeholder="State Value">
+                    <div class="input-group-addon active"><span class="glyphicon glyphicon-plus" ></span></div>
+                </div>
+            </div>
             <div id="worldState" style="padding-right: 20px;"></div>
-
         </div>
 
         <div id = "simulate-menu-tab" class = "submenu-display">
@@ -98,6 +103,7 @@
         <div id = "settings-menu-tab" class = "submenu-display">
             <br/>
             <h3 style = "padding-left:0;text-align: center;">Settings</h3>
+
         </div>
 
     </div>
