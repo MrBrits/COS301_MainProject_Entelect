@@ -8,8 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3247475-0269-44ac-8dab-ad33e85cfb6f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data_Access/Data_Access.iml" afterPath="$PROJECT_DIR$/Data_Access/Data_Access.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/userProfile.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/userProfile.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" afterPath="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Web_CA.iws" />
@@ -61,21 +60,21 @@
       <file leaf-file-name="worldclass.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="32243" max-vertical-offset="33456">
-              <caret line="1905" column="32" selection-start-line="1905" selection-start-column="32" selection-end-line="1905" selection-end-column="32" />
+            <state vertical-scroll-proportion="1152.25" vertical-offset="32603" max-vertical-offset="33592">
+              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
               <folding>
-                <marker date="1412863756599" expanded="false" signature="65099:65116" placeholder="..." />
-                <marker date="1412863756599" expanded="false" signature="65316:65331" placeholder="..." />
+                <marker date="1412868227444" expanded="false" signature="65596:65613" placeholder="..." />
+                <marker date="1412868227444" expanded="false" signature="65813:65828" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userProfile.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="userProfile.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/userProfile.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.978892" vertical-offset="0" max-vertical-offset="2040">
-              <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+            <state vertical-scroll-proportion="-5.230769" vertical-offset="153" max-vertical-offset="2040">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -121,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="indexSimulator.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="indexSimulator.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1559" max-vertical-offset="3927">
-              <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.8205805" vertical-offset="1712" max-vertical-offset="4250">
+              <caret line="119" column="23" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -204,9 +203,9 @@
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/css/interface.css" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/cellclass.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/rulescript.js" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" />
-        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" />
         <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/userProfile.jsp" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js" />
+        <option value="$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp" />
       </list>
     </option>
   </component>
@@ -1429,7 +1428,7 @@
       <workItem from="1412806388355" duration="3087000" />
       <workItem from="1412842712644" duration="439000" />
       <workItem from="1412843207814" duration="2894000" />
-      <workItem from="1412863791489" duration="2135000" />
+      <workItem from="1412863791489" duration="5137000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1747,11 +1746,19 @@
       <created>1412811694288</created>
       <updated>1412811694288</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Updated User Profile">
+      <created>1412866004054</created>
+      <updated>1412866004054</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Interface Completed, Fixed Invis Bars working.">
+      <created>1412868591346</created>
+      <updated>1412868591346</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="713617000" />
+    <option name="totallyTimeSpent" value="716619000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1800,7 +1807,7 @@
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5778491" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37311178" sideWeight="0.54653937" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21826625" sideWeight="0.88645834" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21826625" sideWeight="0.885798" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25696594" sideWeight="0.10981309" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49839228" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17296073" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1829,8 +1836,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Changed database" />
-    <MESSAGE value="Add Rule - No duplicates" />
     <MESSAGE value="Icons" />
     <MESSAGE value="Remove functionality for World/State/Rule" />
     <MESSAGE value="Remove functionality for World/State/Rule v.2 working&#10;" />
@@ -1854,18 +1859,32 @@
     <MESSAGE value="interface" />
     <MESSAGE value="Hover Completed" />
     <MESSAGE value="All Rules Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="All Rules Implemented" />
+    <MESSAGE value="Updated User Profile" />
+    <MESSAGE value="Interface Completed, Fixed Invis Bars working." />
+    <option name="LAST_COMMIT_MESSAGE" value="Interface Completed, Fixed Invis Bars working." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js</url>
-          <line>797</line>
+          <line>805</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="15" />
+      <option name="time" value="19" />
     </breakpoint-manager>
   </component>
   <component name="XPathView.XPathProjectComponent">
@@ -2209,22 +2228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/statescript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="2142">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1559" max-vertical-offset="3927">
-          <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/ruleclass.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="612">
@@ -2257,14 +2260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2992">
-          <caret line="22" column="62" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/za/co/tera/presentation/controller/StateController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1063" max-vertical-offset="1496">
@@ -2273,21 +2268,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js">
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldscript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="32243" max-vertical-offset="33456">
-          <caret line="1905" column="32" selection-start-line="1905" selection-start-column="32" selection-end-line="1905" selection-end-column="32" />
-          <folding>
-            <marker date="1412863756599" expanded="false" signature="65099:65116" placeholder="..." />
-            <marker date="1412863756599" expanded="false" signature="65316:65331" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2992">
+          <caret line="22" column="62" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/userProfile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.978892" vertical-offset="0" max-vertical-offset="2040">
-          <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="153" max-vertical-offset="2040">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/statescript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="2142">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/js/worldclass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1152.25" vertical-offset="32603" max-vertical-offset="33592">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding>
+            <marker date="1412868227444" expanded="false" signature="65596:65613" placeholder="..." />
+            <marker date="1412868227444" expanded="false" signature="65813:65828" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexSimulator.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8205805" vertical-offset="1712" max-vertical-offset="4250">
+          <caret line="119" column="23" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
           <folding />
         </state>
       </provider>

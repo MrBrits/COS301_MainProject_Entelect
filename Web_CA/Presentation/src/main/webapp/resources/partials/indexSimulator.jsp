@@ -108,6 +108,11 @@
             <br/>
             <h3 style = "padding-left:0;text-align: center;">Settings</h3>
             <div style = "padding-left:0;padding-right:0;text-align: center;">
+                <button onclick="methods.Rotate()" class="btn btn-default"><img src= "resources/img/rotate.png"style="width:15px;height:15px"/> </button>
+                <br/>
+                <br/>
+                <label class="range inline">Rotation Speed<input  id="Rotation_Speed" type="range" value=1 min=1 max=4 step="0.5"/></label>
+                <br/>
                 <label class="range inline">Cube Scale<input  id="Cube_Scale" type="range" min=0 max=1 step=0.1 value=1 /></label>
                 <br/>
                 <h4>Toggle Sidebars</h4>
