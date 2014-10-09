@@ -90,7 +90,7 @@ public class StateController {
     public @ResponseBody
     String editState(@RequestBody State state) {
         stateService.updateState(state);
-        return "State has been edited";
+        return "State has been updated";
     }
 }
 

@@ -9,7 +9,7 @@ web_ca.controller("StateSimulator", function ($scope, $http) {
             .success(function (data) {
                 $scope.states = data;
             }).error(function () {
-                alert("RETRIEVE STATES BY USER ID: SERVER ERROR");
+                alert("SERVER ERROR: States could not be found. Please contact support.");
             });
 
 } );
@@ -24,28 +24,27 @@ web_ca.controller("StateManager", function ($scope, $http) {
             .success(function (data) {
                 $scope.states = data;
             }).error(function () {
-                alert("RETRIEVE STATES BY USER ID: SERVER ERROR");
+                alert("SERVER ERROR: States could not be found. Please contact support.");
             });
     }
 
     $scope.addState = function(state) {
 
-        var ValueIsNum = /^\d+$/.test(state.stateValue);
-
-        if (ValueIsNum) {
-
+        if (state.stateValue != undefined) {
             state.stateHex = document.getElementById("colour").value;
             state.ownerId = userId;
             $http.post("http://" + site + "/AddState", state)
                 .success(function (data) {
                     alert(data);
+                    location.reload();
                 }).error(function () {
-                    alert("ADD STATE: SERVER ERROR");
+                    alert("Please enter a correct value for all fields of the State.");
                 });
         }
         else {
-            alert("Incorrect values have been entered!");
+            alert("Please enter a correct value for all fields of the State.");
         }
+
     };
 
     $scope.getEditState = function(stateId)
@@ -58,37 +57,33 @@ web_ca.controller("StateManager", function ($scope, $http) {
 
                 document.getElementById("editStateName").value = data.stateName;
                 document.getElementById("editStateDesc").value = data.stateDesc;
-                document.getElementById("editStateValue").value = data.stateValue;
+                document.getElementById("editStateValue").value = parseFloat(data.stateValue);
                 document.getElementById("editStateHex").value = data.stateHex;
 
             }).error(function () {
-                alert("GET EDIT STATE: SERVER ERROR");
+                alert("SERVER ERROR: State could not be found. Please contact support.");
             });
     };
 
     $scope.editState = function()
     {
-        id = document.getElementById("editStateIdHidden").value;
-        name = document.getElementById("editStateName").value;
-        desc = document.getElementById("editStateDesc").value;
-        value = document.getElementById("editStateValue").value;
-        hex = document.getElementById("editStateHex").value;
 
-        if (typeof value === "number") {
-            state = "{\"stateId\":" + id + ",\"stateName\":\"" + name + "\",\"stateDesc\":\"" + desc + "\",\"stateValue\":" + value + ",\"stateHex\":\"" + hex + "\", \"ownerId\":" + userId + "}";
+        var id = document.getElementById("editStateIdHidden").value;
+        var name = document.getElementById("editStateName").value;
+        var desc = document.getElementById("editStateDesc").value;
+        var value = document.getElementById("editStateValue").value;
+        var hex = document.getElementById("editStateHex").value;
 
-            $http.post("http://" + site + "/editState", state)
-                .success(function (data) {
-                    alert(data);
-                    $scope.getStates();
-                    location.reload();
-                }).error(function () {
-                    alert("EDIT STATE: SERVER ERROR");
-                });
-        }
-        else {
-            alert("Incorrect values have been entered!");
-        }
+                state = "{\"stateId\":" + id + ",\"stateName\":\"" + name + "\",\"stateDesc\":\"" + desc + "\",\"stateValue\":" + value + ",\"stateHex\":\"" + hex + "\", \"ownerId\":" + userId + "}";
+
+                $http.post("http://" + site + "/editState", state)
+                    .success(function (data) {
+                        alert(data);
+                        $scope.getStates();
+                        location.reload();
+                    }).error(function () {
+                        alert("Please enter a correct value for all fields of the State.");
+                    });
     };
 
     $scope.deleteStateFinalize = function() {
@@ -98,16 +93,12 @@ web_ca.controller("StateManager", function ($scope, $http) {
             .success(function (data) {
                 alert(data); location.reload();
             }).error(function () {
-                alert("DELETE STATE: SERVER ERROR");
+                alert("SERVER ERROR: State could not be found. Please contact support.");
             });
     };
 
 });
 
-/**
- * 
- * @param toBeDeleted
- */
 function deleteState(toBeDeleted)
 {
     toBeDeleted=toBeDeleted.substr(1);

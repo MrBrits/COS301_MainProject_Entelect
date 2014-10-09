@@ -220,7 +220,7 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">State Name</label>
                         <div class="col-xs-4">
-                            <input id="editStateName" type=text class=form-control ng-model=newState.stateName>
+                            <input id="editStateName" type=text class=form-control ng-model=oldState.stateName>
                             <span class=help-block></span>
                         </div>
                     </div>
@@ -248,7 +248,7 @@
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="editState()">Edit</button>
+                            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="editState(oldState)">Edit</button>
                         </div>
                     </div>
                 </form>
@@ -470,13 +470,21 @@
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
+                                <!--
                                 <div class="form-group">
                                     <label class="col-xs-2 control-label">Condition Neighbours</label>
                                     <div class="col-xs-4">
-                                        <select class="form-control" ng-model="newRuleConNeigh.neighbours" required>
-                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
-                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
-                                        </select>
+                                        <input type="text" class="form-control" ng-model="newRuleConNeigh.neighbours" required>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Neighbours</label>
+                                    <div class="col-xs-4">
+                                        <input type="checkbox" id="addCon1Neigh25"><input type="checkbox" id="addCon1Neigh26"><input type="checkbox" id="addCon1Neigh27">&emsp;<input type="checkbox" id="addCon1Neigh16"><input type="checkbox" id="addCon1Neigh17"><input type="checkbox" id="addCon1Neigh18">&emsp;<input type="checkbox" id="addCon1Neigh7"><input type="checkbox" id="addCon1Neigh8"><input type="checkbox" id="addCon1Neigh9"><br>
+                                        <input type="checkbox" id="addCon1Neigh22"><input type="checkbox" id="addCon1Neigh23"><input type="checkbox" id="addCon1Neigh24">&emsp;<input type="checkbox" id="addCon1Neigh13"><input type="checkbox" id="addCon1Neigh14"><input type="checkbox" id="addCon1Neigh15">&emsp;<input type="checkbox" id="addCon1Neigh4"><input type="checkbox" id="addCon1Neigh5"><input type="checkbox" id="addCon1Neigh6"><br>
+                                        <input type="checkbox" id="addCon1Neigh19"><input type="checkbox" id="addCon1Neigh20"><input type="checkbox" id="addCon1Neigh21">&emsp;<input type="checkbox" id="addCon1Neigh10"><input type="checkbox" id="addCon1Neigh11"><input type="checkbox" id="addCon1Neigh12">&emsp;<input type="checkbox" id="addCon1Neigh1"><input type="checkbox" id="addCon1Neigh2"><input type="checkbox" id="addCon1Neigh3"><br>
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
@@ -546,13 +554,21 @@
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
+                                <!--
                                 <div class="form-group">
                                     <label class="col-xs-2 control-label">Condition Neighbours</label>
                                     <div class="col-xs-4">
-                                        <select class="form-control" ng-model="newRuleConNeighAndOr.neighbours">
-                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
-                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
-                                        </select>
+                                        <input type="text" class="form-control" ng-model="newRuleConNeighAndOr.neighbours">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Neighbours</label>
+                                    <div class="col-xs-4">
+                                        <input type="checkbox" id="addCon2Neigh25"><input type="checkbox" id="addCon2Neigh26"><input type="checkbox" id="addCon2Neigh27">&emsp;<input type="checkbox" id="addCon2Neigh16"><input type="checkbox" id="addCon2Neigh17"><input type="checkbox" id="addCon2Neigh18">&emsp;<input type="checkbox" id="addCon2Neigh7"><input type="checkbox" id="addCon2Neigh8"><input type="checkbox" id="addCon2Neigh9"><br>
+                                        <input type="checkbox" id="addCon2Neigh22"><input type="checkbox" id="addCon2Neigh23"><input type="checkbox" id="addCon2Neigh24">&emsp;<input type="checkbox" id="addCon2Neigh13"><input type="checkbox" id="addCon2Neigh14"><input type="checkbox" id="addCon2Neigh15">&emsp;<input type="checkbox" id="addCon2Neigh4"><input type="checkbox" id="addCon2Neigh5"><input type="checkbox" id="addCon2Neigh6"><br>
+                                        <input type="checkbox" id="addCon2Neigh19"><input type="checkbox" id="addCon2Neigh20"><input type="checkbox" id="addCon2Neigh21">&emsp;<input type="checkbox" id="addCon2Neigh10"><input type="checkbox" id="addCon2Neigh11"><input type="checkbox" id="addCon2Neigh12">&emsp;<input type="checkbox" id="addCon2Neigh1"><input type="checkbox" id="addCon2Neigh2"><input type="checkbox" id="addCon2Neigh3"><br>
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
@@ -602,17 +618,26 @@
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
+                                <!--
                                 <div class="form-group">
                                     <label class="col-xs-2 control-label">Result Neighbours</label>
                                     <div class="col-xs-4">
-                                        <select class="form-control" id="addRuleResNeigh" onchange="evaluateAddResult()" ng-model="newRuleResNeigh.neighbours">
-                                            <option></option>
-                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
-                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
-                                        </select>
+                                        <input type="text" class="form-control" id="addRuleResNeigh" onchange="evaluateAddResult()" ng-model="newRuleResNeigh.neighbours">
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
+                                -->
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label">Neighbours</label>
+                                    <div class="col-xs-4">
+                                        <label class="col-xs-2">TOP&emsp;</label><label class="col-xs-2">MID&emsp;</label><label class="col-xs-2">BOT</label><br><br>
+                                        <input type="checkbox" id="addResNeigh25"><input type="checkbox" id="addResNeigh26"><input type="checkbox" id="addResNeigh27">&emsp;<input type="checkbox" id="addResNeigh16"><input type="checkbox" id="addResNeigh17"><input type="checkbox" id="addResNeigh18">&emsp;<input type="checkbox" id="addResNeigh7"><input type="checkbox" id="addResNeigh8"><input type="checkbox" id="addResNeigh9"><br>
+                                        <input type="checkbox" id="addResNeigh22"><input type="checkbox" id="addResNeigh23"><input type="checkbox" id="addResNeigh24">&emsp;<input type="checkbox" id="addResNeigh13"><input type="checkbox" id="addResNeigh14"><input type="checkbox" id="addResNeigh15">&emsp;<input type="checkbox" id="addResNeigh4"><input type="checkbox" id="addResNeigh5"><input type="checkbox" id="addResNeigh6"><br>
+                                        <input type="checkbox" id="addResNeigh19"><input type="checkbox" id="addResNeigh20"><input type="checkbox" id="addResNeigh21">&emsp;<input type="checkbox" id="addResNeigh10"><input type="checkbox" id="addResNeigh11"><input type="checkbox" id="addResNeigh12">&emsp;<input type="checkbox" id="addResNeigh1"><input type="checkbox" id="addResNeigh2"><input type="checkbox" id="addResNeigh3"><br>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+
                                 <label align="center">OR</label>
                                 <div class="form-group">
                                     <label class="col-xs-2 control-label">Result Value</label>

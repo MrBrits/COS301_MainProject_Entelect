@@ -78,7 +78,7 @@ public class AbstractDaoImpl<T extends Serializable> implements AbstractDao<T>
         if(object!=null) {
             Session session = getSession();
             session.beginTransaction();
-            session.persist(object);
+            session.saveOrUpdate(object);
             session.getTransaction().commit();
             Query query = session.createQuery("from " + type.getSimpleName());
             List<T> objects = query.list();

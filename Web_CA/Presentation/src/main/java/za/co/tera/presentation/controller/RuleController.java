@@ -19,6 +19,8 @@ public class RuleController {
 
     RuleService ruleService = new RuleServiceImpl();
     ruleWrapper ruleWrapper = new ruleWrapper();
+
+    String NeighbourString = "000000000000000000000000000";
     /**
      *
      * @param model
@@ -52,13 +54,55 @@ public class RuleController {
 
     /**
      *
-     * @param ruleConNeigh
+     * @param rawRuleConNeigh
      * @return
      */
     @RequestMapping(value = "/AddRuleConNeigh", method = RequestMethod.POST)
     public @ResponseBody
-    int createRuleConNeigh(@RequestBody Ruleneighbours ruleConNeigh) {
-        return ruleService.createRuleNeigh(ruleConNeigh);
+    int createRuleConNeigh(@RequestBody String rawRuleConNeigh) {
+
+        NeighbourString = "000000000000000000000000000";
+        int endOfString = rawRuleConNeigh.lastIndexOf("}");
+        String realNeighbours = rawRuleConNeigh.substring(15,(endOfString-1));
+        //System.out.println(realNeighbours);
+
+        String[] neighbours = realNeighbours.split(";");
+        for (int i = 0; i < neighbours.length; i++) {
+
+            //System.out.println("[" + i + "] - " +neighbours[i]);
+            if (neighbours[i].contains("-")) {
+                NeighbourString = returnNeighbour(Integer.parseInt(neighbours[i].split("-")[0]) - 1, Integer.parseInt(neighbours[i].split("-")[1]));
+            } else if (isNumeric(neighbours[i])) {
+                NeighbourString = returnNeighbour(Integer.parseInt(neighbours[i]) - 1, Integer.parseInt(neighbours[i]));
+            } else {
+                return -9999;
+            }
+        }
+
+        //System.out.println(NeighbourString);
+
+        Ruleneighbours ruleNeigh = new Ruleneighbours();
+        ruleNeigh.setNeighbours(NeighbourString);
+
+        return ruleService.createRuleNeigh(ruleNeigh);
+    }
+
+    public String returnNeighbour(int begin, int end) {
+        for (int i = begin; i < end; i++) {
+            char[] myNameChars = NeighbourString.toCharArray();
+            myNameChars[i] = '1';
+            NeighbourString = String.valueOf(myNameChars);
+        }
+        return NeighbourString;
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            double digit = Double.parseDouble(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -96,8 +140,32 @@ public class RuleController {
 
     @RequestMapping(value = "/AddRuleConAndOrNeigh", method = RequestMethod.POST)
     public @ResponseBody
-    int createRuleConAndOrNeigh(@RequestBody Ruleneighbours ruleConAndOrNeigh) {
-        return ruleService.createRuleNeigh(ruleConAndOrNeigh);
+    int createRuleConAndOrNeigh(@RequestBody String rawRuleConAndOrNeigh) {
+
+        NeighbourString = "000000000000000000000000000";
+        int endOfString = rawRuleConAndOrNeigh.lastIndexOf("}");
+        String realNeighbours = rawRuleConAndOrNeigh.substring(15,(endOfString-1));
+        //System.out.println(realNeighbours);
+
+        String[] neighbours = realNeighbours.split(";");
+        for (int i = 0; i < neighbours.length; i++) {
+
+            //System.out.println("[" + i + "] - " +neighbours[i]);
+            if (neighbours[i].contains("-")) {
+                NeighbourString = returnNeighbour(Integer.parseInt(neighbours[i].split("-")[0]) - 1, Integer.parseInt(neighbours[i].split("-")[1]));
+            } else if (isNumeric(neighbours[i])) {
+                NeighbourString = returnNeighbour(Integer.parseInt(neighbours[i]) - 1, Integer.parseInt(neighbours[i]));
+            } else {
+                return -9999;
+            }
+        }
+
+        //System.out.println(NeighbourString);
+
+        Ruleneighbours ruleNeigh = new Ruleneighbours();
+        ruleNeigh.setNeighbours(NeighbourString);
+
+        return ruleService.createRuleNeigh(ruleNeigh);
     }
 
     @RequestMapping(value = "/createRuleByString", method = RequestMethod.POST)
@@ -144,14 +212,37 @@ public class RuleController {
 
     /**
      *
-     * @param ruleResNeigh
+     * @param rawRuleResNeigh
      * @return
      */
     @RequestMapping(value = "/AddRuleResNeigh", method = RequestMethod.POST)
     public @ResponseBody
-    int createRuleResNeigh(@RequestBody Ruleneighbours ruleResNeigh) {
+    int createRuleResNeigh(@RequestBody String rawRuleResNeigh) {
 
-        return ruleService.createRuleNeigh(ruleResNeigh);
+        NeighbourString = "000000000000000000000000000";
+        int endOfString = rawRuleResNeigh.lastIndexOf("}");
+        String realNeighbours = rawRuleResNeigh.substring(15,(endOfString-1));
+        //System.out.println(realNeighbours);
+
+        String[] neighbours = realNeighbours.split(";");
+        for (int i = 0; i < neighbours.length; i++) {
+
+            //System.out.println("[" + i + "] - " +neighbours[i]);
+            if (neighbours[i].contains("-")) {
+                NeighbourString = returnNeighbour(Integer.parseInt(neighbours[i].split("-")[0]) - 1, Integer.parseInt(neighbours[i].split("-")[1]));
+            } else if (isNumeric(neighbours[i])) {
+                NeighbourString = returnNeighbour(Integer.parseInt(neighbours[i]) - 1, Integer.parseInt(neighbours[i]));
+            } else {
+                return -9999;
+            }
+        }
+
+        //System.out.println(NeighbourString);
+
+        Ruleneighbours ruleNeigh = new Ruleneighbours();
+        ruleNeigh.setNeighbours(NeighbourString);
+
+        return ruleService.createRuleNeigh(ruleNeigh);
     }
 
     /**
@@ -215,7 +306,7 @@ public class RuleController {
         if (ruleService.createRule(newRule))
             return "Rule added";
 
-        return "No new Rule has been added";
+        return "SERVER ERROR: No new Rule has been added. Please contact support.";
     }
 
     /**

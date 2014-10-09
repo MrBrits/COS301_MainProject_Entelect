@@ -369,6 +369,49 @@ web_ca.controller("RuleManager", function($scope, $http) {
 
     $scope.addRule = function(rule, con, conAndOr, res, conNeigh, conAndOrNeigh, resNeigh) {
 
+        var addCon1NeighArray = new Array(27);
+        var con1NeighNameDefault = "addCon1Neigh";
+        var con1NeighID = "";
+        var con1IdNum = 0;
+
+        var conNeigh = "";
+
+        for (var i = 0; i < 27; i++){
+            con1IdNum = i + 1;
+            con1NeighID = con1NeighNameDefault.concat(con1IdNum.toString());
+            addCon1NeighArray[i] = document.getElementById(con1NeighID).checked;
+        }
+        for (var i = 0; i < 27; i++){
+            if (addCon1NeighArray[i]){
+                conNeigh += "1";
+            }
+            else{
+                conNeigh += "0";
+            }
+        }
+
+        var addCon2NeighArray = new Array(27);
+        var con2NeighNameDefault = "addCon2Neigh";
+        var con2NeighID = "";
+        var con2IdNum = 0;
+
+        var conAndOrNeigh = "";
+
+        for (var i = 0; i < 27; i++){
+            con2IdNum = i + 1;
+            con2NeighID = con2NeighNameDefault.concat(con2IdNum.toString());
+            addCon2NeighArray[i] = document.getElementById(con2NeighID).checked;
+        }
+        for (var i = 0; i < 27; i++){
+            if (addCon2NeighArray[i]){
+                conAndOrNeigh += "1";
+            }
+            else{
+                conAndOrNeigh += "0";
+            }
+        }
+
+
         //Test to see if Compare Values are actually numbers
         if (btwAdd1Selected || countAdd1Selected){
             if (con.compareValueOne == undefined || con.compareValueOne == undefined) {
@@ -408,6 +451,10 @@ web_ca.controller("RuleManager", function($scope, $http) {
         //Add RuleConditionNeighbour
         $http.post("http://" + site + "/AddRuleConNeigh", conNeigh)
             .success(function(data) {
+                if (data == -9999){
+                    alert("Incorrect first Condition Neighbour syntax");
+                    return;
+                }
                 con.neighboursId = data;
                 if (con.compareValueTwo == null) {
                     con.compareValueTwo = -9999;
@@ -426,6 +473,10 @@ web_ca.controller("RuleManager", function($scope, $http) {
                         if (conAndOr.AndOr != "") {
                             $http.post("http://" + site + "/AddRuleConAndOrNeigh", conAndOrNeigh)
                                 .success(function (data) {
+                                    if (data == -9999){
+                                        alert("Incorrect second Condition Neighbour syntax");
+                                        return;
+                                    }
                                     conAndOr.neighboursId = data;
                                     if (conAndOr.compareValueTwo == null) {
                                         conAndOr.compareValueTwo = -9999;
@@ -489,6 +540,10 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                 if (resNeigh != undefined) {
                                     $http.post("http://" + site + "/AddRuleResNeigh", resNeigh, false)
                                         .success(function (data) {
+                                            if (data == -9999){
+                                                alert("Incorrect Result Neighbour syntax");
+                                                return;
+                                            }
                                             res.neighboursId = parseInt(data);
                                             if (data == 0) {
                                                 //This alert should never happen

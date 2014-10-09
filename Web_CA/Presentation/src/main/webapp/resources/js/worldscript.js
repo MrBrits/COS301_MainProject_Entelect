@@ -37,7 +37,7 @@ web_ca.controller("WorldSimulator", function($scope, $http) {
             .success(function (data) {
                 $scope.worlds = data;
             }).error(function () {
-                alert("GET WORLD BY USER ID: SERVER ERROR");
+                alert("SERVER ERROR: World could not be found. Please contact support.");
             });
 
 });
@@ -50,7 +50,7 @@ web_ca.controller("WorldManager", function($scope, $http) {
             .success(function (data) {
                 $scope.worlds = data;
             }).error(function () {
-                alert("GET WORLD BY USER ID: SERVER ERROR");
+                alert("SERVER ERROR: World could not be found. Please contact support.");
             });
     };
 
@@ -60,9 +60,9 @@ web_ca.controller("WorldManager", function($scope, $http) {
         $http.post("http://" + site + "/importWorld",UserWorld)
             .success(function (data) {
                 //$scope.worlds = data;
-                alert("sdsdsdsds");
+                alert("World Imported");
             }).error(function () {
-                alert("GET WORLD BY USER ID: SERVER ERROR");
+                alert("SERVER ERROR: World could not be found. Please contact support.");
             });
 
     };
@@ -76,36 +76,33 @@ web_ca.controller("WorldManager", function($scope, $http) {
     };
     $scope.addWorld = function(world) {
         if (twoDimensional) {
-            if ((typeof world.worldHeight === "number") && (typeof world.worldWidth === "number")) {
-                world.ownerId = document.getElementById("userId").value;
-                $http.post("http://" + site + "/AddWorld", world)
-                    .success(function (data) {
-                        alert(data);
-                        location.reload();
-                    }).error(function () {
-                        alert("CREATE WORLD: SERVER ERROR");
-                    });
-            }
-            else {
-                alert("Incorrect values have been entered!");
-            }
-        }
-        else{
-            if ((typeof world.worldHeight === "number") && (typeof world.worldWidth === "number") && (typeof world.worldDepth === "number")) {
-                world.ownerId = document.getElementById("userId").value;
-                $http.post("http://" + site + "/AddWorld", world)
-                    .success(function (data) {
-                        alert(data);
-                        location.reload();
-                    }).error(function () {
-                        alert("CREATE WORLD: SERVER ERROR");
-                    });
-            }
-            else {
-                alert("Incorrect values have been entered!");
-            }
+            world.worldDepth = 1;
         }
 
+        if ((typeof world.worldHeight === "number") && (typeof world.worldWidth === "number") && (typeof world.worldDepth === "number")) {
+            var cellTotal = world.worldHeight * world.worldWidth * world.worldDepth;
+            if (parseInt(cellTotal) <= parseInt(10000)) {
+
+                if (parseInt(cellTotal) > parseInt(8000)){
+                    alert("Performance issues might occur.");
+                }
+                world.ownerId = document.getElementById("userId").value;
+                $http.post("http://" + site + "/AddWorld", world)
+                    .success(function (data) {
+                        alert(data);
+                        location.reload();
+                    }).error(function () {
+                        alert("Please enter a value for all fields of the World.");
+                        return;
+                    });
+            }
+            else{
+                alert("World too large. Please create smaller world.");
+            }
+        }
+        else {
+            alert("Incorrect values have been entered!");
+        }
     };
 
     $scope.getEditWorld = function(worldId) {
@@ -119,7 +116,7 @@ web_ca.controller("WorldManager", function($scope, $http) {
                 document.getElementById("editWorldHeight").value = data.worldHeight;
                 document.getElementById("editWorldDepth").value = data.worldDepth;
             }).error(function(){
-                alert("GET EDIT WORLD: SERVER ERROR");
+                alert("SERVER ERROR: World could not be found. Please contact support.");
             });
     };
 
@@ -132,15 +129,17 @@ web_ca.controller("WorldManager", function($scope, $http) {
         height = document.getElementById("editWorldHeight").value;
         depth = document.getElementById("editWorldDepth").value;
 
-            world = "{\"worldId\":" + id + ",\"worldName\":\"" + name + "\",\"worldDesc\":\"" + desc + "\",\"worldDimension\":" + dim + ",\"worldWidth\":" + width + ",\"worldHeight\":" + height + ",\"worldDepth\":" + depth + ", \"ownerId\":" + userId + "}";
-            $http.post("http://" + site + "/editWorld", world)
-                .success(function (data) {
-                    alert(data);
-                    location.reload();
-                    $scope.getStates();
-                }).error(function () {
-                    alert("EDIT WORLD: SERVER ERROR");
-                });
+        world = "{\"worldId\":" + id + ",\"worldName\":\"" + name + "\",\"worldDesc\":\"" + desc + "\",\"worldDimension\":" + dim + ",\"worldWidth\":" + width + ",\"worldHeight\":" + height + ",\"worldDepth\":" + depth + ", \"ownerId\":" + userId + "}";
+        $http.post("http://" + site + "/editWorld", world)
+            .success(function (data) {
+                alert(data);
+                location.reload();
+                $scope.getStates();
+            }).error(function () {
+                alert("Please enter a value for all fields of the World.");
+                return
+            });
+
     };
 
 
@@ -150,7 +149,7 @@ web_ca.controller("WorldManager", function($scope, $http) {
             .success(function (data) {
                 location.reload();
             }).error(function () {
-                alert("DELETE WORLD: SERVER ERROR");
+                alert("SERVER ERROR: World could not be found. Please contact support.");
             });
 
     };

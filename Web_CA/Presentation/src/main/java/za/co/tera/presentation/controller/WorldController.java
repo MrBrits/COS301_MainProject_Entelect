@@ -117,7 +117,7 @@ public class WorldController {
     public @ResponseBody
     String editWorld(@RequestBody World world) {
         worldService.updateWorld(world);
-        return "World has been edited";
+        return "World has been updated";
     }
 
 }
