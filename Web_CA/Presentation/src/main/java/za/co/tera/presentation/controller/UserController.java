@@ -66,4 +66,21 @@ public class UserController {
 
         return userService.findUserById(userId);
     }
+
+    @RequestMapping(value = "/getUserById", method = RequestMethod.POST)
+    public @ResponseBody
+    User getUserByIdPost(@RequestBody int userId) {
+        return userService.findUserById(userId);
+
+    }
+
+
+    @RequestMapping(value = "/editUser", method = RequestMethod.POST)
+    public @ResponseBody
+    String editUser(@RequestBody User user) {
+        userService.updateUser(user);
+        return "Done";
+
+
+    }
 }

@@ -18,6 +18,48 @@ web_ca.controller("UserRegisterController", function($http) {
     };
 });
 
+web_ca.controller("UserManager", function($scope,$http) {
+    var pass;
+    var userRole;
+    var userId = document.getElementById("userId").value;
+    $scope.editUser = function ()
+    {
+        var tut = document.getElementById("tutorials").value;
+        if(tut=="Enabled")
+            tut=1;
+        else
+            tut=0;
+        var user={userId: userId,userFirstName:document.getElementById("firstName").value,userLastName:document.getElementById("lastName").value,tutorials:tut,userEmail:document.getElementById("email").value,userPassword:pass,userRole:userRole};
+
+        $http.post("http://" + site + "/editUser",user)
+            .success(function(data) {
+                location.reload();
+                //alert(data);
+
+            }).error(function () {
+                alert("USER LOGIN: SERVER ERROR");
+            });
+    };
+
+    $http.post("http://" + site + "/getUserById",userId)
+        .success(function(data) {
+
+            document.getElementById("firstName").value=data.userFirstName;
+            document.getElementById("lastName").value=data.userLastName;
+            document.getElementById("email").value=data.userEmail;
+            pass = data.userPassword;
+            userRole =data.userRole;
+            if(data.tutorials==true)
+                document.getElementById("tutorials").value="Enabled";
+            else
+                document.getElementById("tutorials").value="Disabled";
+
+        }).error(function () {
+            alert("USER LOGIN: SERVER ERROR");
+        });
+
+});
+
 web_ca.controller("UserLoginController", function($http) {
     var app = this;
     app.loginUser = function(userLogin,$location) {

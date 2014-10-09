@@ -39,7 +39,9 @@
 </style>
 
 <div style="position:fixed;left:0px" id="myContainer"></div>
-<script src="resources/js/videoScene.js"></script>
+<script src="resources/js/videoScene.js">
+    $('[data-toggle="tooltip"]').tooltip();
+</script>
 <div class="container marketing" style="position:relative;top:100px ">
     <div class="row">
         <div class="panel-group navbar-left col-md-4" id="accordion">
@@ -379,21 +381,22 @@
 
                             <label class="col-xs-1 control-label">when</label>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" placeholder="when condition and/or condition " data-toggle="tooltip-arrow" data-placement="top" title="condition: isNot operation of neighbours operand values" ng-model="ruleeditor.line1">
+                                <input type="text" class="form-control" placeholder="(if condition and/or condition)| (if condition ) " ng-model="ruleeditor.line1" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-1 control-label">then</label>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" placeholder="then operation of neighbours= value" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"ng-model="ruleeditor.line2">
+                                <input type="text" class="form-control" placeholder="(then operation of neighbours)|(then = value)" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"ng-model="ruleeditor.line2">
                                 <span class="help-block"></span>
                             </div>
+                            <a href="#" tabindex="0" class="btn btn-lg btn-danger" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-1 control-label" >identifiedBy</label>
                             <div class="col-md-5">
-                                <input type="text"  class="form-control" placeholder="identifiedBy RuleName RuleDesc" ng-model="ruleeditor.line3">
+                                <input type="text"  class="form-control" placeholder="(identifiedBy RuleName RuleDesc)" ng-model="ruleeditor.line3">
 
                             <span class="help-block"></span>
                         </div>

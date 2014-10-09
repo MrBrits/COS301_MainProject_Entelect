@@ -356,15 +356,19 @@ web_ca.controller("RuleManager", function($scope, $http) {
 
     $scope.addRuleEditor = function(s) {
 
-        alert(JSON.stringify(s));
-       /* $http.post("http://" + site + "/createRuleByString",s)
+
+        var tempStr= s.line1+"br";
+        tempStr+= s.line2+"br";
+        tempStr+= s.line3;
+        alert(tempStr);
+       $http.post("http://" + site + "/createRuleByString",tempStr)
             .success(function (data) {
                 alert(s);
 
             }).error(function () {
-                //alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
+                alert("fUCK");
             });
-            */
+
     }
 
     $scope.addRule = function(rule, con, conAndOr, res, conNeigh, conAndOrNeigh, resNeigh) {
@@ -795,11 +799,4 @@ function deleteRule(toBeDeleted)
     var ruleName= toBeDeleted.split(";")[1];
     document.getElementById("DeleteNameRule").innerHTML="<h3>Delete Rule: " + ruleName +"</h3>";
     document.getElementById("ruleIdhidden").value=ruleId;
-}
-function setDefualt()
-{
-
-    document.getElementById("textArea").value="when true sum of 1;4:8 between 1 3\n";
-    document.getElementById("textArea").value+="then sum of 1;4:8 = 1\n";
-    document.getElementById("textArea").value+="identifiedBy Rule_1 Description";
 }

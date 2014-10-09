@@ -35,7 +35,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand">CA Terra</a>
+            <a class="navbar-brand" >Web CA</a>
         </div>
         <div class="collapse navbar-collapse">
             <form class="navbar-form navbar-right" role="form">

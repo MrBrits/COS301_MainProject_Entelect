@@ -597,7 +597,7 @@ function clearHover()   {
  Changing of the state of cube that intersects which is also visible
  This function is only called when left mouse button is clicked*/
 function changeState() {
-    if(camera)
+    if(typeof camera != 'undefined')
     {
     var vector = new THREE.Vector3(( event.layerX / window.innerWidth ) * 2 - 1, -( event.layerY / window.innerHeight ) * 2 + 1, 0.5);
     projector = new THREE.Projector();
@@ -734,7 +734,7 @@ function changeState() {
 this.isTrue = true;
 
 function mouseOverChange() {
-    if(camera)
+    if(typeof camera != 'undefined')
     {
         var vector = new THREE.Vector3(( event.layerX / window.innerWidth ) * 2 - 1, -( event.layerY / window.innerHeight ) * 2 + 1, 0.5);
         projector = new THREE.Projector();

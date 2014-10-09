@@ -27,6 +27,8 @@ public class UserServiceImpl implements UserService{
 
     public void updateUser(User updateUser)
     {
+        int ID = (updateUser.getUserId() + 321)/369;
+        updateUser.setUserId(ID);
         userDAO.save(updateUser);
     }
 

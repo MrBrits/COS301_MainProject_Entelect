@@ -173,7 +173,7 @@ public class RuleController {
     String createRuleByString(@RequestBody String ruleString) throws Exception {
 
 
-        String lines[] = ruleString.split("\\r?\\n");
+        String lines[] = ruleString.split("br");
         for (int i = 0; i < lines.length; i++) {
             ruleWrapper.condition(lines[i]);
         }
