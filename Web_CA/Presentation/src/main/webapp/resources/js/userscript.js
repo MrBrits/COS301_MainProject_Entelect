@@ -105,3 +105,9 @@ web_ca.controller("UserByIdGet", function ($scope, $http) {
            // alert("error");
         });
 });
+
+function logout()
+{
+
+    window.location = "http://localhost:8080";
+}

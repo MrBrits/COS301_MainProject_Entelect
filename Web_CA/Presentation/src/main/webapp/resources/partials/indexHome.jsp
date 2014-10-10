@@ -40,7 +40,7 @@
 
 <div style="position:fixed;left:0px" id="myContainer"></div>
 <script src="resources/js/videoScene.js">
-    $('[data-toggle="tooltip"]').tooltip();
+
 </script>
 <div class="container marketing" style="position:relative;top:100px ">
     <div class="row">
@@ -391,7 +391,7 @@
                                 <input type="text" class="form-control" placeholder="(then operation of neighbours)|(then = value)" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"ng-model="ruleeditor.line2">
                                 <span class="help-block"></span>
                             </div>
-                            <a href="#" tabindex="0" class="btn btn-lg btn-danger" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+
                         </div>
                         <div class="form-group">
                             <label class="col-xs-1 control-label" >identifiedBy</label>

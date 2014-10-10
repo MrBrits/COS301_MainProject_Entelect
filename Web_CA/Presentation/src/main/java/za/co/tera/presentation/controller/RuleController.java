@@ -372,5 +372,6 @@ public class RuleController {
         }
         return ruleService.findRuleNeigh(ruleResNeighId);
     }
+
 }
 

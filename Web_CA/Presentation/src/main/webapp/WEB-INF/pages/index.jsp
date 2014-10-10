@@ -32,12 +32,14 @@
     <script type="text/javascript" src="resources/js/lib/three.min.js"></script>
 
     <script src="resources/js/CSS3DRenderer.js"></script>
-    <script src="resources/js/lib/tween.min.js"></script>
+    <script src="resources/js/lib/tween.min.js">
+
+    </script>
 
 
 </head>
 
-<body>
+<body >
 <!--
 *
 *   For navigation
@@ -53,6 +55,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" >Web CA</a>
+
         </div>
 
         <div class="collapse navbar-collapse" ng-controller="UserByIdGet">
@@ -67,8 +70,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#profile">${userFullName}</a></li>
                 <li><input id ="userId" value="${userId}" type="hidden"></li>
+                <li><input id ="tut" value="${tut}" type="hidden"></li>
                 <li><input id ="worldId" value="${userId}" type="hidden"></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
             </ul>
         </div>
     </div>

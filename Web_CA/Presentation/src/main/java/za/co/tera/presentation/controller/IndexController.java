@@ -40,7 +40,9 @@ public class IndexController {
 
         User user = userService.findUserById(userId);
         String userFullName = user.getUserFirstName()+" "+user.getUserLastName();
+        boolean tut =user.getTutorials();
         model.addAttribute("userFullName", userFullName);
+        model.addAttribute("tut", tut);
         model.addAttribute("userId", userId);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject(model);

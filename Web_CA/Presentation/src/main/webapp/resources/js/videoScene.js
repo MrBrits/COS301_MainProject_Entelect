@@ -208,6 +208,7 @@ function onWindowResize() {
 
 function animate() {
 
+
     requestAnimationFrame( animate );
 
     TWEEN.update();
@@ -221,3 +222,16 @@ function animate() {
     rendererTut.render( sceneTut, cameraTut );
 
 }
+
+if(document.getElementById("tut").value=="false")
+{
+
+    document.getElementById("myContainer").style.visibility="hidden";
+}
+else
+{
+
+    document.getElementById("myContainer").style.visibility="visible";
+}
+
+

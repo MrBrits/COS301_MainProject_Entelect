@@ -156,6 +156,12 @@ public class WorldServiceImpl implements WorldService{
 
     }
 
+    @Override
+    public void SaveWorldRules(List<Worldrules> worldrulesList) {
+        for (Worldrules worldrules:worldrulesList)
+                worldrulesDao.save(worldrules);
+    }
+
     private static void copyFile(File sourceFile, File destFile) throws IOException {
         if(!destFile.exists()) {
             destFile.createNewFile();

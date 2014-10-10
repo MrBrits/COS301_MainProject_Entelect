@@ -49,7 +49,26 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
 
         }
 
+
+
         $http.post("http://" + site + "/saveCoordinates", coordinate)
+            .success(function (data) {
+                //alert(data);
+            }).error(function () {
+                alert("USER REGISTER: SERVER ERROR");
+            });
+        var theworldRules = new Array();
+        var thecounter=0;
+        for(var i=0;i<ruleArray.length;i++)
+        {
+            if(ruleArray[i].enabled)
+            {
+                theworldRules[thecounter]= {ruleId:ruleArray[i].ruleId,worldId:worldId};
+                thecounter++;
+            }
+        }
+
+        $http.post("http://" + site + "/SaveWorldRules", theworldRules)
             .success(function (data) {
                 alert(data);
             }).error(function () {
@@ -92,7 +111,7 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
         .success(function (data7) {
 
             ruleWorldList = data7;
-          //  alert(JSON.stringify(data7) );
+
         }).error(function () {
             alert("GET COORDINATES: SERVER ERROR");
         });

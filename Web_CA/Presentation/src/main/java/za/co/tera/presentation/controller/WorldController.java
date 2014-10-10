@@ -7,6 +7,7 @@ import za.co.tera.web_ca.business.World.base.WorldService;
 import za.co.tera.web_ca.business.World.impl.WorldServiceImpl;
 import za.co.tera.web_ca.domain.impl.Coordinate;
 import za.co.tera.web_ca.domain.impl.World;
+import za.co.tera.web_ca.domain.impl.Worldrules;
 
 import java.io.IOException;
 import java.util.List;
@@ -118,6 +119,13 @@ public class WorldController {
     String editWorld(@RequestBody World world) {
         worldService.updateWorld(world);
         return "World has been updated";
+    }
+
+    @RequestMapping(value = "/SaveWorldRules", method = RequestMethod.POST)
+    public @ResponseBody
+    String SaveWorldRules(@RequestBody List<Worldrules> worldrulesList) {
+        worldService.SaveWorldRules(worldrulesList);
+        return "done";
     }
 
 }
