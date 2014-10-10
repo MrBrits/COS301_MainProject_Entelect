@@ -2,10 +2,14 @@ package za.co.tera.presentation.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import za.co.tera.web_ca.business.World.base.WorldService;
 import za.co.tera.web_ca.business.World.impl.WorldServiceImpl;
 import za.co.tera.web_ca.domain.impl.Coordinate;
+import za.co.tera.web_ca.domain.impl.Ruleneighbours;
 import za.co.tera.web_ca.domain.impl.World;
 import za.co.tera.web_ca.domain.impl.Worldrules;
 
@@ -126,6 +130,12 @@ public class WorldController {
     String SaveWorldRules(@RequestBody List<Worldrules> worldrulesList) {
         worldService.SaveWorldRules(worldrulesList);
         return "done";
+    }
+    @RequestMapping(value = "/findNeighbours", method = RequestMethod.POST)
+    public @ResponseBody
+    List<Ruleneighbours> findNeighbours() {
+
+        return worldService.findNeighbours();
     }
 
 }

@@ -35,7 +35,7 @@
                             <input id="email" class="form-control"    type="text">
                         </div>
                     </div>
-                    <div class="form-group">
+                   <!-- <div class="form-group">
                         <label class="col-md-3 control-label">New Password:</label>
                         <div class="col-lg-8">
                             <input class="form-control" type="password">
@@ -46,7 +46,7 @@
                         <div class="col-lg-8">
                             <input class="form-control" type="password">
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <label class="col-md-3 control-label">Tutorials</label>
                         <div class="col-lg-8">

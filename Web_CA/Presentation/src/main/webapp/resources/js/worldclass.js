@@ -107,6 +107,17 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
         gggg = false;
     }
 
+    $http.post("http://" + site + "/findNeighbours/")
+        .success(function (data8) {
+
+          ruleNeighbours=data8;
+            //alert(JSON.stringify(data8));
+//ruleNeighboursId
+            //neighbours
+        }).error(function () {
+            alert("GET COORDINATES: SERVER ERROR");
+     });
+
     $http.post("http://" + site + "/findRuleByWorldId/", worldId)
         .success(function (data7) {
 
@@ -196,7 +207,7 @@ var val4 = 0;
 var val5 = 0;
 function add1(data, i) {
     //alert("1");
-  //  alert(JSON.stringify(data));
+   // alert(JSON.stringify(data));
     this.ruleArray.push(new rule());
     this.ruleArray[val1].ruleId = data.ruleId;
     this.ruleArray[val1].ruleName = data.ruleName;
@@ -208,13 +219,19 @@ function add1(data, i) {
 function add2(data, data1, i) {
     // alert("2");
 
-
     for (var i2 = 0; i2 < ruleArray.length; i2++) {
         if (data[i2].ruleConId == data1.ruleConditionId) {
             this.ruleArray[i2].ruleCond = new condition();
             this.ruleArray[i2].ruleCond.isNot = data1.not;
             this.ruleArray[i2].ruleCond.conditionOperation = data1.operation;
-            this.ruleArray[i2].ruleCond.conditionNeighbours = "000000000000010000000000000";
+            for(var t= 0;t<ruleNeighbours.length;t++)
+            {
+                if(ruleNeighbours[t].ruleNeighboursId==data1.neighboursId)
+                {
+                   // alert(ruleNeighbours[t].neighbours);
+                    this.ruleArray[i2].ruleCond.conditionNeighbours=ruleNeighbours[t].neighbours.toString();
+                }
+            }
             this.ruleArray[i2].ruleCond.conditionOperand = data1.operand;
             this.ruleArray[i2].ruleCond.compareValueOne = data1.compareValueOne;
             if (data1.compareValueTwo != 0)
@@ -235,7 +252,14 @@ function add3(data, data1, i) {
             this.ruleArray[i2].RuleCondAND = new condition();
             this.ruleArray[i2].RuleCondAND.isNot = data1.not;
             this.ruleArray[i2].RuleCondAND.conditionOperation = data1.operation;
-            this.ruleArray[i2].RuleCondAND.conditionNeighbours = "111111111111101111111111111";
+            for(var t= 0;t<ruleNeighbours.length;t++)
+            {
+                if(ruleNeighbours[t].ruleNeighboursId==data1.neighboursId)
+                {
+                  //  alert(ruleNeighbours[t].neighbours);
+                    this.ruleArray[i2].RuleCondAND.conditionNeighbours=ruleNeighbours[t].neighbours.toString();
+                }
+            }
             this.ruleArray[i2].RuleCondAND.conditionOperand = data1.operand;
             this.ruleArray[i2].RuleCondAND.compareValueOne = data1.compareValueOne;
             if (data1.compareValueTwo != 0)
@@ -272,13 +296,20 @@ function addCoordinates()
 function add4(data, data1, i) {
 
 
+
     for (var i2 = 0; i2 < ruleArray.length; i2++) {
         if (data[i2].ruleConOrid == data1.ruleConditionId) {
 
             this.ruleArray[i2].RuleCondOR = new condition();
             this.ruleArray[i2].RuleCondOR.isNot = data1.not;
             this.ruleArray[i2].RuleCondOR.conditionOperation = data1.operation;
-            this.ruleArray[i2].RuleCondOR.conditionNeighbours = "111111111111101111111111111";
+            for(var t= 0;t<ruleNeighbours.length;t++)
+            {
+                if(ruleNeighbours[t].ruleNeighboursId==data1.neighboursId)
+                {
+                    this.ruleArray[i2].RuleCondOR.conditionNeighbours=ruleNeighbours[t].neighbours.toString();
+                }
+            }
             this.ruleArray[i2].RuleCondOR.conditionOperand = data1.operand;
             this.ruleArray[i2].RuleCondOR.compareValueOne = data1.compareValueOne;
             if (data1.compareValueTwo != 0)
@@ -290,12 +321,20 @@ function add4(data, data1, i) {
 }
 function add5(data, data1, i) {
     data1 = data1.data;
-    // alert(JSON.stringify(data1));
+    //alert(JSON.stringify(data1.neighboursId));
     for (var i2 = 0; i2 < ruleArray.length; i2++) {
         if (data[i2].ruleResId == data1.ruleResultId) {
-            ruleArray[i2].resultOperand = "";
-            ruleArray[i2].resultOperator = "";
+            ruleArray[i2].resultOperation = data1.operation;
+            for(var t= 0;t<ruleNeighbours.length;t++)
+            {
+                if(ruleNeighbours[t].ruleNeighboursId==data1.neighboursId)
+                {
+                    //  alert(ruleNeighbours[t].neighbours);
+                    ruleArray[i2].resultNeighbours=ruleNeighbours[t].neighbours.toString();
+                }
+            }
             ruleArray[i2].resultValue = data1.resultValue;
+
 
         }
     }
@@ -312,7 +351,7 @@ function world(scene1, cameras) {
     this.Y = "";
     this.X = "";
     this.Z = "";
-
+    alert(JSON.stringify(ruleArray[4]));
     worldRules();
     //variables for the layer system
     xbar = new Array();

@@ -1,6 +1,7 @@
 package za.co.tera.web_ca.business.World.base;
 
 import za.co.tera.web_ca.domain.impl.Coordinate;
+import za.co.tera.web_ca.domain.impl.Ruleneighbours;
 import za.co.tera.web_ca.domain.impl.World;
 import za.co.tera.web_ca.domain.impl.Worldrules;
 
@@ -19,4 +20,5 @@ public interface WorldService {
     public List<World>findWorldNotByUserId(int ID);
     public void ImportWorld(int newOwner,int worldId) throws IOException;
     public void SaveWorldRules(List<Worldrules> worldrulesList);
+    public List<Ruleneighbours> findNeighbours();
 }

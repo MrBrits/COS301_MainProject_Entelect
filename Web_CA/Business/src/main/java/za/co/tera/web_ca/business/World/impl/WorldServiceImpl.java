@@ -23,6 +23,7 @@ public class WorldServiceImpl implements WorldService{
     private RuleDao ruleDao = new RuleDaoImpl();
     private RuleConditionDao ruleConditionDao = new RuleConditionDaoImpl();
     private RuleResultDao ruleResultDao = new RuleResultDaoImpl();
+    RuleNeighboursDao ruleNeighboursDao = new RuleNeighboursDaoImpl();
     public int createWorld(World newWorld)
     {
         int ID = newWorld.getOwnerId();
@@ -160,6 +161,11 @@ public class WorldServiceImpl implements WorldService{
     public void SaveWorldRules(List<Worldrules> worldrulesList) {
         for (Worldrules worldrules:worldrulesList)
                 worldrulesDao.save(worldrules);
+    }
+
+    @Override
+    public List<Ruleneighbours> findNeighbours() {
+        return ruleNeighboursDao.findAll();
     }
 
     private static void copyFile(File sourceFile, File destFile) throws IOException {
