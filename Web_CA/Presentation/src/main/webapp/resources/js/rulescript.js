@@ -14,6 +14,7 @@ var countEdit2Selected = false;
 var btwEdit2Selected = false;
 
 var resultAddValueSelected = false;
+var resultEditValueSelected = false;
 
 
 function evaluateAdd1Operation(){
@@ -144,30 +145,59 @@ function evaluateAddCompareValue(){
 function evaluateAddResult(){
     var resultAddValue = document.getElementById("addRuleResValue").value;
     var resultAddOperation = document.getElementById("addRuleResOperation").value;
-    var resultAddNeigh = document.getElementById("addRuleResNeigh").value;
+
+    var resNeighNameDefault = "addResNeigh";
+    var resNeighID = "";
+    var resIdNum = 0;
 
     if (resultAddValue != ""){
         document.getElementById("addRuleResOperation").disabled = true;
         document.getElementById("addRuleResOperation").value = null;
-        document.getElementById("addRuleResNeigh").disabled = true;
-        document.getElementById("addRuleResNeigh").value = null;
+        for (var i = 0; i < 27; i++){
+            resIdNum = i + 1;
+            resNeighID = resNeighNameDefault.concat(resIdNum.toString());
+            document.getElementById(resNeighID).checked = false;
+            document.getElementById(resNeighID).disabled = true;
+        }
         resultAddValueSelected = true;
     }
     else {
         document.getElementById("addRuleResOperation").disabled = false;
-        document.getElementById("addRuleResNeigh").disabled = false;
+        for (var i = 0; i < 27; i++){
+            resIdNum = i + 1;
+            resNeighID = resNeighNameDefault.concat(resIdNum.toString());
+            document.getElementById(resNeighID).disabled = false;
+        }
         resultAddValueSelected = false;
     }
 
-    if (resultAddOperation != "" || resultAddNeigh != ""){
-        document.getElementById("addRuleResValue").disabled = true;
+    if (resultAddOperation != ""){
         document.getElementById("addRuleResValue").value = null;
+        document.getElementById("addRuleResValue").disabled = true;
         resultAddValueSelected = false;
     }
     else {
         document.getElementById("addRuleResValue").disabled = false;
         resultAddValueSelected = true;
+        for (var i = 0; i < 27; i++){
+            resIdNum = i + 1;
+            resNeighID = resNeighNameDefault.concat(resIdNum.toString());
+            var checked = document.getElementById(resNeighID).checked;
+            if (checked){
+                document.getElementById("addRuleResValue").disabled = true;
+                document.getElementById("addRuleResValue").value = null;
+                resultAddValueSelected = false;
+                break;
+            }
+            else
+            {
+                document.getElementById("addRuleResValue").disabled = false;
+                resultAddValueSelected = true;
+            }
+        }
     }
+
+
 }
 
 
@@ -276,33 +306,63 @@ function evaluateEditOperand(){
     }
 }
 
+
 function evaluateEditResult(){
     var resultEditValue = document.getElementById("editRuleResValue").value;
     var resultEditOperation = document.getElementById("editRuleResOperation").value;
-    var resultEditNeigh = document.getElementById("editRuleResNeigh").value;
+
+    var resNeighNameDefault = "editResNeigh";
+    var resNeighID = "";
+    var resIdNum = 0;
 
     if (resultEditValue != ""){
         document.getElementById("editRuleResOperation").disabled = true;
         document.getElementById("editRuleResOperation").value = null;
-        document.getElementById("editRuleResNeigh").disabled = true;
-        document.getElementById("editRuleResNeigh").value = null;
+        for (var i = 0; i < 27; i++){
+            resIdNum = i + 1;
+            resNeighID = resNeighNameDefault.concat(resIdNum.toString());
+            document.getElementById(resNeighID).checked = false;
+            document.getElementById(resNeighID).disabled = true;
+        }
         resultEditValueSelected = true;
     }
     else {
         document.getElementById("editRuleResOperation").disabled = false;
-        document.getElementById("editRuleResNeigh").disabled = false;
+        for (var i = 0; i < 27; i++){
+            resIdNum = i + 1;
+            resNeighID = resNeighNameDefault.concat(resIdNum.toString());
+            document.getElementById(resNeighID).disabled = false;
+        }
         resultEditValueSelected = false;
     }
 
-    if (resultEditOperation != "" || resultEditNeigh != ""){
-        document.getElementById("editRuleResValue").disabled = true;
+    if (resultEditOperation != ""){
         document.getElementById("editRuleResValue").value = null;
+        document.getElementById("editRuleResValue").disabled = true;
         resultEditValueSelected = false;
     }
     else {
         document.getElementById("editRuleResValue").disabled = false;
         resultEditValueSelected = true;
+        for (var i = 0; i < 27; i++){
+            resIdNum = i + 1;
+            resNeighID = resNeighNameDefault.concat(resIdNum.toString());
+            var checked = document.getElementById(resNeighID).checked;
+            if (checked){
+                document.getElementById("editRuleResValue").disabled = true;
+                document.getElementById("editRuleResValue").value = null;
+                resultEditValueSelected = false;
+                break;
+            }
+            else
+            {
+                document.getElementById("editRuleResValue").disabled = false;
+                resultEditValueSelected = true;
+            }
+        }
     }
+
+
 }
 
 
@@ -366,20 +426,18 @@ web_ca.controller("RuleManager", function($scope, $http) {
                 alert(s);
 
             }).error(function () {
-                alert("fUCK");
+                alert("???");
             });
 
     }
 
-    $scope.addRule = function(rule, con, conAndOr, res, conNeigh, conAndOrNeigh, resNeigh) {
+    $scope.addRule = function(rule, con, conAndOr, res) {
 
         var addCon1NeighArray = new Array(27);
         var con1NeighNameDefault = "addCon1Neigh";
         var con1NeighID = "";
         var con1IdNum = 0;
-
         var conNeigh = "";
-
         for (var i = 0; i < 27; i++){
             con1IdNum = i + 1;
             con1NeighID = con1NeighNameDefault.concat(con1IdNum.toString());
@@ -394,28 +452,52 @@ web_ca.controller("RuleManager", function($scope, $http) {
             }
         }
 
-        var addCon2NeighArray = new Array(27);
-        var con2NeighNameDefault = "addCon2Neigh";
-        var con2NeighID = "";
-        var con2IdNum = 0;
 
-        var conAndOrNeigh = "";
+        if (conAndOr != undefined) {
+            var addCon2NeighArray = new Array(27);
+            var con2NeighNameDefault = "addCon2Neigh";
+            var con2NeighID = "";
+            var con2IdNum = 0;
 
-        for (var i = 0; i < 27; i++){
-            con2IdNum = i + 1;
-            con2NeighID = con2NeighNameDefault.concat(con2IdNum.toString());
-            addCon2NeighArray[i] = document.getElementById(con2NeighID).checked;
-        }
-        for (var i = 0; i < 27; i++){
-            if (addCon2NeighArray[i]){
-                conAndOrNeigh += "1";
+            var conAndOrNeigh = "";
+
+            for (var i = 0; i < 27; i++) {
+                con2IdNum = i + 1;
+                con2NeighID = con2NeighNameDefault.concat(con2IdNum.toString());
+                addCon2NeighArray[i] = document.getElementById(con2NeighID).checked;
             }
-            else{
-                conAndOrNeigh += "0";
+            for (var i = 0; i < 27; i++) {
+                if (addCon2NeighArray[i]) {
+                    conAndOrNeigh += "1";
+                }
+                else {
+                    conAndOrNeigh += "0";
+                }
             }
         }
 
+        if (resultAddValueSelected == false) {
+            var addResNeighArray = new Array(27);
+            var resNeighNameDefault = "addResNeigh";
+            var resNeighID = "";
+            var resIdNum = 0;
 
+            var resNeigh = "";
+
+            for (var i = 0; i < 27; i++) {
+                resIdNum = i + 1;
+                resNeighID = resNeighNameDefault.concat(resIdNum.toString());
+                addResNeighArray[i] = document.getElementById(resNeighID).checked;
+            }
+            for (var i = 0; i < 27; i++) {
+                if (addResNeighArray[i]) {
+                    resNeigh += "1";
+                }
+                else {
+                    resNeigh += "0";
+                }
+            }
+        }
         //Test to see if Compare Values are actually numbers
         if (btwAdd1Selected || countAdd1Selected){
             if (con.compareValueOne == undefined || con.compareValueOne == undefined) {
@@ -429,22 +511,22 @@ web_ca.controller("RuleManager", function($scope, $http) {
                 return;
             }
         }
-
-        if (conAndOr.AndOr != "") {
-            if (btwAdd2Selected || countAdd2Selected) {
-                if (conAndOr.compareValueOne == undefined || conAndOr.compareValueTwo == undefined) {
-                    alert("Incorrect values have been entered!");
-                    return;
+        if (conAndOr != undefined) {
+            if (conAndOr.AndOr != "") {
+                if (btwAdd2Selected || countAdd2Selected) {
+                    if (conAndOr.compareValueOne == undefined || conAndOr.compareValueTwo == undefined) {
+                        alert("Incorrect values have been entered!");
+                        return;
+                    }
                 }
-            }
-            else {
-                if (conAndOr.compareValueOne == undefined) {
-                    alert("Incorrect values have been entered!");
-                    return;
+                else {
+                    if (conAndOr.compareValueOne == undefined) {
+                        alert("Incorrect values have been entered!");
+                        return;
+                    }
                 }
             }
         }
-
         if (resultAddValueSelected){
             if (res.resultValue == undefined) {
                 alert("Incorrect values have been entered!");
@@ -650,7 +732,18 @@ web_ca.controller("RuleManager", function($scope, $http) {
                         $http.post("http://" + site + "/getRuleConNeighById",conNeighId,false)
                             .success(function(conNeigh){
                                 document.getElementById("editRuleConNeighIdHidden").value = conNeigh.ruleNeighboursId;
-                                document.getElementById("editRuleConNeigh").value = conNeigh.neighbours;
+
+                                var con1NeighNameDefault = "editCon1Neigh";
+                                var con1NeighID = "";
+                                var con1IdNum = 0;
+
+                                for (var i = 0; i < 27; i++){
+                                    con1IdNum = i + 1;
+                                    con1NeighID = con1NeighNameDefault.concat(con1IdNum.toString());
+                                    if (conNeigh.neighbours.charAt(i) == 1) {
+                                        document.getElementById(con1NeighID).checked = true;
+                                    }
+                                }
 
                             }).error(function(){
                                 alert("SERVER ERROR: Rule Condition Neighbours not found. Please contact support.");
@@ -678,7 +771,18 @@ web_ca.controller("RuleManager", function($scope, $http) {
                             $http.post("http://" + site + "/getRuleConNeighById",conNeighId,false)
                                 .success(function(conNeigh){
                                     document.getElementById("editRuleCon2NeighIdHidden").value = conNeigh.ruleNeighboursId;
-                                    document.getElementById("editRuleCon2Neigh").value = conNeigh.neighbours;
+
+                                    var con2NeighNameDefault = "editCon2Neigh";
+                                    var con2NeighID = "";
+                                    var con2IdNum = 0;
+
+                                    for (var i = 0; i < 27; i++){
+                                        con2IdNum = i + 1;
+                                        con2NeighID = con2NeighNameDefault.concat(con2IdNum.toString());
+                                        if (conNeigh.neighbours.charAt(i) == 1) {
+                                            document.getElementById(con2NeighID).checked = true;
+                                        }
+                                    }
 
                                 }).error(function(){
                                     alert("SERVER ERROR: Rule Condition-AND Neighbours not found. Please contact support.");
@@ -709,7 +813,18 @@ web_ca.controller("RuleManager", function($scope, $http) {
                             $http.post("http://" + site + "/getRuleConNeighById",conNeighId,false)
                                 .success(function(conNeigh){
                                     document.getElementById("editRuleCon2NeighIdHidden").value = conNeigh.ruleNeighboursId;
-                                    document.getElementById("editRuleCon2Neigh").value = conNeigh.neighbours;
+
+                                    var con2NeighNameDefault = "editCon2Neigh";
+                                    var con2NeighID = "";
+                                    var con2IdNum = 0;
+
+                                    for (var i = 0; i < 27; i++){
+                                        con2IdNum = i + 1;
+                                        con2NeighID = con2NeighNameDefault.concat(con2IdNum.toString());
+                                        if (conNeigh.neighbours.charAt(i) == 1) {
+                                            document.getElementById(con2NeighID).checked = true;
+                                        }
+                                    }
 
                                 }).error(function(){
                                     alert("SERVER ERROR: Rule Condition-OR Neighbours not found. Please contact support.");
@@ -751,7 +866,18 @@ web_ca.controller("RuleManager", function($scope, $http) {
                             .success(function(resNeigh) {
                                 if (resNeigh != null) {
                                     document.getElementById("editRuleResNeighIdHidden").value = resNeigh.ruleNeighboursId;
-                                    document.getElementById("editRuleResNeigh").value = resNeigh.neighbours;
+
+                                    var resNeighNameDefault = "editResNeigh";
+                                    var resNeighID = "";
+                                    var resIdNum = 0;
+
+                                    for (var i = 0; i < 27; i++){
+                                        resIdNum = i + 1;
+                                        resNeighID = resNeighNameDefault.concat(resIdNum.toString());
+                                        if (resNeigh.neighbours.charAt(i) == 1) {
+                                            document.getElementById(resNeighID).checked = true;
+                                        }
+                                    }
                                 }
 
                             }).error(function(){

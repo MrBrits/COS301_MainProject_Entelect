@@ -485,9 +485,10 @@
                                 <div class="form-group">
                                     <label class="col-xs-2 control-label">Neighbours</label>
                                     <div class="col-xs-4">
-                                        <input type="checkbox" id="addCon1Neigh25"><input type="checkbox" id="addCon1Neigh26"><input type="checkbox" id="addCon1Neigh27">&emsp;<input type="checkbox" id="addCon1Neigh16"><input type="checkbox" id="addCon1Neigh17"><input type="checkbox" id="addCon1Neigh18">&emsp;<input type="checkbox" id="addCon1Neigh7"><input type="checkbox" id="addCon1Neigh8"><input type="checkbox" id="addCon1Neigh9"><br>
-                                        <input type="checkbox" id="addCon1Neigh22"><input type="checkbox" id="addCon1Neigh23"><input type="checkbox" id="addCon1Neigh24">&emsp;<input type="checkbox" id="addCon1Neigh13"><input type="checkbox" id="addCon1Neigh14"><input type="checkbox" id="addCon1Neigh15">&emsp;<input type="checkbox" id="addCon1Neigh4"><input type="checkbox" id="addCon1Neigh5"><input type="checkbox" id="addCon1Neigh6"><br>
-                                        <input type="checkbox" id="addCon1Neigh19"><input type="checkbox" id="addCon1Neigh20"><input type="checkbox" id="addCon1Neigh21">&emsp;<input type="checkbox" id="addCon1Neigh10"><input type="checkbox" id="addCon1Neigh11"><input type="checkbox" id="addCon1Neigh12">&emsp;<input type="checkbox" id="addCon1Neigh1"><input type="checkbox" id="addCon1Neigh2"><input type="checkbox" id="addCon1Neigh3"><br>
+                                        <label class="col-xs-2">TOP&emsp;</label><label class="col-xs-2">MID&emsp;</label><label class="col-xs-2">BOT</label><br><br>
+                                        &emsp;<input type="checkbox" id="addCon1Neigh25"><input type="checkbox" id="addCon1Neigh26"><input type="checkbox" id="addCon1Neigh27">&emsp;<input type="checkbox" id="addCon1Neigh16"><input type="checkbox" id="addCon1Neigh17"><input type="checkbox" id="addCon1Neigh18">&emsp;<input type="checkbox" id="addCon1Neigh7"><input type="checkbox" id="addCon1Neigh8"><input type="checkbox" id="addCon1Neigh9"><br>
+                                        &emsp;<input type="checkbox" id="addCon1Neigh22"><input type="checkbox" id="addCon1Neigh23"><input type="checkbox" id="addCon1Neigh24">&emsp;<input type="checkbox" id="addCon1Neigh13"><input type="checkbox" id="addCon1Neigh14"><input type="checkbox" id="addCon1Neigh15">&emsp;<input type="checkbox" id="addCon1Neigh4"><input type="checkbox" id="addCon1Neigh5"><input type="checkbox" id="addCon1Neigh6"><br>
+                                        &emsp;<input type="checkbox" id="addCon1Neigh19"><input type="checkbox" id="addCon1Neigh20"><input type="checkbox" id="addCon1Neigh21">&emsp;<input type="checkbox" id="addCon1Neigh10"><input type="checkbox" id="addCon1Neigh11"><input type="checkbox" id="addCon1Neigh12">&emsp;<input type="checkbox" id="addCon1Neigh1"><input type="checkbox" id="addCon1Neigh2"><input type="checkbox" id="addCon1Neigh3"><br>
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
@@ -569,9 +570,10 @@
                                 <div class="form-group">
                                     <label class="col-xs-2 control-label">Neighbours</label>
                                     <div class="col-xs-4">
-                                        <input type="checkbox" id="addCon2Neigh25"><input type="checkbox" id="addCon2Neigh26"><input type="checkbox" id="addCon2Neigh27">&emsp;<input type="checkbox" id="addCon2Neigh16"><input type="checkbox" id="addCon2Neigh17"><input type="checkbox" id="addCon2Neigh18">&emsp;<input type="checkbox" id="addCon2Neigh7"><input type="checkbox" id="addCon2Neigh8"><input type="checkbox" id="addCon2Neigh9"><br>
-                                        <input type="checkbox" id="addCon2Neigh22"><input type="checkbox" id="addCon2Neigh23"><input type="checkbox" id="addCon2Neigh24">&emsp;<input type="checkbox" id="addCon2Neigh13"><input type="checkbox" id="addCon2Neigh14"><input type="checkbox" id="addCon2Neigh15">&emsp;<input type="checkbox" id="addCon2Neigh4"><input type="checkbox" id="addCon2Neigh5"><input type="checkbox" id="addCon2Neigh6"><br>
-                                        <input type="checkbox" id="addCon2Neigh19"><input type="checkbox" id="addCon2Neigh20"><input type="checkbox" id="addCon2Neigh21">&emsp;<input type="checkbox" id="addCon2Neigh10"><input type="checkbox" id="addCon2Neigh11"><input type="checkbox" id="addCon2Neigh12">&emsp;<input type="checkbox" id="addCon2Neigh1"><input type="checkbox" id="addCon2Neigh2"><input type="checkbox" id="addCon2Neigh3"><br>
+                                        <label class="col-xs-2">TOP&emsp;</label><label class="col-xs-2">MID&emsp;</label><label class="col-xs-2">BOT</label><br><br>
+                                        &emsp;<input type="checkbox" id="addCon2Neigh25"><input type="checkbox" id="addCon2Neigh26"><input type="checkbox" id="addCon2Neigh27">&emsp;<input type="checkbox" id="addCon2Neigh16"><input type="checkbox" id="addCon2Neigh17"><input type="checkbox" id="addCon2Neigh18">&emsp;<input type="checkbox" id="addCon2Neigh7"><input type="checkbox" id="addCon2Neigh8"><input type="checkbox" id="addCon2Neigh9"><br>
+                                        &emsp;<input type="checkbox" id="addCon2Neigh22"><input type="checkbox" id="addCon2Neigh23"><input type="checkbox" id="addCon2Neigh24">&emsp;<input type="checkbox" id="addCon2Neigh13"><input type="checkbox" id="addCon2Neigh14"><input type="checkbox" id="addCon2Neigh15">&emsp;<input type="checkbox" id="addCon2Neigh4"><input type="checkbox" id="addCon2Neigh5"><input type="checkbox" id="addCon2Neigh6"><br>
+                                        &emsp;<input type="checkbox" id="addCon2Neigh19"><input type="checkbox" id="addCon2Neigh20"><input type="checkbox" id="addCon2Neigh21">&emsp;<input type="checkbox" id="addCon2Neigh10"><input type="checkbox" id="addCon2Neigh11"><input type="checkbox" id="addCon2Neigh12">&emsp;<input type="checkbox" id="addCon2Neigh1"><input type="checkbox" id="addCon2Neigh2"><input type="checkbox" id="addCon2Neigh3"><br>
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
@@ -612,7 +614,7 @@
                                     <label class="col-xs-2 control-label">Operator</label>
                                     <div class="col-xs-4">
                                         <select class="form-control" id="addRuleResOperation" onchange="evaluateAddResult()" ng-model="newRuleRes.operation">
-                                            <option></option>
+                                            <option value=""></option>
                                             <option value="SUM">SUM</option>
                                             <option value="AVG">AVG</option>
                                             <option value="MIN">MIN</option>
@@ -630,13 +632,19 @@
                                     </div>
                                 </div>
                                 -->
-                                <div class="form-group">
+                                <div class="form-group" id="addRuleResNeigh">
                                     <label class="col-xs-2 control-label">Neighbours</label>
                                     <div class="col-xs-4">
                                         <label class="col-xs-2">TOP&emsp;</label><label class="col-xs-2">MID&emsp;</label><label class="col-xs-2">BOT</label><br><br>
-                                        <input type="checkbox" id="addResNeigh25"><input type="checkbox" id="addResNeigh26"><input type="checkbox" id="addResNeigh27">&emsp;<input type="checkbox" id="addResNeigh16"><input type="checkbox" id="addResNeigh17"><input type="checkbox" id="addResNeigh18">&emsp;<input type="checkbox" id="addResNeigh7"><input type="checkbox" id="addResNeigh8"><input type="checkbox" id="addResNeigh9"><br>
-                                        <input type="checkbox" id="addResNeigh22"><input type="checkbox" id="addResNeigh23"><input type="checkbox" id="addResNeigh24">&emsp;<input type="checkbox" id="addResNeigh13"><input type="checkbox" id="addResNeigh14"><input type="checkbox" id="addResNeigh15">&emsp;<input type="checkbox" id="addResNeigh4"><input type="checkbox" id="addResNeigh5"><input type="checkbox" id="addResNeigh6"><br>
-                                        <input type="checkbox" id="addResNeigh19"><input type="checkbox" id="addResNeigh20"><input type="checkbox" id="addResNeigh21">&emsp;<input type="checkbox" id="addResNeigh10"><input type="checkbox" id="addResNeigh11"><input type="checkbox" id="addResNeigh12">&emsp;<input type="checkbox" id="addResNeigh1"><input type="checkbox" id="addResNeigh2"><input type="checkbox" id="addResNeigh3"><br>
+                                        &emsp;<input type="checkbox" id="addResNeigh25" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh26" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh27" onchange="evaluateAddResult()">&emsp;
+                                        <input type="checkbox" id="addResNeigh16" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh17" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh18" onchange="evaluateAddResult()">&emsp;
+                                        <input type="checkbox" id="addResNeigh7" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh8" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh9" onchange="evaluateAddResult()"><br>
+                                        &emsp;<input type="checkbox" id="addResNeigh22" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh23" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh24" onchange="evaluateAddResult()">&emsp;
+                                        <input type="checkbox" id="addResNeigh13" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh14" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh15" onchange="evaluateAddResult()">&emsp;
+                                        <input type="checkbox" id="addResNeigh4" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh5" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh6" onchange="evaluateAddResult()"><br>
+                                        &emsp;<input type="checkbox" id="addResNeigh19" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh20" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh21" onchange="evaluateAddResult()">&emsp;
+                                        <input type="checkbox" id="addResNeigh10" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh11" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh12" onchange="evaluateAddResult()">&emsp;
+                                        <input type="checkbox" id="addResNeigh1" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh2" onchange="evaluateAddResult()"><input type="checkbox" id="addResNeigh3" onchange="evaluateAddResult()"><br>
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
@@ -653,7 +661,7 @@
                             <div class="form-group">
                                 <div class="col-xs-offset-2 col-xs-4">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addRule(newRule, newRuleCon, newRuleConAndOr, newRuleRes, newRuleConNeigh, newRuleConNeighAndOr, newRuleResNeigh)">Add</button>
+                                    <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addRule(newRule, newRuleCon, newRuleConAndOr, newRuleRes)">Add</button>
                                 </div>
                             </div>
                         </div>
@@ -669,7 +677,7 @@
         <div class="modal-content">
             <div class="modal-header modal-success">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Add Rule</h4>
+                <h4 class="modal-title">Edit Rule</h4>
             </div>
             <div class = "container">
 
@@ -729,12 +737,12 @@
                                 </div>
                                 <div class="form-group">
                                     <input id="editRuleConNeighIdHidden" ng-model="oldRule.ruleConNeighId" type="hidden"/>
-                                    <label class="col-xs-2 control-label">Condition Neighbours</label>
+                                    <label class="col-xs-2 control-label">Neighbours</label>
                                     <div class="col-xs-4">
-                                        <select class="form-control" id="editRuleConNeigh" ng-model="oldRuleConNeigh.neighbours">
-                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
-                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
-                                        </select>
+                                        <label class="col-xs-2">TOP&emsp;</label><label class="col-xs-2">MID&emsp;</label><label class="col-xs-2">BOT</label><br><br>
+                                        &emsp;<input type="checkbox" id="editCon1Neigh25"><input type="checkbox" id="editCon1Neigh26"><input type="checkbox" id="editCon1Neigh27">&emsp;<input type="checkbox" id="editCon1Neigh16"><input type="checkbox" id="editCon1Neigh17"><input type="checkbox" id="editCon1Neigh18">&emsp;<input type="checkbox" id="editCon1Neigh7"><input type="checkbox" id="editCon1Neigh8"><input type="checkbox" id="editCon1Neigh9"><br>
+                                        &emsp;<input type="checkbox" id="editCon1Neigh22"><input type="checkbox" id="editCon1Neigh23"><input type="checkbox" id="editCon1Neigh24">&emsp;<input type="checkbox" id="editCon1Neigh13"><input type="checkbox" id="editCon1Neigh14"><input type="checkbox" id="editCon1Neigh15">&emsp;<input type="checkbox" id="editCon1Neigh4"><input type="checkbox" id="editCon1Neigh5"><input type="checkbox" id="editCon1Neigh6"><br>
+                                        &emsp;<input type="checkbox" id="editCon1Neigh19"><input type="checkbox" id="editCon1Neigh20"><input type="checkbox" id="editCon1Neigh21">&emsp;<input type="checkbox" id="editCon1Neigh10"><input type="checkbox" id="editCon1Neigh11"><input type="checkbox" id="editCon1Neigh12">&emsp;<input type="checkbox" id="editCon1Neigh1"><input type="checkbox" id="editCon1Neigh2"><input type="checkbox" id="editCon1Neigh3"><br>
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
@@ -807,12 +815,12 @@
                                 </div>
                                 <div class="form-group">
                                     <input id="editRuleCon2NeighIdHidden" ng-model="oldRuleConAndOr.neigh" type="hidden"/>
-                                    <label class="col-xs-2 control-label">Condition Neighbours</label>
+                                    <label class="col-xs-2 control-label">Neighbours</label>
                                     <div class="col-xs-4">
-                                        <select class="form-control" id="editRuleCon2Neigh" ng-model="oldRuleConNeighAndOr.neighbours">
-                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
-                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
-                                        </select>
+                                        <label class="col-xs-2">TOP&emsp;</label><label class="col-xs-2">MID&emsp;</label><label class="col-xs-2">BOT</label><br><br>
+                                        &emsp;<input type="checkbox" id="editCon2Neigh25"><input type="checkbox" id="editCon2Neigh26"><input type="checkbox" id="editCon2Neigh27">&emsp;<input type="checkbox" id="editCon2Neigh16"><input type="checkbox" id="editCon2Neigh17"><input type="checkbox" id="editCon2Neigh18">&emsp;<input type="checkbox" id="editCon2Neigh7"><input type="checkbox" id="editCon2Neigh8"><input type="checkbox" id="editCon2Neigh9"><br>
+                                        &emsp;<input type="checkbox" id="editCon2Neigh22"><input type="checkbox" id="editCon2Neigh23"><input type="checkbox" id="editCon2Neigh24">&emsp;<input type="checkbox" id="editCon2Neigh13"><input type="checkbox" id="editCon2Neigh14"><input type="checkbox" id="editCon2Neigh15">&emsp;<input type="checkbox" id="editCon2Neigh4"><input type="checkbox" id="editCon2Neigh5"><input type="checkbox" id="editCon2Neigh6"><br>
+                                        &emsp;<input type="checkbox" id="editCon2Neigh19"><input type="checkbox" id="editCon2Neigh20"><input type="checkbox" id="editCon2Neigh21">&emsp;<input type="checkbox" id="editCon2Neigh10"><input type="checkbox" id="editCon2Neigh11"><input type="checkbox" id="editCon2Neigh12">&emsp;<input type="checkbox" id="editCon2Neigh1"><input type="checkbox" id="editCon2Neigh2"><input type="checkbox" id="editCon2Neigh3"><br>
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
@@ -864,14 +872,20 @@
                                 </div>
                                 <div class="form-group">
                                     <input id="editRuleResNeighIdHidden" ng-model="oldRule.ruleConNeighId" type="hidden"/>
-                                    <label class="col-xs-2 control-label">Result Neighbours</label>
-                                    <div class="col-xs-4">
-                                        <select class="form-control" id="editRuleResNeigh" onchange="evaluateEditResult('NEW')" ng-model="oldRuleResNeigh.neighbours">
-                                            <option value="000000000000010000000000000"> 000000000000010000000000000 </option>
-                                            <option value="111111111111101111111111111"> 111111111111101111111111111 </option>
-                                        </select>
-                                        <span class="help-block"></span>
-                                    </div>
+                                        <label class="col-xs-2 control-label">Neighbours</label>
+                                        <div class="col-xs-4">
+                                            <label class="col-xs-2">TOP&emsp;</label><label class="col-xs-2">MID&emsp;</label><label class="col-xs-2">BOT</label><br><br>
+                                            &emsp;<input type="checkbox" id="editResNeigh25" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh26" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh27" onchange="evaluateEditResult()">&emsp;
+                                            <input type="checkbox" id="editResNeigh16" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh17" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh18" onchange="evaluateEditResult()">&emsp;
+                                            <input type="checkbox" id="editResNeigh7" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh8" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh9" onchange="evaluateEditResult()"><br>
+                                            &emsp;<input type="checkbox" id="editResNeigh22" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh23" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh24" onchange="evaluateEditResult()">&emsp;
+                                            <input type="checkbox" id="editResNeigh13" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh14" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh15" onchange="evaluateEditResult()">&emsp;
+                                            <input type="checkbox" id="editResNeigh4" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh5" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh6" onchange="evaluateEditResult()"><br>
+                                            &emsp;<input type="checkbox" id="editResNeigh19" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh20" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh21" onchange="evaluateEditResult()">&emsp;
+                                            <input type="checkbox" id="editResNeigh10" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh11" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh12" onchange="evaluateEditResult()">&emsp;
+                                            <input type="checkbox" id="editResNeigh1" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh2" onchange="evaluateEditResult()"><input type="checkbox" id="editResNeigh3" onchange="evaluateEditResult()"><br>
+                                            <span class="help-block"></span>
+                                        </div>
                                 </div>
                                 <label align="center">OR</label>
                                 <div class="form-group">
