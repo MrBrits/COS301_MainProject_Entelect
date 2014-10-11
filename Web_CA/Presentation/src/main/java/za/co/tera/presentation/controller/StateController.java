@@ -54,8 +54,13 @@ public class StateController {
     @RequestMapping(value = "/AddState", method = RequestMethod.POST)
     public @ResponseBody
     String createState(@RequestBody State state) {
-        stateService.createState(state);
-        return "State Added";
+
+        if (stateService.createState(state)) {
+            return "State Added";
+        }
+        else{
+            return "A State with that value already exists";
+        }
     }
 
     /**
@@ -92,6 +97,7 @@ public class StateController {
         stateService.updateState(state);
         return "State has been updated";
     }
+
 }
 
 

@@ -351,7 +351,7 @@ function world(scene1, cameras) {
     this.Y = "";
     this.X = "";
     this.Z = "";
-    alert(JSON.stringify(ruleArray[4]));
+    //alert(JSON.stringify(ruleArray[4]));
     worldRules();
     //variables for the layer system
     xbar = new Array();

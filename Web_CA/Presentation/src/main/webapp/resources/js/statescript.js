@@ -43,7 +43,14 @@ web_ca.controller("StateManager", function ($scope, $http) {
         }
         else {
             alert("Please enter a correct value for all fields of the State.");
+            return;
         }
+
+
+
+
+
+
 
     };
 

@@ -535,7 +535,7 @@ web_ca.controller("RuleManager", function($scope, $http) {
         }
 
         //Add RuleConditionNeighbour
-        $http.post("http://" + site + "/AddRuleConNeigh", conNeigh)
+        $http.post("http://" + site + "/AddRuleConNeigh", conNeigh, false)
             .success(function(data) {
                 if (data == -9999){
                     alert("Incorrect first Condition Neighbour syntax");
@@ -557,7 +557,7 @@ web_ca.controller("RuleManager", function($scope, $http) {
                     if (conAndOr != undefined)
                     {
                         if (conAndOr.AndOr != "") {
-                            $http.post("http://" + site + "/AddRuleConAndOrNeigh", conAndOrNeigh)
+                            $http.post("http://" + site + "/AddRuleConAndOrNeigh", conAndOrNeigh, false)
                                 .success(function (data) {
                                     if (data == -9999){
                                         alert("Incorrect second Condition Neighbour syntax");
@@ -579,14 +579,20 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                         var ANDOR = conAndOr[key];
                                         delete conAndOr[key];
 
-                                        $http.post("http://" + site + "/AddRuleConAndOr", conAndOr)
+                                        $http.post("http://" + site + "/AddRuleConAndOr", conAndOr, false)
                                             .success(function (data) {
-                                                if (ANDOR == "AND") {
-                                                    rule.ruleConAndId = data;
+
+                                                alert(ANDOR);
+
+                                                switch(ANDOR){
+                                                    case "AND":
+                                                        rule.ruleConAndId = data;
+                                                        break;
+                                                    case "OR":
+                                                        rule.ruleConOrId = data;
+                                                        break;
                                                 }
-                                                else if (ANDOR == "OR") {
-                                                    rule.ruleConOrId = data;
-                                                }
+
                                                 if (data == 0) {
                                                     //This alert should never happen
                                                     //If it does, then it doesn't find the right object nor creates it.
@@ -605,7 +611,7 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                 });
                         }
                     }
-                    $http.post("http://" + site + "/AddRuleCon", con)
+                    $http.post("http://" + site + "/AddRuleCon", con, false)
                         .success(function (data) {
                             rule.ruleConId = data;
                             if (rule.ruleConAndId == null) {

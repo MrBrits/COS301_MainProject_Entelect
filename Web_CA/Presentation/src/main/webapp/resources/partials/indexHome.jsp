@@ -938,6 +938,8 @@
             <div class="modal-body">
                 <input id ="deleteStateIdHidden" type="hidden" class="form-control"  ng-model="DeleteState.stateId"/>
                 <p>Are you sure you want to delete this State?</p>
+                <p>It might be actively used in a World.</p>
+                <p><strong>This action is cannot be undone!!!</strong></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -954,6 +956,8 @@
             <div class="modal-body">
                 <input id ="ruleIdhidden" type="hidden" class="form-control"  ng-model="DeleteRule.ruleId"/>
                 <p>Are you sure you want to delete this Rule?</p>
+                <p>It might be actively used in a World.</p>
+                <p><strong>This action is cannot be undone!!!</strong></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

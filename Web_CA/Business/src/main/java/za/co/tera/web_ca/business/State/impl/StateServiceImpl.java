@@ -16,6 +16,11 @@ public class StateServiceImpl implements StateService{
         int ID = newState.getOwnerId();
         ID = (ID + 321)/369;
         newState.setOwnerId(ID);
+
+        if (stateDAO.checkStateValue(newState.getOwnerId(),newState.getStateValue())){
+            return false;
+        }
+
         stateDAO.save(newState);
         return true;
     }
@@ -49,4 +54,5 @@ public class StateServiceImpl implements StateService{
         List<State> stateList = stateDAO.findStateByUserId(ID);
         return  stateList;
     }
+
 }

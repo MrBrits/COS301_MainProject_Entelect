@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface StateDao extends AbstractDao<State> {
     public List<State> findStateByUserId(int ownerId);
+    public boolean checkStateValue(int ownerId, double stateValue);
 }

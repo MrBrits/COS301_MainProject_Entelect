@@ -23,4 +23,21 @@ public class StateDaoImpl extends AbstractDaoImpl<State> implements StateDao {
         List<State> stateList = query.list();
         return stateList;
     }
+
+    @Override
+    public boolean checkStateValue(int ownerId, double stateValue) {
+
+        Session session= getSession();
+        Query query = session.createQuery("From State state where state.ownerId = :ownerId and state.stateValue = :stateValue");
+        query.setParameter("ownerId", ownerId);
+        query.setParameter("stateValue", stateValue);
+        List<State> stateList = query.list();
+
+        if (!stateList.isEmpty()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
