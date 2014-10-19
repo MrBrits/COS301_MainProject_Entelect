@@ -49,20 +49,20 @@
                 <div class="panel-heading">
                     <h4 class="panel-title" style="height: 30px">
                         <label>&emsp;States</label>
-                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#state" ng-click="getStates()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
+                        <button class="btn btn-default btn-sm pull-right " style="background-color:#998100" data-toggle="collapse" data-parent="#accordion" data-target="#state" ng-click="getStates()"> <span class="glyphicon glyphicon-list" ></span></button>
                     </h4>
                 </div>
-                <div id="state" style="height: auto;max-height: 200px;overflow-y: auto;"class="panel-collapse collapse" >
+                <div id="state" style="height: auto;max-height: 300px;overflow-y: auto;"class="panel-collapse collapse" >
                     <div>
                         <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
-                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addStateModal">Add new State</button>
+                        <button type="button" style="background-color:#267982"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addStateModal">Add new State</button>
                         <table class="table" >
                             <tr ng-repeat="state in states | filter:search">
                                 <td>
                                     <button type="button" ng-style="{'background-color':state.stateHex}" class="btn btn-default btn-lg"  ></button>
                                     <label>{{state.stateName}}</label>
-                                    <button type="button" class="btn btn-default btn-sm pull-right btn-danger" onclick="deleteState(id)" id=s{{state.stateId}};{{state.stateName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#deleteStateModal"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
-                                    <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target="#editStateModal"  ng-click="getEditState(state.stateId)" id={{state.stateId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button" style="background-color:#262626" class="btn btn-default btn-sm pull-right btn-danger" onclick="deleteState(id)" id=s{{state.stateId}};{{state.stateName}} class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#deleteStateModal"> <span class="glyphicon glyphicon-trash" ></span></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-info" style="background-color:#267982" data-toggle="modal" data-target="#editStateModal"  ng-click="getEditState(state.stateId)" id={{state.stateId}}> <span class="glyphicon glyphicon-pencil" ></span></button>
                                     <br>
                                    <p>{{state.stateDesc}}</p>
                                 </td>
@@ -75,21 +75,21 @@
                 <div class="panel-heading">
                     <h4 class="panel-title" style="height: 30px">
                         <label>&emsp;Rules</label>
-                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#rule" ng-click="getRules()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
+                        <button class="btn btn-default btn-sm pull-right" style="background-color:#998100" data-toggle="collapse" data-parent="#accordion" data-target="#rule" ng-click="getRules()"><span class="glyphicon glyphicon-list" ></span></button>
                     </h4>
                 </div>
-                <div id="rule" style="height: auto;max-height: 200px;overflow-y: auto;" class="panel-collapse collapse">
+                <div id="rule" style="height: auto;max-height: 300px;overflow-y: auto;" class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
-                        <button type="button"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule(GUI)</button>
-                        <button type="button" onclick="setDefualt()" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalDSL">Add new Rule(EDITOR)</button>
+                        <button type="button"  style="background-color:#267982"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule(GUI)</button>
+                        <button type="button"  style="background-color:#267982"  onclick="setDefualt()" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalDSL">Add new Rule(EDITOR)</button>
                         <table class="table">
                             <tr ng-repeat="rule in rules | filter:search">
                                 <td>
                                     <button type="button" class="btn btn-default btn-lg" ></button>
                                     <label>{{rule.ruleName}}</label>
-                                    <button type="button" onclick="deleteRule(id)" id=r{{rule.ruleId}};{{rule.ruleName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#deleteRuleModal"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
-                                    <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target="#editRuleModalTabs" ng-click="getEditRule(rule.ruleId)" id={{rule.ruleId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button" style="background-color:#262626" onclick="deleteRule(id)" id=r{{rule.ruleId}};{{rule.ruleName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#deleteRuleModal"><span class="glyphicon glyphicon-trash" ></span></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-info" style="background-color:#267982" data-toggle="modal" data-target="#editRuleModalTabs" ng-click="getEditRule(rule.ruleId)" id={{rule.ruleId}}><span class="glyphicon glyphicon-pencil" ></span></button>
                                     <br>
                                     <p>{{rule.ruleDesc}}</p>
                                 </td>
@@ -102,21 +102,21 @@
                 <div class="panel-heading">
                     <h4 class="panel-title" style="height: 30px">
                         <label>&emsp;Worlds</label>
-                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#world" ng-click="getWorlds()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
+                        <button class="btn btn-default btn-sm pull-right "  style="background-color:#998100" data-toggle="collapse" data-parent="#accordion" data-target="#world" ng-click="getWorlds()"><span class="glyphicon glyphicon-list" ></span></button>
                     </h4>
                 </div>
-                <div id="world" style="height: auto;max-height: 200px;overflow-y: auto;"class="panel-collapse collapse">
+                <div id="world" style="height: auto;max-height: 300px;overflow-y: auto;"class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
-                        <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addWorldModal">Add new World</button>
+                        <button style="background-color:#267982" type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addWorldModal">Add new World</button>
 
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
                                 <td>
                                     <button type="button" class="btn btn-default btn-lg"></button>
                                     <a href="#simulator"  ><label id={{world.worldId}} onclick="setWorldID(id)"> {{world.worldName}}</label></a>
-                                    <button type="button" onclick="deleteWorld(id)" id=w{{world.worldId}};{{world.worldName}} class="btn btn-default btn-sm pull-right btn-danger" data-toggle="modal" data-target="#deleteWorldModal"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_016_bin.png"/></button>
-                                    <button type="button" class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" data-target="#editWorldModal" ng-click="getEditWorld(world.worldId)" id={{world.worldId}}><img style="width: 15px; height: 15px" src="resources/img/glyphicons_030_pencil.png"/></button>
+                                    <button type="button"   style="background-color:#262626" onclick="deleteWorld(id)" id=w{{world.worldId}};{{world.worldName}} class="btn btn-default btn-sm pull-right  btn-danger" data-toggle="modal" data-target="#deleteWorldModal"><span class="glyphicon glyphicon-trash" ></span></button>
+                                    <button type="button" class="btn btn-default btn-sm pull-right btn-info" style="background-color:#267982" data-toggle="modal" data-target="#editWorldModal" ng-click="getEditWorld(world.worldId)" id={{world.worldId}}><span class="glyphicon glyphicon-pencil" ></span></button>
                                     <br>
                                     <p>{{world.worldDesc}}</p>
                                 </td>
@@ -129,10 +129,10 @@
                 <div class="panel-heading">
                     <h4 class="panel-title" style="height: 30px">
                         <label>&emsp;Import Worlds</label>
-                        <button class="btn btn-default btn-sm pull-right btn-info" data-toggle="collapse" data-parent="#accordion" data-target="#worldImport" ng-click="getNotWorlds()"><img style="width: 15px; height: 15px" src="resources/img/glyphicons_113_justify.png"></button>
+                        <button class="btn btn-default btn-sm pull-right " style="background-color:#998100" data-toggle="collapse" data-parent="#accordion" data-target="#worldImport" ng-click="getNotWorlds()"><span class="glyphicon glyphicon-list" ></span></button>
                     </h4>
                 </div>
-                <div id="worldImport" style="height: auto;max-height: 200px;overflow-y: auto;"class="panel-collapse collapse">
+                <div id="worldImport" style="height: auto;max-height: 300px;overflow-y: auto;"class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
                         <table class="table">
@@ -140,7 +140,7 @@
                                 <td>
                                     <button type="button" class="btn btn-default btn-lg"></button>
                                     <a href="#simulator"  ><label  onclick="setWorldID(id)"> {{world.worldName}}</label></a>
-                                    <button type="button" ng-click="ImportWorlds(world.worldId)"  class="btn btn-default btn-sm pull-right btn-success" data-toggle="modal" ><span class="glyphicon glyphicon-download"></span></button>
+                                    <button type="button" ng-click="ImportWorlds(world.worldId)"  lass="btn btn-default btn-sm pull-right btn-info" style="background-color:#267982" data-toggle="modal" ><span class="glyphicon glyphicon-download"></span></button>
                                     <br>
                                     <p>{{world.worldDesc}}</p>
                                 </td>

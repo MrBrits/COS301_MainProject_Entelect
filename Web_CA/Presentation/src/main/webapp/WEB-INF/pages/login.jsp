@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="resources/img/favicon_12.ico">
+    <link rel="icon" href="resources/img/favicon_web_ca.ico">
 
     <title>Web CA</title>
 
