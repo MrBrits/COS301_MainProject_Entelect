@@ -70,9 +70,11 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
 
         $http.post("http://" + site + "/SaveWorldRules", theworldRules)
             .success(function (data) {
-                alert(data);
+               // alert(data);
             }).error(function () {
-                alert("USER REGISTER: SERVER ERROR");
+                document.getElementById("datavalue").innerHTML="<p>World could not be saved</p>";
+                $('#Information').modal('show');
+
             });
     };
 
@@ -1703,7 +1705,7 @@ function worldRules() {
             if (this.ruleArray[i].ruleId==ruleWorldList[i2].ruleId)
             {
                 this.ruleArray[i].enabled=true;
-                //alert("Done");
+
             }
         }
     }
@@ -1715,7 +1717,7 @@ function worldRules() {
         if (this.ruleArray[i].enabled==true) {
 
         x = "#006600";
-      //  alert("Done");
+
         }
         else {
             x = "#FF3300";
