@@ -43,8 +43,8 @@
       <file leaf-file-name="indexHome.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24668436" vertical-offset="4055" max-vertical-offset="16541">
-              <caret line="244" column="160" selection-start-line="244" selection-start-column="160" selection-end-line="244" selection-end-column="160" />
+            <state vertical-scroll-proportion="0.42705572" vertical-offset="6401" max-vertical-offset="16541">
+              <caret line="386" column="99" selection-start-line="386" selection-start-column="99" selection-end-line="386" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -1265,7 +1265,7 @@
       <workItem from="1413025008031" duration="5476000" />
       <workItem from="1413128486625" duration="2060000" />
       <workItem from="1413617772810" duration="25226000" />
-      <workItem from="1413727734316" duration="2722000" />
+      <workItem from="1413727734316" duration="3218000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Version Control">
       <created>1404116878931</created>
@@ -1603,11 +1603,15 @@
       <created>1413729262323</created>
       <updated>1413729262323</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Naming">
+      <created>1413732145429</created>
+      <updated>1413732145429</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="770012000" />
+    <option name="totallyTimeSpent" value="770508000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1739,7 +1743,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Remove functionality for World/State/Rule v.2 working&#10;" />
     <MESSAGE value="navigation bar simulator v1.0" />
     <MESSAGE value="navigation bar simulator v1.1&#10;Plus additional color options" />
     <MESSAGE value="navigation bar simulator v1.2&#10;Each number gets assigned new color code" />
@@ -1764,7 +1767,8 @@
     <MESSAGE value="Color theme" />
     <MESSAGE value="Alert" />
     <MESSAGE value="Colours" />
-    <option name="LAST_COMMIT_MESSAGE" value="Colours" />
+    <MESSAGE value="Naming" />
+    <option name="LAST_COMMIT_MESSAGE" value="Naming" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2134,8 +2138,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/src/main/webapp/resources/partials/indexHome.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24668436" vertical-offset="4055" max-vertical-offset="16541">
-          <caret line="244" column="160" selection-start-line="244" selection-start-column="160" selection-end-line="244" selection-end-column="160" />
+        <state vertical-scroll-proportion="0.42705572" vertical-offset="6401" max-vertical-offset="16541">
+          <caret line="386" column="99" selection-start-line="386" selection-start-column="99" selection-end-line="386" selection-end-column="100" />
           <folding />
         </state>
       </provider>
