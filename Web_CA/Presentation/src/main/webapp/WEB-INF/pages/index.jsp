@@ -58,7 +58,7 @@
 
         </div>
 
-        <div class="collapse navbar-collapse" ng-controller="UserByIdGet">
+        <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
                 <li>
                     <a href="#home">Home</a>

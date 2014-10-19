@@ -5,16 +5,6 @@ this.Worldidtobedeleted=0;
 
 var twoDimensional = false;
 
-/*
-(function() {
-    var proxied = window.alert;
-    window.alert = function(message) {
-        $("#alertMessage .modal-body").text(message);
-        $("#alertMessage").modal('show');
-    };
-})();
-*/
-
 
 function evaluateDim(){
     var dim = document.getElementById("addWorldDim").value;
@@ -36,8 +26,11 @@ web_ca.controller("WorldSimulator", function($scope, $http) {
         $http.post("http://" + site + "/getWorldByUserId", userId)
             .success(function (data) {
                 $scope.worlds = data;
+
             }).error(function () {
-                alert("SERVER ERROR: World could not be found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>World could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
+
             });
 
 });
@@ -48,9 +41,11 @@ web_ca.controller("WorldManager", function($scope, $http) {
     $scope.getWorlds = function () {
         $http.post("http://" + site + "/getWorldByUserId",userId)
             .success(function (data) {
+
                 $scope.worlds = data;
             }).error(function () {
-                alert("SERVER ERROR: World could not be found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>World could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
     };
 
@@ -59,10 +54,11 @@ web_ca.controller("WorldManager", function($scope, $http) {
 
         $http.post("http://" + site + "/importWorld",UserWorld)
             .success(function (data) {
-                //$scope.worlds = data;
-                alert("World Imported");
+                document.getElementById("datavalue").innerHTML="<p>World Imported</p>";
+                $('#Information').modal('show');
             }).error(function () {
-                alert("SERVER ERROR: World could not be found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>World could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
 
     };
@@ -71,7 +67,8 @@ web_ca.controller("WorldManager", function($scope, $http) {
             .success(function (data) {
                 $scope.worlds = data;
             }).error(function () {
-                alert("GET WORLD BY USER ID: SERVER ERROR");
+                document.getElementById("datavalue").innerHTML="<p>World could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
     };
     $scope.addWorld = function(world) {
@@ -84,24 +81,33 @@ web_ca.controller("WorldManager", function($scope, $http) {
             if (parseInt(cellTotal) <= parseInt(10000)) {
 
                 if (parseInt(cellTotal) > parseInt(8000)){
-                    alert("Performance issues might occur.");
+                    document.getElementById("datavalue").innerHTML="<p>Performance issues might occur.</p>";
+                    $('#Information').modal('show');
+
                 }
                 world.ownerId = document.getElementById("userId").value;
                 $http.post("http://" + site + "/AddWorld", world)
                     .success(function (data) {
-                        alert(data);
-                        location.reload();
+                        document.getElementById("datavalue").innerHTML="<p>World Added</p>";
+                        document.getElementById("informationClose").onclick=close_information;
+                        $('#Information').modal('show');
+                        //
                     }).error(function () {
-                        alert("Please enter a value for all fields of the World.");
+                        document.getElementById("datavalue").innerHTML="<p>Please enter a value for all fields of the World.</p>";
+                        $('#Information').modal('show');
                         return;
                     });
             }
             else{
-                alert("World too large. Please create smaller world.");
+                document.getElementById("datavalue").innerHTML="<p>World too large. Please create smaller world.</p>";
+                $('#Information').modal('show');
+
             }
         }
         else {
-            alert("Incorrect values have been entered!");
+            document.getElementById("datavalue").innerHTML="<p>Incorrect values have been entered!</p>";
+            $('#Information').modal('show');
+
         }
     };
 
@@ -116,7 +122,8 @@ web_ca.controller("WorldManager", function($scope, $http) {
                 document.getElementById("editWorldHeight").value = data.worldHeight;
                 document.getElementById("editWorldDepth").value = data.worldDepth;
             }).error(function(){
-                alert("SERVER ERROR: World could not be found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>World could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
     };
 
@@ -132,11 +139,14 @@ web_ca.controller("WorldManager", function($scope, $http) {
         world = "{\"worldId\":" + id + ",\"worldName\":\"" + name + "\",\"worldDesc\":\"" + desc + "\",\"worldDimension\":" + dim + ",\"worldWidth\":" + width + ",\"worldHeight\":" + height + ",\"worldDepth\":" + depth + ", \"ownerId\":" + userId + "}";
         $http.post("http://" + site + "/editWorld", world)
             .success(function (data) {
-                alert(data);
-                location.reload();
+                document.getElementById("datavalue").innerHTML="<p>World Updated.</p>";
+                document.getElementById("informationClose").onclick=close_information;
+                $('#Information').modal('show');
+
                 $scope.getStates();
             }).error(function () {
-                alert("Please enter a value for all fields of the World.");
+                document.getElementById("datavalue").innerHTML="<p>Please enter a value for all fields of the World.</p>";
+                $('#Information').modal('show');
                 return
             });
 
@@ -147,9 +157,12 @@ web_ca.controller("WorldManager", function($scope, $http) {
         var worldId = document.getElementById("worldIdhidden").value;
         $http.post("http://" + site + "/deleteWorld",worldId)
             .success(function (data) {
-                location.reload();
+                document.getElementById("datavalue").innerHTML="<p>World Deleted</p>";
+                document.getElementById("informationClose").onclick=close_information;
+                $('#Information').modal('show');
             }).error(function () {
-                alert("SERVER ERROR: World could not be found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>World could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
 
     };
@@ -166,4 +179,8 @@ function deleteWorld(toBeDeleted)
 function setWorldID(id)
 {
     document.getElementById("worldId").value=id;
+}
+function close_information()
+{
+    location.reload();
 }

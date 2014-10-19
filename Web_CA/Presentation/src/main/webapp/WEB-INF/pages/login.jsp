@@ -101,7 +101,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-4">
-                            <button type="submit" class="btn btn-primary" ng-click="web_ca.addUser(web_ca.userReg)">Register</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="web_ca.addUser(web_ca.userReg)">Register</button>
                         </div>
                     </div>
                 </form>

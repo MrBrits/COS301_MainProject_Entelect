@@ -9,7 +9,8 @@ web_ca.controller("StateSimulator", function ($scope, $http) {
             .success(function (data) {
                 $scope.states = data;
             }).error(function () {
-                alert("SERVER ERROR: States could not be found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>State could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
 
 } );
@@ -24,7 +25,8 @@ web_ca.controller("StateManager", function ($scope, $http) {
             .success(function (data) {
                 $scope.states = data;
             }).error(function () {
-                alert("SERVER ERROR: States could not be found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>State could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
     }
 
@@ -35,14 +37,18 @@ web_ca.controller("StateManager", function ($scope, $http) {
             state.ownerId = userId;
             $http.post("http://" + site + "/AddState", state)
                 .success(function (data) {
-                    alert(data);
-                    location.reload();
+                    document.getElementById("datavalue").innerHTML="<p>"+data+"</p>";
+                    document.getElementById("informationClose").onclick=close_information;
+                    $('#Information').modal('show');
                 }).error(function () {
-                    alert("Please enter a correct value for all fields of the State.");
+                    document.getElementById("datavalue").innerHTML="<p>Please enter a correct value for all fields of the State.</p>";
+                    $('#Information').modal('show');
+
                 });
         }
         else {
-            alert("Please enter a correct value for all fields of the State.");
+            document.getElementById("datavalue").innerHTML="<p>Please enter a correct value for all fields of the State.</p>";
+            $('#Information').modal('show');
             return;
         }
 
@@ -68,7 +74,8 @@ web_ca.controller("StateManager", function ($scope, $http) {
                 document.getElementById("editStateHex").value = data.stateHex;
 
             }).error(function () {
-                alert("SERVER ERROR: State could not be found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>State could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
     };
 
@@ -85,11 +92,14 @@ web_ca.controller("StateManager", function ($scope, $http) {
 
                 $http.post("http://" + site + "/editState", state)
                     .success(function (data) {
-                        alert(data);
+                        document.getElementById("datavalue").innerHTML="<p>"+data+"</p>";
+                        document.getElementById("informationClose").onclick=close_information;
+                        $('#Information').modal('show');
                         $scope.getStates();
-                        location.reload();
+
                     }).error(function () {
-                        alert("Please enter a correct value for all fields of the State.");
+                        document.getElementById("datavalue").innerHTML="<p>Please enter a correct value for all fields of the State.</p>";
+                        $('#Information').modal('show');
                     });
     };
 
@@ -98,9 +108,12 @@ web_ca.controller("StateManager", function ($scope, $http) {
         var stateId=document.getElementById("deleteStateIdHidden").value;
         $http.post("http://" + site + "/deleteState",stateId)
             .success(function (data) {
-                alert(data); location.reload();
+                document.getElementById("datavalue").innerHTML="<p>State Deleted.</p>";
+                document.getElementById("informationClose").onclick=close_information;
+                $('#Information').modal('show');
             }).error(function () {
-                alert("SERVER ERROR: State could not be found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>State could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
     };
 
@@ -113,6 +126,10 @@ function deleteState(toBeDeleted)
     var stateName= toBeDeleted.split(";")[1];
     document.getElementById("DeleteNameState").innerHTML="<h3>Delete State: " + stateName +"</h3>";
     document.getElementById("deleteStateIdHidden").value=stateId;
+}
+function close_information()
+{
+    location.reload();
 }
 
 

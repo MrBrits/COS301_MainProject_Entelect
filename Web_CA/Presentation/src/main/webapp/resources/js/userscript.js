@@ -8,12 +8,15 @@ web_ca.controller("UserRegisterController", function($http) {
     app.addUser = function(userReg) {
         userReg.userRole = "User";
         userReg.tutorials = 1;
-        alert(JSON.stringify(userReg));
+
         $http.post("http://" + site + "/UserSet",userReg)
             .success(function(data) {
-                alert(data);
+                document.getElementById("datavalue").innerHTML="<p>User Registered.</p>";
+                $('#Information').modal('show');
             }).error(function () {
-                alert("USER REGISTER: SERVER ERROR");
+                document.getElementById("datavalue").innerHTML="<p>User could not be created.</p>";
+                $('#Information').modal('show');
+
             });
     };
 });
@@ -34,11 +37,14 @@ web_ca.controller("UserManager", function($scope,$http) {
 
         $http.post("http://" + site + "/editUser",user)
             .success(function(data) {
-                location.reload();
-                //alert(data);
+                document.getElementById("datavalue").innerHTML="<p>User Updated</p>";
+                document.getElementById("informationClose").onclick=close_information;
+                $('#Information').modal('show');
+
 
             }).error(function () {
-                alert("USER LOGIN: SERVER ERROR");
+                document.getElementById("datavalue").innerHTML="<p>User could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
     };
 
@@ -55,7 +61,8 @@ web_ca.controller("UserManager", function($scope,$http) {
                 document.getElementById("tutorials").value = "Disabled";
 
         }).error(function () {
-            alert("USER LOGIN: SERVER ERROR");
+            document.getElementById("datavalue").innerHTML="<p>User could not be found. Please contact support.</p>";
+            $('#Information').modal('show');
         });
 
 });
@@ -66,14 +73,17 @@ web_ca.controller("UserLoginController", function($http) {
         $http.post("http://" + site + "/UserLogin",userLogin)
             .success(function(data) {
                 if (data == "") {
-                    alert("Invalid credentials.");
+                    document.getElementById("datavalue").innerHTML="<p>Invalid credentials.</p>";
+                    $('#Information').modal('show');
+
                 }
                 else    {
                     window.location='/'+data.userId;
                 }
 
             }).error(function () {
-                alert("USER LOGIN: SERVER ERROR");
+                document.getElementById("datavalue").innerHTML="<p>Invalid credentials.</p>";
+                $('#Information').modal('show');
             });
     };
 });
@@ -91,23 +101,13 @@ web_ca.controller("UserGetCtr", function ($scope, $http) {
         });
 });
 
-web_ca.controller("UserByIdGet", function ($scope, $http) {
-    var app = this;
-
-    $http.get("http://" + site + "/getUserById/")
-        .success(function (data) {
-           // $scope.User = data;
-            // alert(JSON.stringify(data));
-            //   alert("done");
-
-        })
-        .error(function () {
-           // alert("error");
-        });
-});
 
 function logout()
 {
 
     window.location = "http://localhost:8080";
+}
+function close_information()
+{
+    location.reload();
 }

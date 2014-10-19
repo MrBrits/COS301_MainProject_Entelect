@@ -1664,6 +1664,7 @@ function performBetween(type, neightbours, valueOne, valueTwo) {
 }
 
 function worldStates() {
+
     var s = '<table class="table">';
     for (var i = 0; i < counter; i++) {
         if( colorsUsedName[i]!="0") {

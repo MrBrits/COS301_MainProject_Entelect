@@ -9,7 +9,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img style="height: 600px; width: 1200px" src="resources/img/carousel3.jpg" class="img-responsive">
+            <img style="height: 470px; width: 1200px" src="resources/img/carousel3.jpg" class="img-responsive">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Learn the Fundamentals </h1>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="item">
-            <img style="height: 600px; width: 1200px" src="resources/img/carousel1.jpg" class="img-responsive">
+            <img style="height: 470px; width: 1200px" src="resources/img/carousel1.jpg" class="img-responsive">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Create custom worlds</h1>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="item">
-            <img style="height: 600px; width: 1200px" src="resources/img/carousel2.jpg" class="img-responsive">
+            <img style="height: 470px; width: 1200px" src="resources/img/carousel2.jpg" class="img-responsive">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Simulate</h1>
@@ -79,4 +79,18 @@
         </div>
     </div><!-- /.row -->
 
+</div>
+
+<div class="modal fade" id="Information"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content col-xs-6">
+            <div class="modal-header"><h4>Information</h4></div>
+            <div class="modal-body">
+                <div id="datavalue" ></div>
+            </div>
+            <div class="modal-footer">
+                <button id="informationClose" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

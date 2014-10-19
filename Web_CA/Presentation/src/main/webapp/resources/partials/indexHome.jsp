@@ -52,7 +52,7 @@
                         <button class="btn btn-default btn-sm pull-right " style="background-color:#998100" data-toggle="collapse" data-parent="#accordion" data-target="#state" ng-click="getStates()"> <span class="glyphicon glyphicon-list" ></span></button>
                     </h4>
                 </div>
-                <div id="state" style="height: auto;max-height: 300px;overflow-y: auto;"class="panel-collapse collapse" >
+                <div id="state" style="height: auto;max-height: 320px;overflow-y: auto;"class="panel-collapse collapse" >
                     <div>
                         <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
                         <button type="button" style="background-color:#267982"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addStateModal">Add new State</button>
@@ -78,7 +78,7 @@
                         <button class="btn btn-default btn-sm pull-right" style="background-color:#998100" data-toggle="collapse" data-parent="#accordion" data-target="#rule" ng-click="getRules()"><span class="glyphicon glyphicon-list" ></span></button>
                     </h4>
                 </div>
-                <div id="rule" style="height: auto;max-height: 300px;overflow-y: auto;" class="panel-collapse collapse">
+                <div id="rule" style="height: auto;max-height: 320px;overflow-y: auto;" class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
                         <button type="button"  style="background-color:#267982"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule(GUI)</button>
@@ -105,7 +105,7 @@
                         <button class="btn btn-default btn-sm pull-right "  style="background-color:#998100" data-toggle="collapse" data-parent="#accordion" data-target="#world" ng-click="getWorlds()"><span class="glyphicon glyphicon-list" ></span></button>
                     </h4>
                 </div>
-                <div id="world" style="height: auto;max-height: 300px;overflow-y: auto;"class="panel-collapse collapse">
+                <div id="world" style="height: auto;max-height: 320px;overflow-y: auto;"class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
                         <button style="background-color:#267982" type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addWorldModal">Add new World</button>
@@ -132,15 +132,15 @@
                         <button class="btn btn-default btn-sm pull-right " style="background-color:#998100" data-toggle="collapse" data-parent="#accordion" data-target="#worldImport" ng-click="getNotWorlds()"><span class="glyphicon glyphicon-list" ></span></button>
                     </h4>
                 </div>
-                <div id="worldImport" style="height: auto;max-height: 300px;overflow-y: auto;"class="panel-collapse collapse">
+                <div id="worldImport" style="height: auto;max-height: 320px;overflow-y: auto;"class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
                                 <td>
                                     <button type="button" class="btn btn-default btn-lg"></button>
-                                    <a href="#simulator"  ><label  onclick="setWorldID(id)"> {{world.worldName}}</label></a>
-                                    <button type="button" ng-click="ImportWorlds(world.worldId)"  lass="btn btn-default btn-sm pull-right btn-info" style="background-color:#267982" data-toggle="modal" ><span class="glyphicon glyphicon-download"></span></button>
+                                    <label > {{world.worldName}}</label>
+                                    <button type="button" ng-click="ImportWorlds(world.worldId)"  class="btn btn-default btn-sm pull-right btn-info" style="background-color:#267982" data-toggle="modal" ><span class="glyphicon glyphicon-download"></span></button>
                                     <br>
                                     <p>{{world.worldDesc}}</p>
                                 </td>
@@ -151,14 +151,9 @@
             </div>
         </div>
 
-        <!--
-        *
-        *   Add newsFeed
-        *
-        -->
-
     </div>
 </div>
+
 <!--Adding a new state to your profile-->
 <div class="modal fade" id="addStateModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" ng-controller="StateManager">
     <div class="modal-dialog">
@@ -197,11 +192,9 @@
                             <span class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-xs-offset-2 col-xs-4">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addState(newState)">Add</button>
-                        </div>
+                    <div class="modal-footer  col-xs-6">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button  style="background-color:#267982" type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addState(newState)">Add</button>
                     </div>
                 </form>
             </div>
@@ -247,12 +240,11 @@
                             <span class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-xs-offset-2 col-xs-4">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="editState(oldState)">Edit</button>
-                        </div>
+                    <div class="modal-footer  col-xs-6">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="editState(oldState)">Update</button>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -314,12 +306,9 @@
                             <span class="help-block"></span>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <div class="col-xs-offset-2 col-xs-4">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addWorld(newWorld)">Add</button>
-                        </div>
+                    <div class="modal-footer  col-xs-6">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" style="background-color:#267982"  class="btn btn-primary" data-dismiss="modal" ng-click="addWorld(newWorld)">Add</button>
                     </div>
                 </form>
             </div>
@@ -352,11 +341,10 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-xs-offset-2 col-xs-4">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="editWorld(oldWorld)">Edit</button>
-                        </div>
+
+                    <div class="modal-footer  col-xs-6">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="editWorld(oldWorld)">Update</button>
                     </div>
                     <input id="editWorldDimension" ng-model="oldWorld.worldId" type="hidden"/>
                     <input id="editWorldWidth" ng-model="oldWorld.worldId" type="hidden"/>
@@ -379,7 +367,7 @@
                 <form class="form-horizontal">
                     <div class="form-group">
 
-                            <label class="col-xs-1 control-label">when</label>
+                            <label class="col-xs-1 control-label">if</label>
                             <div class="col-md-5">
                                 <input type="text" class="form-control" placeholder="(if condition and/or condition)| (if condition ) " ng-model="ruleeditor.line1" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                                 <span class="help-block"></span>
@@ -401,12 +389,12 @@
                             <span class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-xs-offset-3 col-xs-4">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="addRuleEditor(ruleeditor)">Add</button>
-                        </div>
+                    <div class="modal-footer  col-xs-6">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="addRuleEditor(ruleeditor)">Add</button>
                     </div>
+
+
                 </form>
             </div>
         </div>
@@ -658,12 +646,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-xs-offset-2 col-xs-4">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addRule(newRule, newRuleCon, newRuleConAndOr, newRuleRes)">Add</button>
-                                </div>
+                            <div class="modal-footer  col-xs-6">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                <button type="submit" style="background-color:#267982" class="btn btn-primary" data-dismiss="modal" ng-click="addRule(newRule, newRuleCon, newRuleConAndOr, newRuleRes)">Add</button>
                             </div>
+
                         </div>
                     </div>
                 </form>
@@ -898,11 +885,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-xs-offset-2 col-xs-4">
+                    <div class="modal-footer  col-xs-6">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="editRule(oldRule, oldRuleCon, oldRuleRes, oldRuleConNeigh, oldRuleResNeigh)">Edit</button>
-                        </div>
+                            <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="editRule(oldRule, oldRuleCon, oldRuleRes, oldRuleConNeigh, oldRuleResNeigh)">Update</button>
                     </div>
                 </form>
             </div>
@@ -923,7 +908,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-danger" data-dismiss="modal" ng-click="deleteWorldFinalize()">Delete</button>
+                <button type="submit"  style="background-color:#262626" class="btn btn-danger" data-dismiss="modal" ng-click="deleteWorldFinalize()">Delete</button>
             </div>
         </div>
     </div>
@@ -943,7 +928,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-danger" data-dismiss="modal" ng-click="deleteStateFinalize()">Delete</button>
+                <button type="submit"  style="background-color:#262626" class="btn btn-danger" data-dismiss="modal" ng-click="deleteStateFinalize()">Delete</button>
             </div>
         </div>
     </div>
@@ -961,20 +946,22 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-danger" data-dismiss="modal" ng-click="deleteRuleFinalize()">Delete</button>
+                <button type="submit"  style="background-color:#262626" class="btn btn-danger" data-dismiss="modal" ng-click="deleteRuleFinalize()">Delete</button>
             </div>
         </div>
     </div>
 </div>
 
-<div id="alertMessage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <h3 id="myModalLabel">Error</h3>
-    </div>
-    <div class="modal-body">
-        <p>...</p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Ok</button>
+<div class="modal fade" id="Information"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content col-xs-6">
+            <div class="modal-header"><h4>Information</h4></div>
+            <div class="modal-body">
+                <div id="datavalue" ></div>
+            </div>
+            <div class="modal-footer">
+                <button id="informationClose" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>
