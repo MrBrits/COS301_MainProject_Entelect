@@ -328,7 +328,7 @@ public class RuleController {
     @RequestMapping(value = "/findRuleByWorldId", method = RequestMethod.POST)
     public @ResponseBody
     List<Worldrules> findRuleByWorldId( @RequestBody int worldId) {
-       System.out.println("hjh");
+       //System.out.println("hjh");
         return ruleService.findRuleByWorldId(worldId);
     }
 

@@ -15,7 +15,7 @@ public class Main {
         ruleWrappers.condition("then avg of 1;4:8");
         ruleWrappers.condition("identifiedBy Test test");
 
-        System.out.println("df");
+
         return;
     }
 }

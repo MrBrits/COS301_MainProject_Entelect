@@ -3,6 +3,7 @@ var site = new config().getSite();
 var web_ca = angular.module('rule_app', []);
 this.Ruleidtobedeleted=0;
 
+
 var countAdd1Selected = false;
 var btwAdd1Selected = false;
 var countAdd2Selected = false;
@@ -129,14 +130,17 @@ function evaluateAddCompareValue(){
 
         if (btwAdd1Selected) {
             if (parseFloat(value1One) >= parseFloat(value1Two)) {
-                alert("Incorrect values: Compare Value Two should be larger than Compare Value One");
+                document.getElementById("datavalue").innerHTML="<p>Incorrect values: Compare Value Two should be larger than Compare Value One</p>";
+                $('#Information').modal('show');
                 document.getElementById("addRule1CompareValueTwo").value = null;
             }
         }
 
         if (btwAdd2Selected) {
             if (parseFloat(value2One) >= parseFloat(value2Two)) {
-                alert("Incorrect values: Compare Value Two should be larger than Compare Value One");
+
+                document.getElementById("datavalue").innerHTML="<p>Incorrect values: Compare Value Two should be larger than Compare Value One</p>";
+                $('#Information').modal('show');
                 document.getElementById("addRule2CompareValueTwo").value = null;
             }
         }
@@ -373,7 +377,9 @@ function evaluateEditCompareValue(){
             var value1Two = document.getElementById("editRule1CompareValueTwo").value;
 
             if (parseFloat(value1One) >= parseFloat(value1Two)) {
-                alert("Incorrect values: Compare Value Two should be larger than Compare Value One");
+
+                document.getElementById("datavalue").innerHTML="<p>Incorrect values: Compare Value Two should be larger than Compare Value One</p>";
+                $('#Information').modal('show');
                 document.getElementById("editRule1CompareValueTwo").value = null;
             }
         }
@@ -383,7 +389,8 @@ function evaluateEditCompareValue(){
             var value2Two = document.getElementById("editRule2CompareValueTwo").value;
 
             if (parseFloat(value2One) >= parseFloat(value2Two)) {
-                alert("Incorrect values: Compare Value Two should be larger than Compare Value One");
+                document.getElementById("datavalue").innerHTML="<p>Incorrect values: Compare Value Two should be larger than Compare Value One</p>";
+                $('#Information').modal('show');
                 document.getElementById("editRule2CompareValueTwo").value = null;
             }
         }
@@ -396,7 +403,8 @@ web_ca.controller("RuleSimulator", function($scope, $http) {
                 $scope.rules = data;
 
             }).error(function () {
-                alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
+                document.getElementById("datavalue").innerHTML="<p>Rule could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
 
 });
@@ -410,7 +418,8 @@ web_ca.controller("RuleManager", function($scope, $http) {
                 $scope.rules = data;
 
             }).error(function () {
-                alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
+                document.getElementById("datavalue").innerHTML="<p>Rule could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
     }
 
@@ -423,10 +432,14 @@ web_ca.controller("RuleManager", function($scope, $http) {
         alert(tempStr);
        $http.post("http://" + site + "/createRuleByString",tempStr)
             .success(function (data) {
-                alert(s);
+
+               document.getElementById("datavalue").innerHTML="<p>"+s+"</p>";
+               document.getElementById("informationClose").onclick=close_information;
+               $('#Information').modal('show');
 
             }).error(function () {
-                alert("???");
+               document.getElementById("datavalue").innerHTML="<p>Rule could not be found. Please contact support.</p>";
+               $('#Information').modal('show');
             });
 
     }
@@ -501,13 +514,16 @@ web_ca.controller("RuleManager", function($scope, $http) {
         //Test to see if Compare Values are actually numbers
         if (btwAdd1Selected || countAdd1Selected){
             if (con.compareValueOne == undefined || con.compareValueOne == undefined) {
-                alert("Incorrect values have been entered!");
+                document.getElementById("datavalue").innerHTML="<p>Incorrect values have been entered!</p>";
+                $('#Information').modal('show');
                 return;
             }
         }
         else {
             if (con.compareValueOne == undefined) {
-                alert("Incorrect values have been entered!");
+
+                document.getElementById("datavalue").innerHTML="<p>Incorrect values have been entered!</p>";
+                $('#Information').modal('show');
                 return;
             }
         }
@@ -515,13 +531,15 @@ web_ca.controller("RuleManager", function($scope, $http) {
             if (conAndOr.AndOr != "") {
                 if (btwAdd2Selected || countAdd2Selected) {
                     if (conAndOr.compareValueOne == undefined || conAndOr.compareValueTwo == undefined) {
-                        alert("Incorrect values have been entered!");
+                        document.getElementById("datavalue").innerHTML="<p>Incorrect values have been entered!</p>";
+                        $('#Information').modal('show');
                         return;
                     }
                 }
                 else {
                     if (conAndOr.compareValueOne == undefined) {
-                        alert("Incorrect values have been entered!");
+                        document.getElementById("datavalue").innerHTML="<p>Incorrect values have been entered!</p>";
+                        $('#Information').modal('show');
                         return;
                     }
                 }
@@ -529,7 +547,8 @@ web_ca.controller("RuleManager", function($scope, $http) {
         }
         if (resultAddValueSelected){
             if (res.resultValue == undefined) {
-                alert("Incorrect values have been entered!");
+                document.getElementById("datavalue").innerHTML="<p>Incorrect values have been entered!</p>";
+                $('#Information').modal('show');
                 return;
             }
         }
@@ -538,7 +557,8 @@ web_ca.controller("RuleManager", function($scope, $http) {
         $http.post("http://" + site + "/AddRuleConNeigh", conNeigh, false)
             .success(function(data) {
                 if (data == -9999){
-                    alert("Incorrect first Condition Neighbour syntax");
+                    document.getElementById("datavalue").innerHTML="<p>Incorrect first Condition Neighbour syntax</p>";
+                    $('#Information').modal('show');
                     return;
                 }
                 con.neighboursId = data;
@@ -549,7 +569,8 @@ web_ca.controller("RuleManager", function($scope, $http) {
                     //This alert should never happen
                     //If it does, then it doesn't find the right object nor creates it.
                     //Error at query
-                    alert("SERVER ERROR: Rule Condition Neighbours could not be found. Please contact support.");
+                    document.getElementById("datavalue").innerHTML="<p>Incorrect first Condition Neighbour syntax</p>";
+                    $('#Information').modal('show');
                     return;
                 }
                 else {
@@ -560,7 +581,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                             $http.post("http://" + site + "/AddRuleConAndOrNeigh", conAndOrNeigh, false)
                                 .success(function (data) {
                                     if (data == -9999){
-                                        alert("Incorrect second Condition Neighbour syntax");
+
+                                        document.getElementById("datavalue").innerHTML="<p>Incorrect second Condition Neighbour syntax.</p>";
+                                        $('#Information').modal('show');
                                         return;
                                     }
                                     conAndOr.neighboursId = data;
@@ -571,7 +594,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                         //This alert should never happen
                                         //If it does, then it doesn't find the right object nor creates it.
                                         //Error at query
-                                        alert("SERVER ERROR: Rule ConditionAndOr Neighbours could not be found. Please contact support.");
+
+                                        document.getElementById("datavalue").innerHTML="<p>Rule could not be found. Please contact support.</p>";
+                                        $('#Information').modal('show');
                                         return;
                                     }
                                     else {
@@ -582,7 +607,7 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                         $http.post("http://" + site + "/AddRuleConAndOr", conAndOr, false)
                                             .success(function (data) {
 
-                                                alert(ANDOR);
+                                                //alert(ANDOR);
 
                                                 switch(ANDOR){
                                                     case "AND":
@@ -597,16 +622,23 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                                     //This alert should never happen
                                                     //If it does, then it doesn't find the right object nor creates it.
                                                     //Error at query
-                                                    alert("SERVER ERROR: Rule ConditionAndOr could not be found. Please contact support.");
+                                                    document.getElementById("datavalue").innerHTML="<p>Rule ConditionAndOr could not be found. Please contact support.</p>";
+                                                    $('#Information').modal('show');
+
                                                     return;
                                                 }
                                             }).error(function () {
-                                                alert("Please enter a value for all fields for the second Condition of the Rule.");
+                                                document.getElementById("datavalue").innerHTML="<p>Please enter a value for all fields for the second Condition of the Rule.</p>";
+                                                $('#Information').modal('show');
+
                                                 return;
                                             });
                                     }
                                 }).error(function () {
-                                    alert("Please enter a value for the Neighbours field for the second Condition of the Rule.");
+                                    document.getElementById("datavalue").innerHTML="<p>Please enter a value for the Neighbours field for the second Condition of the Rule.</p>";
+                                    $('#Information').modal('show');
+
+
                                     return;
                                 });
                         }
@@ -624,7 +656,8 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                 //This alert should never happen
                                 //If it does, then it doesn't find the right object nor creates it.
                                 //Error at query
-                                alert("SERVER ERROR: Rule Condition could not be found. Please contact support.");
+                                document.getElementById("datavalue").innerHTML="<p>Rule Condition could not be found. Please contact support.</p>";
+                                $('#Information').modal('show');
                                 return;
                             }
                             else {
@@ -633,7 +666,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                     $http.post("http://" + site + "/AddRuleResNeigh", resNeigh, false)
                                         .success(function (data) {
                                             if (data == -9999){
-                                                alert("Incorrect Result Neighbour syntax");
+
+                                                document.getElementById("datavalue").innerHTML="<p>Incorrect Result Neighbour syntax.</p>";
+                                                $('#Information').modal('show');
                                                 return;
                                             }
                                             res.neighboursId = parseInt(data);
@@ -641,7 +676,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                                 //This alert should never happen
                                                 //If it does, then it doesn't find the right object nor creates it.
                                                 //Error at query
-                                                alert("Rule Result Neighbours could not be found. Please contact support.");
+
+                                                document.getElementById("datavalue").innerHTML="<p>Rule Result Neighbours could not be found. Please contact support.</p>";
+                                                $('#Information').modal('show');
                                                 return;
                                             }
                                             else {
@@ -655,7 +692,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                                             //This alert should never happen
                                                             //If it does, then it doesn't find the right object nor creates it.
                                                             //Error at query
-                                                            alert("SERVER ERROR: Rule Result could not be found. Please contact support.");
+
+                                                            document.getElementById("datavalue").innerHTML="<p>Rule Result could not be found. Please contact support.</p>";
+                                                            $('#Information').modal('show');
                                                             return;
                                                         }
                                                         else {
@@ -663,20 +702,28 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                                             rule.ownerId = userId;
                                                             $http.post("http://" + site + "/AddRule", rule, false)
                                                                 .success(function (data) {
-                                                                    alert(data);
-                                                                    location.reload();
+
+                                                                    document.getElementById("datavalue").innerHTML="<p>Rule Udated</p>";
+                                                                    document.getElementById("informationClose").onclick=close_information;
+                                                                    $('#Information').modal('show');
+
                                                                 }).error(function () {
-                                                                    alert("Please enter a value for all fields for the Details of the Rule.");
+
+                                                                    document.getElementById("datavalue").innerHTML="<p>Please enter a value for all fields for the Details of the Rule.</p>";
+                                                                    $('#Information').modal('show');
                                                                     return;
                                                                 });
                                                         }
                                                     }).error(function () {
-                                                        alert("Please choose a value for the Operator field for the Result of the Rule.");
+                                                        document.getElementById("datavalue").innerHTML="<p>Please choose a value for the Operator field for the Result of the Rule</p>";
+                                                        $('#Information').modal('show');
                                                         return;
                                                     });
                                             }
                                         }).error(function () {
-                                            alert("Please enter a value for the Neighbours field for the Result of the Rule.");
+                                            document.getElementById("datavalue").innerHTML="<p>Please enter a value for the Neighbours field for the Result of the Rule.</p>";
+                                            $('#Information').modal('show');
+
                                             return;
                                         });
                                 }
@@ -691,7 +738,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                                 //This alert should never happen
                                                 //If it does, then it doesn't find the right object nor creates it.
                                                 //Error at query
-                                                alert("SERVER ERROR: Rule Result could not be found. Please contact support.");
+
+                                                document.getElementById("datavalue").innerHTML="<p> Rule Result could not be found. Please contact support</p>";
+                                                $('#Information').modal('show');
                                                 return;
                                             }
                                             else {
@@ -699,27 +748,34 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                                 rule.ownerId = userId;
                                                 $http.post("http://" + site + "/AddRule", rule, false)
                                                     .success(function (data) {
-                                                        alert(data);
-                                                        location.reload();
+                                                        document.getElementById("datavalue").innerHTML="<p>Rule Added</p>";
+                                                        document.getElementById("informationClose").onclick=close_information;
+                                                        $('#Information').modal('show');
                                                     }).error(function () {
-                                                        alert("Please enter a value for all fields for the Details of the Rule.");
+                                                        document.getElementById("datavalue").innerHTML="<p>Please enter a value for all fields for the Details of the Rule.</p>";
+                                                        $('#Information').modal('show');
                                                         return;
                                                     });
                                             }
                                         }).error(function () {
-                                            alert("Please choose a value for the Result Value field for the Result of the Rule.");
+                                            document.getElementById("datavalue").innerHTML="<p>Please choose a value for the Result Value field for the Result of the Rule.</p>";
+                                            $('#Information').modal('show');
+
                                             return;
                                         })
                                 }
                             }
                         }).error(function () {
-                            alert("Please enter a value for all fields for the first Condition of the Rule.");
+                            document.getElementById("datavalue").innerHTML="<p>Please enter a value for all fields for the first Condition of the Rule.</p>";
+                            $('#Information').modal('show');
+
                             return;
                         });
 
                 }
             }).error(function () {
-                alert("Please enter a value for the Neighbours field for the first Condition of the Rule.");
+                document.getElementById("datavalue").innerHTML="<p>Please enter a value for the Neighbours field for the first Condition of the Rule.</p>";
+                $('#Information').modal('show');
                 return;
             });
     };
@@ -752,7 +808,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                 }
 
                             }).error(function(){
-                                alert("SERVER ERROR: Rule Condition Neighbours not found. Please contact support.");
+                                document.getElementById("datavalue").innerHTML="<p>Rule Condition Neighbours not found. Please contact support.</p>";
+                                $('#Information').modal('show');
+
                             });
                         document.getElementById("editRuleConIdHidden").value = con.ruleConditionId;
                         document.getElementById("editRuleConIsNot").value = con.not;
@@ -767,7 +825,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                         }
 
                     }).error(function (){
-                        alert("SERVER ERROR: Rule Condition not found. Please contact support.");
+                        document.getElementById("datavalue").innerHTML="<p>Rule Condition not found. Please contact support.</p>";
+                        $('#Information').modal('show');
+
                     });
                 if (conAndId != null)
                 {
@@ -791,7 +851,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                     }
 
                                 }).error(function(){
-                                    alert("SERVER ERROR: Rule Condition-AND Neighbours not found. Please contact support.");
+                                    document.getElementById("datavalue").innerHTML="<p>Rule Condition-AND Neighbours not found. Please contact support.</p>";
+                                    $('#Information').modal('show');
+
                                 });
                             document.getElementById("editRuleCon2IdHidden").value = con.ruleConditionId;
                             document.getElementById("editRuleCon2AndOr").value = "AND";
@@ -807,7 +869,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                             }
 
                         }).error(function (){
-                            alert("SERVER ERROR: Rule Condition-AND not found. Please contact support.");
+                            document.getElementById("datavalue").innerHTML="<p>Rule Condition-AND not found. Please contact support.</p>";
+                            $('#Information').modal('show');
+
                         });
                 }
                 else if (conOrId != null)
@@ -833,7 +897,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                     }
 
                                 }).error(function(){
-                                    alert("SERVER ERROR: Rule Condition-OR Neighbours not found. Please contact support.");
+                                    document.getElementById("datavalue").innerHTML="<p>Rule Condition-OR Neighbours not found. Please contact support</p>";
+                                    $('#Information').modal('show');
+
                                 });
                             document.getElementById("editRuleCon2IdHidden").value = con.ruleConditionId;
                             document.getElementById("editRuleCon2AndOr").value = "OR";
@@ -849,7 +915,9 @@ web_ca.controller("RuleManager", function($scope, $http) {
                             }
 
                         }).error(function (){
-                            alert("SERVER ERROR: Rule Condition-OR not found. Please contact support.");
+                            document.getElementById("datavalue").innerHTML="<p>Rule Condition-OR not found. Please contact support.</p>";
+                            $('#Information').modal('show');
+
                         });
                 }
 
@@ -887,17 +955,21 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                 }
 
                             }).error(function(){
-                                alert("SERVER ERROR: Rule Result Neighbours not found. Please contact support.");
+                                document.getElementById("datavalue").innerHTML="<p>Rule Result Neighbours not found. Please contact support.</p>";
+                                $('#Information').modal('show');
+
                             });
                     }).error(function(){
-                        alert("SERVER ERROR: Rule Result not found. Please contact support.");
+                        document.getElementById("datavalue").innerHTML="<p>Rule Result could not be found. Please contact support.</p>";
+                        $('#Information').modal('show');
                     });
                 document.getElementById("editRuleIdHidden").value = rule.ruleId;
                 document.getElementById("editRuleName").value = rule.ruleName;
                 document.getElementById("editRuleDesc").value = rule.ruleDesc;
 
             }).error(function () {
-                alert("SERVER ERROR: Rule not found. Please contact support.");
+                document.getElementById("datavalue").innerHTML="<p>Rule could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
 
         evaluateEditOperation("OLD");
@@ -911,10 +983,13 @@ web_ca.controller("RuleManager", function($scope, $http) {
         var ruleId=document.getElementById("ruleIdhidden").value;
         $http.post("http://" + site + "/deleteRule",ruleId)
             .success(function (data) {
-                alert(data);
-                location.reload();
+                document.getElementById("datavalue").innerHTML="<p>Rule Deleted</p>";
+                document.getElementById("informationClose").onclick=close_information;
+                $('#Information').modal('show');
             }).error(function () {
-                alert("DELETE RULE: SERVER ERROR");
+
+                document.getElementById("datavalue").innerHTML="<p>Rule could not be found. Please contact support.</p>";
+                $('#Information').modal('show');
             });
     };
 });
@@ -931,4 +1006,8 @@ function deleteRule(toBeDeleted)
     var ruleName= toBeDeleted.split(";")[1];
     document.getElementById("DeleteNameRule").innerHTML="<h3>Delete Rule: " + ruleName +"</h3>";
     document.getElementById("ruleIdhidden").value=ruleId;
+}
+function close_information()
+{
+    location.reload();
 }

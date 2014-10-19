@@ -92,7 +92,7 @@ web_ca.controller("StateManager", function ($scope, $http) {
 
                 $http.post("http://" + site + "/editState", state)
                     .success(function (data) {
-                        document.getElementById("datavalue").innerHTML="<p>"+data+"</p>";
+                        document.getElementById("datavalue").innerHTML="<p>State Updated</p>";
                         document.getElementById("informationClose").onclick=close_information;
                         $('#Information').modal('show');
                         $scope.getStates();

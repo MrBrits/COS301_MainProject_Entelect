@@ -106,8 +106,6 @@ public class WorldController {
     public @ResponseBody
     String saveCoordinates(@RequestBody List<Coordinate> coordinates) {
 
-       // System.out.println(coordinates.get(0).getWorldId());
-       //
         worldService.updateCoordinates(coordinates);
         return String.valueOf("Success");
     }

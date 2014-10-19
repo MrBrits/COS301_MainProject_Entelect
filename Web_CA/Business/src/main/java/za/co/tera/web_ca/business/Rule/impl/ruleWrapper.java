@@ -38,7 +38,7 @@ public class ruleWrapper {
         Object tempObject = new GroovyShell().parse(new File("Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/ruleDsl.groovy")).invokeMethod(type, ars);
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         String jsonString = gson.toJson(tempObject);
-        System.out.println(jsonString);
+        //System.out.println(jsonString);
         if(type.equals("when"))
         {
             tempObject = gson.fromJson(jsonString, Rulecondition.class);
