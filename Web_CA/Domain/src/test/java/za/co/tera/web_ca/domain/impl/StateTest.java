@@ -13,7 +13,7 @@ public class StateTest extends TestCase {
         stateTest.setStateName("State Name");
         stateTest.setStateDesc("State Description");
         stateTest.setStateHex("Hex Value");
-        stateTest.setStateValue(123);
+        stateTest.setStateValue(123.0);
         stateTest.setOwnerId(1);
     }
 
@@ -23,8 +23,8 @@ public class StateTest extends TestCase {
         assertEquals("State Name", stateTest.getStateName());
         assertEquals("State Description", stateTest.getStateDesc());
         assertEquals("Hex Value", stateTest.getStateHex());
-        assertEquals(123, stateTest.getStateValue());
+        assertEquals(123.0, stateTest.getStateValue());
         assertEquals(1, stateTest.getOwnerId());
-        assertEquals(-1829031396, stateTest.hashCode());
+        assertEquals(916989025, stateTest.hashCode());
     }
 }

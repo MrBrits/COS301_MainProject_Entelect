@@ -27,7 +27,7 @@ public class RuleconditionTest extends TestCase {
         assertEquals(123.0, ruleconditionTest.getCompareValueOne());
         assertEquals(321.0, ruleconditionTest.getCompareValueTwo());
         assertEquals(1, ruleconditionTest.getNeighboursId());
-        assertEquals(-708818232, ruleconditionTest.hashCode());
+        assertEquals(1376119919, ruleconditionTest.hashCode());
     }
 
 }

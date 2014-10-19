@@ -24,8 +24,8 @@ public class RuleresultTest extends TestCase {
         assertEquals(123.0, ruleresultTest.getResultValue());
 
         Integer one = new Integer(1);
-        //assertEquals(one, ruleresultTest.getNeighboursId());
-        assertEquals(-737447383, ruleresultTest.hashCode());
+        assertEquals(one, ruleresultTest.getNeighboursId());
+        assertEquals(-1417415675, ruleresultTest.hashCode());
     }
 
 }

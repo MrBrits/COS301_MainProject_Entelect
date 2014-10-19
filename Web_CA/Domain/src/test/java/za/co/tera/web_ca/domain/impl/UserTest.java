@@ -26,7 +26,7 @@ public class UserTest extends TestCase {
         assertEquals("Email", userTest.getUserEmail());
         assertEquals("Password", userTest.getUserPassword());
         assertEquals("Role", userTest.getUserRole());
-        assertEquals(980290844, userTest.hashCode());
+        assertEquals(324245092, userTest.hashCode());
     }
 
 }

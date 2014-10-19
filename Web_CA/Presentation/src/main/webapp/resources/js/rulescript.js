@@ -607,8 +607,6 @@ web_ca.controller("RuleManager", function($scope, $http) {
                                         $http.post("http://" + site + "/AddRuleConAndOr", conAndOr, false)
                                             .success(function (data) {
 
-                                                //alert(ANDOR);
-
                                                 switch(ANDOR){
                                                     case "AND":
                                                         rule.ruleConAndId = data;

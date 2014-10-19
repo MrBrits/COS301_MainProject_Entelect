@@ -55,7 +55,7 @@
                 <div id="state" style="height: auto;max-height: 320px;overflow-y: auto;"class="panel-collapse collapse" >
                     <div>
                         <input class="form-control" placeholder="Search State" ng-model="search.stateName"/>
-                        <button type="button" style="background-color:#267982"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addStateModal">Add new State</button>
+                        <button type="button" style="background-color:#998100"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addStateModal">Add new State</button>
                         <table class="table" >
                             <tr ng-repeat="state in states | filter:search">
                                 <td>
@@ -81,8 +81,8 @@
                 <div id="rule" style="height: auto;max-height: 320px;overflow-y: auto;" class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search Rule" ng-model="search.ruleName"/>
-                        <button type="button"  style="background-color:#267982"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule(GUI)</button>
-                        <button type="button"  style="background-color:#267982"  onclick="setDefualt()" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalDSL">Add new Rule(EDITOR)</button>
+                        <button type="button"  style="background-color:#998100"  class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalTabs">Add new Rule(GUI)</button>
+                        <button type="button"  style="background-color:#998100"  onclick="setDefualt()" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addRuleModalDSL">Add new Rule(EDITOR)</button>
                         <table class="table">
                             <tr ng-repeat="rule in rules | filter:search">
                                 <td>
@@ -108,7 +108,7 @@
                 <div id="world" style="height: auto;max-height: 320px;overflow-y: auto;"class="panel-collapse collapse">
                     <div >
                         <input class="form-control" placeholder="Search World" ng-model="search.worldName"/>
-                        <button style="background-color:#267982" type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addWorldModal">Add new World</button>
+                        <button style="background-color:#998100" type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#addWorldModal">Add new World</button>
 
                         <table class="table">
                             <tr ng-repeat="world in worlds | filter:search">
@@ -194,7 +194,7 @@
                     </div>
                     <div class="modal-footer  col-xs-6">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button  style="background-color:#267982" type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addState(newState)">Add</button>
+                        <button  style="background-color:#998100" type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="addState(newState)">Add</button>
                     </div>
                 </form>
             </div>
@@ -308,7 +308,7 @@
                     </div>
                     <div class="modal-footer  col-xs-6">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" style="background-color:#267982"  class="btn btn-primary" data-dismiss="modal" ng-click="addWorld(newWorld)">Add</button>
+                        <button type="submit" style="background-color:#998100"  class="btn btn-primary" data-dismiss="modal" ng-click="addWorld(newWorld)">Add</button>
                     </div>
                 </form>
             </div>
@@ -391,7 +391,7 @@
                     </div>
                     <div class="modal-footer  col-xs-6">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="addRuleEditor(ruleeditor)">Add</button>
+                        <button type="submit" style="background-color:#998100"  class="btn btn-success" data-dismiss="modal" ng-click="addRuleEditor(ruleeditor)">Add</button>
                     </div>
 
 
@@ -648,7 +648,7 @@
                             </div>
                             <div class="modal-footer  col-xs-6">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                <button type="submit" style="background-color:#267982" class="btn btn-primary" data-dismiss="modal" ng-click="addRule(newRule, newRuleCon, newRuleConAndOr, newRuleRes)">Add</button>
+                                <button type="submit" style="background-color:#998100" class="btn btn-primary" data-dismiss="modal" ng-click="addRule(newRule, newRuleCon, newRuleConAndOr, newRuleRes)">Add</button>
                             </div>
 
                         </div>

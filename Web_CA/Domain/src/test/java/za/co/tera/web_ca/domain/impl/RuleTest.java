@@ -33,7 +33,7 @@ public class RuleTest extends TestCase {
         assertEquals(one, ruleTest.getRuleConOrid());
         assertEquals(1, ruleTest.getRuleResId());
         assertEquals(1, ruleTest.getOwnerId());
-        assertEquals(-194436982, ruleTest.hashCode());
+        assertEquals(-1732579145, ruleTest.hashCode());
     }
 
 }
