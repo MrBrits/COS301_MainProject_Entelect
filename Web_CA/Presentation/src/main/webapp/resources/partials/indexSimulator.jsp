@@ -22,9 +22,6 @@
             <button type="button" id = "rules-tab-button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Rules">
                 <span class="glyphicon glyphicon-registration-mark"></span>
             </button>
-            <button type="button" id = "settings-tab-button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Settings">
-                <span class="glyphicon glyphicon-cog" ></span>
-            </button>
         </div>
     </div>
 
@@ -36,18 +33,25 @@
         <div id = "world-menu-tab" class = "submenu-display">
             <br/>
             <h3 style = "padding-left:0;text-align: center;">World</h3>
-            <div class="btn-group center-block" style="margin-left: auto;margin-right: auto;width: 40%;">
-                <button  type="button" class="btn btn-default pull-left" ng-click="SaveCoordinates()" data-toggle="tooltip" data-placement="left" title="Save">
-                    <span class="glyphicon glyphicon-floppy-disk" ></span>
-                </button>
-                <button type="button" class="btn btn-default pull-left" onclick="addCoordinates()" data-toggle="tooltip" data-placement="right" title="Load">
-                    <span class="glyphicon glyphicon-arrow-left" ></span>
-                </button>
-            </div>
-            <br/>
-            <br/>
-            <br/>
-            <div id="simulatorWorld" style="overflow-y:auto;height: 350px;width:90%;"ng-controller="WorldSimulator">
+
+            <h4>Options</h4>
+
+            <p>Save</p><button  type="button" class="btn btn-default " ng-click="SaveCoordinates()" data-toggle="tooltip" data-placement="left" title="Save">
+            <span class="glyphicon glyphicon-floppy-disk" ></span>
+        </button>
+
+            <p>Restart</p><button type="button" class="btn btn-default" onclick="addCoordinates()" data-toggle="tooltip" data-placement="right" title="Restart">
+            <span class="glyphicon glyphicon-arrow-left" ></span>
+        </button>
+
+
+
+
+
+            <h4>Select World</h4>
+
+            <div id="simulatorWorld" style=" overflow-y:auto;height: 350px;width:90%;"ng-controller="WorldSimulator">
+
                 <table class="table">
                     <tr ng-repeat="world in worlds | filter:search">
                         <td data-toggle="tooltip" data-placement="left" title="Load World">
@@ -63,67 +67,86 @@
         <div id = "edit-menu-tab" class = "submenu-display">
             <br/>
             <h3 style = "padding-left:0;text-align: center;">Edit</h3>
-            <div class="btn-group center-block" style="margin-left: auto;margin-right: auto;width: 40%;">
-                <button  type="button" class="btn btn-default pull-left" data-toggle="tooltip" data-placement="left" title="Draw">
-                    <span class="glyphicon glyphicon-pencil" ></span>
-                </button>
-                <button type="button" class="btn btn-default pull-left" onclick="methods.Delete_State()" data-toggle="tooltip" data-placement="right" title="Erase">
-                    <span class="glyphicon glyphicon-remove-circle" ></span>
-                </button>
-            </div>
+
+
             <br/>
-            <br/>
+            <h4>Options</h4>
+
+            <p>Draw</p><button  type="button" class="btn btn-default " data-toggle="tooltip" data-placement="left" title="Draw">
+            <span class="glyphicon glyphicon-pencil" ></span>
+        </button>
+            <br>
+            <p>Erase</p><button type="button" class="btn btn-default " onclick="methods.Delete_State()" data-toggle="tooltip" data-placement="right" title="Erase">
+            <span class="glyphicon glyphicon-remove-circle" ></span>
+        </button>
+
             <br/>
             <label style = "width: 90%; margin-left:auto; margin-right: auto;" class="range inline">Brush Size<input id="Brush_Size" type="range" min=0 max=6 step=1 value=0 /></label>
             <br/>
+
             <br/>
+
+            <h4>Select State</h4>
+
+
             <div class="form-group" style = "width:90%;">
                 <div class="input-group">
                     <input class="form-control" type="number" id = "colorValue" value = "0" placeholder="State Value">
 
                 </div>
             </div>
-            <div id="worldState" style="padding-right: 20px;"></div>
+            <div id="worldState" style=" overflow-y:auto;height: 350px;width:90%;"></div>
         </div>
 
         <div id = "simulate-menu-tab" class = "submenu-display">
             <br/>
-            <h3 style = "padding-left:0;padding-right:0;text-align: center;">Simulate</h3>
-            <div style = "padding-left:0;padding-right:0;text-align: center;">
-                <button onclick="methods.Start_Stop()" class="btn btn-default"><img id="play_stop" src= "resources/img/play.png"style="width:15px;height:15px"/> </button>
-                <br/>
-                <br/>
-                <label class="range inline">Play Speed<input id="speed" type="range"  class ="help-inline" value=1 min=1 max=10 step=1 /></label>
-            </div>
+            <h3 style = "padding-left:0;padding-right:0;text-align: center;">Simulation</h3>
+            <br/>
+
+            <br/>
+            <p>Play</p><button onclick="methods.Start_Stop()" class="btn btn-default"><img id="play_stop" src= "resources/img/play.png"style="width:15px;height:15px"/> </button>
+            <br/>
+
+            <p>Rotate</p><button onclick="methods.Rotate()" class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span></button>
+            <br/>
+
+            <h4>Options</h4>
+
+            <label class="range inline">Play Speed<input id="speed" type="range"  class ="help-inline" value=1 min=1 max=10 step=1 /></label>
+            <br/>
+
+            <label class="range inline">Rotation Speed<input  id="Rotation_Speed" type="range" value=1 min=1 max=4 step="0.5"/></label>
+            <br/>
+
+            <label class="range inline">Cube Scale<input  id="Cube_Scale" type="range" min=0 max=1 step=0.1 value=1 /></label>
+            <br/>
+
+            <h4>Toggle Sidebars</h4>
+            <ul style="list-style-type:none;">
+                <li role="presentation"> <input id="x" onclick="hider()" checked="true" type="checkbox">x-axis</li>
+                <li role="presentation"> <input id="y" onclick="hider()" checked="true" type="checkbox">y-axis</li>
+                <li role="presentation"> <input id="z" onclick="hider()" checked="true"type="checkbox">z-axis</li>
+                <li role="presentation">  <input id="mid" onclick="hider()" checked="true" type="checkbox">overall</li>
+            </ul>
+
+
+
+
+            <br/>
 
         </div>
 
         <div id = "rules-menu-tab" class = "submenu-display">
             <br/>
             <h3 style = "padding-left:0;text-align: center;">Rules</h3>
-            <div id="worldRule" style="padding-right: 20px;"></div>
+            <br/>
+
+
+            <h4>Select Rules</h4>
+            <div id="worldRule" style=" overflow-y:auto;height: 350px;width:90%;"></div>
         </div>
 
-        <div id = "settings-menu-tab" class = "submenu-display">
-            <br/>
-            <h3 style = "padding-left:0;text-align: center;">Settings</h3>
-            <div style = "padding-left:0;padding-right:0;text-align: center;">
-                <button onclick="methods.Rotate()" class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span></button>
-                <br/>
-                <br/>
-                <label class="range inline">Rotation Speed<input  id="Rotation_Speed" type="range" value=1 min=1 max=4 step="0.5"/></label>
-                <br/>
-                <label class="range inline">Cube Scale<input  id="Cube_Scale" type="range" min=0 max=1 step=0.1 value=1 /></label>
-                <br/>
-                <h4>Toggle Sidebars</h4>
-                <ul style="list-style-type:none;">
-                    <li role="presentation"> <input id="x" onclick="hider()" checked="true" type="checkbox">x-axis</li>
-                    <li role="presentation"> <input id="y" onclick="hider()" checked="true" type="checkbox">y-axis</li>
-                    <li role="presentation"> <input id="z" onclick="hider()" checked="true"type="checkbox">z-axis</li>
-                    <li role="presentation">  <input id="mid" onclick="hider()" checked="true" type="checkbox">overall</li>
-                </ul>
-            </div>
-        </div>
+
 
     </div>
 
@@ -159,7 +182,7 @@
         $('#world-menu-tab').show();
         $('#simulate-menu-tab').hide();
         $('#rules-menu-tab').hide();
-        $('#settings-menu-tab').hide();
+
         if(!enabled) {
             $("#slide-submenu").click();
         }
@@ -170,7 +193,7 @@
         $('#world-menu-tab').hide();
         $('#simulate-menu-tab').hide();
         $('#rules-menu-tab').hide();
-        $('#settings-menu-tab').hide();
+
         if(!enabled) {
             $("#slide-submenu").click();
         }
@@ -181,7 +204,7 @@
         $('#world-menu-tab').hide();
         $('#simulate-menu-tab').show();
         $('#rules-menu-tab').hide();
-        $('#settings-menu-tab').hide();
+
         if(!enabled) {
             $("#slide-submenu").click();
         }
@@ -192,28 +215,19 @@
         $('#world-menu-tab').hide();
         $('#simulate-menu-tab').hide();
         $('#rules-menu-tab').show();
-        $('#settings-menu-tab').hide();
+
         if(!enabled) {
             $("#slide-submenu").click();
         }
     });
 
-    $("#settings-tab-button").on("click", function(){
-        $('#edit-menu-tab').hide();
-        $('#world-menu-tab').hide();
-        $('#simulate-menu-tab').hide();
-        $('#rules-menu-tab').hide();
-        $('#settings-menu-tab').show();
-        if(!enabled) {
-            $("#slide-submenu").click();
-        }
-    });
+
 
     $('#edit-menu-tab').hide();
     $('#world-menu-tab').show();
     $('#simulate-menu-tab').hide();
     $('#rules-menu-tab').hide();
-    $('#settings-menu-tab').hide();
+
 
     $('.btn').tooltip({container: 'body'});
 
@@ -241,3 +255,17 @@
         }
     });
 </script>
+
+<div class="modal fade" id="Information"  tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content col-xs-6">
+            <div class="modal-header"><h4>Information</h4></div>
+            <div class="modal-body">
+                <div id="datavalue" ></div>
+            </div>
+            <div class="modal-footer">
+                <button id="informationClose" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

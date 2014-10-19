@@ -53,12 +53,12 @@ public class WorldServiceImpl implements WorldService{
 
 
         } catch (IOException ex) {
-            //System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage());
         } finally {
             try {
-              //  writer.close();
+                writer.close();
             } catch (Exception ex) {
-                //System.out.println(ex.getMessage());
+                System.out.println(ex.getMessage());
             }
         }
         return world.getWorldId();
@@ -219,7 +219,7 @@ public class WorldServiceImpl implements WorldService{
             try {
                 writer.close();
             } catch (Exception ex) {
-                //System.out.println(ex.getMessage());
+                System.out.println(ex.getMessage());
             }
         }
     }
