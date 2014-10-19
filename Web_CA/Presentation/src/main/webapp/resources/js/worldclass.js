@@ -83,7 +83,9 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
             this.coordinate = data;
 
         }).error(function () {
-            alert("GET COORDINATES: SERVER ERROR");
+
+            document.getElementById("datavalue").innerHTML="<p>Coordinates could not be found. Please contact support</p>";
+            $('#Information').modal('show');
         });
     if (gggg) {
         $http.post("http://" + site + "/getStateByUserId/", userId)
@@ -104,7 +106,8 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
                 colorsUsedName[counter] = "0";
                 counter++;
             }).error(function () {
-                alert("GET States: SERVER ERROR");
+                document.getElementById("datavalue").innerHTML="<p>States could not be found. Please contact support</p>";
+                $('#Information').modal('show');
             });
         gggg = false;
     }
@@ -117,7 +120,8 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
 //ruleNeighboursId
             //neighbours
         }).error(function () {
-            alert("GET COORDINATES: SERVER ERROR");
+            document.getElementById("datavalue").innerHTML="<p>Neighbours could not be found. Please contact support</p>";
+            $('#Information').modal('show');
      });
 
     $http.post("http://" + site + "/findRuleByWorldId/", worldId)
@@ -126,7 +130,8 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
             ruleWorldList = data7;
 
         }).error(function () {
-            alert("GET COORDINATES: SERVER ERROR");
+            document.getElementById("datavalue").innerHTML="<p>Worlds could not be found. Please contact support</p>";
+            $('#Information').modal('show');
         });
 
     $http.post("http://" + site + "/getConditions")
@@ -193,7 +198,8 @@ web_ca.controller("CoordinateManager", function ($scope, $http) {
                     }
 
                 }).error(function () {
-                    alert("RETRIEVE RULES BY USER ID: SERVER ERROR");
+                    document.getElementById("datavalue").innerHTML="<p>Rules could not be found. Please contact support</p>";
+                    $('#Information').modal('show');
                 });
     });
 

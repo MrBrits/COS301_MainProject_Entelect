@@ -429,11 +429,11 @@ web_ca.controller("RuleManager", function($scope, $http) {
         var tempStr= s.line1+"br";
         tempStr+= s.line2+"br";
         tempStr+= s.line3;
-        alert(tempStr);
+
        $http.post("http://" + site + "/createRuleByString",tempStr)
             .success(function (data) {
 
-               document.getElementById("datavalue").innerHTML="<p>"+s+"</p>";
+               document.getElementById("datavalue").innerHTML="<p>Rule Added</p>";
                document.getElementById("informationClose").onclick=close_information;
                $('#Information').modal('show');
 

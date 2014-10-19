@@ -367,24 +367,24 @@
                 <form class="form-horizontal">
                     <div class="form-group">
 
-                            <label class="col-xs-1 control-label">If</label>
+                            <label class="col-xs-1 control-label">IF</label>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" placeholder="Condition" ng-model="ruleeditor.line1" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                <input type="text" class="form-control" placeholder=" if (condition) |  if (condition) and|or (condition)" ng-model="ruleeditor.line1" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-xs-1 control-label">Then</label>
+                            <label class="col-xs-1 control-label">THEN</label>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" placeholder="Result" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"ng-model="ruleeditor.line2">
+                                <input type="text" class="form-control" placeholder="then operator of neighbours | then = doubleDigit" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"ng-model="ruleeditor.line2">
                                 <span class="help-block"></span>
                             </div>
 
                         </div>
                         <div class="form-group">
-                            <label class="col-xs-1 control-label" >Identify</label>
+                            <label class="col-xs-1 control-label" >IDENTIFIEDBY</label>
                             <div class="col-md-5">
-                                <input type="text"  class="form-control" placeholder="Details" ng-model="ruleeditor.line3">
+                                <input type="text"  class="form-control" placeholder="identifiedBy name description" ng-model="ruleeditor.line3">
 
                             <span class="help-block"></span>
                         </div>

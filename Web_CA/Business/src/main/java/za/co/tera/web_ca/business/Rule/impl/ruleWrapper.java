@@ -35,7 +35,7 @@ public class ruleWrapper {
 
     void runWithGroovyShell(String[] ars, String type,String _subtype) throws Exception {
 
-        Object tempObject = new GroovyShell().parse(new File("Business/src/main/java/za/co/tera/web_ca/business/Rule/impl/ruleDsl.groovy")).invokeMethod(type, ars);
+        Object tempObject = new GroovyShell().parse(new File("ruleDsl.groovy")).invokeMethod(type, ars);
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         String jsonString = gson.toJson(tempObject);
         //System.out.println(jsonString);
@@ -124,12 +124,12 @@ public class ruleWrapper {
     }
     String subType;
     public void condition(String input) throws Exception {
-
+        System.out.println(input);
         NeighbourString = "000000000000000000000000000";
         List<String> arr = new LinkedList<String>();
         StringTokenizer st = new StringTokenizer(input, " ");
         while (st.hasMoreTokens()) {
-            System.out.println();
+
             NeighbourString = "000000000000000000000000000";
             String temp = st.nextToken();
             if(temp.toLowerCase().equals("if"))
@@ -145,19 +145,19 @@ public class ruleWrapper {
                 if (temp.equals("TRUE") || temp.equals("FALSE")) {
                     arr.add(temp);
                 } else {
-                    System.out.println("Incorrect Syntax");
+                    System.out.println("Incorrect Syntax1");
                     return;
                 }
                 temp = st.nextToken().toUpperCase();
                 if (temp.equals("SUM") || temp.equals("AVG") || temp.equals("MIN") || temp.equals("MAX") || temp.equals("COUNT")) {
                     arr.add(temp);
                 } else {
-                    System.out.println("Incorrect Syntax");
+                    System.out.println("Incorrect Syntax2");
                     return;
                 }
                 temp = st.nextToken().toUpperCase();
                 if (!temp.equals("OF")) {
-                    System.out.println("Incorrect Syntax");
+                    System.out.println("Incorrect Syntax3");
                     return;
                 }
                 temp = st.nextToken().toUpperCase();
@@ -171,7 +171,7 @@ public class ruleWrapper {
                         NeighbourString = returnNeighbour(Integer.parseInt(h[i]) - 1, Integer.parseInt(h[i]));
 
                     } else {
-                        System.out.println("Incorrect Syntax");
+                        System.out.println("Incorrect Syntax4");
                         return;
                     }
 
@@ -181,7 +181,7 @@ public class ruleWrapper {
                 runWithGroovyShell(ars, "neighours", subType);
 
                 temp = st.nextToken().toUpperCase();
-                System.out.println(temp);
+
                 if (temp.equals("<") || temp.equals(">") || temp.equals(">=") || temp.equals("<=") || temp.equals("==") || temp.equals("BI")|| temp.equals("BE")) {
                     arr.add(temp);
                     if ( temp.equals("BI")|| temp.equals("BE")) {
@@ -189,14 +189,14 @@ public class ruleWrapper {
                         if (isNumeric(temp))
                             arr.add(temp);
                         else {
-                            System.out.println("Incorrect Syntax");
+                            System.out.println("Incorrect Syntax5");
                             return;
                         }
                         temp = st.nextToken().toUpperCase();
                         if (isNumeric(temp))
                             arr.add(temp);
                         else {
-                            System.out.println("Incorrect Syntax");
+                            System.out.println("Incorrect Syntax6");
                             return;
                         }
                     } else {
@@ -206,12 +206,12 @@ public class ruleWrapper {
                             arr.add(temp);
                             arr.add(null);
                         } else {
-                            System.out.println("Incorrect Syntax");
+                            System.out.println("Incorrect Syntax7");
                             return;
                         }
                     }
                 } else {
-                    System.out.println("Incorrect Syntax");
+                    System.out.println("Incorrect Syntax8");
                     return;
                 }
                 ars = new String[arr.size()];
@@ -233,7 +233,7 @@ public class ruleWrapper {
                     if(isNumeric(temp))
                         arr.add(temp);
                     else {
-                        System.out.println("Incorrect Syntax");
+                        System.out.println("Incorrect Syntax9");
                         return;
                     }
 
@@ -242,12 +242,12 @@ public class ruleWrapper {
                     if (temp.equals("SUM") || temp.equals("AVG") || temp.equals("MIN") || temp.equals("MAX") || temp.equals("COUNT")) {
                         arr.add(temp);
                     } else {
-                        System.out.println("Incorrect Syntax");
+                        System.out.println("Incorrect Syntax10");
                         return;
                     }
                     temp = st.nextToken().toUpperCase();
                     if (!temp.equals("OF")) {
-                        System.out.println("Incorrect Syntax");
+                        System.out.println("Incorrect Syntax11");
                         return;
                     }
                     temp = st.nextToken().toUpperCase();
@@ -261,7 +261,7 @@ public class ruleWrapper {
                             NeighbourString = returnNeighbour(Integer.parseInt(h[i]) - 1, Integer.parseInt(h[i]));
                             // Number is integer
                         } else {
-                            System.out.println("Incorrect Syntax");
+                            System.out.println("Incorrect Syntax12");
                             return;
                         }
 
@@ -272,7 +272,7 @@ public class ruleWrapper {
                     runWithGroovyShell(ars, "neighours", subType);
                     if(st.hasMoreTokens())
                     {
-                        System.out.println("Incorrect Syntax: "+temp);
+                        System.out.println("Incorrect Syntax13: "+temp);
                     }
                     else
                     {
@@ -299,7 +299,7 @@ public class ruleWrapper {
             }
             else
             {
-                System.out.println("Incorrect Syntax: "+temp);
+                System.out.println("Incorrect Syntax16: "+temp);
 
             }
 

@@ -174,10 +174,15 @@ public class RuleController {
     public @ResponseBody
     String createRuleByString(@RequestBody String ruleString) throws Exception {
 
-
+        System.out.println( "Done");
         String lines[] = ruleString.split("br");
         for (int i = 0; i < lines.length; i++) {
+
+            System.out.println(lines[i]);
+        }
+        for (int i = 0; i < lines.length; i++) {
             ruleWrapper.condition(lines[i]);
+            System.out.println(lines[i]);
         }
         return "Done";
 

@@ -7,7 +7,9 @@ rendererTut.domElement.style.top = 0;
 document.getElementById( 'myContainer' ).appendChild( rendererTut.domElement );
 var auto = true;
 var number= 0;
-var tempArr= ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"];
+var number2= 0;
+var tempArr= ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"];
+var tempVid= ["1.mp4","2.mp4","3.mp4","4.mp4","5.mp4","6.mp4"];
 var Element = function ( entry ) {
 
     var dom = document.createElement( 'div' );
@@ -19,7 +21,7 @@ var Element = function ( entry ) {
     image.style.width = '480px';
     image.style.height = '360px';
     image.src = "resources/img/"+tempArr[number++];
-    if(number==5)
+    if(number==6)
         number=0;
     dom.appendChild( image );
 
@@ -83,9 +85,10 @@ var Element = function ( entry ) {
         player.style.width = '480px';
         player.style.height = '360px';
         player.style.border = '0px';
-        player.src = "resources/img/one.mp4";
+        player.src = "resources/img/"+tempVid[number2++];
         this.appendChild( player );
-
+        if(number2==6)
+            number2=0;
 
 
         var prev = object.position.z + 400;
@@ -153,7 +156,7 @@ function init() {
 function onData(  ) {
 
 
-    for ( var i = 0; i < 30; i ++ ) {
+    for ( var i = 0; i < 18; i ++ ) {
 
         ( function ( data, time ) {
 
