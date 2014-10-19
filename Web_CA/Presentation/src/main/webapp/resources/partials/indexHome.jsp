@@ -242,7 +242,7 @@
                     </div>
                     <div class="modal-footer  col-xs-6">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="editState(oldState)">Update</button>
+                        <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="editState(oldState)">Edit</button>
                     </div>
 
                 </form>
@@ -344,7 +344,7 @@
 
                     <div class="modal-footer  col-xs-6">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="editWorld(oldWorld)">Update</button>
+                        <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="editWorld(oldWorld)">Edit</button>
                     </div>
                     <input id="editWorldDimension" ng-model="oldWorld.worldId" type="hidden"/>
                     <input id="editWorldWidth" ng-model="oldWorld.worldId" type="hidden"/>
@@ -887,7 +887,7 @@
                     </div>
                     <div class="modal-footer  col-xs-6">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="editRule(oldRule, oldRuleCon, oldRuleRes, oldRuleConNeigh, oldRuleResNeigh)">Update</button>
+                            <button type="submit" style="background-color:#267982"  class="btn btn-success" data-dismiss="modal" ng-click="editRule(oldRule, oldRuleCon, oldRuleRes, oldRuleConNeigh, oldRuleResNeigh)">Edit</button>
                     </div>
                 </form>
             </div>
