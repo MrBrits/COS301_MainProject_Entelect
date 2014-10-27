@@ -1,0 +1,28 @@
+.submenu{
+    display: inline-block;
+    background-color: rgb(34,34,34);
+    color: rgb(119,119,119);
+    border-style: solid;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    position: fixed;
+    right: -200px;
+    bottom: 0;
+    tabindex:-1;
+    top:50px;
+    width:250px;
+    height:100%;
+    overflow-y:hidden;
+    overflow-x:hidden;
+}
+
+.submenu a{
+    color: rgb(119,119,119);
+}
+
+.submenu-display{
+    padding-left:50px
+}
+
