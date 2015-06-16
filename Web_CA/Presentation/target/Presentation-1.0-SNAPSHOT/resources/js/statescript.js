@@ -31,7 +31,6 @@ web_ca.controller("StateManager", function ($scope, $http) {
     }
 
     $scope.addState = function(state) {
-
         if (state.stateValue != undefined) {
             state.stateHex = document.getElementById("colour").value;
             state.ownerId = userId;
